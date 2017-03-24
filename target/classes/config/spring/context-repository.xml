@@ -43,21 +43,21 @@
 		</tx:attributes>
 	</tx:advice>
 	
-	<aop:config>
-		<aop:pointcut id="tranMethod"
-		              expression="execution(public * 패키지명..*ServiceImpl.*(..)) "/>
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="tranMethod" />
-	</aop:config>
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut id="tranMethod" -->
+<!-- 		              expression="execution(public * test..*ServiceImpl.*(..)) "/> -->
+<!-- 		<aop:advisor advice-ref="txAdvice" pointcut-ref="tranMethod" /> -->
+<!-- 	</aop:config> -->
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="패키지명.repository.vo" />			
+		<property name="typeAliasesPackage" value="test" />			
 		<property name="mapperLocations" value="classpath:config/sqlmap/mysql/*.xml" /> 
 		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml" />		
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="패키지명.repository.mapper" />
+		<property name="basePackage" value="test" />
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
