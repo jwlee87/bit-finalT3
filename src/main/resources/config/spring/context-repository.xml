@@ -25,10 +25,10 @@
 	 -->	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		  destroy-method="close"
-      	  p:driverClassName="${jdbc.oracle.driver}"
-          p:url="${jdbc.oracle.url}"
-          p:username="${jdbc.oracle.username}" 
-          p:password="${jdbc.oracle.password}" />
+      	  p:driverClassName="${JDBC.Driver}"
+          p:url="${JDBC.ConnectionURL}"
+          p:username="${JDBC.Username}" 
+          p:password="${JDBC.Password}" />
 	
 	<!-- 트랜잭션 처리
 	 -->
@@ -52,7 +52,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="패키지명.repository.vo" />			
-		<property name="mapperLocations" value="classpath:config/sqlmap/oracle/*.xml" /> 
+		<property name="mapperLocations" value="classpath:config/sqlmap/mysql/*.xml" /> 
 		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml" />		
 	</bean>
 	
