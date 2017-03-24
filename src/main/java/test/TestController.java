@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	
 	@Autowired
-	private TestService service;
+	private TestServiceImpl service;
 	
 	@RequestMapping("/test.do")
 	public List<TestVO> selectList() throws Exception {
