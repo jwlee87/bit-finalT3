@@ -1,16 +1,34 @@
+
+// 1. load될때 ajax호출
+// 2. 화면그려줌 (makePageList)
+
+
+$.ajax({
+	url:"/list.do",
+	dataType:"json",
+	method:"post",
+	data:{pageNo:2}
+}).done(makePageList)
+
+
+
 function makePageList(result) {
-	$("#count").text(result.pageResult.count);
+	
+	
+    $("#count").text(result.pageResult);
 	
 	var html = "";
 	
-	for (var i = 0; i < result.list.length; i++) {
-		var board = result.list[i];
+	if (result.list.length == 0) {
+		html += '<tr><td colspan="4">게시물이 존재하지 않습니다.</td></tr>';
+	}
 	
+	for (var i = 0; i < result.list.length; i++) {
+		
 		html += '<tr>';
-		html += '	<td>' + card.cardNo + '</td>';
-		html += '	<td><a href="javascript:detail('+card.cardNo+');">' + card.content + '</a></td>';
-//		html += '	<td>' + card.content + '</td>';
-		html += '	<td>' + card.userNo + '</td>';
+		html += '	<td>' +  result.list[i].cardNo + '</td>';
+		html += '	<td><a href="javascript:detail('+ result.list[i].cardNo+');">' +  result.list[i].cardContent + '</a></td>';
+		html += '	<td>' + result.list[i].userNo + '</td>';
 		
 		var date = new Date(card.regDate);
 		var time = date.getFullYear() + "-" 
@@ -22,15 +40,11 @@ function makePageList(result) {
 		html += '<td>' + time + '</td>';  
 		html += '</tr>';
 		
+		
 	}
 	
-	if (!result.list.length) {
-		html += '<tr><td colspan="4">게시물이 존재하지 않습니다.</td></tr>';
-	}
+	$("#cardList").html(html);
 	
-	$("#pageTable").jsp(jsp);
-	
-	makePageLink(result.pageResult);
 }
 
 
