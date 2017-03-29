@@ -28,7 +28,7 @@ public class CardContorller {
 		Map<String, Object> result = new HashMap<>();
 		List<CardVO> list = (List<CardVO>)map.get("list");
 		
-	//	System.out.println(list.size());
+		System.out.println(list.size());
 		result.put("list", map.get("list"));
 		result.put("pageResult", map.get("pageResult"));
 		return result;
