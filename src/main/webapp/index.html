@@ -6,13 +6,16 @@
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 </head>
 <body>
-	index 페이지입니다!
-	<button id="btn">버튼</button>
+	인덱스 페이지
+	잘나오나요?
+	
+	
+ 	<button id="btn">버튼</button>
 	<script>
 	
 	$("#btn").click(function() {
 		$.ajax({
-			url: "test.do",
+			url: "list.do",
 			dataType:"json"
 		}).done(function(result){
 			console.log(result)

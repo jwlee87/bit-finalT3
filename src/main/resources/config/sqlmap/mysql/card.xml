@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.coily.repository.dao.CardDAO">
+
+	<resultMap id="cardMap" type="cardVO">
+		<result property="cardNo" column="card_no"/>
+		<result property="userNo" column="user_no"/>
+		<result property="content" column="card_content"/>
+		<result property="regDate" column="card_reg_date"/>
+		<result property="fileGroupNo" column="file_group_no"/>
+	</resultMap>
+	
+<!-- 			카드 리스트 		-->
+
+	<select id="selectCard" parameterType="searchVO" resultMap="cardMap">
+		select *
+		  from (
+			    select rownum rnum, a.*
+			  	  from (select *
+				         from tb_card
+				        order by card_no desc
+				       ) a
+		       )
+		where rnum between #{begin} and #{end}
+	</select>
+	
+	<select id="selectCardCount" parameterType="searchVO" resultType="int">
+		select count(*)
+		from tb_card
+	</select>
+	
+	<!-- <select id="selectOneCard" parameterType="int" resultMap="cardMap">
+		select *
+		from tb_card
+		  where card_no= #{cardNo}
+	</select> -->
+	
+	
+	
+</mapper>
