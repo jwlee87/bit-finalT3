@@ -18,6 +18,7 @@ public class CardServiceImpl implements CardService{
 	
 	@Override
 	public Map<String, Object> list(SearchVO search) throws Exception {
+		System.out.println("서비스 어디까지 오냐");
 		Map<String, Object> result = new HashMap<>();
 		result.put("list", dao.selectCard(search));
 		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCardCount(search)));

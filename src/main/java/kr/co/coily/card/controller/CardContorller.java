@@ -22,7 +22,7 @@ public class CardContorller {
 	
 	@RequestMapping("/list.do")
 	public Map<String, Object> list(SearchVO search) throws Exception{
-		System.out.println("assdasdasd");
+		System.out.println("보드컨트롤러 어디까지 오냐");
 		Map<String, Object> map = service.list(search);
 		
 		Map<String, Object> result = new HashMap<>();
