@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="kr.co.coily.repository.dao.UserDAO">
+	
+	
+<!-- 	
+	private int no;
+	private String email;
+	private String nickName;
+	private String password;
+	private String profilPicPath; -->
+
+	<insert id="userJoin" parameterType="UserVO">
+			insert into tb_user(
+				user_email,
+				user_psw,
+				user_nick_name,
+				user_join_no
+			   )values (
+			   	#{userEmail},
+			   	#{userPsw},
+			   	#{userNickName},
+			   	#{userJoinNo}
+			   )
+			   <selectKey keyProperty="userNo" order="AFTER" resultType="int">
+			   		  SELECT LAST_INSERT_ID()
+			   </selectKey>
+	
+	</insert>
+	
+	<select id="emailCheck" parameterType="String" resultType="String">
+		select user_email
+		  from tb_user
+		 where user_email = #{userEmail}
+	</select>
+	
+	<select id="nickNameCheck" parameterType="String" resultType="String">
+		select user_nick_name
+		  from tb_user
+		 where user_nick_name = #{userNickName} 
+	
+	
+	</select>
+	
+
+
+</mapper>
