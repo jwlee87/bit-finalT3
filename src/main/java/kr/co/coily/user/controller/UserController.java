@@ -16,7 +16,6 @@ import kr.co.coily.user.service.UserService;
 
 
 @Controller
-@RequestMapping
 public class UserController {
 	
 	@Autowired
@@ -24,7 +23,9 @@ public class UserController {
 	
 	
 	@RequestMapping("/user/joinForm.do")
-	public void joinForm() throws Exception{
+	public String joinForm() throws Exception{
+		System.out.println("111111111111111111111111");
+		return "/user/joinForm";
 	}
 	
 	
@@ -35,7 +36,9 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping("/user/join.do")
-	public Map<String, Object> userJoin(HttpServletRequest request) throws Exception {
+	public String userJoin(UserVO user) throws Exception {
+		
+		System.out.println("user : " + user.getUserEmail());
 		
 		Random randomNum = new Random();
 		int num = randomNum.nextInt(10000)+1000;
@@ -43,29 +46,9 @@ public class UserController {
 			num = num - 1000;
 		}
 		
-		UserVO user = new UserVO();
-		Map<String, Object> param = new HashMap<>();
-		System.out.println("컨트롤러 옴");
-		
-		System.out.println("jsp에서 가져온거 이메일 : " + request.getParameter("email"));
-		System.out.println("jsp에서 가져온거 별명 : " + request.getParameter("nickName"));
-		System.out.println("jsp에서 가져온거 비밀번호 : " + request.getParameter("password"));
-		
-		user.setUserEmail(request.getParameter("email"));
-		user.setUserPsw(request.getParameter("password"));
-		user.setUserNickName(request.getParameter("nickName"));
-		user.setUserJoinNo(num);
-		
-		param.put("user", user);
 		service.userJoin(user);
 		
-		System.out.println("회원번호 : " + user.getUserNo());
-		System.out.println("이메일 : " + user.getUserEmail());
-		System.out.println("별명 : " + user.getUserNickName());
-		System.out.println("암호 : " + user.getUserPsw());
-		System.out.println("승인번호 : " + user.getUserJoinNo() );
-		System.out.println("회원가입 완료");
-		return param;
+		return "회원가입성공";
 	}
 	
 	@ResponseBody
