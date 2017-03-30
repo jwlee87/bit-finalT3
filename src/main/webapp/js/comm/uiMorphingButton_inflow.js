@@ -35,7 +35,7 @@
 		this.el = el;
 		this.options = extend( {}, this.options );
 		extend( this.options, options );
-		this._init();
+//		this._init();
 	}
 
 	UIMorphingButton.prototype.options = {
@@ -46,7 +46,7 @@
 		onAfterClose : function() { return false; }
 	}
 
-	UIMorphingButton.prototype._init = function() {
+/*	UIMorphingButton.prototype._init = function() {
 		// save element height
 		this.elH = this.el.offsetHeight;
 		// the button
@@ -57,7 +57,7 @@
 		this.contentEl = this.el.querySelector( '.morph-content' );
 		// init events
 		this._initEvents();
-	}
+	}*/
 
 	UIMorphingButton.prototype._initEvents = function() {
 		var self = this;
