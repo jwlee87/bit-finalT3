@@ -18,5 +18,18 @@
 	</table>
 	
 	카드 리스트좀 보여줘..
+	
+	<script src="${pageContext.request.contextPath}/js/card/card.js"></script>
+	
+	<script>
+	$("#btn").click(function() {
+		$.ajax({
+			url: "list.do",
+			dataType:"json"
+		}).done(function(result){
+			console.log(result)
+		})
+	});
+	</script>
 </body>
 </html>

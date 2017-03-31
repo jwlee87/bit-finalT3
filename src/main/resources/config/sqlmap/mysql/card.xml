@@ -7,23 +7,16 @@
 	<resultMap id="cardMap" type="cardVO">
 		<result property="cardNo" column="card_no"/>
 		<result property="userNo" column="user_no"/>
-		<result property="content" column="card_content"/>
-		<result property="regDate" column="card_reg_date"/>
+		<result property="cardContent" column="card_content"/>
+		<result property="cardRegDate" column="card_reg_date"/>
 		<result property="fileGroupNo" column="file_group_no"/>
 	</resultMap>
 	
 <!-- 			카드 리스트 		-->
-
+<!-- ============================================================================== -->
 	<select id="selectCard" parameterType="searchVO" resultMap="cardMap">
 		select *
-		  from (
-			    select rownum rnum, a.*
-			  	  from (select *
-				         from tb_card
-				        order by card_no desc
-				       ) a
-		       )
-		where rnum between #{begin} and #{end}
+		  from tb_card where CARD_NO > 0 order by CARD_NO desc limit 0,10
 	</select>
 	
 	<select id="selectCardCount" parameterType="searchVO" resultType="int">
@@ -31,12 +24,25 @@
 		from tb_card
 	</select>
 	
-	<!-- <select id="selectOneCard" parameterType="int" resultMap="cardMap">
+	<select id="selectOneCard" parameterType="int" resultMap="cardMap">
 		select *
 		from tb_card
 		  where card_no= #{cardNo}
-	</select> -->
-	
-	
+	</select>
+<!-- ============================================================================== -->
+
+
+<!-- 			카드 등록 			-->
+<!-- ============================================================================== -->	
+	<insert id="insertCard" parameterType="cardVO">
+		insert into tb_card(
+			user_no,
+			card_content
+		   )values(
+			4,
+			#{cardContent}
+			)
+	</insert>
+<!-- ============================================================================== -->
 	
 </mapper>

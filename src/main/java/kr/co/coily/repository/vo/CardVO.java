@@ -6,9 +6,8 @@ public class CardVO {
 	private int cardNo;
 	private int userNo;
 	private String cardContent;
-	private Date regDate;
+	private Date cardRegDate;
 	private int fileGroupNo;
-	
 	public int getCardNo() {
 		return cardNo;
 	}
@@ -27,11 +26,11 @@ public class CardVO {
 	public void setCardContent(String cardContent) {
 		this.cardContent = cardContent;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public Date getCardRegDate() {
+		return cardRegDate;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setCardRegDate(Date cardRegDate) {
+		this.cardRegDate = cardRegDate;
 	}
 	public int getFileGroupNo() {
 		return fileGroupNo;
@@ -39,6 +38,5 @@ public class CardVO {
 	public void setFileGroupNo(int fileGroupNo) {
 		this.fileGroupNo = fileGroupNo;
 	}
-	
 
 }

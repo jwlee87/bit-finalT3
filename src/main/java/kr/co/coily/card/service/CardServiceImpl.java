@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.coily.repository.dao.CardDAO;
+import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.PageResultVO;
 import kr.co.coily.repository.vo.SearchVO;
 
@@ -16,42 +17,36 @@ public class CardServiceImpl implements CardService{
 	@Autowired
 	private CardDAO dao;
 	
+	/*카드 리스트	====================================================================*/
+	/*==============================================================================*/
 	@Override
 	public Map<String, Object> list(SearchVO search) throws Exception {
 		System.out.println("서비스 어디까지 오냐");
 		Map<String, Object> result = new HashMap<>();
 		result.put("list", dao.selectCard(search));
-		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCardCount(search)));
+		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCard(search)));
 		return result;
 	}
 	
-/*	@Override
-	public void write(Map<String, Object> param) throws Exception {
-		dao.insertCard((CardVO)param.get("card"));
-		int no = ((CardVO)param.get("card")).getCardNo();
+	
+	/*@Override
+	public list<CardVO> listResult(PageResultVO prv) throws Exception{
 		
-		
-		System.out.println("글 번호 : " + no);
-		
-		
-		List<fileVO> boardFile = (List<fileVO>)param.get("fileList");
-		
-		System.out.println("파일 개수 : " + cardFile.size());
-		
-		if (cardFile.size()!=0) {
-			
-			
-			for(int i=0;i<boardFile.size();i++) {
-				fileVO vo = boardFile.remove(i);
-				vo.setNo(no);
-				dao.insertBoardFile(vo);
-			}*/
-//			boardFile.setReviewNo(no);
-//			dao.insertBoardFile(boardFile);
-//			System.out.println(boardFile.getFilePath());
-//			System.out.println(boardFile.getOriName());
-//			System.out.println(boardFile.getSystemName());
-			
-/*		}
-	}*/
+		return dao.insertCard(prv);*/
+	
+	
+	
+	
+	/*카드 리스트	====================================================================*/
+	/*==============================================================================*/
+
+	
+	/*카드 등록  ======================================================================*/
+	/*==============================================================================*/
+	@Override
+	public void write(CardVO cardVO) throws Exception {
+		dao.insertCard(cardVO);
+	}
+	/*카드 등록  ======================================================================*/
+	/*==============================================================================*/
 }

@@ -2,14 +2,27 @@
 // 1. load될때 ajax호출
 // 2. 화면그려줌 (makePageList)
 
+//$.ajax({
+//	url:"/list.do",
+//	dataType:"json",
+//	method:"post",
+//	data:{pageNo:2}
+//}).done(makePageList)
 
-$.ajax({
-	url:"/list.do",
-	dataType:"json",
-	method:"post",
-	data:{pageNo:2}
-}).done(makePageList)
-
+function pageList(pageNo) {
+	
+	if (pageNo === undefined) {
+		pageNo = 1;
+	}
+	
+	$.ajax({
+		url: "/bit-finalT3/card/list.do",
+		dataType:"json",
+		method:"post",
+		data: {pageNo:1}
+	})
+	.done(makePageList);
+}
 
 
 function makePageList(result) {
@@ -50,21 +63,9 @@ function makePageList(result) {
 
 function makePageLink(data) {
 	var html = "";
-	/*
-	<ul class="pagination">
 
-
-	</ul>
-	*/
 	if (data.count != 0) {
-		
-		/*
-		<li class="disabled">
-			<a href="" aria-label="Previous">
-		<span aria-hidden="true">«</span>
-			</a>
-		</li>
-		*/
+
 		var clz = "";
 		if (data.prev == false) {
 			clz = "disabled";
@@ -80,10 +81,7 @@ function makePageLink(data) {
 		html += '<span aria-hidden="true">&laquo;</span>';
 		html += '</a>';
 	    html += '</li>';
-/*		<li class="active">
-			<a href="#1">1</a>
-		</li>
-*/		
+
 	    for (var i = data.beginPage; i <= data.endPage; i++) {
 	    	if (i == data.pageNo) {
 			    html += '<li class="active"><a href="#1">' + i + '</a></li>';
@@ -92,12 +90,7 @@ function makePageLink(data) {
 	    		html += '<li><a href="javascript:pageList(' + i + ');">' + i + '</a></li>';
 	    	}
 	    }
-/*		<li class="disabled">
-		<a href="" aria-label="Next">
-			<span aria-hidden="true">»</span>
-		</a>
-		</li>
-*/
+
 		clz = "";
 		if (data.next == false) {
 			clz = "disabled";
@@ -118,20 +111,10 @@ function makePageLink(data) {
 	$("nav > ul.pagination").html(html);
 }
 
-function pageList(pageNo) {
-	if (pageNo === undefined) {
-		pageNo = 1;
-	}
-	$.ajax({
-		url: "/b90m2t2/board/list.do",
-		dataType: "json",
-		data: {pageNo:pageNo}
-	})
-	.done(makePageList);
-}
+
   
-function reviewBoard() {
-	console.log("하핳")
-	$("div#content").load(path+"board/list.html");
+/*function cardList() {
+//	console.log("카드 콘솔로그?")
+	$("div#content").load(path+"card/list.jsp");
 	pageList();
-}
+}*/
