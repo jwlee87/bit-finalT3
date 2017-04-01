@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="kr.co.coily.repository.dao.QuizDAO">
+
+	<!-- 퀴즈 등록  -->
+	<insert id="insertQuiz" parameterType="quizVO" >
+		<selectKey keyProperty="quizNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
+		insert into tb_quiz (
+			user_no,
+			quiz_title,
+			quiz_content,
+			quiz_write_type,
+			quiz_url_type
+		)
+		values(
+			#{userNo},
+			#{quizTitle},
+			#{quizContent},
+			#{quizWriteType},
+			#{quizUrlType}
+		)
+	</insert>
+	
+	
+	<!-- 퀴즈 조회 -->
+	<resultMap type="quizVO" id="quizMap">
+		<result column="quiz_no" property="quizNo"/>
+		<result column="user_no" property="userNo"/>
+		<result column="quiz_title" property="quizTitle"/>
+		<result column="quiz_content" property="quizContent"/>
+		<result column="quiz_write_type" property="quizWriteType"/>
+		<result column="quiz_url_type" property="quizUrlType"/>
+		<result column="quiz_reg_date" property="quizRegDate"/>
+	</resultMap>
+	
+	<select id="selectQuiz" resultMap="quizMap">
+		select *
+		from tb_quiz
+		order by quiz_no desc
+		limit #{begin}, 5
+	</select>
+	
+	<select id="selectQuizCount" parameterType="searchVO" resultType="int">
+		select count(*)
+		from tb_quiz
+	</select>
+	
+	
+</mapper>
