@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import kr.co.coily.repository.dao.QuizDAO;
 import kr.co.coily.repository.vo.PageResultVO;
@@ -11,6 +12,7 @@ import kr.co.coily.repository.vo.QuizVO;
 import kr.co.coily.repository.vo.SearchVO;
 import kr.co.coily.user.service.UserService;
 
+@Service
 public class QuizServiceImpl implements QuizService{
 	@Autowired
 	private QuizDAO dao;
