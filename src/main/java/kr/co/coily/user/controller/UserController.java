@@ -53,6 +53,7 @@ public class UserController {
 		System.out.println("승인번호 : " + joinNo);
 		
 		if (joinNo == passNo) {
+			service.updateConfStatus(userEmail);
 			return "yes";
 		} else {
 			return "no";

@@ -47,6 +47,12 @@
 		  from tb_user
 		 where user_email = #{userEmail}
 	</select>
+	
+	<update id="updateConfStatus" parameterType="String">
+		update tb_user
+	       set user_conf = 'Y'
+         where user_email = #{userEmail}
+	</update>
 
 
 </mapper>

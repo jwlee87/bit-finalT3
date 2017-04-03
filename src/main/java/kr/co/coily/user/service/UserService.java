@@ -12,4 +12,7 @@ public interface UserService {
 
 	public int getJoinNo(String userEmail) throws Exception ;
 
+	public void updateConfStatus(String userEmail) throws Exception;
+
+
 }

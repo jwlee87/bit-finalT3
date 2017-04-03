@@ -40,7 +40,7 @@ function paperAnim() {
 			type : "POST"
 		}).done(function(result) {
 			if (result == "yes") {
-				swal("회원가입 완료!", "클릭하면 메인페이지로 이동합니다", "회원가입 완료");
+				swal("회원가입 완료!", "확인버튼 누르면 메인페이지로 이동합니다", "회원가입 완료");
 				self.close();
 				
 				

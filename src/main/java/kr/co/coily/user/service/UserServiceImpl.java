@@ -33,4 +33,10 @@ public class UserServiceImpl implements UserService  {
 		
 		}
 
+		@Override
+		public void updateConfStatus(String userEmail) throws Exception {
+			dao.updateConfStatus(userEmail);
+			
+		}
+
 }
