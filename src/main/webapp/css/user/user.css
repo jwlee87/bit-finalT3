@@ -283,14 +283,14 @@ body * {
 }
 
 button {
-  background-color: #93E1D8;
+  background-color: #4A90BE;
   border: none;
   display: block;
   margin: 35px auto;
   padding: 15px 30px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
   color:
 }

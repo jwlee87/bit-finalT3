@@ -4,7 +4,17 @@
 <html>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
 <script src="/js/comm/bootstrap.js"></script>
-<link href="/css/comm/general.css" rel="stylesheet">
+    <!-- Custom CSS-->
+    <link href="/css/comm/general.css" rel="stylesheet">
+	
+	 <!-- Owl-Carousel -->
+    <link href="${pageContext.request.contextPath}/css/comm/custom.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/css/comm/owl.carousel.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/comm/owl.theme.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/css/comm/animate.css" rel="stylesheet">
+
+
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

@@ -22,10 +22,10 @@ $("#email").on("keyup", function () {
 	}).done(function (result){
 		if(result.emailChk) {
 			$("#emailResult").css("color", "red").html("사용 불가능한 이메일 입니다.");
-//			$("#btn").css("background", "tomato").attr("disabled", true); 
+			$("#btn").css("background", "tomato").attr("disabled", true); 
 		} else {
 			$("#emailResult").css("color", "green").html("사용가능한 이메일 입니다.");
-//			$("#btn").css("background", "#93E1D8").attr("disabled", false);
+			$("#btn").css("background", "#4A90BE").attr("disabled", false);
 		}			
 	})
 });
@@ -49,7 +49,7 @@ $("#nickName").on("keyup", function () {
 		} else {
 			$("#nickNameResult").css("color", "green").html("사용가능한 별명입니다.");
 			$("#reNickName").attr("id", "nickName");
-			$("#btn").css("background", "#93E1D8");
+			$("#btn").css("background", "#4A90BE");
 		}
 	})
 });
