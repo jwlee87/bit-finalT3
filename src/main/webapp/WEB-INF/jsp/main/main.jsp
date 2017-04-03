@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,26 +66,27 @@
 				
 				<ul class="nav navbar-nav">
 					
+					
+					
 				
 					<li class="menuItem">
-						<!-- Button trigger modal -->
-						<a href="">Change View</a>
+						<button class="open-popup-link">Change View</a>
 					</li>
 				
 					<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false">¼±¹Î<span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false">ì„ ë¯¼<span class="caret"></span></a>
 			        	
 			        		<div class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="top: 45px;width:350px;height:200px;">
-			        			ÇÁ·ÎÇÊÀÔ´Ï´Ù\n
-			        			ÇÁ·ÎÇÊÀÔ´Ï´Ù\n
-			        			ÇÁ·ÎÇÊÀÔ´Ï´Ù\n
-			        			ÇÁ·ÎÇÊÀÔ´Ï´Ù
+			        			í”„ë¡œí•„ìž…ë‹ˆë‹¤\n
+			        			í”„ë¡œí•„ìž…ë‹ˆë‹¤\n
+			        			í”„ë¡œí•„ìž…ë‹ˆë‹¤\n
+			        			í”„ë¡œí•„ìž…ë‹ˆë‹¤
 			        			<button type="button" class="btn btn-default" onclick="javascript:alert(1)" style="margin-top: 30%;margin-left: 30px;">profile</button>
 			        			<button type="button" class="btn btn-primary" onclick="javascript:alert(2)" style="margin-top: 30%;">logout</button>
 			        			
 			        		<!-- <ul class="dropdown-menu" role="menu" style="top: 45px;"> -->
 			        			
-				        		<!-- <li><a href="#">ÇÁ·ÎÇÊ</a></li>
+				        		<!-- <li><a href="#">í”„ë¡œí•„</a></li>
 				        		<li><a href="#">LogOut</a></li>
 				        		<li><a href="#">Quiz Board</a></li>
 				        		<li class="divider"></li>
