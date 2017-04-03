@@ -46,8 +46,6 @@
 </head>
 
 <body id="home">
-
-
 	<!-- NavBar-->
 	<nav class="navbar-default" role="navigation">
 		<div class="container">
@@ -60,30 +58,69 @@
 				</button>
 				<a class="navbar-brand" href="#home">Coily</a>
 			</div>
+			
+		
 
 			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-				<ul class="nav navbar-nav">
 				
+				
+				<ul class="nav navbar-nav">
+					
+				
+					<li class="menuItem">
+						<!-- Button trigger modal -->
+						<a href="">Change View</a>
+					</li>
 				
 					<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ChangeView <span class="caret"></span></a>
-			        		<ul class="dropdown-menu" role="menu">
-				        		<li><a href="#">Card Board</a></li>
-				        		<li><a href="#">Code Editor</a></li>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false">선민<span class="caret"></span></a>
+			        	
+			        		<div class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="top: 45px;width:350px;height:200px;">
+			        			프로필입니다\n
+			        			프로필입니다\n
+			        			프로필입니다\n
+			        			프로필입니다
+			        			<button type="button" class="btn btn-default" onclick="javascript:alert(1)" style="margin-top: 30%;margin-left: 30px;">profile</button>
+			        			<button type="button" class="btn btn-primary" onclick="javascript:alert(2)" style="margin-top: 30%;">logout</button>
+			        			
+			        		<!-- <ul class="dropdown-menu" role="menu" style="top: 45px;"> -->
+			        			
+				        		<!-- <li><a href="#">프로필</a></li>
+				        		<li><a href="#">LogOut</a></li>
 				        		<li><a href="#">Quiz Board</a></li>
 				        		<li class="divider"></li>
 				        		<li><a href="#">Separated link</a></li>
 				        		<li class="divider"></li>
-				        		<li><a href="#">One more separated link</a></li>
-			        		</ul>
+				        		<li><a href="#">One more separated link</a></li> -->
+			        		<!-- </ul> -->
+			        		</div>
 			        </li>
 					
-					<li class="menuItem"><a href="#contact">ChangeView</a></li>
+					
 				</ul>
 			</div>
 		   
 		</div>
 	</nav> 
+	
+	<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 	
 	<!-- What is -->
 	<div id="whatis" class="content-section-b" style="border-top: 0">
