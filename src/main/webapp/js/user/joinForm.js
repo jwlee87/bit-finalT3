@@ -81,19 +81,19 @@ $("#btn").on("click", function () {
 	var jf = document.joinForm;
 	
 	if(jf.email.value == "") {
-		alert("메일을 입력하세요");
+		swal("메일을 입력하세요");
 		jf.email.focus();
 		return false;
 	}
 
 	if($("#reNickName").val() != null) {
-		alert("사용 불가능한 별명입니다.");
+		swal("사용 불가능한 별명입니다.");
 		jf.nickName.focus();
 		return false;
 	}
 
 	if(jf.nickName.value == "") {
-		alert("별명을 입력하세요");
+		swal("별명을 입력하세요");
 		jf.nickName.focus();
 		return false;
 	}
@@ -128,7 +128,7 @@ $("#btn").on("click", function () {
 		goConfForm(result);
 	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
-		alert("에러 발생 \n" + textStatus + " : " + errorThrown);
+		swal("에러 발생 \n" + textStatus + " : " + errorThrown);
 	})
 })	
 	

@@ -3,6 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
+<link href="${pageContext.request.contextPath}/css/comm/general.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/custom.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/owl.carousel.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/owl.theme.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/animate.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <head>
@@ -36,58 +44,16 @@
     <label for="인증번호" class="mat-label">인증번호</label>
     <input type="text" class="mat-input" maxlength="4" align="center" style="font-size: 50px" id="passNo" name="passNo">
   </div>
-    <button type="button" id="startBtn">coliy 시작하기</button>
+    <button class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" type="button" id="startBtn">coliy 시작하기</button>
 </div>
-S
 <script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/confForm.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
 
-<!-- <script>
-	var temp = location.href.split("?");
-	var data = temp[1].split("=");
-	var userEmail = data[1];
+    <!-- Custom CSS-->
 	
-	$("#startBtn").click(function() {
-		
-		alert("넘어옴???" + userEmail);
-		$.ajax({
-			url : "/test/user/conf.do",
-			dataType : "json",
-			data : {
-				passNo : $("#passNo").val(),
-				userEmail : userEmail
-			},
-			type : "POST"
-		}).done(function(result) {
-			if (result == "yes") {
-				alert("가입성공");
-			}else {
-				alert("실패");
-			}
-			
-		})
-
-	})
-
-	function paperAnim() {
-		var paper = document.getElementById("paper-container");
-		paper.className = "move-up";
-	}
-	function paperAnimOut() {
-		var paper = document.getElementById("paper-container");
-		paper.className = "move-down";
-	}
-
-	$(".mat-input").focus(function() {
-		$(this).parent().addClass("is-active is-completed");
-	});
-
-	$(".mat-input").focusout(function() {
-		if ($(this).val() === "")
-			$(this).parent().removeClass("is-completed");
-		$(this).parent().removeClass("is-active");
-	})
-</script> -->
+	 <!-- Owl-Carousel -->
 
 
 </body>

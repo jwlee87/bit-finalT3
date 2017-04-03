@@ -2,17 +2,20 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
-<script src="/js/comm/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
+
     <!-- Custom CSS-->
-    <link href="/css/comm/general.css" rel="stylesheet">
 	
 	 <!-- Owl-Carousel -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
+    <link href="${pageContext.request.contextPath}/css/comm/general.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/comm/custom.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/css/comm/owl.carousel.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/comm/owl.theme.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/css/comm/animate.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
 
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -40,10 +40,12 @@ function paperAnim() {
 			type : "POST"
 		}).done(function(result) {
 			if (result == "yes") {
-				alert("가입성공");
+				swal("회원가입 완료!", "클릭하면 메인페이지로 이동합니다", "회원가입 완료");
+				self.close();
+				
 				
 			}else {
-				alert("인증번호가 틀렸습니다.");
+				swal("인증번호가 틀렸습니다.");
 			}
 			
 		})
