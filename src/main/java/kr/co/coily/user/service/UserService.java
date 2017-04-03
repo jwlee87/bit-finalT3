@@ -10,4 +10,6 @@ public interface UserService {
 
 	public String nickNameCheck(String nickName) throws Exception;
 
+	public int getJoinNo(String userEmail) throws Exception ;
+
 }

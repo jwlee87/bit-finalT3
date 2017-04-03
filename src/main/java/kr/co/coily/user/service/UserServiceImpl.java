@@ -27,4 +27,10 @@ public class UserServiceImpl implements UserService  {
 			return dao.nickNameCheck(nickName);
 		}
 
+		@Override
+		public int getJoinNo(String userEmail) throws Exception {
+			return dao.getJoinNo(userEmail);
+		
+		}
+
 }

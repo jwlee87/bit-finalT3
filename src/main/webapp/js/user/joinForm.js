@@ -17,15 +17,15 @@ $("#email").on("keyup", function () {
 	$.ajax({
 		url : "/bit-finalT3/user/emailCheck.do",
 		type : "POST",
-		data : {email : $("input[name=email]").val()},
+		data : {email : $("input[name=userEmail]").val()},
 		dataType : "json"
 	}).done(function (result){
 		if(result.emailChk) {
 			$("#emailResult").css("color", "red").html("사용 불가능한 이메일 입니다.");
-			$("#btn").css("background", "tomato").attr("disabled", true); 
+//			$("#btn").css("background", "tomato").attr("disabled", true); 
 		} else {
 			$("#emailResult").css("color", "green").html("사용가능한 이메일 입니다.");
-			$("#btn").css("background", "#93E1D8").attr("disabled", false);
+//			$("#btn").css("background", "#93E1D8").attr("disabled", false);
 		}			
 	})
 });
@@ -34,7 +34,7 @@ $("#nickName").on("keyup", function () {
 	$.ajax({
 		url : "/bit-finalT3/user/nickNameCheck.do",
 		type : "POST",
-		data : {nickName : $("input[name=nickName]").val()},
+		data : {nickName : $("input[name=userNickName]").val()},
 		dataType : "json"
 	}).done(function(result){
 		if(result.nickNameChk) {
@@ -123,15 +123,36 @@ $("#btn").on("click", function () {
 		type : "POST",
 		data : user,
 		dataType : "json"
-	})
-	.done(function (result) {
-		console.log(result)
-		alert(result);
-		location.href="confForm.do";
+	}).done(function(result) {
+		console.log(result);
+		goConfForm(result);
 	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
 		alert("에러 발생 \n" + textStatus + " : " + errorThrown);
 	})
+})	
 	
 	
-});
+	function goConfForm(result) {
+		alert("승인페이지" + result);
+		alert("이메일 : " + result.user.userEmail);
+		var userEmail = result.user.userEmail; 
+		
+		console.log("승인페이지" + result);
+		location.href="confForm.do?userEmail=" + userEmail;
+		
+		
+	/*		$.ajax({
+				url:"/test/user/conf.do",
+				type : "POST",
+				data : {user:result},
+				dataType:"json"
+			}).done(function(result){
+			
+			})
+			*/
+			
+	
+	}
+		
+			

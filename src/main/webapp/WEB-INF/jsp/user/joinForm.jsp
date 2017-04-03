@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
+<script src="/js/comm/bootstrap.js"></script>
+<link href="/css/comm/general.css" rel="stylesheet">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
@@ -27,7 +29,7 @@
 					<input type="text" class="input" name="userNickName" id="nickName" placeholder="nickName">
 					<span id="nickNameResult"></span>
 					<input type="password" class="input" name="userPsw" id="password" placeholder="Password">
-					<button class="button" id="btn" type="button">Next</button>
+					<button class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">Next</span></button>
 				</form><!--.login-form-->
 				<div class="help-text">
 					<p>By signing up, you agree to our</p>

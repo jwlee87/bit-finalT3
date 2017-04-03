@@ -40,10 +40,13 @@
 		select user_nick_name
 		  from tb_user
 		 where user_nick_name = #{userNickName} 
-	
-	
 	</select>
 	
+	<select id="getJoinNo" parameterType="String" resultType="int">
+		select user_join_no
+		  from tb_user
+		 where user_email = #{userEmail}
+	</select>
 
 
 </mapper>
