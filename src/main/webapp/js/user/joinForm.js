@@ -98,11 +98,11 @@ $("#btn").on("click", function () {
 		return false;
 	}
 	
-//	if(jf.password.value == "") {
-//		alert("비밀번호를 입력하세요");
-//		jf.password.focus();
-//		return false;
-//	}
+	if(jf.password.value == "") {
+		alert("비밀번호를 입력하세요");
+		jf.password.focus();
+		return false;
+	}
 	
 //	if(jf.passwordCheck.value == "") {
 //		alert("비밀번호를 확인해주세요");
