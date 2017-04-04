@@ -52,7 +52,41 @@
 <script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
 
 <script type="text/javascript">
+
+	function setCookie(cookieName, value, exdays) {
+		var exdate = new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		
+		var cookieValue = escape(value) + ((exdays==null)?"":"; expires=" + exdate.toGMTString());
+		document.cookie = cookieName + "=" + cookieValue;
+	}
+
+	
+	function deleteCookie(cookieName) {
+		var expireDate = new Date();
+		expireDate.setDate(expireDate.getDate() - 1);
+		document.cookie = cookieName + "=" + "; expires=" + expireDate.toGMTString();
+	}
+	
+	function getCookie(cookieName) {
+		cookieName = cookieName + '=';
+		var cookieDate = document.cookie;
+		var start = cookieDate.indexOf(cookieName);
+		var cookieValue = "";
+		
+		if(start != -1) {
+			start += cookieName.length;
+			var end = cookieDate.indexOf(';', start);
+			if(end == -1) end = cookieDate.length;
+			cookieValue = cookieDate.substring(start, end);
+		}
+		return unescape(cookieValue);
+	}
+	
+
 	$("#loginBtn").click(function(){
+		var userEmail = $("#userEmail").val();
+		var userPsw = $("#userPsw").val();
 		$.ajax({
 			url : "/bit-finalT3/user/login.do",
 			dataType : "json",
@@ -64,8 +98,11 @@
 				console.log(result.userNo);
 				console.log(result.userEmail);
 				console.log(result.userNickName);
-				self.close();
-				opener.location.href ="${pageContext.request.contextPath}/main/main.do";
+				setCookie(userEmail, 'cookie test', 2);
+				alert(getCookie(userEmail));
+				
+// 				self.close();
+// 				opener.location.href ="${pageContext.request.contextPath}/main/main.do";
 			}else {
 				   swal("로그인 실패", "회원정보가 올바르지 않습니다:)", "error");
 			}
