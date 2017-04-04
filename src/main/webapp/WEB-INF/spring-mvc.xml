@@ -32,7 +32,12 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
-	
+<!-- log4j interceptor -->
+	<mvc:interceptors>
+    	<bean class="kr.co.coily.common.logger.LoggerInterceptor"></bean>
+    </mvc:interceptors>
+
+
  <!-- mail bean -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
