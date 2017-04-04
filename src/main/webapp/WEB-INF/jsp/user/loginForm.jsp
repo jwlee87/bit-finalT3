@@ -67,7 +67,7 @@
 				self.close();
 				opener.location.href ="${pageContext.request.contextPath}/main/main.do";
 			}else {
-				swal("회원정보가 올바르지 않습니다.")
+				   swal("로그인 실패", "회원정보가 올바르지 않습니다:)", "error");
 			}
 		})
 	})
