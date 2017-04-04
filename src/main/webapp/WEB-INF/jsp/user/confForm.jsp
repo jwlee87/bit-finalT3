@@ -50,10 +50,15 @@
 <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
 
-    <!-- Custom CSS-->
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/comm/jquery.alphanum.js" >
+$(function() {
+	$("#passNo").numeric();
+	$("#passNo").css("ime-mode", "disabled"); //해당 text박스에 style로 한글 입력 불가 처리
 	
-	 <!-- Owl-Carousel -->
+})
+		
 
+</script>
 
 </body>
 </html>

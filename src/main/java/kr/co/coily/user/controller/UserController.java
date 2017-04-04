@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -37,6 +38,10 @@ public class UserController {
 	public void joinForm() throws Exception{}
 	
 	
+	@RequestMapping("/user/loginForm.do")
+	public void loginForm() throws Exception{}
+	
+	
 	@RequestMapping("/user/confForm.do")
 	public void confForm() throws Exception {}
 	
@@ -63,9 +68,6 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("/user/join.do")
 	public Map<String, Object> userJoin(UserVO user) throws Exception {
-	//public UserVO userJoin(UserVO user) throws Exception {
-		
-		
 		Random randomNum = new Random();
 		int num = randomNum.nextInt(10000)+1000;
 		if(num > 10000) {
@@ -238,6 +240,41 @@ public class UserController {
 		}
 	}
 	*/
+	
+	
+	@ResponseBody
+	@RequestMapping("/user/login.do")
+	public Map<String, Object> login(HttpServletRequest request, UserVO user) throws Exception {
+		
+		Map<String, Object> param = new HashMap<>();
+		
+		System.out.println("jsp입력 email : " + user.getUserEmail());
+		System.out.println("jsp입력 psw : " + user.getUserPsw());
+		
+		
+		UserVO loginUser = service.userLogin(user);
+		
+		if (loginUser != null) {
+			HttpSession session = request.getSession();
+//			HttpCookie cookie = request.getCookies();
+			
+		    session.setAttribute("user", loginUser);
+			param.put("userNo", loginUser.getUserNo());
+			param.put("userEmail", loginUser.getUserEmail());
+			param.put("userNickName", loginUser.getUserNickName());
+			param.put("loginOk", true);
+			
+			System.out.println((UserVO)session.getAttribute("user"));
+			service.updateUserStatus(user);
+			
+			return param;
+		} else {
+			param.put("loginFail", false);
+			return param;
+		}
+		
+	}
+
 	
 
 }

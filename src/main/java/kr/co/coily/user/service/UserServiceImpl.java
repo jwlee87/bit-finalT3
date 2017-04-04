@@ -39,4 +39,15 @@ public class UserServiceImpl implements UserService  {
 			
 		}
 
+		@Override
+		public UserVO userLogin(UserVO user) throws Exception {
+			return dao.login(user);
+		}
+
+		@Override
+		public void updateUserStatus(UserVO user) throws Exception {
+			dao.updateUserStatus(user);
+			
+		}
+
 }

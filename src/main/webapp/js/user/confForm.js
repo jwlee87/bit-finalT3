@@ -23,13 +23,13 @@ function paperAnim() {
 	
 	
 	
+
+	
 	var temp = location.href.split("?");
 	var data = temp[1].split("=");
 	var userEmail = data[1];
 	
 	$("#startBtn").click(function() {
-		
-		alert("넘어옴???" + userEmail);
 		$.ajax({
 			url : "/bit-finalT3/user/conf.do",
 			dataType : "json",
@@ -40,10 +40,9 @@ function paperAnim() {
 			type : "POST"
 		}).done(function(result) {
 			if (result == "yes") {
-				swal("회원가입 완료!", "확인버튼 누르면 메인페이지로 이동합니다", "회원가입 완료");
-				self.close();
-				
-				
+//				swal("회원가입 완료!");
+//				swal("Good job!", "You clicked the button!", "success");
+				console.log(swal("Good job!", "You clicked the button!", "success"));
 			}else {
 				swal("인증번호가 틀렸습니다.");
 			}

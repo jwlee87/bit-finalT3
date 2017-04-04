@@ -22,10 +22,10 @@ $("#email").on("keyup", function () {
 	}).done(function (result){
 		if(result.emailChk) {
 			$("#emailResult").css("color", "red").html("사용 불가능한 이메일 입니다.");
-			$("#btn").css("background", "tomato").attr("disabled", true); 
+			$("#btn").attr("disabled", true); 
 		} else {
 			$("#emailResult").css("color", "green").html("사용가능한 이메일 입니다.");
-			$("#btn").css("background", "#4A90BE").attr("disabled", false);
+			$("#btn").attr("disabled", false);
 		}			
 	})
 });
@@ -40,7 +40,7 @@ $("#nickName").on("keyup", function () {
 		if(result.nickNameChk) {
 			$("#nickNameResult").css("color", "red").html("사용 불가능한 별명입니다.");
 			$("#nickName").attr("id", "reNickName");
-			$("#btn").css("background", "tomato");
+//			$("#btn").css("background", "tomato");
 			/* 
 			 if(document.joinForm.submit()) {
 				console.log("오냐오냐");
@@ -49,7 +49,7 @@ $("#nickName").on("keyup", function () {
 		} else {
 			$("#nickNameResult").css("color", "green").html("사용가능한 별명입니다.");
 			$("#reNickName").attr("id", "nickName");
-			$("#btn").css("background", "#4A90BE");
+//			$("#btn").css("background", "#4A90BE");
 		}
 	})
 });
@@ -134,8 +134,6 @@ $("#btn").on("click", function () {
 	
 	
 	function goConfForm(result) {
-		alert("승인페이지" + result);
-		alert("이메일 : " + result.user.userEmail);
 		var userEmail = result.user.userEmail; 
 		
 		console.log("승인페이지" + result);

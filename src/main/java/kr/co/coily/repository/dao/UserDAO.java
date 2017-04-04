@@ -14,4 +14,8 @@ public interface UserDAO {
 
 	public void updateConfStatus(String userEmail) throws Exception;
 
+	public UserVO login(UserVO user) throws Exception;
+
+	public void updateUserStatus(UserVO user) throws Exception;
+
 }

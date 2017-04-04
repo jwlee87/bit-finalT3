@@ -31,7 +31,6 @@
 	<div class="form-wrap">
 		<div class="tabs">
 			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>
-			<h3 class="login-tab"><a href="#login-tab-content">Login</a></h3>
 		</div><!--.tabs-->
 
 		<div class="tabs-content">
@@ -50,18 +49,6 @@
 				</div><!--.help-text-->
 			</div><!--.signup-tab-content-->
 
-			<div id="login-tab-content">
-				<!-- <form class="login-form" action="" method="post">
-					<input type="text" class="input" id="user_login" placeholder="Email or Username">
-					<input type="password" class="input" id="password1" placeholder="Password">
-					<input type="checkbox" class="checkbox" id="remember_me">
-					<label for="remember_me">Remember me</label>
-					<input type="button" class="button" value="Login">
-				</form>.login-form -->
-				<div class="help-text">
-					<p><a href="#">Forget your password?</a></p>
-				</div><!--.help-text-->
-			</div><!--.login-tab-content-->
 		</div><!--.tabs-content-->
 	</div><!--.form-wrap-->
 	

@@ -13,6 +13,10 @@ public interface UserService {
 	public int getJoinNo(String userEmail) throws Exception ;
 
 	public void updateConfStatus(String userEmail) throws Exception;
+	
+	public UserVO userLogin(UserVO user) throws Exception;
+
+	public void updateUserStatus(UserVO user) throws Exception;
 
 
 }
