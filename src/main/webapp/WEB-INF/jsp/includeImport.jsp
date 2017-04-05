@@ -4,6 +4,8 @@
 <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/owl.carousel.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/script.js"></script>
+<script src="${pageContext.request.contextPath}/js/user/userstatus.js"></script> <!--ddd  -->
+
 <!-- StikyMenu -->
 <%-- <script src="${pageContext.request.contextPath}/js/comm/stickUp.min.js"></script> --%>
 

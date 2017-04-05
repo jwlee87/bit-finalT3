@@ -157,6 +157,7 @@
 				console.log(result.userNo);
 				console.log(result.userEmail);
 				console.log(result.userNickName);
+				setCookie(userEmail, userEmail, 1);
 				alert(getCookie(userEmail));
 				self.close();
 				goMain(result);
@@ -170,8 +171,13 @@
 	
 	function goMain(result) {
 		var no = result.userNo;
+		var nickName = result.userNickName;
+		var email = result.userEmail;
+		alert("유저넘버 : " + no);
+		alert("별명 : " + nickName);
+		alert("이메일주소 : " + email);
 		
-		opener.location.href ="${pageContext.request.contextPath}/main/main.do?userNo=" + no;
+		opener.location.href ="${pageContext.request.contextPath}/main/main.do";
 		
 	}
 	

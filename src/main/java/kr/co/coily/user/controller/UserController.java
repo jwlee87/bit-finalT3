@@ -271,8 +271,19 @@ public class UserController {
 			param.put("loginFail", false);
 			return param;
 		}
-		
 	}
+	
+	@ResponseBody
+	@RequestMapping("/user/logout.do")
+	public String logout(int userNo, HttpSession session) throws Exception {
+		System.out.println("오십니다ㄴ : " + userNo);
+		session.invalidate();//세션삭제
+		return "sessionDel";
+	}
+	
+	
+	
+	
 
 	
 

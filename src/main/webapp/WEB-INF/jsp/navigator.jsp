@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- NavBar-->
 <nav class="navbar-default" role="navigation">
@@ -25,7 +26,7 @@
 
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						선민<span class="caret"></span>
+						<c:out value="${user.userNickName}">님</c:out><span class="caret"></span>
 					</a>
 
 					<!-- <div class="dropdown-menu" role="menu" aria-labelledby="dLabel"
@@ -40,7 +41,7 @@
 					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;">
 
 							<li><a href="#">프로필</a></li>
-				        	<li><a href="#">LogOut</a></li>
+				        	<li><a href="javascript:goLogout(${user.userNo});">LogOut</a></li>
 				        	<li><a href="#">Quiz Board</a></li>
 				        	<li class="divider"></li>
 				        	<li><a href="#">Separated link</a></li>

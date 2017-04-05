@@ -77,7 +77,7 @@
 		  from tb_user
 		 where user_email = #{userEmail}
 		   and user_psw = #{userPsw}
-		   and user_status = 0
+<!-- 		   and user_status = 0 -->
 		   and user_conf = 'Y'
 	</select>
 	
