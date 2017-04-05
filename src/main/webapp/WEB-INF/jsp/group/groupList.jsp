@@ -39,7 +39,7 @@
 	<script type="text/javascript">
 	  jQuery(function($) {
 		$(document).ready( function() {
-		  $('.navbar-default').stickUp();
+// 		  $('.navbar-default').stickUp();
 		  
 		});
 	  });
@@ -65,7 +65,7 @@
 		<c:forEach var="list" items="${list}">
 			<input type="hidden" value="${list.groupHeaderNo}" id="${list.groupHeaderNo}"/>
 			<div class="sticky" >
-				<div class="setting open-popup-link">
+				<div class="setting">
 					<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" >
 				</div>
 				<c:out value="${list.groupHeaderName}"/>
@@ -126,7 +126,7 @@ $(function(){
 	  		// alert("그룹 등록 성공1" + result);
 	  		
 	  		var html = '<div class="sticky" >'
-	  		+ '<div class="setting open-popup-link">'
+	  		+ '<div class="setting">'
 			+ '<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" >'
 			+ '</div>'
 			+ result
