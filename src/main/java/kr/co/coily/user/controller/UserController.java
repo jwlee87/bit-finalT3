@@ -259,16 +259,13 @@ public class UserController {
 		if (loginUser != null) {
 			HttpSession session = request.getSession();
 //			HttpCookie cookie = request.getCookies();
-			
 		    session.setAttribute("user", loginUser);
 			param.put("userNo", loginUser.getUserNo());
 			param.put("userEmail", loginUser.getUserEmail());
 			param.put("userNickName", loginUser.getUserNickName());
 			param.put("loginOk", true);
-			
 			System.out.println((UserVO)session.getAttribute("user"));
 			service.updateUserStatus(user);
-			
 			return param;
 		} else {
 			param.put("loginFail", false);

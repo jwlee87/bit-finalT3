@@ -26,7 +26,7 @@
 </script>
 
 </head>
-<body>
+<body onLoad="getLogin()">
 	<div class="form-wrap">
 		<div class="tabs">
 			<h3 class="login-tab"><a class="active" href="#login-tab-content">Login</a></h3>
@@ -34,15 +34,15 @@
 
 		<div class="tabs-content">
 			<div id="login-tab-content" class="active">
-				<form class="login-form" action="" method="post">
+				<form name="loginForm" class="login-form" action="" method="post">
 					<input type="text" class="input" id="userEmail" name="userEmail" placeholder="Email">
 					<input type="password" class="input" id="userPsw" name="userPsw" placeholder="psw">
-					<input type="checkbox" class="checkbox" id="remember_me">
+					<input type="checkbox" class="checkbox" id="remember_me" name="remember_me" onclick="confirmSave(this)">
 					<label for="remember_me">Remember me</label>
 					<input type="button" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="loginBtn" value="Login">
 				</form>
 				<div class="help-text">
-					<p><a href="#">Forget your password?</a></p>
+					<p><a href="javascript:goFindPassword();">Forget your password?</a></p>
 				</div><!--.help-text-->
 			</div><!--.signup-tab-content-->
 
@@ -53,7 +53,7 @@
 
 <script type="text/javascript">
 
-	function setCookie(cookieName, value, exdays) {
+/* 	function setCookie(cookieName, value, exdays) {
 		var exdate = new Date();
 		exdate.setDate(exdate.getDate() + exdays);
 		
@@ -81,6 +81,65 @@
 			cookieValue = cookieDate.substring(start, end);
 		}
 		return unescape(cookieValue);
+	} */
+	
+	
+	function confirmSave(checkbox) {
+		var isRemember;
+		//로그인 정보를 저장 o
+		
+		if(checkbox.checked) {
+			isRemember = confirm("이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.")
+			if(!isRemember)
+				checkbox.checked = false;
+		}
+	}
+	
+	
+	//쿠키값 가져오기
+	function getCookie(key) {
+		var cook = document.cookie + ";";
+		var idx =  cook.indexOf(key, 0);
+		var val = "";
+		if(idx != -1) {
+			cook = cook.substring(idx, cook.length);
+			begin = cook.indexOf("=", 0) + 1;
+			end = cook.indexOf(";", begin);
+			val = unescape( cook.substring(begin, end) );
+		}
+		return val; 
+	}
+	
+	//쿠키값 설정
+	function setCookie(name, value, expiredays) {
+		var today = new Date();
+		today.setDate(today.getDate() + expiredays);
+		document.cookie = name + "=" + escape(value) +  "; path=/; expires=" + today.toGMTString() + ";";
+	}
+	
+	
+	//쿠키에서 로그인 정보 가져오기
+	function getLogin() {
+		var lf = document.loginForm;
+		//useremail 쿠키에서 email값을 가져온다
+		var userEmail = getCookie("userEmail");
+		
+		//가져온 쿠키값이 있으면 
+		if(userEmail != "") {
+			lf.userEmail.value = userEmail;
+			lf.remember_me.checked = true;
+		}
+		
+	}
+	
+	function saveLogin(userEmail) {
+		if(userEmail != "") {
+			//userEmail 쿠키에 email값을 1일간 저장
+			setCookie("userEmail", userEmail, 3);
+		}else {
+			//userEmail 쿠키삭제
+			setCookie("userEmail", userEmail, -1);
+		}
 	}
 	
 
@@ -98,16 +157,27 @@
 				console.log(result.userNo);
 				console.log(result.userEmail);
 				console.log(result.userNickName);
-				setCookie(userEmail, 'cookie test', 2);
 				alert(getCookie(userEmail));
+				self.close();
+				goMain(result);
 				
-// 				self.close();
-// 				opener.location.href ="${pageContext.request.contextPath}/main/main.do";
 			}else {
 				   swal("로그인 실패", "회원정보가 올바르지 않습니다:)", "error");
 			}
 		})
 	})
+	
+	
+	function goMain(result) {
+		var no = result.userNo;
+		
+		opener.location.href ="${pageContext.request.contextPath}/main/main.do?userNo=" + no;
+		
+	}
+	
+	
+	
+	
 </script>
 
 

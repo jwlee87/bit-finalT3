@@ -82,7 +82,7 @@
 			        			프로필입니다\n
 			        			프로필입니다
 			        			<button type="button" class="btn btn-default" onclick="javascript:alert(1)" style="margin-top: 30%;margin-left: 30px;">profile</button>
-			        			<button type="button" class="btn btn-primary" onclick="javascript:alert(2)" style="margin-top: 30%;">logout</button>
+			        			<button type="button" class="btn btn-primary" id="logoutBtn" style="margin-top: 30%;">logout</button>
 			        			
 			        		<!-- <ul class="dropdown-menu" role="menu" style="top: 45px;"> -->
 			        			
@@ -534,6 +534,10 @@
       </div>
     </footer>
 
+	 <!--내가추가한 js  -->
+    <script src="${pageContext.request.contextPath}/js/user/main.js"></script>
+	 
+	 
 	 <!-- JavaScript -->
     <script src="${pageContext.request.contextPath}/js/comm/jquery-1.10.2.js"></script>
     <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>

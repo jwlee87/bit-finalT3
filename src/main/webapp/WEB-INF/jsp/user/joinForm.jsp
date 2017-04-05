@@ -4,6 +4,8 @@
 <html>
 <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/jquery.magnific-popup.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Custom CSS-->
 	
@@ -18,7 +20,7 @@
 	<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
 
 
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
@@ -27,7 +29,6 @@
 
 </head>
 <body>
-	<div id="nextPage"></div>
 	<div class="form-wrap">
 		<div class="tabs">
 			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>

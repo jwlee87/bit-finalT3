@@ -21,10 +21,12 @@ $("#email").on("keyup", function () {
 		dataType : "json"
 	}).done(function (result){
 		if(result.emailChk) {
-			$("#emailResult").css("color", "red").html("사용 불가능한 이메일 입니다.");
+//			$("#emailResult").css("color", "red").html("사용 불가능한 이메일 입니다.");
+			$("#email").css("box-shadow", "0px 0px 4px 2px red");
 			$("#btn").attr("disabled", true); 
 		} else {
-			$("#emailResult").css("color", "green").html("사용가능한 이메일 입니다.");
+//			$("#emailResult").css("color", "green").html("사용가능한 이메일 입니다.");
+			$("#email").css("box-shadow", "0px 0px 4px 2px #4A90BE");
 			$("#btn").attr("disabled", false);
 		}			
 	})
@@ -38,7 +40,8 @@ $("#nickName").on("keyup", function () {
 		dataType : "json"
 	}).done(function(result){
 		if(result.nickNameChk) {
-			$("#nickNameResult").css("color", "red").html("사용 불가능한 별명입니다.");
+//			$("#nickNameResult").css("color", "red").html("사용 불가능한 별명입니다.");
+			$("#nickName").css("box-shadow", "0px 0px 4px 2px red");
 			$("#nickName").attr("id", "reNickName");
 //			$("#btn").css("background", "tomato");
 			/* 
@@ -47,7 +50,8 @@ $("#nickName").on("keyup", function () {
 				return false;
 			}  */
 		} else {
-			$("#nickNameResult").css("color", "green").html("사용가능한 별명입니다.");
+//			$("#nickNameResult").css("color", "green").html("사용가능한 별명입니다.");
+			$("#nickName").css("box-shadow", "0px 0px 4px 2px #4A90BE");
 			$("#reNickName").attr("id", "nickName");
 //			$("#btn").css("background", "#4A90BE");
 		}
@@ -74,11 +78,24 @@ $("#nickName").on("keyup", function () {
 		})
 	}) */
 	
+
+$("#password").on("keyup", function(){
+	var psw = $("#password").val()
+	if(psw.length <= 4) {
+		$("#password").css("box-shadow", "0px 0px 4px 2px red");
+		$("#btn").attr("disabled", true); 
+	} else {
+		$("#password").css("box-shadow", "0px 0px 4px 2px #4A90BE");
+		$("#btn").attr("disabled", false);
+	}
+})
 	
 	 
 $("#btn").on("click", function () {
 	
 	var jf = document.joinForm;
+	
+	var psw = $("#password").val();
 	
 	if(jf.email.value == "") {
 		swal("메일을 입력하세요");
@@ -99,10 +116,19 @@ $("#btn").on("click", function () {
 	}
 	
 	if(jf.password.value == "") {
-		alert("비밀번호를 입력하세요");
+		swal("비밀번호를 입력하세요");
 		jf.password.focus();
 		return false;
 	}
+	
+	if(psw.length <= 4) {
+		swal("비밀번호를 5자리 이상 입력하세요")
+		$("#password").css("box-shadow", "0px 0px 4px 2px red");
+		psw.focus();
+	} 
+		
+	
+	
 	
 //	if(jf.passwordCheck.value == "") {
 //		alert("비밀번호를 확인해주세요");
