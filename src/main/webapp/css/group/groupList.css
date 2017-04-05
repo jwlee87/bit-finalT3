@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+
+	body {
+		background: #59cee0;
+	}
+
+	#container {
+		margin-top: 5%;
+		margin-bottom: 5%;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1300px;
+	}
+	.sticky {
+		width: 300px;
+	 	height: 100px;
+	  	margin: 10px; 
+	  	float: left;
+	  	transition: all .2s ease-out;
+	  	color: #34495e;
+	  	padding: 10px;
+	  	box-sizing: border-box;
+	  	border-radius: 10px;
+	  	font-size: 18px;
+	  	font-weight: bold;
+	}
+	.plus {
+	  	width: 50%;
+	  	height: 50%;
+	  	font-size: 20px;
+	  	font-weight: bold;
+	  	color: white;
+	  	text-align: center;
+	  	line-height: 100px;
+	  	margin: 0 auto;
+ 	  	margin-top: -5px; 
+	  	cursor: pointer;
+	}
+	.sticky {
+	  	background: #fff;
+	}
+	
+	.maker {
+	  	background: #a5a5a2;
+	  	font-size: 18px;	!important;
+	  	font-weight: bold;	!important;
+	}
+	
+	.ly_wrap {
+		z-index: 50;
+		position: fixed;	
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		line-height: 1;
+		letter-spacing: -.5px;
+		word-break: break-all
+	}
+	
+	.ly_box {
+		position: absolute;	
+		top: 40%;	
+		left: 50%;	
+		width: 600px;
+		padding: 3% 3% 3%;	
+		background-color: #fff;	
+		transform: translate(-50%, -50%);	
+		text-align: center;	
+	}
+	
+	.ly_box p {
+		font-size: 18px;
+		font-weight: bold;
+	}
+	
+	.ly_box button {
+		margin-top: 5%;
+	}
+	.info {
+		margin-left: 2px;
+	}
+	
+	button {
+		overflow: visible;
+		border: 0; /*outline:none;*/
+		background-color: transparent;
+		cursor: pointer
+	}
+	
+	.setting {
+		max-width: 0.3px;
+		max-height: 0.3px;
+		padding-left: 95%;
+	}

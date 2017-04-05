@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.coily.repository.dao.GroupDAO">
+
+	<resultMap id="groupDetailMap" type="groupDetailVO" >
+		<result property="groupDetailNo" column="group_detail_no"/>
+		<result property="groupHeaderNo" column="group_header_no"/>
+		<result property="userNo" column="user_no"/>
+		<result property="groupDetailConf" column="group_detail_conf"/>
+		<result property="groupDetailRegDate" column="group_detail_reg_date"/>
+		<result property="groupHeaderName" column="group_header_name"/>
+	</resultMap>
+	
+	<!-- 그룹 등록 -->
+	<!-- 그룹 헤더 등록 -->
+	<insert id="insertGroupHeader" parameterType="groupHeaderVO" useGeneratedKeys="true" keyProperty="groupHeaderNo"  >
+		
+		insert into tb_group_header (group_header_name)
+			 values ('새그룹')
+		<selectKey resultType="int" order="AFTER" keyProperty="groupHeaderNo">
+	        SELECT LAST_INSERT_ID() as groupHeaderNo
+	    </selectKey>
+	</insert>
+	
+	<!-- 마지막에 등록된 그룹 리스트 조회 위해 추가 -->
+	<select id="selectOneHeader" resultType="string" >
+		select group_header_name
+		  from tb_group_header
+	  order by group_header_no desc
+		 limit 1
+	</select>
+	
+	<!-- 그룹 디테일 등록 -->
+	<insert id="insertGroupDetail" parameterType="groupDetailVO">
+		insert into tb_group_detail (
+			group_header_no,
+			user_no
+		)values (
+			#{groupHeaderNo},
+			1
+		)
+	</insert>
+	
+	<!-- 번호에 해당하는 그룹 정보 조회 -->
+<!-- 	<select id="selectOneDetail" parameterType="int" resultMap="groupDetailMap">
+		select *
+		  from tb_group_detail
+		 where group_header_no = #{groupHeadereNo}
+	</select> -->
+	
+	<!-- 그룹 헤더 수정 -->
+<!-- 	<update id="updateGroupHeader" parameterType="groupHeaderVO">
+		update tb_group_header
+		   set group_header_name = #{groupHeaderName}
+		 where group_header_no = #{groupHeaderNo}
+	</update>	 -->
+	
+	<!-- 그룹 디테일 수정 -->
+<!-- 	<update id="updateGroupDetail" parameterMap="groupDetailMap">
+		update tb_group_detail
+		   set group_header_name = #{groupHeaderName}
+		 where group_header_no = #{groupHeaderNo}
+	</update>	 -->
+	
+	<!-- 그룹 리스트 + 페이징 -->
+	<select id="selectGroupList" parameterType="searchVO" resultMap="groupDetailMap">
+			select *
+		  	  from (
+		  	  	select a.group_header_name, b.* 
+		  		  from tb_group_header a 
+		     left join tb_group_detail b
+		    		on a.group_header_no = b.group_header_no
+		    	 where user_no = 1
+		    	order by b.group_detail_reg_date desc	  		  
+		  		  	) c
+		 limit #{begin}, 100
+	</select>
+	
+	<!-- 전체 그룹 수 -->
+	<select id="selectGroupCnt" parameterType="searchVO" resultType="int">
+		select count(*) 
+		  from (
+		  	select a.group_header_name, b.* 
+		  	  from tb_group_header a 
+		inner join tb_group_detail b
+		    	on a.group_header_no = b.group_header_no	  		  		  
+		  	   ) c
+	</select>
+
+
+</mapper>
