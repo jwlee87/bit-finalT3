@@ -32,33 +32,7 @@ $(document).ready(function() {
 		wow.init();
 		
 		//Magnific-ImgPopup
-		$('.image-link').magnificPopup({type:'image'});
-		//Magnific-InlinePopup
-		$('.open-popup-link').magnificPopup({
-			  items: {
-			      src: '<div class="row" style="color:#c7c7c7">'
-			  		 + '<div class="col-md-3 wow fadeInDown text-center">'
-			  		 + '</div>'
-			  		 + '<div class="col-md-2 wow fadeInDown text-center">'
-			  		 + '<img class="rotate" src="../img/icon/tweet.svg" alt="Generic placeholder image">'
-			  		 + '<a href="#" style="color:#c7c7c7"><h3>카드게시판</h3></a>'
-			  		 + '</div><!-- /.col-lg-4 -->'
-			  		
-			  		 + '<div class="col-md-2 wow fadeInDown text-center">'
-			  		 + '<img  class="rotate" src="../img/icon/picture.svg" alt="Generic placeholder image">'
-			  		 + '<a href="#" style="color:#c7c7c7"><h3>코드편집기</h3></a>'
-			  		 + '</div><!-- /.col-lg-4 -->'
-			  		
-			  		 + '<div class="col-md-2 wow fadeInDown text-center">'
-			  		 + '<img  class="rotate" src="../img/icon/retina.svg" alt="Generic placeholder image">'
-			  		 + '<a href="#" style="color:#c7c7c7"><h3>퀴즈게시판</h3></a>'
-			  		 + '</div><!-- /.col-lg-4 -->'
-			  		 +'</div><!-- /.row -->'
-			  		 + '<div class="col-md-3 wow fadeInDown text-center">'
-			  		 + '</div>',
-			      type: 'inline'
-			  }
-		});
+//		$('.image-link').magnificPopup({type:'image'});
 
 		// OwlCarousel N1
 		$("#owl-demo").owlCarousel({

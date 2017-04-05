@@ -5,8 +5,6 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>bit-finalT3</display-name>
 
-
-
 	<!-- contextListener 및 설정 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -9,5 +9,5 @@ public interface GroupService {
 
 	public Map<String, Object> retrieveGroupList(SearchVO search);
 	
-	public String insertGroup(GroupHeaderVO header);
+	public GroupHeaderVO insertGroup();
 }

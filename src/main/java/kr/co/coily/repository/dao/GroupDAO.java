@@ -30,20 +30,21 @@ public class GroupDAO {
 	/*초기 기본 그룹 등록(Header+Detail)
 	 *auto num,"새그룹"/ 받아온 headerNo, userNo(방장)************/
 	@Transactional(rollbackFor=Exception.class)
-	public String insertGroup(GroupHeaderVO header) {
+	public GroupHeaderVO insertGroup() {
 		
-		
-		
-		sqlSessionTemplate.insert("kr.co.coily.repository.dao.GroupDAO.insertGroupHeader", header);
-		int headerNo = header.getGroupHeaderNo();
-		
+		GroupHeaderVO headerVO = new GroupHeaderVO();
+		sqlSessionTemplate.insert("kr.co.coily.repository.dao.GroupDAO.insertGroupHeader", headerVO);
+		int headerNo = headerVO.getGroupHeaderNo();
+		System.out.println("####################################################################");
+		System.out.println("headerNo : " + headerNo);
+		System.out.println("####################################################################");
 		
 		GroupDetailVO detail = new GroupDetailVO();
 		detail.setGroupHeaderNo(headerNo);
 		detail.setUserNo(1);
 		
 		sqlSessionTemplate.insert("kr.co.coily.repository.dao.GroupDAO.insertGroupDetail", detail);
-		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.selectOneHeader");
+		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.selectOneHeader", headerNo);
 	}
 	
 	/*그룹 번호에 해당하는 그룹 정보 조회 *******************************/

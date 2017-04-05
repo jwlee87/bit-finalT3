@@ -25,11 +25,11 @@
 	</insert>
 	
 	<!-- 마지막에 등록된 그룹 리스트 조회 위해 추가 -->
-	<select id="selectOneHeader" resultType="string" >
-		select group_header_name
+	<select id="selectOneHeader" resultType="groupHeaderVO" parameterType="int" >
+		select group_header_no as groupHeaderNo, 
+		       group_header_name as groupHeaderName
 		  from tb_group_header
-	  order by group_header_no desc
-		 limit 1
+	 	 where group_header_no = #{groupHeaderNo}
 	</select>
 	
 	<!-- 그룹 디테일 등록 -->

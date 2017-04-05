@@ -25,9 +25,9 @@ public class GroupServiceImpl implements GroupService {
 		return result;
 	}
 
-	public String insertGroup(GroupHeaderVO header) {
+	public GroupHeaderVO insertGroup() {
 		System.out.println("서비스 등록");
-		return dao.insertGroup(header);
+		return dao.insertGroup();
 	}
 
 }

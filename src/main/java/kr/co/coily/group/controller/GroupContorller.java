@@ -1,5 +1,6 @@
 package kr.co.coily.group.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,6 +29,12 @@ public class GroupContorller {
 	public void test() throws Exception {
 	};
 */
+	@RequestMapping("/groupDetail.do")
+	public String viewDetail(@ModelAttribute("headerVO")GroupHeaderVO headerVO,HttpServletRequest request) throws Exception {
+		
+		headerVO.setGroupHeaderNo(Integer.parseInt(request.getParameter("groupHeaderNo")));
+		return "group/groupDetail";
+	};
 	
 	@RequestMapping("/groupInsert.do")
 	public void groupInsert() throws Exception {
@@ -38,10 +46,13 @@ public class GroupContorller {
 	
 	@ResponseBody
 	@RequestMapping("/groupHeaderWrite.do")
-	public String insertGroup() throws Exception {
-		GroupHeaderVO header = new GroupHeaderVO();
-		return service.insertGroup(header);
+	public Map<String, String> insertGroup() throws Exception {
+		GroupHeaderVO headerVO = service.insertGroup();
 		
+		Map<String, String> mRslt = new HashMap<>(); 
+		mRslt.put("groupHeaderNo", String.valueOf(headerVO.getGroupHeaderNo()));
+		mRslt.put("groupHeaderName", headerVO.getGroupHeaderName());
+		return mRslt;
 	};
 	
 	@RequestMapping("/groupDetailWrite.do")

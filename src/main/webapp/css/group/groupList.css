@@ -2,6 +2,7 @@
 
 	body {
 		background: #59cee0;
+		over-flow:hidden !important;
 	}
 
 	#container {
