@@ -59,6 +59,13 @@
 		<!-- 최대 업로드 파일 사이즈 : 10MB -->
 		<property name="maxUploadSize" value="10485760" />
 	</bean>
+	
+	<!-- bcrypt 암호화  -->
+	<bean id="bcryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	
+
+
 
 	<!-- 메인페이지 이동 
 	<mvc:view-controller path="/main/main.do" />

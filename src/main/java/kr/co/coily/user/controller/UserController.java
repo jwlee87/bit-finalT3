@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +29,8 @@ public class UserController {
 	private UserService service;
 	@Autowired
 	private JavaMailSender mailSender;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	
 	
@@ -99,7 +102,14 @@ public class UserController {
 		System.out.println("회원가입 완료");
 		return param;*/
 		user.setUserJoinNo(num);
+		String normalPsw = user.getUserPsw();
+		String encPsw = passwordEncoder.encode(normalPsw);
+		System.out.println("평서문 : " + user.getUserPsw());
+		user.setUserPsw(encPsw);
+		System.out.println("암호화한거 : " + encPsw);
 		
+		
+//		String encPsw = PasswordEncoder
 		
 		Map<String, Object> param = new HashMap<>();
 		
@@ -250,12 +260,16 @@ public class UserController {
 		
 		Map<String, Object> param = new HashMap<>();
 		
-		System.out.println("jsp입력 email : " + user.getUserEmail());
-		System.out.println("jsp입력 psw : " + user.getUserPsw());
+		System.out.println("jsp입력 emai5555 : " + user.getUserEmail());
+		System.out.println("jsp입력 psw555 : " + user.getUserPsw());
+		String normalPsw = user.getUserPsw();	//jsp에서 암호 입력 받은거
+		String encPsw = passwordEncoder.encode(normalPsw);	//입력받은암호 암호화
 		
-		
+		user.setUserPsw(encPsw);
+		System.out.println("로그인할때암호1(jsp) : " + user.getUserPsw());
 		UserVO loginUser = service.userLogin(user);
-		
+		System.out.println("로그인할때암호5555 : " + loginUser.getUserPsw());
+		assertThat(passwordEncoder.matches(normalPsw, encPsw), is(true));
 		if (loginUser != null) {
 			HttpSession session = request.getSession();
 //			HttpCookie cookie = request.getCookies();

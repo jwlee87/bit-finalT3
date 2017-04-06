@@ -22,6 +22,15 @@
 	    <dispatcher>REQUEST</dispatcher>     <!-- jsp에 대한 요청이 REQUEST,FORWARD 일때 sitemesh 필터를 실행한다. -->
 	    <dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
+	
+		<!-- spring security -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		/WEB-INF/spring/context-repository.xml, 
+		classpath*:config/context-security.xml 
+		</param-value> 
+	</context-param>
 
 	
 	<!-- contextListener 및 설정 -->

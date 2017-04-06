@@ -114,7 +114,7 @@
 	function setCookie(name, value, expiredays) {
 		var today = new Date();
 		today.setDate(today.getDate() + expiredays);
-		document.cookie = name + "=" + escape(value) +  "; path=/; expires=" + today.toGMTString() + ";";
+		document.cookie = name + "=" + escape(value)+"; path=/; expires=" + today.toGMTString() + ";";
 	}
 	
 	
@@ -123,29 +123,46 @@
 		var lf = document.loginForm;
 		//useremail 쿠키에서 email값을 가져온다
 		var userEmail = getCookie("userEmail");
+		var userPsw = getCookie("userPsw");
 		
-		//가져온 쿠키값이 있으면 
 		if(userEmail != "") {
 			lf.userEmail.value = userEmail;
+			lf.userPsw.value = userPsw;
 			lf.remember_me.checked = true;
 		}
 		
 	}
 	
-	function saveLogin(userEmail) {
+	function saveLogin(userEmail, userPsw) {
 		if(userEmail != "") {
 			//userEmail 쿠키에 email값을 1일간 저장
-			setCookie("userEmail", userEmail, 3);
+			setCookie("userEmail", userEmail, 1);
+			setCookie("userPsw", userPsw, 1);
 		}else {
 			//userEmail 쿠키삭제
 			setCookie("userEmail", userEmail, -1);
+			setCookie("userPsw", userPsw, -1);
 		}
 	}
+	
+	
+
+	
 	
 
 	$("#loginBtn").click(function(){
 		var userEmail = $("#userEmail").val();
 		var userPsw = $("#userPsw").val();
+		
+	/* 	var lf = document.loginForm;
+		if(lf.remember_me.checked) saveLogin(lf.userEmail.value, lf.userPsw.value);
+		else saveLogin("");
+		lf.action = "/bit-finalT3/user/login.do";
+		lf.submit(); */
+		
+
+		
+		
 		$.ajax({
 			url : "/bit-finalT3/user/login.do",
 			dataType : "json",
@@ -157,8 +174,15 @@
 				console.log(result.userNo);
 				console.log(result.userEmail);
 				console.log(result.userNickName);
-				setCookie(userEmail, userEmail, 1);
-				alert(getCookie(userEmail));
+				
+				var lf = document.loginForm;
+				if(lf.remember_me.checked){ saveLogin(lf.userEmail.value, lf.userPsw.value)
+					lf.submit();	
+				} else saveLogin("");
+			/* 	lf.action = "/bit-finalT3/user/login.do"; */
+				 
+// 				setCookie(result.userEmail, result.userEmail , 1);
+				alert("쿠키 만들어짐?? : " + getCookie(userEmail.userEmail));
 				self.close();
 				goMain(result);
 				
