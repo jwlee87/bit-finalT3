@@ -9,6 +9,14 @@
 //	data:{pageNo:2}
 //}).done(makePageList)
 
+/* Demo purposes only */
+$(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+
+
 function pageList(pageNo) {
 	
 	if (pageNo === undefined) {
@@ -19,7 +27,7 @@ function pageList(pageNo) {
 		url: "/bit-finalT3/card/list.do",
 		dataType:"json",
 		method:"post",
-		data: {pageNo:1}
+		data: {pageNo:pageNo}
 	})
 	.done(makePageList);
 }
@@ -118,3 +126,8 @@ function makePageLink(data) {
 	$("div#content").load(path+"card/list.jsp");
 	pageList();
 }*/
+
+
+
+
+

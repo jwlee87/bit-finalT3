@@ -3,7 +3,7 @@
 <decorators defaultdir="/WEB-INF/jsp/decorators">       <!-- WebContent 폴더 아래 decorators라는 폴더를 default directory로 한다.  -->
     
     <excludes>
-		<pattern>/*Form.*</pattern>
+		<pattern>/*Form.jsp</pattern>
 	</excludes>
 	
 	<excludes>
@@ -12,7 +12,7 @@
     
     <!-- index.html로 url 패턴이 들어오면 main.jsp를 실행한다  -->
     <decorator name="card" page="layout.jsp">       
-        <pattern>/card/*</pattern>                     	
+        <pattern>/*/card*</pattern>                     	
     </decorator>
     
     <decorator name="quiz" page="layout.jsp">       

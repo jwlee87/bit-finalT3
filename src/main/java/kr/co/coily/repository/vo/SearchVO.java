@@ -4,6 +4,7 @@ public class SearchVO extends PageVO{
 	
 	private String searchWord;
 	private int cardNo;
+	
 	public String getSearchWord() {
 		return searchWord;
 	}

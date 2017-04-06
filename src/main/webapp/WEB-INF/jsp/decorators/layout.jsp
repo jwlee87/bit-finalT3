@@ -11,6 +11,7 @@
 	<meta name="author" content="">
 	
 	<title><decorator:title default="JLStory" /></title>
+	<c:import url="../main/mainHeader.jsp" />
 	<decorator:head />
 </head>
 <body>
@@ -23,25 +24,8 @@
 	
 	<!-- footer -->
 	<c:import url="../footer.jsp" />
-
-<!-- 	<script type="text/javascript">
-		jQuery(function($) {
-			$(document).ready(function() {
-				$('.navbar-default').stickUp();
-	
-			});
-		});
-		
-		// iframe resize
-		function autoResize(i) {
-		    var iframeHeight=
-		    (i).contentWindow.document.body.scrollHeight;
-		    (i).height=iframeHeight+20;
-		}
-		
-		new WOW().init();
-	</script>
- --></body>
+ 
+ </body>
 </html>
 
 

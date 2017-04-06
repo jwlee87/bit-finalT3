@@ -106,3 +106,19 @@ button:hover {
   opacity: 0.75;
   cursor: pointer;
 }
+
+#detailBlock {
+	width: 100px;
+	height: 100px;
+	display: block;
+}
+
+#detailNone {
+/* 	width: 100px; */
+/* 	height: 100px; */
+	display: none;	
+}
+
+#detailNoneButton{
+	display: none;	
+}

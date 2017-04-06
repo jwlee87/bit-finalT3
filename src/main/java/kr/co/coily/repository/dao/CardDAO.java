@@ -9,19 +9,11 @@ public interface CardDAO {
 
 	/* 카드 게시판	*/
 	/* ==================================================================*/
-
-//	public List<CardVO> selectCard()throws Exception;
-	
-//	public List<CardVO> cardPage(int page)throws Exception;
-	
-//	public List<CardVO> cardPageResultVO(PageResultVO prv)throws Exception;
-	
 	public List<CardVO> selectCard(SearchVO Search) throws Exception;
 	
 	public int selectCardCount(SearchVO Search) throws Exception;
 	
-	public CardVO selectOneCard(int no) throws Exception;
-	
+	public CardVO selectDetailCard(int no) throws Exception;
 	
 	/* 카드 게시판	*/
 	/* ==================================================================*/
@@ -30,7 +22,27 @@ public interface CardDAO {
 	/* 카드 등록	*/
 	/* ==================================================================*/
 	public void insertCard(CardVO cardVO) throws Exception;
+
+//	public Object selectCardFileByNo(int no);
+	
+	/*public void insertFile(CardVO cardVO) throws Exception;*/
 	
 	/* ==================================================================*/
 	/* 카드 등록	*/
+	
+	
+	
+	/* 카드 수정	*/
+	/* ==================================================================*/
+	 public boolean updateCard(CardVO vo) throws Exception;
+	/* 카드 수정	*/
+	/* ==================================================================*/
+	 
+	/* 카드 삭제	*/
+	/* ==================================================================*/
+	
+	 public boolean deleteCard(int no) throws Exception;
+	 
+	/* 카드 삭제	*/
+	/* ==================================================================*/
 }

@@ -5,15 +5,26 @@ import java.util.Date;
 public class CardVO {
 	private int cardNo;
 	private int userNo;
+	private String userNickName;
 	private String cardContent;
 	private Date cardRegDate;
 	private int fileGroupNo;
+	
+	
+	
+	public String getUserNickName() {
+		return userNickName;
+	}
+	public void setUserNickName(String userNickName) {
+		this.userNickName = userNickName;
+	}
 	public int getCardNo() {
 		return cardNo;
 	}
 	public void setCardNo(int cardNo) {
 		this.cardNo = cardNo;
 	}
+	
 	public int getUserNo() {
 		return userNo;
 	}

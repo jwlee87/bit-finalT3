@@ -6,6 +6,7 @@
 
 	<resultMap id="cardMap" type="cardVO">
 		<result property="cardNo" column="card_no"/>
+		<result property="userNickName" column="user_nick_name"/>
 		<result property="userNo" column="user_no"/>
 		<result property="cardContent" column="card_content"/>
 		<result property="cardRegDate" column="card_reg_date"/>
@@ -15,8 +16,16 @@
 <!-- 			카드 리스트 		-->
 <!-- ============================================================================== -->
 	<select id="selectCard" parameterType="searchVO" resultMap="cardMap">
-		select *
-		  from tb_card where CARD_NO > 0 order by CARD_NO desc limit 0,10
+		select card_no,
+			   user_no,
+			   case when instr(CARD_CONTENT, "\n") = 0 then CARD_CONTENT
+		 			when instr(CARD_CONTENT, "\n") = 1 then CARD_CONTENT
+         			else left(CARD_CONTENT, instr(CARD_CONTENT, "\n")) 
+         		end as card_content,
+			   card_reg_date
+		  from tb_card 
+		    order by card_no desc
+		    limit #{begin}, 5
 	</select>
 	
 	<select id="selectCardCount" parameterType="searchVO" resultType="int">
@@ -29,20 +38,62 @@
 		from tb_card
 		  where card_no= #{cardNo}
 	</select>
+	
+	<select id="selectDetailCard" parameterType="int" resultMap="cardMap">
+		select c.card_no, c.card_content, c.card_reg_date, u.user_no, u.user_nick_name  
+		  from tb_card c, tb_user u
+		 where c.user_no = u.user_no
+		   and card_no= #{cardNo}
+	</select>
+	
+	
 <!-- ============================================================================== -->
 
 
 <!-- 			카드 등록 			-->
 <!-- ============================================================================== -->	
-	<insert id="insertCard" parameterType="cardVO">
+	<insert id="insertCard" parameterType="kr.co.coily.repository.vo.CardVO">
+	
+<!-- 		쿼리 등록			 -->
 		insert into tb_card(
 			user_no,
 			card_content
 		   )values(
-			4,
+			156,
 			#{cardContent}
 			)
+			
+		<selectKey keyProperty="cardNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
 	</insert>
+	
+<!-- 	<insert id="insertFile" parameterType="kr.co.coily.repository.vo.CardVO">
+				
+		
+		<selectKey keyProperty="cardNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
+	</insert> -->
+	
+<!-- 			카드 등록 			-->
 <!-- ============================================================================== -->
 	
+	
+<!-- 			카드 수정 			-->
+<!-- ============================================================================== -->
+	
+
+
+<!-- 			카드 삭제 			-->
+<!-- ============================================================================== -->
+	<delete id="deleteCard">
+		delete
+		  from tb_card
+		 where card_no = #{no}
+	</delete>
+
+<!-- 			카드 삭제 			-->
+<!-- ============================================================================== -->
+
 </mapper>

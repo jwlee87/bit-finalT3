@@ -9,13 +9,11 @@ public interface CardService {
 	
 	/* 카드 게시판	*/
 	/* ==================================================================*/
-	
-//	List<CardVO> listPage(int page) throws Exception;
-//	
-//	public List<CardVO> listResultVO(PageResultVO prv) throws Exception;
-	
-
 	public Map<String, Object> list(SearchVO search)throws Exception;
+	
+	Map<String, Object> detail(int cardNo) throws Exception;
+	
+	void detail(CardVO cardVO) throws Exception;
 	/* 카드 게시판	*/
 	/* ==================================================================*/
 	
@@ -23,8 +21,28 @@ public interface CardService {
 	/* 카드 등록	*/
 	/* ==================================================================*/
 	public void write(CardVO cardVO) throws Exception;
+
+	/*	public void file(CardVO cardVO) throws Exception;*/
+	
 	/* 카드 등록	*/
 	/* ==================================================================*/
 
 	
+	/* 카드 수정	*/
+	/* ==================================================================*/
+	
+	public void update(CardVO card) throws Exception;
+
+	public CardVO updateForm(int no) throws Exception;
+	
+	/* 카드 수정	*/
+	/* ==================================================================*/
+	
+	
+	/* 카드 삭제	*/
+	/* ==================================================================*/
+	
+	public void delete(int no) throws Exception;
+	/* 카드 삭제	*/
+	/* ==================================================================*/
 }

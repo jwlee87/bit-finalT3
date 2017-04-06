@@ -21,21 +21,12 @@ public class CardServiceImpl implements CardService{
 	/*==============================================================================*/
 	@Override
 	public Map<String, Object> list(SearchVO search) throws Exception {
-		System.out.println("서비스 어디까지 오냐");
-		Map<String, Object> result = new HashMap<>();
+		System.out.println("카드 서비스 어디까지 오냐");
+		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("list", dao.selectCard(search));
-		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCard(search)));
+		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCardCount(search)));
 		return result;
 	}
-	
-	
-	/*@Override
-	public list<CardVO> listResult(PageResultVO prv) throws Exception{
-		
-		return dao.insertCard(prv);*/
-	
-	
-	
 	
 	/*카드 리스트	====================================================================*/
 	/*==============================================================================*/
@@ -47,6 +38,63 @@ public class CardServiceImpl implements CardService{
 	public void write(CardVO cardVO) throws Exception {
 		dao.insertCard(cardVO);
 	}
+
+	/*@Override
+	public void file(CardVO cardVO) throws Exception {
+		dao.insertFile(cardVO);
+	}*/
+	
+	
 	/*카드 등록  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	
+	/*카드 상세  ======================================================================*/
+	/*==============================================================================*/
+	@Override
+	public void detail(CardVO cardVO) throws Exception {
+		dao.insertCard(cardVO);
+	}
+	@Override
+	public Map<String, Object> detail(int no) throws Exception {
+		Map<String, Object> result = new HashMap<>();
+		result.put("cardVO", dao.selectDetailCard(no));
+//		result.put("file", dao.selectFileByNo(no));
+		return result;
+	}
+	
+	/*카드 상세  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	/*카드 수정  ======================================================================*/
+	/*==============================================================================*/
+	
+	@Override
+	public void update(CardVO card) throws Exception{
+		dao.updateCard(card);
+	}
+	
+	@Override
+	public CardVO updateForm(int no) throws Exception{
+		return dao.selectDetailCard(no);
+	}
+	
+	
+	/*카드 수정  ======================================================================*/
+	/*==============================================================================*/
+
+	
+	/*카드 삭제  ======================================================================*/
+	/*==============================================================================*/
+	
+	@Override
+	public void delete(int no) throws Exception {
+		dao.deleteCard(no);
+	}
+	
+	
+	/*카드 삭제  ======================================================================*/
 	/*==============================================================================*/
 }
