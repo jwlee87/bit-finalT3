@@ -60,9 +60,10 @@
 		<property name="maxUploadSize" value="10485760" />
 	</bean>
 	
-	<!-- bcrypt 암호화  -->
-	<bean id="bcryptPasswordEncoder"
-		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<!-- sha256 암호화  -->
+	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+  		<constructor-arg name="strength" value="256"></constructor-arg>
+	</bean>
 	
 
 
