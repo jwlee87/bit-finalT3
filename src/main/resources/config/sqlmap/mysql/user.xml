@@ -17,6 +17,7 @@
 		<result property="userNo" column="user_no" />
 		<result property="userEmail" column="user_email" />
 		<result property="userNickName" column="user_nick_name" />
+		<result property="userPsw" column="user_psw" />
 		<result property="userRegDate" column="user_reg_date" />
 		<result property="userJoinNo" column="user_join_no" />
 		<result property="userConf" column="user_conf" />
