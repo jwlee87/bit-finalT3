@@ -262,11 +262,57 @@ public class UserController {
 		System.out.println("jsp입력 emai5555 : " + user.getUserEmail());
 		System.out.println("jsp입력 psw555 : " + user.getUserPsw());
 		String normalPsw = user.getUserPsw();	//jsp에서 암호 입력 받은거(평서문)
-		String encPsw = passwordEncoder.encodePassword(normalPsw, null);	//입력받은암호 암호화
 		
-		user.setUserPsw(encPsw);
-		System.out.println("로그인할때암호1(jsp) : " + user.getUserPsw());
-		
+		if (normalPsw.length() <= 18) {
+			String encPsw = passwordEncoder.encodePassword(normalPsw, null);	//입력받은암호 암호화
+			user.setUserPsw(encPsw);
+			System.out.println("로그인할때암호1(jsp) : " + user.getUserPsw());
+			
+			UserVO loginUser = service.userLogin(user);
+			if (service.userLogin(user) != null) {
+				System.out.println("로그인 성공 " + loginUser);
+				HttpSession session = request.getSession();
+			    session.setAttribute("user", loginUser);
+				param.put("userNo", loginUser.getUserNo());
+				param.put("userEmail", loginUser.getUserEmail());
+				param.put("userNickName", loginUser.getUserNickName());
+				param.put("userPsw", loginUser.getUserPsw());
+				param.put("normalPsw", normalPsw);
+				
+				param.put("loginOk", true);
+				System.out.println((UserVO)session.getAttribute("user"));
+				service.updateUserStatus(user);
+				return param;
+				
+			} else {
+				param.put("loginFail", false);
+				return param;
+			}
+			
+		} else {
+			UserVO loginUser = service.userLogin(user);
+			if (service.userLogin(user) != null) {
+				System.out.println("로그인 성공 " + loginUser);
+				HttpSession session = request.getSession();
+			    session.setAttribute("user", loginUser);
+				param.put("userNo", loginUser.getUserNo());
+				param.put("userEmail", loginUser.getUserEmail());
+				param.put("userNickName", loginUser.getUserNickName());
+				param.put("userPsw", loginUser.getUserPsw());
+				param.put("normalPsw", normalPsw);
+				
+				param.put("loginOk", true);
+				System.out.println((UserVO)session.getAttribute("user"));
+				service.updateUserStatus(user);
+				return param;
+				
+			} else {
+				param.put("loginFail", false);
+				return param;
+			
+		}
+		}
+		/*
 		UserVO loginUser = service.userLogin(user);
 
 		if (service.userLogin(user) != null) {
@@ -277,6 +323,7 @@ public class UserController {
 			param.put("userEmail", loginUser.getUserEmail());
 			param.put("userNickName", loginUser.getUserNickName());
 			param.put("userPsw", loginUser.getUserPsw());
+			param.put("normalPsw", normalPsw);
 			
 			param.put("loginOk", true);
 			System.out.println((UserVO)session.getAttribute("user"));
@@ -287,7 +334,7 @@ public class UserController {
 			param.put("loginFail", false);
 			return param;
 		}
-		
+		*/
 	}
 	
 	@ResponseBody
@@ -299,6 +346,23 @@ public class UserController {
 	}
 	
 	
+	
+	@ResponseBody
+	@RequestMapping("/user/encPassword.do")
+	public Map<String, Object> encPassword(String userEmail, String userPsw) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		
+		System.out.println("평서문 : " + userPsw);
+		String encPsw = passwordEncoder.encodePassword(userPsw, null);
+		System.out.println("암호문 : " + encPsw);
+		
+		param.put("userEmail", userEmail);
+		param.put("userPsw", userPsw);
+		
+		return param;
+		
+		
+	}
 	
 	
 

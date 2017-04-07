@@ -45,6 +45,9 @@
 			lf.userEmail.value = userEmail;
 			lf.userPsw.value = userPsw;
 			lf.remember_me.checked = true;
+		} else {
+			$("#userPsw").attr("maxlength", "17");
+			
 		}
 		
 	}
@@ -55,7 +58,7 @@
 		//로그인 정보를 저장 o
 		
 		if(checkbox.checked) {
-			isRemember = confirm("이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.")
+			isRemember = confirm("이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.");
 			if(!isRemember)
 				checkbox.checked = false;
 		}
@@ -116,19 +119,21 @@
 					userPsw : $("#userPsw").val()}
 		}).done(function(result){
 			if(result.loginOk) {
-				alert("1회원번호 : " + result.userNo);
-				alert("2메일주소 : " + result.userEmail);
-				alert("3별명 : " + result.userNickName);
-				alert("4암호 : " + result.userPsw);
+//				alert("1회원번호 : " + result.userNo);
+//				alert("2메일주소 : " + result.userEmail);
+//				alert("3별명 : " + result.userNickName);
+//				alert("4암호 : " + result.userPsw);
 				
 			var lf = document.loginForm;
-		 			if(lf.remember_me.checked){ saveLogin(lf.userEmail.value, result.userPsw)
-					lf.submit();	
+		 			if(lf.remember_me.checked){ 
+		 				saveLogin(lf.userEmail.value, result.userPsw);
+//		 				save(result.normalPsw);
+		 				lf.submit();	
 				} else saveLogin(""); 
 			 	lf.action = "/bit-finalT3/user/login.do"; 
 				 
 // 				setCookie(result.userEmail, result.userEmail , 1);
-				alert("쿠키 만들어짐?? : " + getCookie(userEmail.userEmail));
+//				alert("쿠키 만들어짐?? : " + getCookie(userEmail.userEmail));
 				self.close();
 				goMain(result);
 			}else {
@@ -137,14 +142,21 @@
 		})
 	})
 	
+//	function save(normalPsw){
+//		var psw = normalPsw;
+//		alert("save : " + psw);
+//		
+//		getLogin(psw);
+//	}
+	
 	
 	function goMain(result) {
 		var no = result.userNo;
 		var nickName = result.userNickName;
 		var email = result.userEmail;
-		alert("유저넘버 : " + no);
-		alert("별명 : " + nickName);
-		alert("이메일주소 : " + email);
+//		alert("유저넘버 : " + no);
+//		alert("별명 : " + nickName);
+//		alert("이메일주소 : " + email);
 		
 		opener.location.href ="/bit-finalT3/main/main.do";
 		
