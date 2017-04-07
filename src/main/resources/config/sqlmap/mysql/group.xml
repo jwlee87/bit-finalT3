@@ -11,12 +11,13 @@
 		<result property="groupDetailConf" column="group_detail_conf"/>
 		<result property="groupDetailRegDate" column="group_detail_reg_date"/>
 		<result property="groupHeaderName" column="group_header_name"/>
+		<result property="userNickName" column="user_nick_name"/>
+		<result property="userEmail" column="user_email"/>
 	</resultMap>
 	
 	<!-- 그룹 등록 -->
 	<!-- 그룹 헤더 등록 -->
 	<insert id="insertGroupHeader" parameterType="groupHeaderVO" useGeneratedKeys="true" keyProperty="groupHeaderNo"  >
-		
 		insert into tb_group_header (group_header_name)
 			 values ('새그룹')
 		<selectKey resultType="int" order="AFTER" keyProperty="groupHeaderNo">
@@ -24,12 +25,12 @@
 	    </selectKey>
 	</insert>
 	
-	<!-- 마지막에 등록된 그룹 리스트 조회 위해 추가 -->
-	<select id="selectOneHeader" resultType="groupHeaderVO" parameterType="int" >
+	<!-- 그룹 헤더 상세 조회 -->
+	<select id="selectOneHeader" parameterType="int" resultType="groupHeaderVO" >
 		select group_header_no as groupHeaderNo, 
 		       group_header_name as groupHeaderName
 		  from tb_group_header
-	 	 where group_header_no = #{groupHeaderNo}
+	     where group_header_no = #{groupHeaderNo}
 	</select>
 	
 	<!-- 그룹 디테일 등록 -->
@@ -43,12 +44,18 @@
 		)
 	</insert>
 	
-	<!-- 번호에 해당하는 그룹 정보 조회 -->
-<!-- 	<select id="selectOneDetail" parameterType="int" resultMap="groupDetailMap">
-		select *
-		  from tb_group_detail
-		 where group_header_no = #{groupHeadereNo}
-	</select> -->
+	<!-- 그룹 상세 조회 -->
+	<select id="selectOneDetail" parameterType="int" resultMap="groupDetailMap">
+			select *
+		  	  from (
+		  	  	select a.group_detail_no, b.* 
+		  		  from tb_group_detail a 
+		     left join tb_user b
+		    		on a.user_no = b.user_no
+		    	 where a.group_header_no = #{groupHeaderNo}
+		    	order by b.user_nick_name asc	  		  
+		  		  	) c
+	</select>
 	
 	<!-- 그룹 헤더 수정 -->
 <!-- 	<update id="updateGroupHeader" parameterType="groupHeaderVO">
@@ -60,7 +67,7 @@
 	<!-- 그룹 디테일 수정 -->
 <!-- 	<update id="updateGroupDetail" parameterMap="groupDetailMap">
 		update tb_group_detail
-		   set group_header_name = #{groupHeaderName}
+		   set user_no = #{userNo}
 		 where group_header_no = #{groupHeaderNo}
 	</update>	 -->
 	

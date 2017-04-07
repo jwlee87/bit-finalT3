@@ -10,8 +10,21 @@ public class GroupDetailVO {
 	private String groupDetailConf;
 	private Date groupDetailRegDate;
 	private String groupHeaderName;
+	private String userNickName;
+	private String userEmail;
 	
-	
+	public String getUserNickName() {
+		return userNickName;
+	}
+	public void setUserNickName(String userNickName) {
+		this.userNickName = userNickName;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
 	public String getGroupHeaderName() {
 		return groupHeaderName;
 	}

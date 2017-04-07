@@ -26,9 +26,11 @@
 		<c:forEach var="list" items="${list}">
 			<input type="hidden" value="${list.groupHeaderNo}" id="${list.groupHeaderNo}"/>
 			<div class="sticky" >
-				<a class="iframe" href="groupDetail.do?groupHeaderNo=${list.groupHeaderNo}">
-					<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" >
-				</a>
+				<div class="setting">
+					<a class="iframe" href="groupDetail.do?groupHeaderNo=${list.groupHeaderNo}">
+						<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" >
+					</a>
+				</div>
 				<c:out value="${list.groupHeaderName}"/>
 			</div>	
 		</c:forEach>
@@ -47,15 +49,15 @@
 		</div>
 	</div>
 	
-</body>
+
 <script>
 
+	/** 팝업 **/
 	$(document).ready(function(){
 		$(".iframe").colorbox({iframe:true, width:"650px", height:"380px"});
 	});
 
 	/** 새로운 그룹 등록 **/
-	
 	$("#maker").click(function () {
 		
 		$.ajax({
@@ -64,21 +66,21 @@
 		  dataType: "json"
 	  	})
 	  	.done (function(result){
-	  		// alert("그룹 등록 성공1" + result);
+	  		 alert("그룹 등록 성공1" + result.groupHeaderName);
 	  		
 	  		
 	  		var html = '<div class="sticky">'
+	  		+ '<div class="setting">'
 	  		+ '<a class="iframe" href="groupDetail.do?groupHeaderNo='+result.groupHeaderNo+'">'
 			+ '<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" >'
 			+ '</a>'
+			+ '</div>'
 			+ result.groupHeaderName
 			+ '</div>';
 	  		
 	  		
 	  		$("#maker").after(html);
 	  		$(".iframe").colorbox({iframe:true, width:"650px", height:"380px"});
-	  		
-	 	    
 	 	    
 	  	});
 		
@@ -94,4 +96,5 @@
 	$('.btn_insert').click(function(){
 	})
 </script>
+</body>
 </html>

@@ -27,17 +27,15 @@ public class GroupDAO {
 		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.selectGroupCnt", search);
 	}
 	
-	/*초기 기본 그룹 등록(Header+Detail)
-	 *auto num,"새그룹"/ 받아온 headerNo, userNo(방장)************/
+	/*초기 기본 그룹 등록(Header+Detail)***************************/
 	@Transactional(rollbackFor=Exception.class)
 	public GroupHeaderVO insertGroup() {
+		
 		
 		GroupHeaderVO headerVO = new GroupHeaderVO();
 		sqlSessionTemplate.insert("kr.co.coily.repository.dao.GroupDAO.insertGroupHeader", headerVO);
 		int headerNo = headerVO.getGroupHeaderNo();
-		System.out.println("####################################################################");
-		System.out.println("headerNo : " + headerNo);
-		System.out.println("####################################################################");
+//		System.out.println("headerNo : " + headerNo);
 		
 		GroupDetailVO detail = new GroupDetailVO();
 		detail.setGroupHeaderNo(headerNo);
@@ -47,9 +45,15 @@ public class GroupDAO {
 		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.selectOneHeader", headerNo);
 	}
 	
-	/*그룹 번호에 해당하는 그룹 정보 조회 *******************************/
-	public GroupDetailVO selectOneGroup(int grpNo) {
-		GroupDetailVO detail = sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.selectOneDetail", grpNo);
+	/*그룹 번호에 해당하는 그룹헤더 정보 조회 ****************************/
+	public GroupHeaderVO selectGrpHeader(int grpNo) {
+		GroupHeaderVO header = sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.selectOneHeader", grpNo);
+		return header;
+	}
+
+	/*그룹 번호에 해당하는 그룹디테일 정보 조회 ****************************/
+	public List<GroupDetailVO> selectGrpDetail(int grpNo) {
+		List<GroupDetailVO> detail = sqlSessionTemplate.selectList("kr.co.coily.repository.dao.GroupDAO.selectOneDetail", grpNo);
 		return detail;
 	}
 	

@@ -95,3 +95,26 @@
 		max-height: 0.3px;
 		padding-left: 95%;
 	}
+	
+	#cboxTopLeft, #cboxTopRight, #cboxBottomLeft, #cboxBottomRight {
+		width: 21px;	!important;
+		height: 21px;	!important;
+	}
+	
+	#cboxTopCenter, #cboxBottomCenter {
+		width: 608px;	!important;
+		height: 21px;	!important;
+	}
+	
+	#cboxMiddleLeft, #cboxMiddleRight {
+		width: 21px;	!important;
+		height: 338px;	!important;
+	}
+	
+	#cboxContent {
+		width: 608px;	!important;
+		height: 338px;	!important;
+	}
+	
+	#cboxLoadedContent
+	
