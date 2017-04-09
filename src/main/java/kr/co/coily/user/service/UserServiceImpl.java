@@ -2,6 +2,7 @@ package kr.co.coily.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.coily.repository.dao.UserDAO;
 import kr.co.coily.repository.vo.UserVO;
@@ -12,6 +13,7 @@ public class UserServiceImpl implements UserService  {
 		@Autowired
 		UserDAO dao;
 
+		@Transactional
 		@Override
 		public void userJoin(UserVO user) throws Exception {
 			dao.userJoin(user);
@@ -48,6 +50,22 @@ public class UserServiceImpl implements UserService  {
 		public void updateUserStatus(UserVO user) throws Exception {
 			dao.updateUserStatus(user);
 			
+		}
+
+		@Override
+		public UserVO userInfo(UserVO user) throws Exception {
+			return dao.userInfo(user);
+		}
+
+		@Override
+		public UserVO userInfoConfed(String userEmail) throws Exception {
+			return dao.userInfoConfed(userEmail);
+					
+		}
+
+		@Override
+		public void updatePassword(UserVO user) throws Exception {
+			dao.updatePassword(user);
 		}
 
 }

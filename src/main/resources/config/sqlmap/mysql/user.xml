@@ -27,22 +27,28 @@
 	
 
 	<insert id="userJoin" parameterType="UserVO">
-			insert into tb_user(
-				user_email,
-				user_psw,
-				user_nick_name,
-				user_join_no
-			   )values (
-			   	#{userEmail},
-			   	#{userPsw},
-			   	#{userNickName},
-			   	#{userJoinNo}
-			   )
-			   <selectKey keyProperty="userNo" order="AFTER" resultType="int">
+		insert into tb_user(
+			user_email,
+			user_psw,
+			user_nick_name,
+			user_join_no
+		   )values (
+			#{userEmail},
+			#{userPsw},
+			#{userNickName},
+			#{userJoinNo}
+		   )
+		<selectKey keyProperty="userNo" order="AFTER"  resultType="int">
 			   		  SELECT LAST_INSERT_ID()
-			   </selectKey>
-	
+	   </selectKey>
 	</insert>
+	
+	<select id="userInfo" parameterType="UserVo" resultMap="userMap">
+		select *
+		  from tb_user
+		 where user_email = #{userEmail}
+		   and user_psw = #{userPsw}
+	</select>
 	
 	
 	<select id="emailCheck" parameterType="String" resultType="String">
@@ -87,8 +93,24 @@
 		update tb_user
 		   set user_status = 1
 		 where user_email = #{userEmail}
-	
 	</update>
+	
+	
+	<select id="userInfoConfed" parameterType="String" resultMap="userMap">
+		select user_email, user_psw, user_nick_name
+		  from tb_user
+		 where user_conf = 'Y'
+		   and user_email = #{userEmail} 
+	</select>
+	
+	
+	<update id="updatePassword" parameterType="userVO">
+		update tb_user
+		   set user_psw = #{userPsw}
+		 where user_email = #{userEmail}
+	</update>
+	
+	
 
 
 </mapper>

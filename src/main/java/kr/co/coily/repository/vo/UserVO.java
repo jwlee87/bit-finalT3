@@ -1,15 +1,22 @@
 package kr.co.coily.repository.vo;
 
-import java.util.Date;
-
+/**회원정보*/
 public class UserVO {
+	/**회원번호*/
 	private int userNo;
+	/**이메일*/
 	private String userEmail;
+	/**비밀번호*/
 	private String userPsw;
+	/**별명*/
 	private String userNickName;
-	private Date userRegDate;
+	/**가입날짜*/
+	private String userRegDate;
+	/**로그인,로그아웃 상태*/
 	private String userStatus;
+	/**회원가입 승인번호*/
 	private int userJoinNo;
+	/**회원가입 승인 상태*/
 	private String userConf;
 
 	
@@ -44,10 +51,10 @@ public class UserVO {
 	public void setUserNickName(String userNickName) {
 		this.userNickName = userNickName;
 	}
-	public Date getUserRegDate() {
+	public String getUserRegDate() {
 		return userRegDate;
 	}
-	public void setUserRegDate(Date userRegDate) {
+	public void setUserRegDate(String userRegDate) {
 		this.userRegDate = userRegDate;
 	}
 	public String getUserStatus() {
@@ -56,7 +63,6 @@ public class UserVO {
 	public void setUserStatus(String userStatus) {
 		this.userStatus = userStatus;
 	}
-	
 	public String getUserConf() {
 		return userConf;
 	}

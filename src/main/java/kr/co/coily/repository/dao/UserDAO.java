@@ -18,4 +18,10 @@ public interface UserDAO {
 
 	public void updateUserStatus(UserVO user) throws Exception;
 
+	public UserVO userInfo(UserVO user) throws Exception;
+
+	public UserVO userInfoConfed(String userEmail) throws Exception;
+
+	public void updatePassword(UserVO user) throws Exception;
+
 }
