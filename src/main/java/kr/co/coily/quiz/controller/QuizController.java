@@ -21,7 +21,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.coily.quiz.service.QuizService;
 import kr.co.coily.repository.vo.QuizCommentVO;
@@ -34,7 +33,14 @@ public class QuizController {
 	
 	@Autowired
 	private QuizService service;
-
+	
+	//퀴즈 폼
+	@RequestMapping("/writeForm.do")
+	public void writeForm() throws Exception {
+		
+	}
+	
+	
 	//퀴즈 등록
 	@RequestMapping("/write.do")
 	@ResponseBody

@@ -73,7 +73,7 @@
 	-->
 	
 	<!-- 퀴즈 등록 폼 이동 -->
-	<mvc:view-controller path="/quiz/writeForm.do" view-name="quiz/writeForm" />
+<!-- 	<mvc:view-controller path="/quiz/writeForm.do" view-name="quiz/writeForm" /> -->
 	
 	
 	<mvc:default-servlet-handler />

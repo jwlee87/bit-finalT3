@@ -7,6 +7,7 @@
 <title>Insert title</title>
 <link href="${pageContext.request.contextPath}/css/quiz/writeForm.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
+<script src="${pageContext.request.contextPath}/js/quiz/writeForm.js"></script>
 </head>
 <body>
 <h1>
@@ -42,51 +43,6 @@
   </div>
 </div>
 
-<script>
-	$("#btn1").click(function(){
-		$.ajax({
-			url : "write.do",
-			data : {"title": $("#title1").val(),
-					"content": $("#content").val(),
-					"answer": $("#answer1").val(),
-					"writeType": $("[name=tabs-two]:checked").val(),
-					},
-			async: false,
-			type : "POST"
-		})
-		.done(function(result){
-			alert("등록되었습니다.")
-			self.close();
-			opener.location.reload();
-// 			location.href="${pageContext.request.contextPath}/quiz/list.do"
-		})
-	})
-	
-		$("#btn2").click(function(){
-			if(!$("[name=urlType]:checked").val()) {
-				alert("체크 좀 해라")
-				return false;
-			}
-		$.ajax({
-			url : "write.do",
-			data : {"title": $("#title2").val(),
-					"writeType": $("[name=tabs-two]:checked").val(),
-					"urlType": $("[name=urlType]:checked").val(),
-					"url": $("[name=url]").val(),
-					"answer": $("#answer2").val(),
-					},
-			async: false,
-			type : "POST"
-		})
-		.done(function(result){
-			alert("등록되었습니다.")
-			self.close();
-			opener.location.reload();
-// 			location.href="${pageContext.request.contextPath}/quiz/list.do"
-		})
-	})
-	
-</script>
 
 
 </body>
