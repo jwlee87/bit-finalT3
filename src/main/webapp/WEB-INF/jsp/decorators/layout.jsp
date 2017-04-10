@@ -11,11 +11,10 @@
 	<meta name="author" content="">
 	
 	<title><decorator:title default="JLStory" /></title>
-	<c:import url="../main/mainHeader.jsp" />
 	<decorator:head />
 </head>
-<body>
 
+<body>
 	<!-- header -->
 	<c:import url="../navigator.jsp" />
 	
@@ -24,8 +23,7 @@
 	
 	<!-- footer -->
 	<c:import url="../footer.jsp" />
- 
- </body>
+</body>
 </html>
 
 

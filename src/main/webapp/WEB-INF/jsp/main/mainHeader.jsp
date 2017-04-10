@@ -10,11 +10,13 @@
 <link href="${pageContext.request.contextPath}/css/comm/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/docs.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/colorbox.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/magnific-popup.css" rel="stylesheet">
 
 <!-- JavaScript -->
 <script src="${pageContext.request.contextPath}/js/comm/jquery-1.10.2.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/jquery.magnific-popup.js"></script>
 
 
 <script src="${pageContext.request.contextPath}/js/comm/owl.carousel.js"></script>
@@ -26,9 +28,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/comm/jquery.corner.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/wow.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/classie.js"></script>
-<script src="${pageContext.request.contextPath}/js/comm/uiMorphingButton_inflow.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/js/comm/uiMorphingButton_inflow.js"></script> --%>
 <script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script>
-<script src="${pageContext.request.contextPath}/js/comm/modernizr-2.8.3.min.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/js/comm/modernizr-2.8.3.min.js"></script> --%>
 
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/comm/general.css" rel="stylesheet">
