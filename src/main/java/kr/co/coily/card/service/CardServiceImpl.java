@@ -76,11 +76,11 @@ public class CardServiceImpl implements CardService{
 		dao.updateCard(card);
 	}
 	
-	@Override
-	public CardVO updateForm(int no) throws Exception{
-		return dao.selectDetailCard(no);
-	}
-	
+//	@Override
+//	public CardVO updateForm(int no) throws Exception{
+//		return dao.selectDetailCard(no);
+//	}
+//	
 	
 	/*카드 수정  ======================================================================*/
 	/*==============================================================================*/

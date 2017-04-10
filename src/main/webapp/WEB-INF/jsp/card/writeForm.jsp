@@ -32,7 +32,6 @@
 	<script type="text/javascript">
 	$("#btn").click(function() {
 		
-		
 		$.ajax({
 			url: "write.do",
 			type:"POST",

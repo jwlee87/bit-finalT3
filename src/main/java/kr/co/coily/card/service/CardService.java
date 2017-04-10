@@ -33,7 +33,7 @@ public interface CardService {
 	
 	public void update(CardVO card) throws Exception;
 
-	public CardVO updateForm(int no) throws Exception;
+//	public CardVO updateForm(int no) throws Exception;
 	
 	/* 카드 수정	*/
 	/* ==================================================================*/

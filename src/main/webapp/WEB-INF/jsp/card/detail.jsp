@@ -25,12 +25,12 @@
 			<c:out value="${detail.cardContent}"></c:out>
 		</div>
 		
-		
-		
 <!-- 		<div> -->
 <%-- 			<c:out value="${detail.userNo}"></c:out> --%>
 <!-- 		</div> -->
-		
+			<input type="hidden" id="cardNo" value="${param.cardNo}" />
+			<input type="hidden" id="userNo" value="${detail.userNo}"/>
+			
 			<textarea id="detailNone" name="cardContent" required></textarea>
 			<button id="detailNoneButton">수정</button>
 	</div>
@@ -38,15 +38,36 @@
 </body>
 
 <script type="text/javascript">
-
-
-$("#detailbolck").click(function () {
-	alert("내용을 보이게하자")
+$(function(){
+	$("#detailNone").css("display", "none")
+	$("#detailNoneButton").css("display","none")
 })
 
-$("#detailNoneButton").click(function() {
-	alert("내용을 숨기자")
+$("#detailBolck").click(function () {
+// 	alert("글수정 입니다")
+	$("#detailNone").css("display", "block")
+	$("#detailBolck").css("display", "none")
+	$("#detailNoneButton").css("display", "block")
+	
+	$("#detailNoneButton").click(function() {
+		
+		
+		$.ajax({
+			url: "update.do",
+			type:"POST",
+			dataType:"json",
+			data: {cardContent:$("#detailNone").val(),
+				   cardNo:$("#cardNo").val(),
+				   userNo:$("#userNo").val()
+				   },
+		}).done(function(result){
+			alert("수정 완료염");
+			self.close()
+			opener.location.reload()
+		})
+	});
 })
+
 
 
 

@@ -91,18 +91,16 @@ public class CardContorller {
 	
 	/*카드 수정  ======================================================================*/
 	/*==============================================================================*/
+	@ResponseBody
 	@RequestMapping("/update.do")
-	public void update(int cardNo, String cardContent, int userNo) throws Exception {
-		System.out.println(cardNo);
-		System.out.println(cardContent);
-		System.out.println(userNo);
+	public String update(CardVO card) throws Exception {
+		System.out.println("카드넘버 : " + card.getCardNo());
+		System.out.println("수정내용 : " + card.getCardContent());
+		System.out.println("회원번호 : " + card.getUserNo());
 		
-		CardVO card = new CardVO();
-		card.setCardNo(cardNo);
-		card.setCardContent(cardContent);
-		card.setUserNo(userNo);
-//		card.setFileGroupNo(fileGroupNo);
+		card.setCardContent(card.getCardContent());
 		Service.update(card);
+		return "ok";
 	}
 //		card.setFileGroupNo(fileGroupNo);
 	/*카드 수정  ======================================================================*/
@@ -115,9 +113,10 @@ public class CardContorller {
 	
 	
 	@RequestMapping("/delete.do")
-	public void delete(int cardNo, RedirectAttributes attr) throws Exception {
+	public String delete(int cardNo, RedirectAttributes attr) throws Exception {
 		System.out.println("삭제되나요???????");
 		Service.delete(cardNo);
+		return "redirect:list.do";
 	}
 	
 	/*카드 삭제  ======================================================================*/

@@ -107,18 +107,18 @@ button:hover {
   cursor: pointer;
 }
 
-#detailBlock {
-	width: 100px;
-	height: 100px;
-	display: block;
-}
-
-#detailNone {
+/* #detailBlock { */
 /* 	width: 100px; */
 /* 	height: 100px; */
-	display: none;	
-}
+/* 	display: block; */
+/* } */
 
-#detailNoneButton{
-	display: none;	
-}
+/* #detailNone { */
+/*  	width: 100px;  */
+/*  	height: 100px;  */
+/* 	display: none;	 */
+/* } */
+
+/* #detailNoneButton{ */
+/* 	display: none;	 */
+/* } */

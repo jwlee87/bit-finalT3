@@ -83,6 +83,19 @@
 <!-- 			카드 수정 			-->
 <!-- ============================================================================== -->
 	
+	 <update id="updateCard" parameterType="cardVO">
+    	 update tb_card
+    	   set card_content = #{cardContent}
+    	 where card_no = #{cardNo}
+    	   and user_no = #{userNo}
+    </update>
+	
+	
+	
+<!-- 			카드 수정 			-->
+<!-- ============================================================================== -->
+
+
 
 
 <!-- 			카드 삭제 			-->
