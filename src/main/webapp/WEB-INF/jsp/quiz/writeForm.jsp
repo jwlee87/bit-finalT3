@@ -20,6 +20,7 @@
     <div>
 	    <input type="text" class="feedback-input" name="title1" id="title1" placeholder="title" maxlength="50"/> 
 	    <textarea class="feedback-input" cols="50" rows="12" name="content" id="content" placeholder="content"></textarea>
+	    <input type="text" class="feedback-input" name="answer1" id="answer1" placeholder="answer" maxlength="50"/> 
 	    <button type="button" id="btn1">register</button>
     </div>
   </div>
@@ -33,8 +34,9 @@
 		<label for="algospot">ALGOSPOT</label>
 		<input type="radio" id="euler" name="urlType" value="e" />
 		<label for="euler">Project Euler</label><br>
-	    <input type="text" class="feedback-input" name="title2" id="title2" placeholder="title" lang="50" maxlength="50" />
-	    <input type="text" class="feedback-input" name="url" id="url" placeholder="url" lang="50" maxlength="50" />
+	    <input type="text" class="feedback-input" name="title2" id="title2" placeholder="title" lang="80" maxlength="100" />
+	    <input type="text" class="feedback-input" name="url" id="url" placeholder="url" lang="80" maxlength="100" />
+	    <input type="text" class="feedback-input" name="answer2" id="answer2" placeholder="answer" maxlength="50"/> 
 	    <button type="button" id="btn2">register</button>
     </div>
   </div>
@@ -43,9 +45,10 @@
 <script>
 	$("#btn1").click(function(){
 		$.ajax({
-			url : "/test_final/quiz/write.do",
+			url : "write.do",
 			data : {"title": $("#title1").val(),
 					"content": $("#content").val(),
+					"answer": $("#answer1").val(),
 					"writeType": $("[name=tabs-two]:checked").val(),
 					},
 			async: false,
@@ -65,11 +68,12 @@
 				return false;
 			}
 		$.ajax({
-			url : "/test_final/quiz/write.do",
+			url : "write.do",
 			data : {"title": $("#title2").val(),
 					"writeType": $("[name=tabs-two]:checked").val(),
 					"urlType": $("[name=urlType]:checked").val(),
-					"url": $("[name=url]").val()
+					"url": $("[name=url]").val(),
+					"answer": $("#answer2").val(),
 					},
 			async: false,
 			type : "POST"

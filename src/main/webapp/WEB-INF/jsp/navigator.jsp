@@ -42,7 +42,7 @@
 
 							<li><a href="#">프로필</a></li>
 				        	<li><a href="javascript:goLogout(${user.userNo});">LogOut</a></li>
-				        	<li><a href="#">Quiz Board</a></li>
+				        	<li><a href="${pageContext.request.contextPath}/quiz/list.do">Quiz Board</a></li>
 				        	<li class="divider"></li>
 				        	<li><a href="#">Separated link</a></li>
 				        	<li class="divider"></li>
@@ -91,6 +91,6 @@ function editLink() {
 	location.href = "../edit/list.do";
 }
 function quizLink() {
-	location.href = "../quiz/list.do";
+	location.href = "${pageContext.request.contextPath}/quiz/list.do";
 }
 </script>

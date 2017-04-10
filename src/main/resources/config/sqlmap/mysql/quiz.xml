@@ -14,14 +14,16 @@
 			quiz_title,
 			quiz_content,
 			quiz_write_type,
-			quiz_url_type
+			quiz_url_type,
+			quiz_answer
 		)
 		values(
 			#{userNo},
 			#{quizTitle},
 			#{quizContent},
 			#{quizWriteType},
-			#{quizUrlType}
+			#{quizUrlType},
+			#{quizAnswer}
 		)
 	</insert>
 	
@@ -35,6 +37,7 @@
 		<result column="quiz_write_type" property="quizWriteType"/>
 		<result column="quiz_url_type" property="quizUrlType"/>
 		<result column="quiz_reg_date" property="quizRegDate"/>
+		<result column="quiz_answer" property="quizAnswer"/>
 	</resultMap>
 	
 	<select id="selectQuiz" resultMap="quizMap">
@@ -49,5 +52,79 @@
 		from tb_quiz
 	</select>
 	
+	<!-- 퀴즈 삭제 -->
+	<delete id="deleteQuiz" parameterType="int">
+		delete
+		from tb_quiz
+		where quiz_no = #{quizNo}
+    </delete>
+	
+	<!-- 퀴즈하나(수정폼) -->
+	<select id="selectOneQuiz" parameterType="int" resultMap="quizMap">
+		select *
+		from tb_quiz
+		where quiz_no = #{quizNo}
+	</select>
+	
+	<!-- 퀴즈 수정 -->
+	<update id="updateQuiz" parameterType="quizVO">
+		update tb_quiz
+		set quiz_title = #{quizTitle},
+			quiz_content = #{quizContent}
+		where quiz_no = #{quizNo}
+	</update>
+	
+	
+	<resultMap type="quizCommentVO" id="quizCommentMap">
+		<result column="quiz_comment_no" property="quizCommentNo"/>
+		<result column="quiz_no" property="quizNo"/>
+		<result column="user_no" property="userNo"/>
+		<result column="quiz_solve_chk" property="quizSolveChk"/>
+		<result column="quiz_comment_reg_date" property="quizCommentRegDate"/>
+		<result column="user_nick_name" property="userNickName"/>
+	</resultMap>
+
+	
+	<select id="selectQuizComment" parameterType="searchVO" resultMap="quizCommentMap">
+		select u.user_nick_name, qc.quiz_solve_chk, qc.quiz_comment_reg_date, qc.quiz_no
+		from tb_quiz_comment qc, tb_user u
+		where qc.user_no = u.user_no
+		and qc.quiz_no = #{quizNo}
+		group by u.user_nick_name, qc.quiz_solve_chk
+		order by qc.quiz_comment_no desc
+		limit #{begin}, 5
+	</select>
+	
+	<select id="selectQuizCommentCount" parameterType="searchVO" resultType="int">
+		select count(*)
+		from tb_quiz_comment
+	</select>
+	
+	<!-- 댓글 목록 -->
+	<select id="selectQuizCommentByNo" parameterType="int" resultMap="quizCommentMap">
+		select qc.quiz_comment_no, qc.quiz_no, qc.quiz_solve_chk, qc.quiz_comment_reg_date, u.user_nick_name
+		from tb_quiz_comment qc, tb_user u
+		where qc.user_no = u.user_no
+		and qc.quiz_no = #{quizNo}
+		order by quiz_comment_no desc
+	</select>
+
+
+	<!--  댓글 등록 -->
+	<insert id="insertQuizComment" parameterType="quizCommentVO">
+		<selectKey keyProperty="quizCommentNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
+		insert into tb_quiz_comment(
+			quiz_no,
+			user_no,
+			quiz_solve_chk
+		) values (
+			#{quizNo},
+			#{userNo},
+			#{quizSolveChk}
+		)
+	</insert>
+
 	
 </mapper>

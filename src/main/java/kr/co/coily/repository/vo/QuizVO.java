@@ -3,13 +3,16 @@ package kr.co.coily.repository.vo;
 import java.util.Date;
 
 public class QuizVO {
+	
 	private int quizNo;
 	private int userNo;
 	private String quizTitle;
 	private String quizContent;
 	private String quizWriteType;
 	private String quizUrlType;
+	private String quizAnswer;
 	private Date quizRegDate;
+	
 	
 	public int getQuizNo() {
 		return quizNo;
@@ -47,10 +50,19 @@ public class QuizVO {
 	public void setQuizUrlType(String quizUrlType) {
 		this.quizUrlType = quizUrlType;
 	}
+	public String getQuizAnswer() {
+		return quizAnswer;
+	}
+	public void setQuizAnswer(String quizAnswer) {
+		this.quizAnswer = quizAnswer;
+	}
 	public Date getQuizRegDate() {
 		return quizRegDate;
 	}
 	public void setQuizRegDate(Date quizRegDate) {
 		this.quizRegDate = quizRegDate;
 	}
+	
+	
+
 }
