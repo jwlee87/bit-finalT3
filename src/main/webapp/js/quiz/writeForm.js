@@ -1,3 +1,5 @@
+$(function(){
+
 	$("#btn1").click(function(){
 		$.ajax({
 			url : "write.do",
@@ -40,4 +42,4 @@
 // 			location.href="${pageContext.request.contextPath}/quiz/list.do"
 		})
 	})
-	
+});
