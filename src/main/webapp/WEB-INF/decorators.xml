@@ -20,7 +20,7 @@
     </decorator>
     
     <decorator name="quiz" page="decorators/layout.jsp">       
-        <pattern>/quiz/*</pattern>                     	
+        <pattern>/*/quiz/*</pattern>                     	
     </decorator>
     
     <decorator name="main" page="decorators/layout.jsp">       

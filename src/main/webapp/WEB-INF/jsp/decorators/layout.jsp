@@ -20,10 +20,8 @@
 	
 	<!-- content -->
 	<decorator:body></decorator:body>
-	
+	<decorator:getProperty property="page.local_script"></decorator:getProperty>
 	<!-- footer -->
 	<c:import url="../footer.jsp" />
 </body>
 </html>
-
-
