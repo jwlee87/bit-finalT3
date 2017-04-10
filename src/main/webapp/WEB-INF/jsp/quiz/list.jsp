@@ -11,7 +11,7 @@
 <link href="${pageContext.request.contextPath}/css/quiz/list.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
-<script src="${pageContext.request.contextPath}/quiz/js/quizList.js"></script>
+<script src="${pageContext.request.contextPath}/js/quiz/quizList.js"></script>
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 <script src="https://cloud.tinymce.com/stable/plugins.min.js?apiKey=iuofftzqoh6hzo9eitfs6x1uw8zk5zwsp39id0t0wu45q89m"></script>
 </head>

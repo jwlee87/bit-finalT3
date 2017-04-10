@@ -71,7 +71,11 @@
 	<!-- 메인페이지 이동 
 	<mvc:view-controller path="/main/main.do" />
 	-->
-
+	
+	<!-- 퀴즈 등록 폼 이동 -->
+	<mvc:view-controller path="/quiz/writeForm.do" view-name="quiz/writeForm" />
+	
+	
 	<mvc:default-servlet-handler />
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
