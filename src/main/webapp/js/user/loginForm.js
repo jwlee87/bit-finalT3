@@ -101,7 +101,7 @@
 	}
 	
 	
-
+$(function(){
 	$("#loginBtn").click(function(){
 		var userEmail = $("#userEmail").val();
 		var userPsw = $("#userPsw").val();
@@ -134,14 +134,15 @@
 				 
 // 				setCookie(result.userEmail, result.userEmail , 1);
 //				alert("쿠키 만들어짐?? : " + getCookie(userEmail.userEmail));
-				self.close();
+//				self.close();
 				goMain(result);
 			}else {
+				
 				   swal("로그인 실패", "회원정보가 올바르지 않습니다:)", "error");
 			}
-		})
 	})
-	
+	})
+})
 //	function save(normalPsw){
 //		var psw = normalPsw;
 //		alert("save : " + psw);
@@ -158,9 +159,12 @@
 //		alert("별명 : " + nickName);
 //		alert("이메일주소 : " + email);
 		
-		opener.location.href ="/bit-finalT3/main/main.do";
+		parent.location.href ="/bit-finalT3/main/main.do";
 		
-	}
+}
 	
 	
+	
+	
+
 	

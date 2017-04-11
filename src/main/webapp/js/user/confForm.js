@@ -43,9 +43,9 @@ function paperAnim() {
 			if (result == "yes") {
 //				swal("회원가입 완료!");
 				swal("회원가입 완료!", "3초후 창이 닫힙니다!", "success");
-				clo = setTimeout(closeWin, 1800); // 3000ms(3초)가 경과하면
+//				location.href = "/bit-finalT3/main/main.do";
+				clo = setTimeout(closeWin, 1600); // 3000ms(3초)가 경과하면
 //				swal("회원가입 완료!!");
-//				self.close();
 			}else {
 				swal("인증번호가 틀렸습니다.");
 			}
@@ -54,7 +54,19 @@ function paperAnim() {
 
 	})
 	
+	
 	function closeWin() {
-		self.close();
+//		top.window.close();
+//		  window.open('', '_self', '');
+//		  window.close();
+//		  return false;
+		
+//		parent.window.close();
+//		if (!opener.closed){
+//	           opener.document.location.reload();
+//	           window.close();
+		window.open('/bit-finalT3/index.html','_parent').parent.close();
+
+		
 	}
 	

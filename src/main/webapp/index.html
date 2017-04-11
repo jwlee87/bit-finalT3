@@ -12,7 +12,7 @@
     <meta name="author" content="">
 
     <title>Coily - Dayily Study</title>
-
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="css/comm/bootstrap.min.css" rel="stylesheet">
  
@@ -31,11 +31,12 @@
     <link href="css/comm/owl.theme.css" rel="stylesheet">
 	<link href="css/comm/style.css" rel="stylesheet">
 	<link href="css/comm/animate.css" rel="stylesheet">
+	<link href="css/comm/colorbox.css" rel="stylesheet">
 	
 	<!-- Magnific Popup core CSS file -->
-	<link rel="stylesheet" href="css/comm/magnific-popup.css"> 
 	
 	<script src="js/comm/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
+	<script src="js/comm/jquery.colorbox.js"></script>
 	<!--[if IE 9]>
 		<script src="js/comm/PIE_IE9.js"></script>
 	<![endif]-->
@@ -64,8 +65,8 @@
 			<h4 class="h3_home wow fadeIn" data-wow-delay="0.6s">매일 코일리가 당신의 Coding Study를 도와드립니다 :-) </h4>
 			<h4 class="h3_home wow fadeIn" data-wow-delay="0.6s">지금 바로 시작해보세요. </h4>
 			<ul class="list-inline intro-social-buttons">
-				<li><a href="javascript:goLoginForm();" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">로그인</span></a></li>
-				<li id="download" ><a href="javascript:goJoinForm();" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">회원가입</span></a></li>
+				<li ><a id="loginPopup" href="/bit-finalT3/user/loginForm.do" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s"><span class="network-name">로그인</span></a></li>
+				<li ><a id="joinPopup" href="/bit-finalT3/user/joinForm.do" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">회원가입</span></a></li>
 			</ul>
 		</div>    
         <!-- /.container -->
@@ -78,13 +79,18 @@
 
     <!-- JavaScript -->
     <script>
-    	function goJoinForm(){
+    
+   	 	$("#joinPopup").colorbox({iframe:true, width:"440px", height:"675px"});
+		$("#loginPopup").colorbox({iframe:true, width:"440px", height:"570px"});
+    
+    
+    	/* function goJoinForm(){
     		window.open("/bit-finalT3/user/joinForm.do","","width=700px, height=800px, status=no,toolbar=no,scrollbars=no");
     	}
     	
     	function goLoginForm() {
     		window.open("/bit-finalT3/user/loginForm.do", "", "width=700px, height=800px, status=no,toolbar=no,scrollbars=no");
-    	}
+    	} */
     	
     </script>
     <script src="js/comm/jquery-1.10.2.js"></script>

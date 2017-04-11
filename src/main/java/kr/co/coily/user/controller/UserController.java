@@ -265,7 +265,7 @@ public class UserController {
 			
 			UserVO loginUser = service.userLogin(user);
 			if (service.userLogin(user) != null) {
-				System.out.println("로그인 성공 " + loginUser);
+				System.out.println("로그인 성공 :  " + loginUser);
 				HttpSession session = request.getSession();
 			    session.setAttribute("user", loginUser);
 				param.put("userNo", loginUser.getUserNo());
@@ -274,15 +274,18 @@ public class UserController {
 				param.put("userPsw", loginUser.getUserPsw());
 				param.put("normalPsw", normalPsw);
 				param.put("userConf", loginUser.getUserConf());
-				
+				System.out.println("뭐가문제지??");
 				param.put("loginOk", true);
 				System.out.println((UserVO)session.getAttribute("user"));
 				service.updateUserStatus(user);
+				System.out.println("444444");
 				return param;
 				
 			} else {
+				System.out.println("로그인실패1");
 				param.put("loginFail", false);
-				param.put("userConf", loginUser.getUserConf());
+//				param.put("userConf", loginUser.getUserConf());
+				
 				return param;
 			}
 			
@@ -297,13 +300,13 @@ public class UserController {
 				param.put("userNickName", loginUser.getUserNickName());
 				param.put("userPsw", loginUser.getUserPsw());
 				param.put("normalPsw", normalPsw);
-				
 				param.put("loginOk", true);
 				System.out.println((UserVO)session.getAttribute("user"));
 				service.updateUserStatus(user);
 				return param;
 				
 			} else {
+				System.out.println("로그인실패2");
 				param.put("loginFail", false);
 				return param;
 			
