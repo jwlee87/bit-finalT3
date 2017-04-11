@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<decorators defaultdir="/WEB-INF/jsp">       <!-- WebContent 폴더 아래 decorators라는 폴더를 default directory로 한다.  -->
+<decorators defaultdir="/WEB-INF/jsp/decorators">       <!-- WebContent 폴더 아래 decorators라는 폴더를 default directory로 한다.  -->
     
     <excludes>
-		<pattern>/*/quiz/write*</pattern>
-	</excludes>
-    
-    <excludes>
-		<pattern>/*/quiz/update*</pattern>
-	</excludes>
-    <excludes>
-		<pattern>/*/quiz/quizSolve*</pattern>
-	</excludes>
-	
-	<excludes>
-		<pattern>/*/*Detail.*</pattern>
+		<pattern>/**/group/*</pattern>
+		<pattern>/**/quiz/write*</pattern>
+		<pattern>/**/quiz/update*</pattern>
+		<pattern>/**/quiz/quizSolve*</pattern>
+		<pattern>/**/*Detail.*</pattern>
 	</excludes>
     
     <!-- index.html로 url 패턴이 들어오면 main.jsp를 실행한다  -->
-    <decorator name="group" page="group/groupList.jsp">       
-        <pattern>/*/group*</pattern>                     	
+<!--     <decorator name="group" page="group/groupList.jsp">        -->
+<!--         <pattern>/*/group*</pattern>                     	 -->
+<!--     </decorator> -->
+    
+
+    <decorator name="defaultLayout" page="layout.jsp">       
+        <pattern>/**/card*</pattern>
+        <pattern>/**/quiz/list*</pattern>
+        <pattern>/**/main*</pattern>                         	
     </decorator>
     
-    <decorator name="card" page="decorators/layout.jsp">       
-        <pattern>/*/card*</pattern>                     	
-    </decorator>
-    
-    <decorator name="quiz" page="decorators/layout.jsp">       
-        <pattern>/*/quiz/list*</pattern>                     	
-    </decorator>
-    
-    <decorator name="main" page="decorators/layout.jsp">       
-        <pattern>/*/main*</pattern>                     	
-    </decorator>
+	<decorator name="defaultHeader" page="navigator.jsp"/>
+    <decorator name="defaultFooter" page="footer.jsp"/>
     
 </decorators>

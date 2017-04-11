@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- NavBar-->
-<div class="navbar-default" role="navigation" id="header">
+<nav class="navbar-default" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -54,12 +54,13 @@
 		</div>
 
 	</div>
-</div>
+</nav>
 
 
 <script>
 //Magnific-InlinePopup
-$(function(){
+
+// $(function(){
 	$('.open-popup-link').magnificPopup({
 		  items: {
 		      src: '<div class="row" style="color:#c7c7c7">'
@@ -93,10 +94,9 @@ $(function(){
 		location.href = "../edit/list.do";
 	}
 	function quizLink() {
-		location.href = "${pageContext.request.contextPath}/quiz/list.do";
+		location.href = "../quiz/list.do";
 	}
-});
-
+// });
 </script>
 
 

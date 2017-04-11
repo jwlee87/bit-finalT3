@@ -6,11 +6,7 @@
 	<display-name>bit-finalT3</display-name>
 
 	
-	<context-param>                                     <!-- SiteMesh 설정 파일인 sitemesh.xml파일의 경로를 지정한다. -->
-	    <param-name>sitemesh.configfile</param-name>
-		<param-value>/WEB-INF/sitemesh.xml</param-value>
-	</context-param>
-	    
+
 	<filter>                                                    <!-- SiteMesh의 필터를 설정한다.  -->
 	    <filter-name>sitemesh</filter-name>
 	    <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
@@ -18,9 +14,7 @@
 	 
 	<filter-mapping>                                         <!-- url 패턴이 .jsp로 들어오면 위의 sitemesh 필터를 실행한다.  -->
 		<filter-name>sitemesh</filter-name>
-	    <url-pattern>*.jsp</url-pattern>
-	    <dispatcher>REQUEST</dispatcher>     <!-- jsp에 대한 요청이 REQUEST,FORWARD 일때 sitemesh 필터를 실행한다. -->
-	    <dispatcher>FORWARD</dispatcher>
+	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
 		<!-- spring security -->
@@ -67,9 +61,6 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	
-	
-
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.do</url-pattern>

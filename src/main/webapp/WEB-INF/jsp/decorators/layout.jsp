@@ -11,34 +11,20 @@
 	<meta name="author" content="">
 	
 	<title><decorator:title default="코일리 프로젝트" /></title>
-	<!-- Custom Google Web Font -->
-	<link href="${pageContext.request.contextPath}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-	
-	<!-- Bootstrap core CSS -->
-	<link href="${pageContext.request.contextPath}/css/comm/bootstrap.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/css/comm/docs.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/css/comm/colorbox.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/css/comm/magnific-popup.css" rel="stylesheet">
-	
-	<!-- JavaScript -->
-	<script src="${pageContext.request.contextPath}/js/comm/jquery-1.10.2.js"></script>
-	<script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
-	<script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script>
-	<script src="${pageContext.request.contextPath}/js/comm/jquery.magnific-popup.js"></script>
+	<c:import url="/WEB-INF/jsp/main/mainHeader.jsp" />
 	<decorator:head />
 </head>
 
-
-	<!-- header -->
-	<c:import url="../navigator.jsp" />
+<body>
+	<!-- header --> 
+ 	<c:import url="/WEB-INF/jsp/decorators/navigator.jsp" />  
 	
 	<!-- content -->
-	<decorator:body></decorator:body>
-<%-- 		<decorator:getProperty property="page.local_script"></decorator:getProperty> --%>
+	<div id="container">
+		<decorator:body />
+	</div>
 	
 	<!-- footer -->
-	<c:import url="../footer.jsp" />
-
+	<c:import url="/WEB-INF/jsp/decorators/footer.jsp" />
+</body>
 </html>

@@ -5,6 +5,7 @@
 <html>
 <head>
 	<c:import url="mainHeader.jsp" />
+	<script src="${pageContext.request.contextPath}/js/main/main.js"></script>
 </head>
 <body id="home">
 	<!-- Modal -->
@@ -480,6 +481,5 @@
 			</div>
 		</div>
 	</div>
-	<script src="${pageContext.request.contextPath}/js/main/main.js"></script>
 </body>
 </html>
