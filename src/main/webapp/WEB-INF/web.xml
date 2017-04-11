@@ -14,7 +14,7 @@
 	 
 	<filter-mapping>                                         <!-- url 패턴이 .jsp로 들어오면 위의 sitemesh 필터를 실행한다.  -->
 		<filter-name>sitemesh</filter-name>
-	    <url-pattern>/*</url-pattern>
+	    <url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
 	
 		<!-- spring security -->

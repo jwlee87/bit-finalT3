@@ -3,11 +3,11 @@
 <decorators defaultdir="/WEB-INF/jsp/decorators">       <!-- WebContent 폴더 아래 decorators라는 폴더를 default directory로 한다.  -->
     
     <excludes>
-		<pattern>/**/group/*</pattern>
-		<pattern>/**/quiz/write*</pattern>
-		<pattern>/**/quiz/update*</pattern>
-		<pattern>/**/quiz/quizSolve*</pattern>
-		<pattern>/**/*Detail.*</pattern>
+		<pattern>/*/group/*</pattern>
+		<pattern>/*/quiz/write*</pattern>
+		<pattern>/*/quiz/update*</pattern>
+		<pattern>/*/quiz/quizSolve*</pattern>
+		<pattern>/*/*Detail.*</pattern>
 	</excludes>
     
     <!-- index.html로 url 패턴이 들어오면 main.jsp를 실행한다  -->
@@ -16,10 +16,11 @@
 <!--     </decorator> -->
     
 
-    <decorator name="defaultLayout" page="layout.jsp">       
-        <pattern>/**/card*</pattern>
-        <pattern>/**/quiz/list*</pattern>
-        <pattern>/**/main*</pattern>                         	
+    <decorator name="defaultLayout" page="layout.jsp">    
+        <pattern>/*/card*</pattern>
+        <pattern>/*/quiz/list*</pattern>
+        <pattern>/*/main*</pattern>  
+        <pattern>/*/file*</pattern>                       	
     </decorator>
     
 	<decorator name="defaultHeader" page="navigator.jsp"/>
