@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page" %>
 
+<% System.out.println("123123"); %>
 <!-- NavBar-->
-<nav class="navbar-default" role="navigation">
+<div class="navbar-default" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -12,7 +14,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#home">Coily</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/main.do">Coily</a>
 		</div>
 
 		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
@@ -54,8 +56,7 @@
 		</div>
 
 	</div>
-</nav>
-
+</div>
 
 <script>
 //Magnific-InlinePopup

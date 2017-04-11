@@ -1,16 +1,15 @@
 /**
  * 
- */
-jQuery(function($) {
-	$(document).ready(function() {
-//		$('.navbar-default').stickUp();
-
-	});
-});
+// */
+//jQuery(function($) {
+//	$(document).ready(function() {
+////		$('.navbar-default').stickUp();
+//
+//	});
+//});
 
 
 $(function(){
-	alert("1");
 	// iframe resize
 	function autoResize(i) {
 	    var iframeHeight=

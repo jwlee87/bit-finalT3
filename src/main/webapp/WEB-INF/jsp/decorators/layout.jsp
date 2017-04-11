@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
-<%@ taglib prefix="page" uri="http://www.opensymphony.com/sitemesh/page"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,13 +11,18 @@
 	<meta name="author" content="">
 	
 	<title><decorator:title default="코일리 프로젝트" /></title>
-	<c:import url="/WEB-INF/jsp/main/mainHeader.jsp" />
+	<page:applyDecorator name="jsHeader"> </page:applyDecorator>
 	<decorator:head />
 </head>
 
 <body>
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	
 	<!-- header --> 
- 	<c:import url="/WEB-INF/jsp/decorators/navigator.jsp" />  
+ 	<page:applyDecorator name="dHeader"> </page:applyDecorator>
 	
 	<!-- content -->
 	<div id="container">
@@ -25,6 +30,6 @@
 	</div>
 	
 	<!-- footer -->
-	<c:import url="/WEB-INF/jsp/decorators/footer.jsp" />
+	<page:applyDecorator name="dFooter"> </page:applyDecorator>
 </body>
 </html>
