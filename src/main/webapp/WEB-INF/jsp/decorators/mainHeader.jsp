@@ -11,6 +11,8 @@
 <link href="${pageContext.request.contextPath}/css/comm/docs.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/colorbox.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/magnific-popup.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
+
 
 <!-- JavaScript -->
 <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
@@ -18,7 +20,7 @@
 <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/jquery.magnific-popup.js"></script>
-
+<script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/js/comm/owl.carousel.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/script.js"></script>
