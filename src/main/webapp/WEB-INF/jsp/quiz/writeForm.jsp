@@ -6,12 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title</title>
 <link href="${pageContext.request.contextPath}/css/quiz/writeForm.css" rel="stylesheet" type="text/css">
-<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
+<%-- <%@ include file="/WEB-INF/jsp/decorators/mainHeader.jsp" %> --%>
+<jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp" />
+<%-- <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script> --%>
 <script src="${pageContext.request.contextPath}/js/quiz/writeForm.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script> --%>
 </head>
 <body>
 <h1>
-    drawing up of quiz<br><br>
+    drawing up of quiz
+</h1><br>
+<h1>
     select method
 </h1>
 <div class="tabs">
@@ -42,8 +47,5 @@
     </div>
   </div>
 </div>
-
-
-
 </body>
 </html>

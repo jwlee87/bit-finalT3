@@ -161,7 +161,7 @@ $(function(){
 			type : "POST",
 		})
 		.done(function(result){
-			alert("수정되었습니다.")
+			swal("수정되었습니다.", "", "success")
 			location.href = "list.do"
 		})
 	}
@@ -174,8 +174,13 @@ $(function(){
 			type : "POST",
 		})
 		.done(function(result){
-			alert("삭제되었습니다.")
-			location.href = "list.do"
+			swal({
+				title: "삭제되었습니다.",
+				type: "success"	
+			},
+			function(){
+				location.href = "list.do"
+			})
 		})
 	}
 	

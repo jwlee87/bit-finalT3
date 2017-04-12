@@ -1,5 +1,4 @@
 $(function(){
-
 	$("#btn1").click(function(){
 		$.ajax({
 			url : "write.do",
@@ -12,10 +11,18 @@ $(function(){
 			type : "POST"
 		})
 		.done(function(result){
-			alert("등록되었습니다.")
-			self.close();
-			opener.location.reload();
-// 			location.href="${pageContext.request.contextPath}/quiz/list.do"
+			swal({
+				title: "등록되었습니다.",
+				type: "success"	
+			},
+			function(){
+				window.open('/bit-finalT3/quiz/list.do','_parent').parent.close();
+			})
+//			swal("등록되었습니다.", "", "success")
+//			clo = setTimeout(closeAlert, 3000)
+//			parent.jQuery.colorbox.close();
+//			parent.location.reload();
+//			window.open('/bit-finalT3/quiz/list.do','_parent').parent.close();
 		})
 	})
 	
@@ -36,14 +43,20 @@ $(function(){
 			type : "POST"
 		})
 		.done(function(result){
-			alert("등록되었습니다.")
-			self.close();
-			opener.location.reload();
+			swal({
+				title: "등록되었습니다.",
+				type: "success"	
+			},
+			function(){
+				window.open('/bit-finalT3/quiz/list.do','_parent').parent.close();
+			})
+//			swal("등록되었습니다.", "", "success")
+//			clo = setTimeout(closeAlert, 3000)
+//			parent.jQuery.colorbox.close();
+//			parent.location.reload();
 // 			location.href="${pageContext.request.contextPath}/quiz/list.do"
+//			window.open('/bit-finalT3/quiz/list.do','_parent').parent.close();
 		})
 	})
+	
 });
-
-
-
-
