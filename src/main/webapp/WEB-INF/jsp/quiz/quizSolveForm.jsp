@@ -12,6 +12,7 @@
 <script src="http:////maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.js"></script>
+<script src="${pageContext.request.contextPath}/js/quiz/quizSolveForm.js"></script>
 
 </head>
 <body>
@@ -35,43 +36,6 @@
   <!-- /.row -->
 </div>
 <!-- /.container -->
-<script>
-var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.setShowPrintMargin(false);
-editor.session.setMode("ace/mode/java");
-editor.setValue("import java.io.*;\n\nclass Main {\n\n    public static void main(String[] args) {\n        // Your code goes here\n   }\n}\n");
-editor.clearSelection();
-
-
-$(document).ready(function() {
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
-
-
-function compile(quizNo) {
-	$.ajax({
-	url : "quizSolve.do",
-	data : {"quizNo": quizNo,
-			"code": editor.getValue()
-				},
-	async: false,
-	type : "POST",
-	dataType : "JSON"
-	})
-	.done(function(result){
-//			alert(result)
-		if(result == "s"){
-			alert("정답입니다.")
-		} else {
-			alert("오답입니다.")
-		}
-		opener.comment(result, quizNo)
-		self.close();
-	})
-}
-</script>
-
 
 </body>
 </html>

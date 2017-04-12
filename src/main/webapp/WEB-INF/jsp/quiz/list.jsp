@@ -9,21 +9,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title</title>
 <link href="${pageContext.request.contextPath}/css/quiz/list.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/comm/colorbox.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath}/js/quiz/quizList.js"></script>
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 <script src="https://cloud.tinymce.com/stable/plugins.min.js?apiKey=iuofftzqoh6hzo9eitfs6x1uw8zk5zwsp39id0t0wu45q89m"></script>
+<script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script>
 </head>
 <body>
 	
 	<div id="container-main">
-	
-	<div class="accordion-container" id="add">
+	<a id="add" href="/bit-finalT3/quiz/writeForm.do" data-wow-delay="0.8s">
+	<div class="accordion-container">
   		<div class="accordion-titulo">
   			<div class="plus">+</div>
   		</div>
   	</div>
+  	</a>
   	<c:forEach var="list" items="${qList}">
   	<div id="${list.quizNo}" class="accordion-container">
   		<input type="hidden" id="quizNo" value="${list.quizNo}"/>

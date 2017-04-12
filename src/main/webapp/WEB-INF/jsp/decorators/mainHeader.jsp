@@ -13,6 +13,7 @@
 <link href="${pageContext.request.contextPath}/css/comm/magnific-popup.css" rel="stylesheet">
 
 <!-- JavaScript -->
+<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/jquery-1.10.2.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script>

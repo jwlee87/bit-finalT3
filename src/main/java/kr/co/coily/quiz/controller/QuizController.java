@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.coily.quiz.service.QuizService;
 import kr.co.coily.repository.vo.QuizCommentVO;
@@ -34,7 +35,7 @@ public class QuizController {
 	@Autowired
 	private QuizService service;
 	
-	//퀴즈 폼
+	//퀴즈 등록 폼
 	@RequestMapping("/writeForm.do")
 	public void writeForm() throws Exception {
 		
@@ -162,11 +163,12 @@ public class QuizController {
 		if (!f.exists()) f.mkdirs();
 		
 		File dest = new File(f, "Main.java");
+		File classFile = new File(f, "Main.class");
+		if(classFile.exists()) classFile.delete();
 
 		try (FileWriter fw = new FileWriter(dest);) {
-//			System.out.println("code: " + code);
+			System.out.println("code: " + code);
 			fw.write(code.toString());
-	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -176,19 +178,19 @@ public class QuizController {
             Runtime rt = Runtime.getRuntime();
             String[] arr = {"C:/java90/bin/jdk8/bin/javac", savePath+"/Main.java"};
             Process proc = rt.exec(arr); //시스템 명령어
-
+            proc.waitFor();
+            
             String[] arr2 = {"C:/java90/bin/jdk8/bin/java", "-cp", savePath, "Main"};
             Process proc2 = rt.exec(arr2); //시스템 명령어
             
             InputStream is2 = proc2.getInputStream();
             InputStreamReader isr2 = new InputStreamReader(is2);
             BufferedReader br2 = new BufferedReader(isr2);
- 
-            String line2;
+            String line2 = "";
 	            while((line2 = br2.readLine())!= null) {
 	            	result += line2;
-//	            	System.out.println(line2);
-//	                System.out.flush();
+	            	System.out.println(line2);
+	                System.out.flush();
 	            }
 	            
 	        } catch (IOException e) {
@@ -199,13 +201,22 @@ public class QuizController {
 		//DB 답 vs complie 답
 		String msg = "";
 		QuizVO quiz = service.updateForm(quizNo);
-		if(quiz.getQuizAnswer().equals(result)) {
-			msg = "s";
+		if(result != "") {
+			if(quiz.getQuizAnswer().equals(result)) {
+				msg = "s";
+			} else {
+				msg = "e";
+			}
 		} else {
-			msg = "e";
+			msg = "n";
 		}
-		
 		return msg;
+		
+		
+		
+		
+		
+		
 	}
 	
 	//댓글 등록

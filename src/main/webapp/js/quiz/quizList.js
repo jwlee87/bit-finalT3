@@ -20,13 +20,12 @@ $(function(){
 
 	      });
 	
-	$("#add").click(function(){
-//		console.log(screen.width)
-//		console.log(screen.height)
-		var left = (screen.width - 800) / 2
-		var top = (screen.height - 800) / 2
-		window.open("writeForm.do", "pop1", "top=" + top + ", left=" + left +", width=800, height=800");
-	})
+//	$("#add").click(function(){
+//		var left = (screen.width - 800) / 2
+//		var top = (screen.height - 800) / 2
+//		window.open("writeForm.do", "pop1", "top=" + top + ", left=" + left +", width=800, height=800");
+//	})
+	$("#add").colorbox({iframe:true, width:"700px", height:"900px"});
 });
 
 
