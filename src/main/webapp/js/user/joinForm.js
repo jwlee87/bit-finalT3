@@ -2,6 +2,8 @@
  * 
  */
 
+$(document).ready(function() {
+
 $('.tabs h3 a').on('click', function (event) {
 //	event.preventDefault();
 	$('.tabs h3 a').removeClass('active');
@@ -11,6 +13,9 @@ $('.tabs h3 a').on('click', function (event) {
 	$('div[id$="tab-content"]').removeClass('active');
 	$(tab_content).addClass('active');
 });
+
+
+
 
 $("#email").on("keyup", function () {
 	var jf = document.joinForm;
@@ -179,4 +184,4 @@ $("#btn").on("click", function () {
 	
 	}
 		
-			
+})

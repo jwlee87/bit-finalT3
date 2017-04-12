@@ -6,26 +6,12 @@
 
 
 <head>
-<script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
+<!-- javaScript  -->
 <script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
 <!-- Custom CSS-->
-<link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet"> 
- <!-- Owl-Carousel -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
-<link href="${pageContext.request.contextPath}/css/comm/general.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/custom.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/owl.carousel.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/owl.theme.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/animate.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
 <link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
-
-
-
-
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
 </head>

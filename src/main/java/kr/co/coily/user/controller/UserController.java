@@ -47,12 +47,17 @@ public class UserController {
 	@RequestMapping("/user/confForm.do")
 	public void confForm() throws Exception {}
 	
+	
 	@RequestMapping("/user/confPopupForm.do")
 	public void confPopupForm() throws Exception {}
+	
 	
 	@RequestMapping("/user/updatePasswordPage.do")
 	public void updatePassword() throws Exception{}
 	
+	
+	@RequestMapping("/user/profileForm.do")
+	public void profileForm() throws Exception {}
 	
 	
 	@ResponseBody
@@ -442,5 +447,22 @@ public class UserController {
 		
 		return "yes";
 	}
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/user/updateUser.do")
+	public String updateUser(UserVO user) throws Exception{
+		System.out.println("수정 이메일 : " + user.getUserEmail());
+		System.out.println("수정 별명 : " + user.getUserNickName());
+		System.out.println("수정 암호 : " + user.getUserPsw());
+		System.out.println("수정 회원번호 : " + user.getUserNo());
+		
+		
+		return "";
+	} 
+	
+	
+	
 
 }

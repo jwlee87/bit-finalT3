@@ -42,7 +42,7 @@
 
 					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;">
 
-							<li><a href="#">프로필</a></li>
+							<li><a id="profilePopup" href="${pageContext.request.contextPath}/user/profileForm.do?userNo="${user.userNo}">프로필</a></li>
 				        	<li><a href="javascript:goLogout(${user.userNo});">LogOut</a></li>
 				        	<li><a href="${pageContext.request.contextPath}/quiz/list.do">Quiz Board</a></li>
 				        	<li class="divider"></li>
@@ -60,6 +60,8 @@
 
 <script>
 //Magnific-InlinePopup
+$("#profilePopup").colorbox({iframe:true, width:"470px", height:"570px"});
+
 
 // $(function(){
 	$('.open-popup-link').magnificPopup({

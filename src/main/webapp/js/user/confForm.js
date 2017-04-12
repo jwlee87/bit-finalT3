@@ -23,6 +23,8 @@ function paperAnim() {
 	
 	
 	
+$(document).ready(function() {
+	
 
 	
 	var temp = location.href.split("?");
@@ -69,4 +71,4 @@ function paperAnim() {
 
 		
 	}
-	
+})
