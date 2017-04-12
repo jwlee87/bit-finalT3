@@ -5,30 +5,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script	src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
+<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/user/profileForm.js"></script>
-
-
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet">
-<!-- Owl-Carousel -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css">
-<link href="${pageContext.request.contextPath}/css/comm/general.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/custom.css"	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/owl.carousel.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/owl.theme.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/animate.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/user/profileForm.css" rel="stylesheet">
+<!-- Owl-Carousel -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>coily-myPage</title>
 </head>
 <body>
-	<header> One account. All of Google. </header>
+	<header> myPage </header>
 	<div class="login">
 		<i ripple> <svg xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"> <path fill="#C7C7C7"
@@ -39,10 +27,10 @@
 		<!-- <span>Sign in with your Google Account</span> -->
 		<form action="" id="updateForm">
 			<div id="n" class="form-group">
-				<input readonly="readonly" id="userEmail" spellcheck=false class="form-control"
+				<input readonly="readonly" id="userEmail" spellcheck=false class="form-control2"
 					name="userEmail" value="${user.userEmail}" type="text" size="18" alt="login" required="" >
 				<span class="form-highlight"></span> <span class="form-bar"></span>
-				<label for="userEmail" class="float-label">Email</label>
+<!-- 				<label for="userEmail" class="float-label">Email</label> -->
 				
 			</div>
 
@@ -50,8 +38,8 @@
 				<input id="userNickName" spellcheck=false class="form-control"
 					name="userNickName" value="${user.userNickName}" type="text" size="18" alt="login" required="">
 				<span class="form-highlight"></span> <span class="form-bar"></span>
-				<label for="nickName" class="float-label">nickName</label>
-				<erroru> nickName is required <i> <svg
+				<label for="userNickName" class="float-label">nickName</label>
+				<erroru> 사용 불가능한 별명입니다 <i> <svg
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path
 						d="M0 0h24v24h-24z" fill="none" /> <path
 						d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /> </svg>
@@ -60,10 +48,10 @@
 
 			<div id="p" class="form-group">
 				<input id="userPsw" class="form-control" spellcheck=false
-					name="userPsw" type="password" size="18" alt="login" required="">
+					name="userPsw" type="password" size="17" alt="login" required="">
 				<span class="form-highlight"></span> <span class="form-bar"></span>
 				<label for="userPsw" class="float-label">Password</label>
-				<errorp> Password is required <i> <svg
+				<errorp> 비밀번호는 5~17자 입력해주세요 <i> <svg
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path
 						d="M0 0h24v24h-24z" fill="none" /> <path
 						d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /> </svg>
@@ -72,7 +60,7 @@
 				<input type="hidden" id="userNo" name="userNo" value="${user.userNo}" >
 <%-- 				<input type="hidden" id="> --%>
 			<div class="form-group">
-				<button class="btn  btn-lg mybutton_cyano wow fadeIn" id="submitBtn" type="button" ripple>수정 하기</button>
+				<button style="text-align: center;" class="btn  btn-lg mybutton_cyano wow fadeIn" id="submitBtn" type="button" ripple>수정 하기</button>
 			</div>
 		</form>
 

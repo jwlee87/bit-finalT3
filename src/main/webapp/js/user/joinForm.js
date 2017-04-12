@@ -130,6 +130,7 @@ $("#btn").on("click", function () {
 		swal("비밀번호를 5자리 이상 입력하세요")
 		$("#password").css("box-shadow", "0px 0px 4px 2px red");
 		psw.focus();
+		return false;
 	} 
 		
 	

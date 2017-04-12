@@ -6,8 +6,6 @@
 <head>
 <jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
-<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
-<script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/confForm.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,7 +37,7 @@
     <label for="인증번호" class="mat-label">인증번호</label>
     <input type="text" class="mat-input" maxlength="4" align="center" style="font-size: 50px" id="passNo" name="passNo">
   </div>
-    <button class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" type="button" id="startBtn">coliy 시작하기</button>
+    <button style="text-align: center;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" type="button" id="startBtn">coliy 시작하기</button>
 </div>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/comm/jquery.alphanum.js" >

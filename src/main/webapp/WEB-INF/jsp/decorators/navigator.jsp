@@ -60,7 +60,7 @@
 
 <script>
 //Magnific-InlinePopup
-$("#profilePopup").colorbox({iframe:true, width:"470px", height:"570px"});
+$("#profilePopup").colorbox({iframe:true, width:"560px", height:"790px"});
 
 
 // $(function(){

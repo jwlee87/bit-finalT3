@@ -12,7 +12,7 @@ body, html {
 	height: 100%;
 	width: 100%;
 	overflow-x:hidden;
-	overflow-y:hidden;
+	overflow-y: hidden;
 }
 
 ::-moz-selection{background:#1abc9c;color:white}

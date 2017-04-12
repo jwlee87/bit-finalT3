@@ -8,12 +8,13 @@
 <head>
 <jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
 <!-- javaScript  -->
-<script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
-<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
+<script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
+<script src="${pageContext.request.contextPath}/js/user/loginForm.js"></script>
+<script src="${pageContext.request.contextPath}/js/user/goFindPsw.js"></script>
 </head>
 <body onload="getLogin()">
 	<div class="form-wrap">
@@ -27,7 +28,7 @@
 					<input type="password" class="input" id="userPsw" name="userPsw" placeholder="psw">
 					<input type="checkbox" class="checkbox" id="remember_me" name="remember_me" onclick="confirmSave(this)">
 					<label for="remember_me">Remember me</label>
-					<input type="button" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="loginBtn" value="Login">
+					<input style="text-align: center;" type="button" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="loginBtn" value="Login">
 				</form>
 				<div class="help-text">
 					<p><a href="javascript:goFindPassword();">Forget your password?</a></p>
@@ -37,12 +38,6 @@
 		</div><!--.tabs-content-->
 	</div><!--.form-wrap-->
 	
-
-
-
-<script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
-<script src="${pageContext.request.contextPath}/js/user/loginForm.js"></script>
-<script src="${pageContext.request.contextPath}/js/user/goFindPsw.js"></script>
 
 
 </body>

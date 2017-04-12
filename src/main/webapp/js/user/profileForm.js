@@ -7,29 +7,24 @@
 
 // button ripple effect from @ShawnSauce 's pen http://codepen.io/ShawnSauce/full/huLEH
 
-
-
-
+$(document).ready(function() {
 	
-	
-	
-	
-$(function(){
-	$("#userPsw").on("keyup", function(){
-		var psw = $("#userPsw").val()
-		if(psw.length <= 4) {
-			$("#userPsw").html('<erroru> 비밀번호를 4자이상 입력하세요 <i> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M0 0h24v24h-24z" fill="none" /> <path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /> </svg></i> </erroru>');
+//	$("#userPsw").on("keyup", function(){
+//		var psw = $("#userPsw").val();
+//		if(psw.length <= 4) {
+//			$("#submitBtn").attr("disable", true);
+//		} else {
+//			pdiv.removeAttr('errr');
+//		}
+//			$("#userPsw").html('<erroru> 비밀번호를 4자이상 입력하세요 <i> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M0 0h24v24h-24z" fill="none" /> <path d="M1 21h22l-11-19-11 19zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /> </svg></i> </erroru>');
 //			$("#btn").attr("disabled", true); 
-		} else {
+//		} else {
 //			$("#password").css("box-shadow", "0px 0px 4px 2px #4A90BE");
 //			$("#btn").attr("disabled", false);
-		}
-	})
-		
-	
-	
-	
+//		}
+
 	$("#submitBtn").click(function(){
+		
 		var nickName = $("#userNickName").val();
 		var psw = $("#userPsw").val();
 		var userNo = $("#userNo").val();
@@ -37,6 +32,36 @@ $(function(){
 		console.log("별명 : " + nickName);
 		console.log("암호 : " + psw);
 		console.log("유저번호 : " + userNo);
+		
+		var uf  = document.updateForm;
+		
+		if(nickName == "") {
+			swal("별명을 입력하세요");
+			uf.userNickName.focus();
+			return false;
+		}
+			
+			
+		if($("#reNickName").val() != null) {
+			swal("사용 불가능한 별명입니다.");
+			nickName.focus();
+			return false;
+		}
+		
+		if(psw == "") {
+			swal("비밀번호를 입력하세요");
+			psw.focus();
+			return false;
+		}
+		
+		if(psw.length <= 4) {
+			swal("비밀번호를 5자리 이상 입력하세요");
+			psw.focus();
+			return false;
+		}
+		
+		
+		
 		$.ajax({
 			url : "/bit-finalT3/user/updateUser.do",
 			type : "POST",
@@ -51,7 +76,12 @@ $(function(){
 		
 		
 	})
+
+
+	
+	
   
+	
   var animationLibrary = 'animate';
   
   $.easing.easeOutQuart = function (x, t, b, c, d) {
@@ -116,10 +146,9 @@ $(function(){
       }
     });
   });
-});
 
-var username = $('#username'), 
-    password = $('#password'), 
+var username = $('#userEmail'), 
+    password = $('#userPsw'), 
     erroru = $('erroru'), 
     errorp = $('errorp'), 
     submit = $('#submit'),
@@ -142,6 +171,8 @@ if(password.val() == '') {
   }
 });
 
+
+
 submit.on('click', function(event) {
   event.preventDefault();
   if (username.val() == '') {
@@ -155,4 +186,74 @@ submit.on('click', function(event) {
     pdiv.removeAttr('errr');
   }
 });
+
+
+$("#userNickName").on("keyup", function(){
+	var nickName = $("#userNickName").val();
+	$.ajax({
+		url : "/bit-finalT3/user/nickNameCheck.do",
+		type : "POST",
+		data : {nickName : $("input[name=userNickName]").val()},
+		dataType : "json"
+	}).done(function(result){
+		if(result.nickNameChk) {
+			if(nickName =="") {
+				 udiv.attr('errr','');
+					$("#userNickName").attr("id", "reNickName");
+//					$("#btn").css("background", "tomato");
+					/* 
+					 if(document.joinForm.submit()) {
+						console.log("오냐오냐");
+						return false;
+					}  */
+					$("#submitBtn").attr("disabled", true); 
+			}
+//			$("#nickNameResult").css("color", "red").html("사용 불가능한 별명입니다.");
+			 udiv.attr('errr','');
+			$("#userNickName").attr("id", "reNickName");
+//			$("#btn").css("background", "tomato");
+			/* 
+			 if(document.joinForm.submit()) {
+				console.log("오냐오냐");
+				return false;
+			}  */
+			$("#submitBtn").attr("disabled", true); 
+			
+		} else {
+//			$("#nickNameResult").css("color", "green").html("사용가능한 별명입니다.");
+			 udiv.removeAttr('errr');
+//			$("#nickName").css("box-shadow", "0px 0px 4px 2px #4A90BE");
+			$("#reNickName").attr("id", "userNickName");
+//			$("#btn").css("background", "#4A90BE");
+			$("#submitBtn").attr("disabled", false);
+		}
+	})
+});
+
+
+
+
+$("#userPsw").on("keyup", function(){
+	var psw = $("#userPsw").val();
+	if(psw.length <= 4) {
+		 pdiv.attr('errr','');
+//		alert(psw);
+//		$("#userPsw").css("box-shadow", "0px 0px 4px 2px red");
+		$("#submitBtn").attr("disabled", true); 
+	} else {
+		   pdiv.removeAttr('errr');
+//		$("#userPsw").css("box-shadow", "0px 0px 4px 2px #4A90BE");
+		$("#submitBtn").attr("disabled", false);
+	}
+})
+
+	
+
+
+
+
+
+
+
+})
 

@@ -5,29 +5,19 @@
 
 
 <html>
-<script src="${pageContext.request.contextPath}/js/comm/bootstrap.js"></script>
-<script src="${pageContext.request.contextPath}/js/comm/sweetalert.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/comm/jquery.magnific-popup.js"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!-- Custom CSS-->
 
 <!-- Owl-Carousel -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
-<link href="${pageContext.request.contextPath}/css/comm/general.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/custom.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/owl.carousel.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/owl.theme.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/animate.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
 <head>
+<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
+<script src="${pageContext.request.contextPath}/js/user/updatePasswordPage.js"></script>
+<link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet"> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비밀번호변경하기</title>
 </head>
 <body id="body">
 <input type="hidden" name="userEmail" id="userEmail" value="${param.userEmail}" /> 
 
-<script src="${pageContext.request.contextPath}/js/user/updatePasswordPage.js"></script>
 </body>
 </html>
