@@ -458,6 +458,17 @@ public class UserController {
 		System.out.println("수정 암호 : " + user.getUserPsw());
 		System.out.println("수정 회원번호 : " + user.getUserNo());
 		
+		String normalPsw = user.getUserPsw();
+		System.out.println("프로필수정 평서문 : " + normalPsw);
+		String encPsw = passwordEncoder.encodePassword(normalPsw, null);
+		System.out.println("프로필수정 비밀번호 암호화 : " + encPsw);
+		
+		
+		user.setUserPsw(encPsw);
+		user.setUserNickName(user.getUserNickName());
+		
+		service.updateUser(user);
+		
 		
 		return "";
 	} 

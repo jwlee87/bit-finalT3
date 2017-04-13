@@ -13,7 +13,6 @@ public class UserServiceImpl implements UserService  {
 		@Autowired
 		UserDAO dao;
 
-		@Transactional
 		@Override
 		public void userJoin(UserVO user) throws Exception {
 			dao.userJoin(user);
@@ -66,6 +65,12 @@ public class UserServiceImpl implements UserService  {
 		@Override
 		public void updatePassword(UserVO user) throws Exception {
 			dao.updatePassword(user);
+		}
+
+		@Override
+		public void updateUser(UserVO user) throws Exception {
+			dao.updateUser(user);
+			
 		}
 
 }

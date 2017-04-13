@@ -31,7 +31,7 @@
 					<input type="text" class="input" name="userNickName" id="nickName" placeholder="nickName">
 					<span id="nickNameResult"></span>
 					<input type="password" class="input" name="userPsw" id="password" placeholder="Password">
-					<button style="text-align: center;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">Next</span></button>
+					<button style="text-align: center; margin: 30px 95px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">Next</span></button>
 				</form><!--.login-form-->
 				<div class="help-text">
 					<p>By signing up, you agree to our</p>

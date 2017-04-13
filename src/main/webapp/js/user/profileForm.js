@@ -70,7 +70,7 @@ $(document).ready(function() {
 				   userNickName : nickName,
 				   userPsw : psw} 
 			}).done(function(result) {
-				alert("ㅇㅇㅇ");
+				swal("수정되었습니다", "", "success");
 				
 			})
 		

@@ -60,7 +60,7 @@
 				<input type="hidden" id="userNo" name="userNo" value="${user.userNo}" >
 <%-- 				<input type="hidden" id="> --%>
 			<div class="form-group">
-				<button style="text-align: center;" class="btn  btn-lg mybutton_cyano wow fadeIn" id="submitBtn" type="button" ripple>수정 하기</button>
+				<button style="text-align: center; margin: 20px 118px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="submitBtn" type="button" ripple>수정 하기</button>
 			</div>
 		</form>
 

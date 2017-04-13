@@ -121,7 +121,7 @@ body {
 	border: 1px solid #CFCFCF;
 	width: 17px;
 	height: 17px;
-	top: 0px;
+	top: 10px;
 	left: -14px;
 }
 
@@ -134,7 +134,7 @@ body {
 	width: 9px;
 	height: 5px;
 	background-color: transparent;
-	top: 4px;
+	top: 14px;
 	left: -10px;
 	border: 3px solid #28A55F;
 	border-top: none;

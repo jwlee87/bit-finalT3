@@ -111,6 +111,14 @@
 	</update>
 	
 	
+	
+	<update id="updateUser" parameterType="userVO">
+		update tb_user
+		   set user_nick_name = #{userNickName},
+		       user_psw = #{userPsw}
+		 where user_no = #{userNo}
+	
+	</update>
 
 
 </mapper>
