@@ -7,14 +7,15 @@
 
 <head>
 <jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
+
 <!-- javaScript  -->
+<script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
+<script src="${pageContext.request.contextPath}/js/user/loginForm.js"></script>
+<script src="${pageContext.request.contextPath}/js/user/goFindPsw.js"></script>
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
-<script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
-<script src="${pageContext.request.contextPath}/js/user/loginForm.js"></script>
-<script src="${pageContext.request.contextPath}/js/user/goFindPsw.js"></script>
 </head>
 <body onload="getLogin()">
 	<div class="form-wrap">

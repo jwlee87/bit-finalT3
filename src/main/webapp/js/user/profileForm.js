@@ -247,13 +247,6 @@ $("#userPsw").on("keyup", function(){
 	}
 })
 
-	
-
-
-
-
-
-
+$("#characterImgPopup").colorbox({iframe:true, width:"1300px", height:"725px"});
 
 })
-

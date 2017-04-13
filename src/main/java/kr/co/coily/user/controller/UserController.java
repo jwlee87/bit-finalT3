@@ -59,6 +59,9 @@ public class UserController {
 	@RequestMapping("/user/profileForm.do")
 	public void profileForm() throws Exception {}
 	
+	@RequestMapping("/user/characterImg.do")
+	public void characterImg() throws Exception {}
+	
 	
 	@ResponseBody
 	@RequestMapping("/user/conf.do")
