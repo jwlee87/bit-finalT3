@@ -8,6 +8,7 @@
 		<pattern>/quiz/quizSolve*</pattern>
 		<pattern>/*/*Detail.*</pattern>
 		<pattern>/*/write*</pattern>
+		<pattern>/group/*</pattern>
  	</excludes>
     
     <!-- index.html로 url 패턴이 들어오면 main.jsp를 실행한다  -->

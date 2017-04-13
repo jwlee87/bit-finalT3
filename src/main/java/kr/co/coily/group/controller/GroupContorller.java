@@ -22,6 +22,15 @@ public class GroupContorller {
 	@Autowired
 	private GroupServiceImpl service;
 	
+	// 삭제 ajax 호출
+		@RequestMapping("/groupDelete.do")
+		@ResponseBody
+		public String deleteGroup(int groupHeaderNo) throws Exception {
+			System.out.println("gjhgk" + groupHeaderNo);
+			service.deleteGroup(groupHeaderNo);
+			return "";
+		}
+	
 	// 상세 조회 url 호출 (페이지 이동)
 	@RequestMapping("/groupDetail.do")
 	public String locationDetail() throws Exception {
@@ -42,7 +51,6 @@ public class GroupContorller {
 		mRslt.put("userList", detail);
 		return mRslt;
 	}
-	
 	
 	// 리스트 조회
 	@RequestMapping("/groupList.do")

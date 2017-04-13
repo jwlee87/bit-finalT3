@@ -57,6 +57,14 @@ public class GroupDAO {
 		return detail;
 	}
 	
+	/*그룹 번호에 해당하는 그룹 정보 삭제 ********************************/
+	@Transactional(rollbackFor=Exception.class)
+	public void deleteGroupDetail(int grpNo) {
+		sqlSessionTemplate.delete("kr.co.coily.repository.dao.GroupDAO.deleteGroupDetail", grpNo);
+		sqlSessionTemplate.delete("kr.co.coily.repository.dao.GroupDAO.deleteGroupDetail", grpNo);
+	}
+	
+	
 	/*기본 등록된 그룹 업데이트
 	 *headerName/ userNo 추가등록 ******************************/
 	/*

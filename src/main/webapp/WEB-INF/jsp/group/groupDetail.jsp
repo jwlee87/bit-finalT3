@@ -1,61 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="${pageContext.request.contextPath}/js/comm/jquery-1.10.2.js"></script>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/group/groupDetail.css"/>
+	<jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false" ></jsp:include>
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/group/groupDetail.css"/>
+	<script src="${pageContext.request.contextPath}/js/group/groupDetail.js"></script>
 </head>
 <body>
 <input type="hidden" value="${param.groupHeaderNo}" id="GroupHeaderNo" name="groupHeaderNo"/>
 <div class="ly_box">
-	<p>½ºÅÍµğ ±×·ì µî·Ï</p>
+
+	<p id="title1" style="display: block;">ìŠ¤í„°ë”” ê·¸ë£¹ ì •ë³´</p>
 	<br>
 	<br>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="groupname" class="col-sm-2 control-label" style="width:25%">±×·ì ÀÌ¸§</label>
-			<div class="col-sm-10" style="width:70%">
-				<input type="text" id="groupname" name="groupname" class="form-control" />
-			</div>
+			<div id="nlabel" style="width:25%">ê·¸ë£¹ ì´ë¦„</div>
+				<div id="nContent">
+				</div>
+<!-- 			<input type="text" style="width:70%" id="groupname" name="groupname" /> -->
 		</div>
 		<div class="form-group">
-			<label for="groupmem" class="col-sm-2 control-label" style="width:25%">±×·ì ±¸¼º¿ø</label>
-			<div class="col-sm-10" style="width:70%">
-				<input type="text" id="groupmem" name="groupmem" class="form-control" />
-			</div>
+			<div id="mlabel" style="width:25%" >ê·¸ë£¹ êµ¬ì„±ì›</div>
+				<div class="selectize-control demo-default multi plugin-remove_button">
+					<div id="mContent" class="selectize-input items not-full has-options has-items" >
+					</div>
+				</div>
+				<!-- <div style="width:70%"  contenteditable="false" id="groupmem" name="groupmem" >
+				</div> -->
 		</div>
-		<button type="button" class="btn_insert">µî·Ï</button>
+			<button type="button" id="uButton" class="btn_insert" >ìˆ˜ì •</button>
 	</form>
 </div>
-
-<script>
-	// ÆäÀÌÁö ·ÎµåµÉ ¶§ ajax ½ÇÇà
-	$(function(){
-		
-		// alert("¹øÈ£ : " +  $("#GroupHeaderNo").val());
-		$.ajax({
-			url:"groupDetailList.do",
-			type: "POST",
-			data: {
-				groupHeaderNo: $("#GroupHeaderNo").val()
-			},
-			dataType:"json"
-		}).done(function (result) {
-			var html = "";
-			for (var i=0; i < result.userList.length; i++){
-				var user = result.userList[i];
-				html += user.userNickName + " ";
-			}
-			
-			$("#groupmem").val(html);
-			
-			$("#groupname").val(result.name);
-		});
-	});
-	
-</script>
 </body>
 </html>
