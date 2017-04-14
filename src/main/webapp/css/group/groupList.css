@@ -2,7 +2,8 @@
 
 	body {
 		over-flow:hidden !important;
-		background-image: url('../../img/group/background.jpg');
+		background: #59cee0;
+		over-flow:hidden !important;
 	}
 
 	#container {
