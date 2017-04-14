@@ -3,6 +3,7 @@ package kr.co.coily.repository.dao;
 import java.util.List;
 
 import kr.co.coily.repository.vo.CardVO;
+import kr.co.coily.repository.vo.CommentVO;
 import kr.co.coily.repository.vo.SearchVO;
 
 public interface CardDAO {
@@ -45,4 +46,43 @@ public interface CardDAO {
 	 
 	/* 카드 삭제	*/
 	/* ==================================================================*/
+	
+	
+	 
+	/* 댓글 리스트	*/
+	/* ==================================================================*/
+//	 public List<CommentVO> selectCardCommentByNo(SearchVO search) throws Exception;
+	 
+//	 public void insertCardComment(CommentVO comment) throws Exception;
+	 
+	 
+	 public List<CommentVO> selectCardCommentByNo(int no) throws Exception;
+	 
+	 public void insertCardComment(CommentVO comment) throws Exception;
+	 
+
+	 
+	/* 댓글 리스트	*/
+	/* ==================================================================*/
+	 
+	 
+	 
+	 
+	/* 댓글 수정	*/
+	/* ==================================================================*/
+//	 public void updateCardComment(CommentVO comment) throws Exception;
+	 
+	/* 댓글 수정	*/
+	/* ==================================================================*/
+	
+	 
+	 
+	 
+	 
+	/* 댓글 삭제	*/
+	/* ==================================================================*/
+//	 public void deleteCardComment(int commentNo) throws Exception;
+	 
+	/* 댓글 삭제	*/
+    /* ==================================================================*/
 }

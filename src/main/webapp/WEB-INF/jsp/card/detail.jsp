@@ -8,8 +8,9 @@
 <head>
 <meta Charset="UTF-8">
 <title>상세 조회</title>
-<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
+<%-- <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script> --%>
+<script src="${pageContext.request.contextPath}/js/card/detail.js"></script>
 <link href="${pageContext.request.contextPath}/css/card/detail.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -22,7 +23,8 @@
 		</div>	
 		
 		<div id="detailBolck">
-			<c:out value="${detail.cardContent}"></c:out>
+<%-- 			<c:out value="${detail.cardContent}"></c:out> --%>
+			${detail.cardContent}	
 		</div>
 		
 <!-- 		<div> -->
@@ -30,47 +32,17 @@
 <!-- 		</div> -->
 			<input type="hidden" id="cardNo" value="${param.cardNo}" />
 			<input type="hidden" id="userNo" value="${detail.userNo}"/>
+<%-- 			<input type="hidden" id="fileNo" value="${detail.fileNo}"/> --%>
 			
 			<textarea id="detailNone" name="cardContent" required></textarea>
+			
 			<button id="detailNoneButton">수정</button>
 	</div>
-		
-</body>
-
-<script type="text/javascript">
-$(function(){
-	$("#detailNone").css("display", "none")
-	$("#detailNoneButton").css("display","none")
-})
-
-$("#detailBolck").click(function () {
-// 	alert("글수정 입니다")
-	$("#detailNone").css("display", "block")
-	$("#detailBolck").css("display", "none")
-	$("#detailNoneButton").css("display", "block")
+	<hr>
+	<hr>
 	
-	$("#detailNoneButton").click(function() {
-		
-		
-		$.ajax({
-			url: "update.do",
-			type:"POST",
-			dataType:"json",
-			data: {cardContent:$("#detailNone").val(),
-				   cardNo:$("#cardNo").val(),
-				   userNo:$("#userNo").val()
-				   },
-		}).done(function(result){
-			alert("수정 완료염");
-			self.close()
-			opener.location.reload()
-		})
-	});
-})
-
-
-
-
-
-</script>
+	<div id="commentList">
+	
+	</div>	
+</body>
 </html>
