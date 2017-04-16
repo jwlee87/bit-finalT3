@@ -14,11 +14,11 @@
 			.done (function(result){
 				var html = '<div class="sticky">'
 					+ '<div class="setting">'
-//					+ '<img src="'+${pageContext.request.contextPath}+'/img/icon/trash.png" width="17px" height="17px" onclick="deleteGrp('+result.groupHeaderNo+')"/>'
-					+ '<img src="/bit-finalT3/img/icon/trash.png" width="17px" height="17px" onclick="deleteGrp('+result.groupHeaderNo+')"/>'
+//					+ '<img src="'+${pageContext.request.contextPath}+'/img/icon/trash.png" width="19px" height="19px" onclick="deleteGrp('+result.groupHeaderNo+')"/>'
+					+ '<img src="/bit-finalT3/img/icon/trash.png" width="19px" height="19px" onclick="deleteGrp('+result.groupHeaderNo+')"/>'
 					+ '<a class="iframe" href="groupDetail.do?groupHeaderNo='+result.groupHeaderNo+'">'
-//					+ '<img src="'+${pageContext.request.contextPath}+'/img/icon/setting.png" width="17px" height="17px" />'
-					+ '<img src="/bit-finalT3/img/icon/setting.png" width="17px" height="17px" />'
+//					+ '<img src="'+${pageContext.request.contextPath}+'/img/icon/setting.png" width="19px" height="19px" />'
+					+ '<img src="/bit-finalT3/img/icon/setting.png" width="19px" height="19px" />'
 					+ '</a>'
 					+ '</div>'
 					+ result.groupHeaderName

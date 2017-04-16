@@ -23,10 +23,10 @@
 			<input type="hidden" value="${list.groupHeaderNo}" id="${list.groupHeaderNo}"/>
 			<div class="sticky" >
 				<div class="setting">
-					<img src="${pageContext.request.contextPath}/img/icon/trash.png" width="17px" height="17px" onclick="deleteGrp(${list.groupHeaderNo})" />
+					<img src="${pageContext.request.contextPath}/img/icon/trash.png" width="19px" height="19px" onclick="deleteGrp(${list.groupHeaderNo})" />
 						<a class="iframe" href="groupDetail.do?groupHeaderNo=${list.groupHeaderNo}">
 <%-- 						<a class="iframe" href="selectizeTest.do?groupHeaderNo=${list.groupHeaderNo}"> --%>
-							<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" />
+							<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="19px" height="19px" />
 						</a>
 				</div>
 				<c:out value="${list.groupHeaderName}"/>

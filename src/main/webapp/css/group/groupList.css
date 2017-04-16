@@ -1,9 +1,14 @@
 @CHARSET "UTF-8";
 
 	body {
+		/* background: #59cee0;  */
 		over-flow:hidden !important;
-		background: #59cee0;
-		over-flow:hidden !important;
+		background: url('../../img/group/back.jpg') no-repeat center center fixed; 
+		-webkit-background-size: cover;
+	 	-moz-background-size: cover;
+	 	-o-background-size: cover;
+	  	background-size: cover;
+
 	}
 
 	#container {
@@ -19,7 +24,9 @@
 	  	margin: 10px; 
 	  	float: left;
 	  	transition: all .2s ease-out;
-	  	color: #34495e;
+	  	color: white; 
+	  	background: rgba(22,22,22, 0.5);
+/* 	  	background: #fff; */
 	  	padding: 10px;
 	  	box-sizing: border-box;
 	  	border-radius: 10px;
@@ -38,12 +45,9 @@
  	  	margin-top: -5px; 
 	  	cursor: pointer;
 	}
-	.sticky {
-	  	background: #fff;
-	}
 	
 	.maker {
-	  	background: #a5a5a2;
+	  	/* background: #a5a5a2; */
 	  	font-size: 18px;	!important;
 	  	font-weight: bold;	!important;
 	}
@@ -94,7 +98,7 @@
 	.setting {
 		max-width: 0.3px;
 		max-height: 0.3px;
-		padding-left: 95%;
+		padding-left: 94%;
 	}
 	
 	#cboxTopLeft, #cboxTopRight, #cboxBottomLeft, #cboxBottomRight {
