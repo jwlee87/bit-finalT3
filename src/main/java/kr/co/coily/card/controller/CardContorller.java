@@ -1,6 +1,7 @@
 package kr.co.coily.card.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.coily.card.service.CardService;
 import kr.co.coily.repository.vo.CardVO;
+import kr.co.coily.repository.vo.CommentVO;
 import kr.co.coily.repository.vo.SearchVO;
 
 @Controller
@@ -69,7 +71,6 @@ public class CardContorller {
 		Map<String, Object> map  = Service.detail(cardNo);
 		Map<String, Object> result = new HashMap<>();
 		result.put("detail", map.get("cardVO"));
-		
 		CardVO cardVO = new CardVO();
 		cardVO.setUserNo(cardNo);
 //		result.put("file", map.get("file"));
@@ -121,4 +122,57 @@ public class CardContorller {
 	
 	/*카드 삭제  ======================================================================*/
 	/*==============================================================================*/
+	
+	
+	
+	
+	/*댓글 리스트 와 등록  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	@RequestMapping("/commentList.do")
+	@ResponseBody
+	public List<CommentVO> commentList(int cardNo) throws Exception {
+		System.out.println( "컨트롤러 : " + cardNo);
+		return Service.commentList(cardNo);
+	}
+	
+	@RequestMapping("/commentRegist.do")
+	@ResponseBody
+	public List<CommentVO> commentRegist(CommentVO comment) throws Exception {
+		System.out.println(comment);
+		return Service.commentRegist(comment);
+	}
+		
+	
+	/*댓글 리스트 와 등록  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	
+	
+	
+	/*댓글 리스트 수정  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	
+	
+	/*댓글 리스트 수정  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	
+	
+	
+	
+	/*댓글 리스트 삭제  ======================================================================*/
+	/*==============================================================================*/
+	
+	
+	/*댓글 리스트 삭제  ======================================================================*/
+	/*==============================================================================*/
+
+
 }
+

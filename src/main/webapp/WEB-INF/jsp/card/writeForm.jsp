@@ -7,11 +7,9 @@
 <head>
 <meta Charset="UTF-8">
 <title>등록</title>
-<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
+<jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/js/card/writeForm.js"></script>
 <link href="${pageContext.request.contextPath}/css/card/write.css" rel="stylesheet" type="text/css">
-<%-- <script src="${pageContext.request.contextPath}/js/card/write.js"></script> --%>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
 <body>
 	<!-- 폼태그를 만들어서 카드가 들어가는 내용을 입력해준다. -->
@@ -20,33 +18,15 @@
   		<ul id="messages"></ul>
   		
 	<form id="write" action="#" method="post">
+		<textarea id="content" name="cardContent" placeholder="내용을 작성하세요" required
+		></textarea>
+		
+		<c:import url="../file/fileForm.jsp"></c:import>
 	
-		<textarea id="content" name="cardContent" placeholder="내용을 작성하세요" required></textarea>
-		
 		<button type="button" id="btn">등록</button>
-		<button type="button" id="close">취소</button>
-		
+<!-- 		<button type="button" id="close">취소</button> -->
+		<br>
 	</form>
 	</div>
-
-	<script type="text/javascript">
-	$("#btn").click(function() {
-		
-		$.ajax({
-			url: "write.do",
-			type:"POST",
-			dataType:"json",
-			data: {cardContent:$("#content").val(),
-				   cardTitle:$("#title").val()
-				
-			},
-		}).done(function(result){
-			alert("등록 완료염");
-			self.close()
-			opener.location.reload()
-		})
-	});
-	
-	</script>
 </body>
 </html>

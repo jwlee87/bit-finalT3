@@ -57,6 +57,21 @@
 		  		  	) c
 	</select>
 	
+	<!-- 그룹 삭제 -->
+	<!-- 그룹 디테일 삭제 -->
+	<delete id="deleteGroupDetail" parameterType="int">
+		delete
+		  from tb_group_detail
+		 where group_header_no = #{groupHeaderNo}
+	</delete>
+	
+	<!-- 그룹 헤더 삭제 -->
+	<delete id="deleteGroupHeader" parameterType="int">
+		delete
+		  from tb_group_header
+		 where group_header_no = #{groupHeaderNo}
+	</delete>
+	
 	<!-- 그룹 헤더 수정 -->
 <!-- 	<update id="updateGroupHeader" parameterType="groupHeaderVO">
 		update tb_group_header

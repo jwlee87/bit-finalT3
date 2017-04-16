@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 
 	body {
+		over-flow:hidden !important;
 		background: #59cee0;
 		over-flow:hidden !important;
 	}

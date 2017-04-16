@@ -109,4 +109,87 @@
 <!-- 			카드 삭제 			-->
 <!-- ============================================================================== -->
 
+
+
+
+
+	<resultMap id="cardCommentMap" type="commentVO" >
+		<result property="cardCommentNo" column="card_comment_no" />
+		<result property="cardNo" column="card_no" />
+		<result property="userNo" column="user_no" />
+		<result property="cardCommentContent" column="card_comment_content" />
+		<result property="cardCommentRegDate" column="card_comment_reg_date" />
+	</resultMap>
+<!-- 			댓글 조회 			-->
+<!-- ============================================================================== -->
+	
+	<select id="selectCardCommentByNo" parameterType="int" resultMap="cardCommentMap">
+	    select card_comment_no,
+	           card_no,
+	           user_no,
+	           card_comment_content,
+	           card_comment_reg_date
+	      from tb_card_comment
+	     where card_no = #{cardNo}     
+	     order by card_comment_no 
+	</select>
+
+	<insert id="insertCardComment" parameterType="kr.co.coily.repository.vo.CommentVO">
+		insert into tb_card_comment(
+			 card_no,
+			 user_no,
+			 card_comment_content
+		    )values(
+			#{cardNo},
+			156,
+			#{cardCommentContent}
+		)
+		
+		<selectKey keyProperty="cardNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
+	</insert>
+
+	
+
+
+<!-- 			댓글 조회 			-->
+<!-- ============================================================================== -->
+
+
+
+
+<!-- 			댓글 수정 			-->
+<!-- ============================================================================== -->
+	<!-- <update id="updateCardComment" parameterType="commentVO">
+	    update tb_card_comment
+	       set card_content = #{cardContent}
+	     where card_comment_no = #{cardCommentNo}
+	</update> -->
+
+
+<!-- 			댓글 수정 			-->
+<!-- ============================================================================== -->
+
+
+
+
+
+
+<!-- 			댓글 삭제 			-->
+<!-- ============================================================================== -->
+<!-- 	<delete id="deleteCardComment" parameterType="int">
+	    delete 
+	      from tb_card_comment
+	     where card_comment_no = #{cardCommentNo}
+	</delete> -->
+
+
+<!-- 			댓글 삭제 			-->
+<!-- ============================================================================== -->
+
+
+
+
+
 </mapper>

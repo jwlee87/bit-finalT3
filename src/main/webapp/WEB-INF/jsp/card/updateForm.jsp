@@ -8,8 +8,8 @@
 <head>
 <meta Charset="UTF-8">
 <title>업데이트</title>
-<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="../decorators/mainHeader.jsp"></script>
+<%-- <script type="${pageContext.request.contextPath}/js/card/updateForm.js"></script> --%>
 <link href="${pageContext.request.contextPath}/css/card/updateForm.css" rel="stylesheet" type="text/css">
 </head>
 <body>

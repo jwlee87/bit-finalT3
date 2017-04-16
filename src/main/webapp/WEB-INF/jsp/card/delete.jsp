@@ -8,8 +8,8 @@
 <head>
 <meta Charset="UTF-8">
 <title>삭제</title>
-<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="../decorators/mainHeader.jsp"></script>
+<%-- <script type="${pageContext.request.contextPath}/js/card/delete.js"></script> --%>
 <link href="${pageContext.request.contextPath}/css/card/delete.css" rel="stylesheet" type="text/css">
 </head>
 <body>
