@@ -9,6 +9,7 @@
 <!-- Custom CSS-->
  <!-- Owl-Carousel -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css"> 
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

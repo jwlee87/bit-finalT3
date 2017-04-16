@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -56,11 +57,24 @@ public class UserController {
 	public void updatePassword() throws Exception{}
 	
 	
-	@RequestMapping("/user/profileForm.do")
-	public void profileForm() throws Exception {}
 	
 	@RequestMapping("/user/characterImg.do")
 	public void characterImg() throws Exception {}
+	
+	
+	@RequestMapping("/user/profileForm.do")
+	public void profileForm(HttpSession session, Model model) throws Exception {
+//		Map<String, Object> param = new HashMap<>();
+		UserVO user = (UserVO)session.getAttribute("user");
+		System.out.println("프로필 회원넘버 : " + user.getUserNo());
+//		
+		model.addAttribute("userInfo", service.userImg(user.getUserNo()));
+//		param.put("userInfo", service.userImg(user.getUserNo()));
+//		UserVO user2 = (UserVO)param.get("userInfo");
+//		System.out.println("사진경로 : " + user2.getUserImgPath());
+		
+//		return "user/profileForm";
+	}
 	
 	
 	@ResponseBody
@@ -472,11 +486,22 @@ public class UserController {
 		
 		service.updateUser(user);
 		
-		
 		return "";
 	} 
 	
 	
+	@ResponseBody
+	@RequestMapping("/user/choiceImg.do")
+	public Map<String, Object> choiceImg(UserVO user) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		System.out.println("회원번호 : " + user.getUserNo());
+		System.out.println("이미지번호 : " + user.getUserImgNo());
+		
+		service.choiceImg(user);
+		param.put("userNo", user.getUserNo());
+		
+		return param;
+	}
 	
 
 }

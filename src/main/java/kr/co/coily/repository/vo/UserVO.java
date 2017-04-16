@@ -18,6 +18,10 @@ public class UserVO {
 	private int userJoinNo;
 	/**회원가입 승인 상태*/
 	private String userConf;
+	/**프로필사진번호*/
+	private int userImgNo;
+	/**프로필사진 경로*/
+	private String userImgPath;
 
 	
 	
@@ -68,6 +72,18 @@ public class UserVO {
 	}
 	public void setUserConf(String userConf) {
 		this.userConf = userConf;
+	}
+	public int getUserImgNo() {
+		return userImgNo;
+	}
+	public void setUserImgNo(int userImgNo) {
+		this.userImgNo = userImgNo;
+	}
+	public String getUserImgPath() {
+		return userImgPath;
+	}
+	public void setUserImgPath(String userImgPath) {
+		this.userImgPath = userImgPath;
 	}
 	
 	

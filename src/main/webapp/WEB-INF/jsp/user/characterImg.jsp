@@ -7,6 +7,7 @@
 <jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
 <!-- javaScript  -->
 <script src="${pageContext.request.contextPath}/js/user/characterImg.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css">
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/user/characterImg.css" rel="stylesheet" >
 <title>coily</title>
@@ -15,16 +16,16 @@
 	<div class="container">
 		<h2 class="text-center">coily zzzz</h2>
 		<div class="lightbox-gallery">
-				<div><img src="${pageContext.request.contextPath}/img/userImg/1.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/2.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/3.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/4.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/5.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/6.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/7.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/8.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/9.PNG"></div>
-				<div><img src="${pageContext.request.contextPath}/img/userImg/10.PNG"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/1.PNG" onclick="choiceImg(${user.userNo}, 1)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/2.PNG" onclick="choiceImg(${user.userNo}, 2)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/3.PNG" onclick="choiceImg(${user.userNo}, 3)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/4.PNG" onclick="choiceImg(${user.userNo}, 4)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/5.PNG" onclick="choiceImg(${user.userNo}, 5)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/6.PNG" onclick="choiceImg(${user.userNo}, 6)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/7.PNG" onclick="choiceImg(${user.userNo}, 7)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/8.PNG" onclick="choiceImg(${user.userNo}, 8)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/9.PNG" onclick="choiceImg(${user.userNo}, 9)"></div>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/10.PNG" onclick="choiceImg(${user.userNo}, 10)"></div>
 		</div>
 <!-- 		<div class="lightbox-gallery"> -->
 <!-- 				<div><img src="http://placehold.it/300/f1b702/fff&text=image1" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, quae, quam. Ut dolorum quia, unde dicta at harum porro officia obcaecati ipsam deserunt fugit dolore delectus quam, maxime nisi quo."></div> -->

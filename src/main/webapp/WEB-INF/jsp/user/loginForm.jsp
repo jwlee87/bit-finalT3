@@ -12,6 +12,7 @@
 <script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/loginForm.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/goFindPsw.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css">
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

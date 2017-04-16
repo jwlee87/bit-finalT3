@@ -26,4 +26,8 @@ public interface UserDAO {
 
 	public void updateUser(UserVO user) throws Exception;
 
+	public UserVO userImg(int userNo) throws Exception;
+
+	public void choiceImg(UserVO user) throws Exception;
+
 }

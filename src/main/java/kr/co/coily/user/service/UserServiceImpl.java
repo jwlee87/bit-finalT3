@@ -73,4 +73,15 @@ public class UserServiceImpl implements UserService  {
 			
 		}
 
+		@Override
+		public UserVO userImg(int userNo) throws Exception {
+			return dao.userImg(userNo);
+		}
+
+		@Override
+		public void choiceImg(UserVO user) throws Exception {
+			dao.choiceImg(user);
+		}
+
+
 }

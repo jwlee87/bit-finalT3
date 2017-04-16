@@ -74,12 +74,12 @@ position: relative;
 
 .login .photo {
 	position: relative;
-	width: 100px;
-	height: 100px;
+	width: 130px;
+	height: 150px;
 	margin: 30px 135px;
-	border-radius: 50%;
+/* 	border-radius: 50%; */
 	background: rgb(223, 223, 223);
-	border: 13px solid rgb(223, 223, 223);
+/* 	border: 13px solid rgb(223, 223, 223); */
 	overflow: hidden !important;
 	transform: rotate(-1deg);
 }
@@ -91,9 +91,9 @@ position: relative;
 	height: 35px;
 	top: 0px;
 	right: 20px;
-	border-radius: 50%;
-	background: #aaa;
-	border: 2px solid #fff;
+/* 	border-radius: 50%; */
+/* 	background: #aaa; */
+/* 	border: 2px solid #fff; */
 	transform: scale(0);
 	transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 	-webkit-animation: user-head 0.5s 0s forwards;
@@ -104,8 +104,8 @@ position: relative;
 .login .photo:after {
 	position: absolute;
 	content: '';
-	width: 140px;
-	height: 220px;
+/* 	width: 140px; */
+/* 	height: 220px; */
 	top: 38px;
 	right: -32px;
 	border-radius: 50%;
@@ -133,7 +133,7 @@ form {
 
 .form-group {
   position: relative;
-  margin-top: 35px;
+/*   margin-top: 35px; */
   margin-bottom: 20px;
 }
 

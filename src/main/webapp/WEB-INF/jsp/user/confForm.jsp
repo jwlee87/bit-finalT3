@@ -8,6 +8,7 @@
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
 <script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/confForm.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>인증페이지</title>
 </head>
