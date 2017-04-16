@@ -28,7 +28,7 @@
 						<li>d</li>
 						<li>e</li>
 					</ul>
-					Go to: <a href="http://andreagalanti.it/flatfy" target="_blank">andreagalanti.it/flatfy</a>
+					Go to: <a href="../main/main.do" target="_blank">andreagalanti.it/flatfy</a>
 				</div>
 			</div>
 		</div>

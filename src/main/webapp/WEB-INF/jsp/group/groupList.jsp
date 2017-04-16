@@ -15,7 +15,6 @@
 		<div id="status"></div>
 	</div>
 	
-	
 	<div id="container">
 		<div class="sticky control maker" id="maker">
 		  <div class="plus">그룹 만들기</div>
@@ -26,6 +25,7 @@
 				<div class="setting">
 					<img src="${pageContext.request.contextPath}/img/icon/trash.png" width="17px" height="17px" onclick="deleteGrp(${list.groupHeaderNo})" />
 						<a class="iframe" href="groupDetail.do?groupHeaderNo=${list.groupHeaderNo}">
+<%-- 						<a class="iframe" href="selectizeTest.do?groupHeaderNo=${list.groupHeaderNo}"> --%>
 							<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="17px" height="17px" />
 						</a>
 				</div>
@@ -33,5 +33,6 @@
 			</div>	
 		</c:forEach>
 	</div>
+	
 </body>
 </html>

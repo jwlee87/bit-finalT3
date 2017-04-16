@@ -37,6 +37,12 @@ public class GroupContorller {
 		return "group/groupDetail";
 	};
 	
+	// 상세 조회 url 호출 (페이지 이동)
+	@RequestMapping("/selectizeTest.do")
+	public String locationDetail2() throws Exception {
+		return "group/selectizeTest";
+	};
+	
 	// 상세 조회 ajax 호출
 	@ResponseBody
 	@RequestMapping("/groupDetailList.do")
