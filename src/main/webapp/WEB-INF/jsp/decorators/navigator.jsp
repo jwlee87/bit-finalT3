@@ -22,7 +22,7 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<c:out value="${user.userNickName}">님</c:out><span class="caret"></span>
+						<c:out value="${user.userNickName}"></c:out>님<span class="caret"></span>
 					</a>
 
 					<!-- <div class="dropdown-menu" role="menu" aria-labelledby="dLabel"

@@ -159,7 +159,7 @@ $(function(){
 //		alert("별명 : " + nickName);
 //		alert("이메일주소 : " + email);
 		
-		parent.location.href ="/bit-finalT3/main/main.do";
+		parent.location.href ="/bit-finalT3/group/groupList.do";
 		
 }
 	

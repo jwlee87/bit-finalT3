@@ -7,9 +7,10 @@
 <head>
 <jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/user/profileForm.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css">
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css"> --%>
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/style2.css"> --%>
 <!-- Custom CSS-->
-<link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet">
+<%-- <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet"> --%>
 <link href="${pageContext.request.contextPath}/css/user/profileForm.css" rel="stylesheet">
 <!-- Owl-Carousel -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,7 +18,7 @@
 <title>coily-myPage</title>
 </head>
 <body>
-	<header> myPage </header>
+<!-- 	<header> myPage </header> -->
 	<div class="login">
 		<i ripple> <svg xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"> <path fill="#C7C7C7"
