@@ -134,13 +134,20 @@ public class CardContorller {
 	@ResponseBody
 	public List<CommentVO> commentList(int cardNo) throws Exception {
 		System.out.println( "컨트롤러 : " + cardNo);
-		return Service.commentList(cardNo);
+		List<CommentVO> tmp = Service.commentList(cardNo);
+		for(CommentVO c : tmp){
+			System.out.println(c.getCardCommentContent());
+			System.out.println("댓글 쓴인간" + c.getUserNickName());
+		}
+//		System.out.println("tmp:" + tmp);
+		return tmp;
 	}
 	
 	@RequestMapping("/commentRegist.do")
 	@ResponseBody
 	public List<CommentVO> commentRegist(CommentVO comment) throws Exception {
-		System.out.println(comment);
+		
+		System.out.println("카드번호 :" + comment);
 		return Service.commentRegist(comment);
 	}
 		
@@ -149,26 +156,25 @@ public class CardContorller {
 	/*==============================================================================*/
 	
 	
-	
-	
+	/*댓글 리스트 수정  ======================================================================*/
+	/*==============================================================================*/
+	@RequestMapping("/commentUpdate.do")
+	@ResponseBody
+	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
+		return Service.commentUpdate(comment);
+	}
 	
 	/*댓글 리스트 수정  ======================================================================*/
 	/*==============================================================================*/
-	
-	
-	
-	
-	/*댓글 리스트 수정  ======================================================================*/
-	/*==============================================================================*/
-	
-	
-	
-	
 	
 	
 	/*댓글 리스트 삭제  ======================================================================*/
 	/*==============================================================================*/
-	
+	/*@RequestMapping("/commentDelete.do")
+	@ResponseBody
+	public List<CommentVO> commentDelete(CommentVO comment) throws Exception {
+		return Service.commentDelete(comment);
+	}*/
 	
 	/*댓글 리스트 삭제  ======================================================================*/
 	/*==============================================================================*/

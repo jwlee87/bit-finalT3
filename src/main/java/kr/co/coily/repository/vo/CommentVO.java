@@ -6,6 +6,7 @@ public class CommentVO {
 	private int cardCommentNo;
 	private int cardNo;
 	private int userNo;
+	private String userNickName;
 	private String cardCommentContent;
 	private Date cardCommentRegDate;
 	
@@ -39,5 +40,11 @@ public class CommentVO {
 	}
 	public void setCardCommentRegDate(Date cardCommentRegDate) {
 		this.cardCommentRegDate = cardCommentRegDate;
+	}
+	public String getUserNickName() {
+		return userNickName;
+	}
+	public void setUserNickName(String userNickName) {
+		this.userNickName = userNickName;
 	}
 }

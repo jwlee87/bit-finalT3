@@ -130,18 +130,14 @@ public class CardServiceImpl implements CardService{
 		
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
-	/*@Override
+	@Override
 	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
 		dao.updateCardComment(comment);
 		return dao.selectCardCommentByNo(comment.getCardNo());
-	}*/
-
-		
-		
+	}
+	
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
-	
-	
 	
 	
 	/*댓글 삭제  ======================================================================*/
@@ -151,7 +147,6 @@ public class CardServiceImpl implements CardService{
 		dao.deleteCardComment(comment.getCardCommentNo());
 		return dao.selectCardCommentByNo(comment.getCardNo());
 	}*/
-	
 	
 	/*댓글 삭제  ======================================================================*/
 	/*==============================================================================*/

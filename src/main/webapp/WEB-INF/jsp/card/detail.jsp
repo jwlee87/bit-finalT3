@@ -26,6 +26,17 @@
 <%-- 			<c:out value="${detail.cardContent}"></c:out> --%>
 			${detail.cardContent}	
 		</div>
+	
+	<div id="page-comment">
+		<div>
+			
+<%-- 			<c:out value="${detail.cardCommentContent}"></c:out> --%>
+
+		</div>
+	</div>	
+		
+		
+		
 		
 <!-- 		<div> -->
 <%-- 			<c:out value="${detail.userNo}"></c:out> --%>
@@ -38,10 +49,27 @@
 			
 			<button id="detailNoneButton">수정</button>
 	</div>
+	
 	<hr>
 	<hr>
 	
-	<div id="commentList">
+	
+	
+	<form id="commentWrite" action="#" method="post">
+				
+		<c:import url="../file/fileForm.jsp"></c:import>
+		
+		<textarea id="Commentcontent" name="cardCommentContent" placeholder="내용을 작성하세요" required
+		></textarea>
+		
+		<input type="button" id="btn1" value="댓글 등록" />
+		
+		<div id="commentList">
+				
+		</div>
+		
+		<br>
+	</form>
 	
 	</div>	
 </body>

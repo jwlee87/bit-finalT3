@@ -50,7 +50,7 @@ public interface CardService {
 	/* 댓글 리스트	*/
 	/* ==================================================================*/
 	
-	public List<CommentVO> commentList(int no) throws Exception ;
+	public List<CommentVO> commentList(int cardNO) throws Exception ;
 	
 	public List<CommentVO> commentRegist(CommentVO comment) throws Exception;
 	
@@ -66,23 +66,16 @@ public interface CardService {
 	/* 댓글 수정	*/
 	/* ==================================================================*/
 //	public List<CommentVO> updateCardComment(CommentVO comment) throws Exception ;
-
-//	List<CommentVO> commentUpdate(CommentVO comment) throws Exception;
+	List<CommentVO> commentUpdate(CommentVO comment) throws Exception;
 	
 	/* 댓글 수정	*/
 	/* ==================================================================*/
 	
 	
-	
-	
-	
-	
 	/* 댓글 삭제	*/
 	/* ==================================================================*/
-//	public List<CommentVO> commentDelete(CommentVO comment) throws Exception ;
-	
-	
-	
+	/*public List<CommentVO> commentDelete(CommentVO comment) throws Exception ;*/
+
 	/* 댓글 삭제	*/
 	/* ==================================================================*/
 	

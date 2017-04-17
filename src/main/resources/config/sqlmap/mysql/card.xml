@@ -83,7 +83,7 @@
 <!-- 			카드 수정 			-->
 <!-- ============================================================================== -->
 	
-	 <update id="updateCard" parameterType="cardVO">
+	<update id="updateCard" parameterType="cardVO">
     	 update tb_card
     	   set card_content = #{cardContent}
     	 where card_no = #{cardNo}
@@ -119,19 +119,26 @@
 		<result property="userNo" column="user_no" />
 		<result property="cardCommentContent" column="card_comment_content" />
 		<result property="cardCommentRegDate" column="card_comment_reg_date" />
+		<result property="userNickName" column="user_nick_name" />
+		
 	</resultMap>
 <!-- 			댓글 조회 			-->
 <!-- ============================================================================== -->
 	
 	<select id="selectCardCommentByNo" parameterType="int" resultMap="cardCommentMap">
-	    select card_comment_no,
+		select c.card_no, c.card_comment_content, c.card_comment_reg_date, u.user_no, u.user_nick_name  
+		  from tb_card_comment c, tb_user u
+		 where c.user_no = u.user_no
+		   and c.card_no= #{cardNo}
+		   
+<!-- 	    select card_comment_no,
 	           card_no,
 	           user_no,
 	           card_comment_content,
 	           card_comment_reg_date
 	      from tb_card_comment
 	     where card_no = #{cardNo}     
-	     order by card_comment_no 
+	     order by card_comment_no  -->
 	</select>
 
 	<insert id="insertCardComment" parameterType="kr.co.coily.repository.vo.CommentVO">
@@ -157,33 +164,29 @@
 <!-- ============================================================================== -->
 
 
-
-
 <!-- 			댓글 수정 			-->
 <!-- ============================================================================== -->
-	<!-- <update id="updateCardComment" parameterType="commentVO">
+	<update id="updateCardComment" parameterType="commentVO">
 	    update tb_card_comment
 	       set card_content = #{cardContent}
 	     where card_comment_no = #{cardCommentNo}
-	</update> -->
+	     	and user_no = #{userNo}
+	</update>
+	
 
 
 <!-- 			댓글 수정 			-->
 <!-- ============================================================================== -->
-
-
-
-
 
 
 <!-- 			댓글 삭제 			-->
 <!-- ============================================================================== -->
-<!-- 	<delete id="deleteCardComment" parameterType="int">
+<!--  	<delete id="deleteCardComment" parameterType="int">
 	    delete 
 	      from tb_card_comment
 	     where card_comment_no = #{cardCommentNo}
-	</delete> -->
-
+	</delete>
+ -->
 
 <!-- 			댓글 삭제 			-->
 <!-- ============================================================================== -->

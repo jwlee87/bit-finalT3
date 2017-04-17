@@ -39,6 +39,14 @@ public interface CardDAO {
 	/* 카드 수정	*/
 	/* ==================================================================*/
 	 
+	/* 카드 댓글 수정 join	*/
+	/* ==================================================================*/
+	public CardVO joinCommentContent(int no) throws Exception;
+	
+	/* 카드 댓글 수정 join	*/
+	/* ==================================================================*/
+	
+	
 	/* 카드 삭제	*/
 	/* ==================================================================*/
 	
@@ -51,12 +59,7 @@ public interface CardDAO {
 	 
 	/* 댓글 리스트	*/
 	/* ==================================================================*/
-//	 public List<CommentVO> selectCardCommentByNo(SearchVO search) throws Exception;
-	 
-//	 public void insertCardComment(CommentVO comment) throws Exception;
-	 
-	 
-	 public List<CommentVO> selectCardCommentByNo(int no) throws Exception;
+	 public List<CommentVO> selectCardCommentByNo(int cardNo) throws Exception;
 	 
 	 public void insertCardComment(CommentVO comment) throws Exception;
 	 
@@ -66,22 +69,16 @@ public interface CardDAO {
 	/* ==================================================================*/
 	 
 	 
-	 
+	/* 댓글 수정	*/
+	/* ==================================================================*/
+	 public void updateCardComment(CommentVO comment) throws Exception;
 	 
 	/* 댓글 수정	*/
 	/* ==================================================================*/
-//	 public void updateCardComment(CommentVO comment) throws Exception;
-	 
-	/* 댓글 수정	*/
-	/* ==================================================================*/
-	
-	 
-	 
-	 
 	 
 	/* 댓글 삭제	*/
 	/* ==================================================================*/
-//	 public void deleteCardComment(int commentNo) throws Exception;
+	/* public void deleteCardComment(int commentNo) throws Exception;*/
 	 
 	/* 댓글 삭제	*/
     /* ==================================================================*/
