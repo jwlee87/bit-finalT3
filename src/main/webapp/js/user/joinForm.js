@@ -28,10 +28,12 @@ $("#email").on("keyup", function () {
 		if(result.emailChk) {
 //			$("#emailResult").css("color", "red").html("사용 불가능한 이메일 입니다.");
 			$("#email").css("box-shadow", "0px 0px 4px 2px red");
+			$("#email").attr("id", "reEmail");
 			$("#btn").attr("disabled", true); 
 		} else {
 //			$("#emailResult").css("color", "green").html("사용가능한 이메일 입니다.");
 			$("#email").css("box-shadow", "0px 0px 4px 2px #4A90BE");
+			$("#reEmail").attr("id", "email");
 			$("#btn").attr("disabled", false);
 		}			
 	})
@@ -97,22 +99,27 @@ $("#password").on("keyup", function(){
 	
 	 
 $("#btn").on("click", function () {
-	
 	var jf = document.joinForm;
-	
 	var psw = $("#password").val();
 	
-	if(jf.email.value == "") {
+/*	if((jf.email.value || jf.reEmail.value) == "") {
 		swal("메일을 입력하세요");
 		jf.email.focus();
 		return false;
-	}
+	}*/
 
 	if($("#reNickName").val() != null) {
 		swal("사용 불가능한 별명입니다.");
-		jf.nickName.focus();
+		jf.reNickName.focus();
 		return false;
 	}
+	
+	if($("#reEmail").val() != null) {
+		swal("사용 불가능한 이메일 입니다.");
+		jf.reEmail.focus();
+		return false;
+	}
+	
 
 	if(jf.nickName.value == "") {
 		swal("별명을 입력하세요");
@@ -133,6 +140,10 @@ $("#btn").on("click", function () {
 		return false;
 	} 
 		
+	if($("#btn").disable == true ) {
+		swal("입력정보를 확인 해주세요");
+		return false;
+	}
 	
 	
 	
@@ -156,8 +167,13 @@ $("#btn").on("click", function () {
 		data : user,
 		dataType : "json"
 	}).done(function(result) {
-		console.log(result);
-		goConfForm(result);
+		if (result != null) {
+//			$("#btn").attr("disabled", true).text("로딩중...");
+			console.log("dddd" + result);
+			goConfForm(result);
+		} else {
+			swal("입력정보를 확인해주세요");
+		}
 	})
 	.fail(function (jqXHR, textStatus, errorThrown) {
 		swal("에러 발생 \n" + textStatus + " : " + errorThrown);
