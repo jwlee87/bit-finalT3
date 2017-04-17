@@ -2009,7 +2009,7 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   margin: 0;
 }
 .navbar-nav > li > a {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 23px;
   font-weight: 700;
 }
@@ -2286,6 +2286,12 @@ select[multiple].navbar-form .btn {
 .navbar-default .navbar-nav > li > a {
   color: #34495e;
 }
+
+.navbar-default .navbar-nav > li > a > img:hover,
+.navbar-default .navbar-nav > li > a > img:focus {
+	content: url(images/menuHover.png);	
+}
+
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #1abc9c;

@@ -1,178 +1,133 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Insert title here</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Fine Uploader Gallery CSS file
-    ====================================================================== -->
-    
-    <link href="${pageContext.request.contextPath}/css/comm/fine-uploader-gallery.css" rel="stylesheet">
-
-    <!-- Fine Uploader S3 JS file
-    ====================================================================== -->
-    <script src="${pageContext.request.contextPath}/js/comm/all.fine-uploader.js"></script>
-
-    <!-- Fine Uploader Customized Gallery template
-    ====================================================================== -->
-    <script type="text/template" id="qq-template-s3">
-        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
-            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
-                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
-            </div>
-            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
-                <span class="qq-upload-drop-area-text-selector"></span>
-            </div>
-            <div class="qq-upload-button-selector qq-upload-button">
-                <div>Upload a file</div>
-            </div>
-            <span class="qq-drop-processing-selector qq-drop-processing">
-                <span>Processing dropped files...</span>
-                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
-            </span>
-            <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
-                <li>
-                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
-                    <div class="qq-progress-bar-container-selector qq-progress-bar-container">
-                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
-                    </div>
-                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
-                    <div class="qq-thumbnail-wrapper">
-                        <a class="preview-link" target="_blank">
-                            <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
-                        </a>
-                    </div>
-                    <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
-                    <button type="button" class="qq-upload-retry-selector qq-upload-retry">
-                        <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
-                        Retry
-                    </button>
-
-                    <div class="qq-file-info">
-                        <div class="qq-file-name">
-                            <span class="qq-upload-file-selector qq-upload-file"></span>
-                            <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
-                        </div>
-                        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
-                        <span class="qq-upload-size-selector qq-upload-size"></span>
-                        <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
-                            <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
-                        </button>
-                        <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
-                            <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
-                        </button>
-                        <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
-                            <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
-                        </button>
-                    </div>
-                </li>
-            </ul>
-
-            <dialog class="qq-alert-dialog-selector">
-                <div class="qq-dialog-message-selector"></div>
-                <div class="qq-dialog-buttons">
-                    <button type="button" class="qq-cancel-button-selector">Close</button>
-                </div>
-            </dialog>
-
-            <dialog class="qq-confirm-dialog-selector">
-                <div class="qq-dialog-message-selector"></div>
-                <div class="qq-dialog-buttons">
-                    <button type="button" class="qq-cancel-button-selector">No</button>
-                    <button type="button" class="qq-ok-button-selector">Yes</button>
-                </div>
-            </dialog>
-
-            <dialog class="qq-prompt-dialog-selector">
-                <div class="qq-dialog-message-selector"></div>
-                <input type="text">
-                <div class="qq-dialog-buttons">
-                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
-                    <button type="button" class="qq-ok-button-selector">Ok</button>
-                </div>
-            </dialog>
-        </div>
-	</script>
-	<script>
-	$(document).ready(function () {
-		$("#fileAttach").click(function() {
-			window.open("writeForm.do", 600, 100);
-		})
-	})
-	</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="${pageContext.request.contextPath}/js/file/fileTest.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/comm/jquery.form.min.js"></script>
+<style>
+	/*
+		Styles for HTML5 File Drag & Drop demonstration
+		Featured on SitePoint.com
+		Developed by Craig Buckler (@craigbuckler) of OptimalWorks.net
+	*/
+	body
+	{
+		font-family: "Segoe UI", Tahoma, Helvetica, freesans, sans-serif;
+		font-size: 90%;
+		margin: 10px;
+		color: #333;
+		background-color: #fff;
+	}
+	
+	h1, h2
+	{
+		font-size: 1.5em;
+		font-weight: normal;
+	}
+	
+	h2
+	{
+		font-size: 1.3em;
+	}
+	
+	legend
+	{
+		font-weight: bold;
+		color: #333;
+	}
+	
+	#filedrag
+	{
+		display: none;
+		font-weight: bold;
+		text-align: center;
+		padding: 1em 0;
+		margin: 1em 0;
+		color: #555;
+		border: 2px dashed #555;
+		border-radius: 7px;
+		cursor: default;
+	}
+	
+	#filedrag.hover
+	{
+		color: #f00;
+		border-color: #f00;
+		border-style: solid;
+		box-shadow: inset 0 3px 4px #888;
+	}
+	
+	img
+	{
+		max-width: 100%;
+	}
+	
+	pre
+	{
+		width: 95%;
+		height: 8em;
+		font-family: monospace;
+		font-size: 0.9em;
+		padding: 1px 2px;
+		margin: 0 0 1em auto;
+		border: 1px inset #666;
+		background-color: #eee;
+		overflow: auto;
+	}
+	
+	#messages
+	{
+		padding: 0 10px;
+		margin: 1em 0;
+		border: 1px solid #999;
+	}
+	
+	#progress p
+	{
+		display: block;
+		width: 240px;
+		padding: 2px 5px;
+		margin: 2px 0;
+		border: 1px inset #446;
+		border-radius: 5px;
+		background: #eee url("progress.png") 100% 0 repeat-y;
+	}
+	
+	#progress p.success
+	{
+		background: #0c0 none 0 0 no-repeat;
+	}
+	
+	#progress p.failed
+	{
+		background: #c00 none 0 0 no-repeat;
+	}
+</style>
 </head>
-	
-	
 <body>
+<form id="upload" name="upload" enctype="multipart/form-data">
 
-	<input type="button" id="fileAttach" value="파일첨부"></input>
-	<br />
-	<br />
-	<!-- Fine Uploader DOM Element
-    ====================================================================== -->
-    <div id="fine-uploader-s3"></div>
+	<fieldset>
+		<legend>HTML File Upload</legend>
+		<input type="hidden" id="MAX_FILE_SIZE" value="300000" />
+		<div>
+			<label for="fileselect">Files to upload:</label>
+			<input type="file" id="fileselect" name="fileselect" multiple />
+			<div id="filedrag">or drop files here</div>
+		</div>
+	</fieldset>
+	
+</form>
 
-    <!-- Your code to create an instance of Fine Uploader and bind to the DOM/template
-    ====================================================================== -->
-    <script>
-        var s3Uploader = new qq.s3.FineUploader({
-            debug: true,
-            element: document.getElementById('fine-uploader-s3'),
-            template: 'qq-template-s3',
-            request: {
-                endpoint: "https://upload.fineuploader.com",
-                accessKey: "AKIAJB6BSMFWTAXC5M2Q"
-            },
-            signature: {
-                endpoint: "https://s3-demo.fineuploader.com/s3demo-thumbnails-cors.php"
-            },
-            uploadSuccess: {
-                endpoint: "https://s3-demo.fineuploader.com/s3demo-thumbnails-cors.php?success",
-                params: {
-                    isBrowserPreviewCapable: qq.supportedFeatures.imagePreviews
-                }
-            },
-            iframeSupport: {
-                localBlankPagePath: "/server/success.html"
-            },
-            cors: {
-                expected: true
-            },
-            chunking: {
-                enabled: true
-            },
-            resume: {
-                enabled: true
-            },
-            deleteFile: {
-                enabled: true,
-                method: "POST",
-                endpoint: "https://s3-demo.fineuploader.com/s3demo-thumbnails-cors.php"
-            },
-            validation: {
-                itemLimit: 5,
-                sizeLimit: 15000000
-            },
-            thumbnails: {
-                placeholders: {
-                    notAvailablePath: "/server/not_available-generic.png",
-                    waitingPath: "/server/waiting-generic.png"
-                }
-            },
-            callbacks: {
-                onComplete: function(id, name, response) {
-                    var previewLink = qq(this.getItemByFileId(id)).getByClass('preview-link')[0];
+<div id="submitbutton">
+	<button type="button" id="btnUpload">Upload Files</button>
+</div>
+<div id="messages">
+</div>
 
-                    if (response.success) {
-                        previewLink.setAttribute("href", response.tempLink)
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>

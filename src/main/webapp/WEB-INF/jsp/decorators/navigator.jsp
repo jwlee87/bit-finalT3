@@ -20,12 +20,6 @@
 		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 
 			<ul class="nav navbar-nav">
-				<li class="menuItem">
-					<a class="open-popup-link">
-						changeView
-					</a>
-				</li>
-
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<c:out value="${user.userNickName}">님</c:out><span class="caret"></span>
@@ -53,6 +47,11 @@
 					</ul>
 					
 				</li>
+				<li class="menuItem">
+					<a class="open-popup-link">
+						<img src="${pageContext.request.contextPath}/img/menu.png" />
+					</a>
+				</li>
 			</ul>
 		</div>
 
@@ -60,6 +59,7 @@
 </div>
 
 <script>
+
 function goProfile(userNo){
 	location.href = "${pageContext.request.contextPath}/user/profileForm.do?userNo="+userNo;
 }
