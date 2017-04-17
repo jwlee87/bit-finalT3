@@ -33,6 +33,9 @@ public class UserController {
 	
 	
 	
+	@RequestMapping("/user/goLogin.do")
+	public void goLogin() throws Exception{}
+
 	@RequestMapping("/user/test.do")
 	public void test() throws Exception{}
 	

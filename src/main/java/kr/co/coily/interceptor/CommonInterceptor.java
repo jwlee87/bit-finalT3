@@ -11,7 +11,10 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 		
 		try {
 			if (request.getSession().getAttribute("user") == null) {
-				response.sendRedirect("/bit-finalT3/index.html");
+//				PrintWirte pw = response.getWriter();
+//				pw.println("<script></script>");
+				
+				response.sendRedirect("/bit-finalT3/user/goLogin.do");
 				return false;
 			}
 		} catch (Exception e) {

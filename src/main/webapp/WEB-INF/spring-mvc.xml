@@ -87,6 +87,7 @@
 			<mvc:exclude-mapping path="/user/confForm.do" />
 			<mvc:exclude-mapping path="/user/confPopupForm.do" />
 			<mvc:exclude-mapping path="/user/updatePasswordPage.do" />
+			<mvc:exclude-mapping path="/user/goLogin.do" />
 			<bean id="commonInterceptor" class="kr.co.coily.interceptor.CommonInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
