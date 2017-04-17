@@ -64,8 +64,32 @@
 	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
   		<constructor-arg name="strength" value="256"></constructor-arg>
 	</bean>
-	
 
+
+	<!-- Interceptor 설정 -->
+	<mvc:interceptors>
+
+		<!-- 공통 Interceptor -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/bit-finalT3/index.html" />
+			<mvc:exclude-mapping path="/user/loginForm.do" />
+			<mvc:exclude-mapping path="/user/joinForm.do" />
+			<mvc:exclude-mapping path="/user/login.do" />
+			<mvc:exclude-mapping path="/user/conf.do" />
+			<mvc:exclude-mapping path="/user/join.do" />
+			<mvc:exclude-mapping path="/user/emailCheck.do" />
+			<mvc:exclude-mapping path="/user/nickNameCheck.do" />
+			<mvc:exclude-mapping path="/user/pswCheck.do" />
+			<mvc:exclude-mapping path="/user/encPassword.do" />
+			<mvc:exclude-mapping path="/user/findPsw.do" />
+			<mvc:exclude-mapping path="/user/updatePassword.do" />
+			<mvc:exclude-mapping path="/user/confForm.do" />
+			<mvc:exclude-mapping path="/user/confPopupForm.do" />
+			<mvc:exclude-mapping path="/user/updatePasswordPage.do" />
+			<bean id="commonInterceptor" class="kr.co.coily.interceptor.CommonInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 
 	<!-- 메인페이지 이동 
