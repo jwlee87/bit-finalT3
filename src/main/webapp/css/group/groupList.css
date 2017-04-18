@@ -3,7 +3,7 @@
 	body {
 		/* background: #59cee0;  */
 		over-flow:hidden !important;
-		background: url('../../img/group/back.jpg') no-repeat center center fixed; 
+ 		background: url('../../img/group/b1.jpg') no-repeat center center fixed; 
 		-webkit-background-size: cover;
 	 	-moz-background-size: cover;
 	 	-o-background-size: cover;
@@ -25,7 +25,7 @@
 	  	float: left;
 	  	transition: all .2s ease-out;
 	  	color: white; 
-	  	background: rgba(22,22,22, 0.5);
+	  	background: rgba(22, 22, 22, 0.5);
 /* 	  	background: #fff; */
 	  	padding: 10px;
 	  	box-sizing: border-box;

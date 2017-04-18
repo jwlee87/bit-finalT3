@@ -38,21 +38,31 @@
 	
 	/** 그룹 삭제 **/
 	function deleteGrp(groupHeaderNo) {
-		$.ajax ({
-			url: "groupDelete.do",
-			type: "POST",
-			data: {
-				"groupHeaderNo": groupHeaderNo
-			},	
-			dataType: "json"
-		}).done(function(result){
-			swal({
-				title: "그룹 삭제 완료",
-				type: "success"	
-			},
-			function(){
-				location.href = "groupList.do"
-			})			
+		swal({
+			title: "그룹을 삭제하시겠습니까?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "삭제",
+			closeOnConfirm: false
+		},
+		function(){
+			$.ajax ({
+				url: "groupDelete.do",
+				type: "POST",
+				data: {
+					"groupHeaderNo": groupHeaderNo
+				},	
+				dataType: "json"
+			}).done(function(result){
+				swal({
+					title: "그룹 삭제 완료",
+					type: "success"	
+				},
+				function(){
+					location.href = "groupList.do"
+				})			
+			});
 		});
 	};
 	

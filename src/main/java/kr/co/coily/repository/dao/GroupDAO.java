@@ -30,8 +30,6 @@ public class GroupDAO {
 	/*초기 기본 그룹 등록(Header+Detail)***************************/
 	@Transactional(rollbackFor=Exception.class)
 	public GroupHeaderVO insertGroup() {
-		
-		
 		GroupHeaderVO headerVO = new GroupHeaderVO();
 		sqlSessionTemplate.insert("kr.co.coily.repository.dao.GroupDAO.insertGroupHeader", headerVO);
 		int headerNo = headerVO.getGroupHeaderNo();
@@ -61,16 +59,13 @@ public class GroupDAO {
 	@Transactional(rollbackFor=Exception.class)
 	public void deleteGroupDetail(int grpNo) {
 		sqlSessionTemplate.delete("kr.co.coily.repository.dao.GroupDAO.deleteGroupDetail", grpNo);
-		sqlSessionTemplate.delete("kr.co.coily.repository.dao.GroupDAO.deleteGroupDetail", grpNo);
+		sqlSessionTemplate.delete("kr.co.coily.repository.dao.GroupDAO.deleteGroupHeader", grpNo);
 	}
 	
-	
-	/*기본 등록된 그룹 업데이트
-	 *headerName/ userNo 추가등록 ******************************/
-	/*
+	/*그룹 수정
+	 *headerName 변경 / userNo 추가등록 **************************/
 	@Transactional(rollbackFor=Exception.class)
-	public String updateGroup(GroupDetailVO detail) {
-		sqlSessionTemplate.update("kr.co.coily.repository.dao.GroupDAO.updateGroupDetail", detail);
+	public void updateGroup(GroupHeaderVO header) {
+		sqlSessionTemplate.update("kr.co.coily.repository.dao.GroupDAO.updateGroupHeader", header);
 	}
-	*/
 }

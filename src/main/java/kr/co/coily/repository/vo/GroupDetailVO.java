@@ -12,7 +12,14 @@ public class GroupDetailVO {
 	private String groupHeaderName;
 	private String userNickName;
 	private String userEmail;
+	private int userOrder;
 	
+	public int getUserOrder() {
+		return userOrder;
+	}
+	public void setUserOrder(int userOrder) {
+		this.userOrder = userOrder;
+	}
 	public String getUserNickName() {
 		return userNickName;
 	}

@@ -22,11 +22,23 @@ public class GroupContorller {
 	@Autowired
 	private GroupServiceImpl service;
 	
+	
+	// 수정 ajax 호출
+	@RequestMapping("/groupUpdate.do")
+	@ResponseBody
+	public String updateGroup(String groupHeaderName, int groupHeaderNo) throws Exception {
+		GroupHeaderVO header = new GroupHeaderVO();
+		header.setGroupHeaderName(groupHeaderName);
+		header.setGroupHeaderNo(groupHeaderNo);
+		service.updateGroup(header);
+		return "";
+	};
+	
+	
 	// 삭제 ajax 호출
 		@RequestMapping("/groupDelete.do")
 		@ResponseBody
 		public String deleteGroup(int groupHeaderNo) throws Exception {
-			System.out.println("gjhgk" + groupHeaderNo);
 			service.deleteGroup(groupHeaderNo);
 			return "";
 		}
@@ -80,20 +92,5 @@ public class GroupContorller {
 		mRslt.put("groupHeaderName", headerVO.getGroupHeaderName());
 		return mRslt;
 	};
-	
-	// 수정
-//	@RequestMapping("/groupUpdate.do")
-//	public String insertGroupDetail(HttpServletRequest request, int groupHeaderNo) throws Exception {
-//		GroupHeaderVO header = new GroupHeaderVO();
-//		header.setGroupHeaderNo(groupHeaderNo);
-//		header.setGroupHeaderName(request.getParameter("groupHeaderName"));
-//		GroupDetailVO detail = new GroupDetailVO();
-//		detail.setGroupHeaderNo(groupHeaderNo);
-//		detail.setUserNo(1);
-//		service.updateGroupHeader(header);
-//		service.updateGroupDetail(detail);
-//		
-//		return "group/groupList";
-//	};
 	
 }

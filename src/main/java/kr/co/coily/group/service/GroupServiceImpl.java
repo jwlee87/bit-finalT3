@@ -50,5 +50,10 @@ public class GroupServiceImpl implements GroupService {
 	public void deleteGroup(int grpNo) {
 		dao.deleteGroupDetail(grpNo);
 	}
+
+	/* 그룹 수정 */
+	public void updateGroup(GroupHeaderVO header) {
+		dao.updateGroup(header);
+	}
 	
 }

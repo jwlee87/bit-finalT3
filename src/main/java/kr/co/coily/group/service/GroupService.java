@@ -23,4 +23,7 @@ public interface GroupService {
 	
 	/* 그룹 삭제 */
 	public void deleteGroup(int grpNo);
+	
+	/* 그룹 수정 */
+	public void updateGroup(GroupHeaderVO header);
 }

@@ -1,10 +1,5 @@
 $(function(){
 	
-	
-	
-	
-	
-// 		alert("번호 : " +  $("#GroupHeaderNo").val());
 	$.ajax({
 		url:"groupDetailList.do",
 		type: "POST",
@@ -13,19 +8,27 @@ $(function(){
 		},
 		dataType:"json"
 	}).done(function (result) {
+		$("#nContent").append('<input type="text" id="groupname" value="'+result.name+'">');
 		
 		var data = [];
+		var defaultTag="";
+		var order="";
 		for (var i=0; i < result.userList.length; i++){
 			
 			var user = result.userList[i];
 			data.push({
 				id: i,
-				title: user.nickName,
-				url: user.email
+				text: user.userNickName,
+				order: user.userOrder
 			})
-			
-			var defaultTag = user.nickName+ ",";
-			
+//			alert(user.userNickName);
+			defaultTag += user.userNickName+ ",";
+			order += user.userOrder + ",";
+		}
+		
+		var arrOrder = order.split(",");
+		for(var i=0; i<arrOrder.length; i++) {
+			if(arrOrder[i] != ",") $("#input-tags").attr("data-order", arrOrder[i]);
 		}
 		
 		$("#input-tags").val(defaultTag.substring(0, defaultTag.length-1));
@@ -41,7 +44,7 @@ $(function(){
 				}
 			},
 			onDelete: function(values) {
-				return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : 'Are you sure you want to remove "' + values[0] + '"?');
+				return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : '"' + values[0] + '"님을 삭제하시겠습니까?');
 			}
 		});
 			
@@ -54,10 +57,19 @@ $(function(){
 	//  버튼 클릭 시 수정 ajax 실행
 	$("#uButton").click(function (){
 		
-	/*   	console.log($("#GroupHeaderNo").val());
-	  		console.log(document.getElementById("groupname").innerHTML);
-	  		console.log($("#groupname").html());
-	  		console.log(document.getElementById("groupmem").innerHTML); */
+		$.ajax ({
+			url: "groupUpdate.do",
+			type: "POST",
+			dataType: "json",
+			data: {
+				"groupHeaderName": $("#groupname").val(),
+				"groupHeaderNo": $("#GroupHeaderNo").val()
+				}
+		}).done(function(result){
+			swal("수정 완료");
+			parent.location.href ="groupList.do";
+			parent.$.colorbox.close();
+		}); 
 		
 	/* 	$.ajax ({
 			url: "groupUpdate.do",
@@ -72,5 +84,4 @@ $(function(){
 		});  */
 		
 	}); 
-
 });

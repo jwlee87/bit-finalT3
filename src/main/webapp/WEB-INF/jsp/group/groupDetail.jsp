@@ -35,11 +35,9 @@
 <div class="ly_box">
 
 	<p id="title1" style="display: block;">스터디 그룹 정보</p>
-	<br>
-	<br>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<div id="nlabel" style="width:25%">그룹 이름</div>
+			<div id="nlabel" style="width:25%; float: left;">그룹 이름</div>
 				<div id="nContent">
 				</div>
 <!-- 			<input type="text" style="width:70%" id="groupname" name="groupname" /> -->
@@ -50,8 +48,7 @@
 					<input type="text" id="input-tags" class="input-tags demo-default">
 				</div>
 		</div>
-			<button type="button" id="uButton" class="btn_insert" >수정</button>
-			
+			<button type="button" id="uButton" class="btn btn-lg" >수정</button>
 	</form>
 </div>
 </body>

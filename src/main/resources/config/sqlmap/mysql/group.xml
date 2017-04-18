@@ -13,6 +13,7 @@
 		<result property="groupHeaderName" column="group_header_name"/>
 		<result property="userNickName" column="user_nick_name"/>
 		<result property="userEmail" column="user_email"/>
+		<result property="userOrder" column="user_order"/>
 	</resultMap>
 	
 	<!-- 그룹 등록 -->
@@ -47,14 +48,14 @@
 	<!-- 그룹 상세 조회 -->
 	<select id="selectOneDetail" parameterType="int" resultMap="groupDetailMap">
 			select *
-		  	  from (
-		  	  	select a.group_detail_no, b.* 
-		  		  from tb_group_detail a 
-		     left join tb_user b
-		    		on a.user_no = b.user_no
-		    	 where a.group_header_no = #{groupHeaderNo}
-		    	order by b.user_nick_name asc	  		  
-		  		  	) c
+		  from (
+		  	select a.group_detail_no, b.* 
+		      from tb_group_detail a 
+		 left join tb_user b
+		     	on a.user_no = b.user_no
+		     where a.group_header_no = #{groupHeaderNo}
+		  order by a.user_order	  		  
+		  		) c
 	</select>
 	
 	<!-- 그룹 삭제 -->
@@ -73,11 +74,11 @@
 	</delete>
 	
 	<!-- 그룹 헤더 수정 -->
-<!-- 	<update id="updateGroupHeader" parameterType="groupHeaderVO">
+	<update id="updateGroupHeader" parameterType="groupHeaderVO" >
 		update tb_group_header
 		   set group_header_name = #{groupHeaderName}
 		 where group_header_no = #{groupHeaderNo}
-	</update>	 -->
+	</update>
 	
 	<!-- 그룹 디테일 수정 -->
 <!-- 	<update id="updateGroupDetail" parameterMap="groupDetailMap">
