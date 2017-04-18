@@ -25,25 +25,10 @@
 						<c:out value="${user.userNickName}"></c:out>님<span class="caret"></span>
 					</a>
 
-					<!-- <div class="dropdown-menu" role="menu" aria-labelledby="dLabel"
-						style="top: 45px; width: 350px; height: 200px;">
-						프로필입니다\n 프로필입니다\n 프로필입니다\n 프로필입니다
-						<button type="button" class="btn btn-default"
-							onclick="javascript:alert(1)"
-							style="margin-top: 30%; margin-left: 30px;">profile</button>
-						<button type="button" class="btn btn-primary"
-							onclick="javascript:alert(2)" style="margin-top: 30%;">logout</button> -->
-
-					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;">
-
-<%-- 							<li><a id="profilePopup" href="${pageContext.request.contextPath}/user/profileForm.do?userNo="${user.userNo}">프로필</a></li> --%>
-							<li><a href="javascript:goProfile(${user.userNo});">profile</a></li>
-				        	<li><a href="javascript:goLogout(${user.userNo});">LogOut</a></li>
-				        	<li><a href="${pageContext.request.contextPath}/quiz/list.do">Quiz Board</a></li>
-				        	<li class="divider"></li>
-				        	<li><a href="#">Separated link</a></li>
-				        	<li class="divider"></li>
-				        	<li><a href="#">One more separated link</a></li>
+					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;font-size:10px !important;">
+						<li><a href="javascript:goProfile(${user.userNo});">프로필</a></li>
+						<li class="divider"></li>
+			        	<li><a href="javascript:goLogout(${user.userNo});">로그아웃</a></li>
 					</ul>
 					
 				</li>
@@ -98,7 +83,7 @@ function goProfile(userNo){
 		location.href = "../card/list.do";
 	}
 	function editLink() {
-		location.href = "../edit/list.do";
+		location.href = "../editor/form.do";
 	}
 	function quizLink() {
 		location.href = "../quiz/list.do";

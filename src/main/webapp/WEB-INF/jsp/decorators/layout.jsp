@@ -25,7 +25,7 @@
  	<page:applyDecorator name="dHeader"> </page:applyDecorator>
 	
 	<!-- content -->
-	<div id="container">
+	<div id="container" style="background-color: #edeff1">
 		<decorator:body />
 	</div>
 	
