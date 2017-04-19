@@ -11,21 +11,26 @@
 		<result property="cardContent" column="card_content"/>
 		<result property="cardRegDate" column="card_reg_date"/>
 		<result property="fileGroupNo" column="file_group_no"/>
+		<result property="userImgPath" column="user_img_path"/>
 	</resultMap>
 	
-<!-- 			카드 리스트 		-->
+<!-- 카드 리스트 -->
 <!-- ============================================================================== -->
 	<select id="selectCard" parameterType="searchVO" resultMap="cardMap">
-		select card_no,
-			   user_no,
-			   case when instr(CARD_CONTENT, "\n") = 0 then CARD_CONTENT
-		 			when instr(CARD_CONTENT, "\n") = 1 then CARD_CONTENT
-         			else left(CARD_CONTENT, instr(CARD_CONTENT, "\n")) 
+		select c.card_no,
+			   c.user_no,
+			   case when instr(c.card_content, "\n") = 0 then c.card_content
+		 			when instr(c.card_content, "\n") = 1 then c.card_content
+         			else left(c.card_content, instr(c.card_content, "\n")) 
          		end as card_content,
-			   card_reg_date
-		  from tb_card 
-		    order by card_no desc
-		    limit #{begin}, 5
+			   c.card_reg_date,
+			   u.user_nick_name,
+			   ui.user_img_path
+		  from tb_card c, tb_user u, tb_user_img ui
+		 where c.user_no = u.user_no
+		   and u.user_img_no = ui.user_img_no
+	  order by c.card_no desc
+	     limit #{begin}, 11
 	</select>
 	
 	<select id="selectCardCount" parameterType="searchVO" resultType="int">

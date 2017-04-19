@@ -9,9 +9,14 @@ public class CardVO {
 	private String cardContent;
 	private Date cardRegDate;
 	private int fileGroupNo;
+	private String userImgPath;
 	
-	
-	
+	public String getUserImgPath() {
+		return userImgPath;
+	}
+	public void setUserImgPath(String userImgPath) {
+		this.userImgPath = userImgPath;
+	}
 	public String getUserNickName() {
 		return userNickName;
 	}
