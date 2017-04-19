@@ -62,11 +62,11 @@ public interface CardService {
 	
 	
 	
-	
 	/* 댓글 수정	*/
 	/* ==================================================================*/
 //	public List<CommentVO> updateCardComment(CommentVO comment) throws Exception ;
-	List<CommentVO> commentUpdate(CommentVO comment) throws Exception;
+	
+//	List<CommentVO> commentUpdate(CommentVO comment) throws Exception;
 	
 	/* 댓글 수정	*/
 	/* ==================================================================*/
@@ -74,7 +74,7 @@ public interface CardService {
 	
 	/* 댓글 삭제	*/
 	/* ==================================================================*/
-	/*public List<CommentVO> commentDelete(CommentVO comment) throws Exception ;*/
+//	public List<CommentVO> commentDelete(CommentVO comment) throws Exception ;
 
 	/* 댓글 삭제	*/
 	/* ==================================================================*/

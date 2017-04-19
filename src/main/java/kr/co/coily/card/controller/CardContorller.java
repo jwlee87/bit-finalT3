@@ -128,29 +128,21 @@ public class CardContorller {
 	
 	/*댓글 리스트 와 등록  ======================================================================*/
 	/*==============================================================================*/
-	
-	
 	@RequestMapping("/commentList.do")
 	@ResponseBody
 	public List<CommentVO> commentList(int cardNo) throws Exception {
-		System.out.println( "컨트롤러 : " + cardNo);
-		List<CommentVO> tmp = Service.commentList(cardNo);
-		for(CommentVO c : tmp){
-			System.out.println(c.getCardCommentContent());
-			System.out.println("댓글 쓴인간" + c.getUserNickName());
-		}
-//		System.out.println("tmp:" + tmp);
-		return tmp;
+		System.out.println( "댓글리스트 번호 : " + cardNo);
+		
+		return Service.commentList(cardNo);
 	}
 	
 	@RequestMapping("/commentRegist.do")
 	@ResponseBody
 	public List<CommentVO> commentRegist(CommentVO comment) throws Exception {
+		System.out.println("댓글 등록번호 :" + comment);
 		
-		System.out.println("카드번호 :" + comment);
 		return Service.commentRegist(comment);
 	}
-		
 	
 	/*댓글 리스트 와 등록  ======================================================================*/
 	/*==============================================================================*/
@@ -158,11 +150,11 @@ public class CardContorller {
 	
 	/*댓글 리스트 수정  ======================================================================*/
 	/*==============================================================================*/
-	@RequestMapping("/commentUpdate.do")
+	/*@RequestMapping("/commentUpdate.do")
 	@ResponseBody
 	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
 		return Service.commentUpdate(comment);
-	}
+	}*/
 	
 	/*댓글 리스트 수정  ======================================================================*/
 	/*==============================================================================*/

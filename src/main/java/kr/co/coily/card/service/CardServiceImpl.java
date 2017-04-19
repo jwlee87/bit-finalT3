@@ -112,11 +112,11 @@ public class CardServiceImpl implements CardService{
 	/*댓글 리스트  ======================================================================*/
 	/*==============================================================================*/
 	@Override
-	public List<CommentVO> commentList(int no) throws Exception {
+	public List<CommentVO> commentList(int cardNo) throws Exception {
 		System.out.println("댓글 목록 넘어오나");
 		
-		System.out.println( "서비스임플 : " + no);
-		return dao.selectCardCommentByNo(no);
+		System.out.println( "서비스임플 : " + cardNo);
+		return dao.selectCardCommentByNo(cardNo);
 	}
 	
 	@Override
@@ -126,15 +126,16 @@ public class CardServiceImpl implements CardService{
 		return dao.selectCardCommentByNo(comment.getCardCommentNo());
 	}
 	
+	
 		
 		
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
-	@Override
+/*	@Override
 	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
 		dao.updateCardComment(comment);
 		return dao.selectCardCommentByNo(comment.getCardNo());
-	}
+	}*/
 	
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
