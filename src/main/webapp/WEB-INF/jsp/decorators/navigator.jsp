@@ -44,7 +44,6 @@
 </div>
 
 <script>
-
 function goProfile(userNo){
 	location.href = "${pageContext.request.contextPath}/user/profileForm.do?userNo="+userNo;
 }

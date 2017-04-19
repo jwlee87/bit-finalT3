@@ -25,9 +25,13 @@
  	<page:applyDecorator name="dHeader"> </page:applyDecorator>
 	
 	<!-- content -->
-	<div id="container" style="background-color: #edeff1">
-		<decorator:body />
+	
+	<div id="whatis" class="content-section-a">
+		<div class="container">
+			<decorator:body />
+		</div>
 	</div>
+	
 	
 	<!-- footer -->
 	<page:applyDecorator name="dFooter"> </page:applyDecorator>

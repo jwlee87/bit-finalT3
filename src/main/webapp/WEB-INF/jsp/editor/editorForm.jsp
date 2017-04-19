@@ -63,8 +63,9 @@ $(function () {
 })
 </script>
 </head>
-<body>
-	<div class="wrapper" style="width:50%;">
+<body style="background-color: #edeff1;width:100%">
+
+	<div class="wrapper" style="width:50%;float:left;">
 	  <code id="ace-editorid">
 	  // ================================================
 	  // SCSS @extends Across Media Queries  
@@ -86,5 +87,7 @@ $(function () {
 	  
 	  </code>
 	</div>
+	
+<%-- 	<jsp:include page="videoForm.jsp"></jsp:include> --%>
 </body>
 </html>
