@@ -2,8 +2,9 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page" %>
-
-<% System.out.println("123123"); %>
+<% 
+	System.out.println("4");
+%>
 <!-- NavBar-->
 <div class="navbar-default" role="navigation">
 	<div class="container">
@@ -14,19 +15,29 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/main.do">Coily</a>
+			
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/reLoadMain.do">Coily</a>
+			
+			<c:if test="${not empty groupInfo}">
+				<span class="qs">?
+					<span class="popover above">" ${groupInfo.groupHeaderName} " 스터디 그룹에서 오늘 하루도 열공하세요 :-)</span>
+				</span>
+			</c:if>
 		</div>
-
+		
 		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-
+		
 			<ul class="nav navbar-nav">
+			
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<c:out value="${user.userNickName}"></c:out>님<span class="caret"></span>
 					</a>
 
-					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;font-size:10px !important;">
+					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;font-size:12px !important;text-align: left !important;">
 						<li><a href="javascript:goProfile(${user.userNo});">프로필</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:goProfile(${user.userNo});">마이페이지</a></li>
 						<li class="divider"></li>
 			        	<li><a href="javascript:goLogout(${user.userNo});">로그아웃</a></li>
 					</ul>

@@ -10,6 +10,7 @@
 <link href="${pageContext.request.contextPath}/css/comm/colorbox.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/magnific-popup.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/sweetalert.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/comm/navigator.css" rel="stylesheet">
 
 <!-- JavaScript -->
 <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
@@ -31,4 +32,4 @@
 <link href="${pageContext.request.contextPath}/css/comm/custom.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
 
-<script src="${pageContext.request.contextPath}/js/user/userstatus.js"></script> <!--ddd  -->
+<script src="${pageContext.request.contextPath}/js/user/userstatus.js"></script>
