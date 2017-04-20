@@ -122,8 +122,10 @@ public class CardServiceImpl implements CardService{
 	@Override
 	public List<CommentVO> commentRegist(CommentVO comment) throws Exception {
 		System.out.println("댓글 리스트 등록 넘어오나");
+		System.out.println("등록 전 서비스 임플 카드번호 : " + comment.getCardNo());
 		dao.insertCardComment(comment);
-		return dao.selectCardCommentByNo(comment.getCardCommentNo());
+		System.out.println("서비스 임플 카드번호 : " + comment.getCardNo());
+		return dao.selectCardCommentByNo(comment.getCardNo());
 	}
 	
 	
@@ -131,11 +133,14 @@ public class CardServiceImpl implements CardService{
 		
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
-/*	@Override
+	@Override
 	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
+		System.out.println("서비스 임플 댓글 수정");
+		System.out.println("수정 전 서비스 임플 카드번호 : " + comment.getCardNo());
 		dao.updateCardComment(comment);
+		System.out.println("수정 후 서비스 임플 카드번호 : " + comment.getCardNo());
 		return dao.selectCardCommentByNo(comment.getCardNo());
-	}*/
+	}
 	
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
@@ -143,11 +148,14 @@ public class CardServiceImpl implements CardService{
 	
 	/*댓글 삭제  ======================================================================*/
 	/*==============================================================================*/
-	/*@Override
+	@Override
 	public List<CommentVO> commentDelete(CommentVO comment) throws Exception {
+		System.out.println("서비스 일플 댓글 삭제");
+		
 		dao.deleteCardComment(comment.getCardCommentNo());
+		System.out.println("삭제되는 서비스 임플 카드번호 : " + comment.getCardCommentNo());
 		return dao.selectCardCommentByNo(comment.getCardNo());
-	}*/
+	}
 	
 	/*댓글 삭제  ======================================================================*/
 	/*==============================================================================*/

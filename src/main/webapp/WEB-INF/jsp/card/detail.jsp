@@ -12,7 +12,6 @@
 <%-- <script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script> --%>
 <script src="${pageContext.request.contextPath}/js/card/detail.js"></script>
 <link href="${pageContext.request.contextPath}/css/card/detail.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
 
@@ -52,10 +51,10 @@
 	<form id="commentWrite" action="#" method="post">
 		<input type="hidden" id="cardContentNo" value="${param.cardContentNo}" />
 		<input type="hidden" id="userNo" value="${detail.userNo}"/>
-			<textarea id="commentNone" name="cardCommentContent" placeholder="내용을 작성하세요" required
-			></textarea>
+<!-- 			<textarea id="commentNone" name="cardCommentContent" placeholder="내용을 작성하세요" required -->
+<!-- 			></textarea> -->
 		
-			<input type="button" id="commentNoneButton" value="댓글 등록" />
+<!-- 			<input type="button" id="commentNoneButton" value="댓글 등록" /> -->
 <!-- 		<input type="button" id="commentDelete" value="댓글 삭제" /> -->
 			
 <!-- 			<textarea id="commentNone2" name="cardCommentContent2" placeholder="내용을 작성하세요" required -->
@@ -97,32 +96,29 @@
 		 	<td><c:out value="${CommentVO.userNo}"/></td>
 		</tr>
 		
-		</table>
+		</table> --%>
 		
-		<div class="row">
+		<%-- <div class="row">
 		    <div class="col-md-9"></div>
 		    <div class="col-md-3">
 				<a href='updateForm.do?no=${param.no}' class="btn btn-success btn-lg">수정</a>
 				<a href='delete.do?no=${param.no}' class="btn btn-danger btn-lg">삭제</a>
 				<a href='list.do' class="btn btn-info btn-lg">목록</a>
 		    </div>
-		</div>
-		<hr> --%>	
-
-
-
-
+		</div> --%>
+		<hr>
 
 		<%-- 댓글 관련 파트 시작 --%>		
 		<div id="comment">
 			<form id="rForm" class="form-inline">
-<!-- 			    <div class="form-group"> -->
-<%-- 				    <input type="text" name="userNickName" class="form-control" value="<c:out value="${CommentVO.userNickName}" />" placeholder="닉네임을 입력하세요"> --%>
-<!-- 			    </div> -->
+ <%-- 			<div class="form-group">
+ 				    <input type="text" name="userNickName" class="form-control" value="<c:out value="${CommentVO.userNickName}" />" placeholder="닉네임을 입력하세요">
+			    </div> --%>
+			    
 			    <div class="form-group">
 				    <input type="text" name="commentContent" class="form-control input-wp1" placeholder="내용을 입력하세요">
 			    </div>
-			  	<button class="btn btn-primary">등록</button>
+			  	<button type="button" id="reg" class="btn btn-primary">등록</button>
 			</form>					
 		</div>
 		<hr>
@@ -131,7 +127,7 @@
 		
 		</div>
 		<%-- 댓글 관련 파트 끝 --%>		
-	</div>
+<!-- 	</div> -->
 	
 	<%-- <div class="bottom">
 		<c:import url="/WEB-INF/jsp/include/bottom.jsp"	/>
@@ -139,7 +135,7 @@
 	
 
 	
-</div>	
+<!-- </div>	 -->
 
 </body>
 </html>

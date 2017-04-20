@@ -131,7 +131,7 @@
 <!-- ============================================================================== -->
 	
 	<select id="selectCardCommentByNo" parameterType="int" resultMap="cardCommentMap">
-		select c.card_no, c.card_comment_content, c.card_comment_reg_date, u.user_no, u.user_nick_name  
+		select c.card_no, c.card_comment_no, c.card_comment_content, c.card_comment_reg_date, u.user_no, u.user_nick_name  
 		  from tb_card_comment c, tb_user u
 		 where c.user_no = u.user_no
 		   and c.card_no= #{cardNo}
@@ -156,10 +156,6 @@
 			156,
 			#{cardCommentContent}
 		)
-		
-		<selectKey keyProperty="cardNo" order="AFTER" resultType="int">
-			select last_insert_id()
-		</selectKey>
 	</insert>
 
 	
@@ -171,12 +167,12 @@
 
 <!-- 			댓글 수정 			-->
 <!-- ============================================================================== -->
-	<!-- <update id="updateCardComment" parameterType="commentVO">
+	<update id="updateCardComment" parameterType="commentVO">
 	    update tb_card_comment
-	       set card_content = #{cardContent}
+	       set card_comment_content = #{cardCommentContent}
 	     where card_comment_no = #{cardCommentNo}
-	     	and user_no = #{userNo}
-	</update> -->
+<!-- 오류코드	     	and user_no = #{userNo} -->
+	</update>
 	
 
 
@@ -186,11 +182,11 @@
 
 <!-- 			댓글 삭제 			-->
 <!-- ============================================================================== -->
-  <!-- 	<delete id="deleteCardComment" parameterType="int">
+   	<delete id="deleteCardComment" parameterType="int">
 	    delete 
 	      from tb_card_comment
 	     where card_comment_no = #{cardCommentNo}
-	</delete> -->
+	</delete>
 
 
 <!-- 			댓글 삭제 			-->

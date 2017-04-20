@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import kr.co.coily.card.service.CardService;
 import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.CommentVO;
 import kr.co.coily.repository.vo.SearchVO;
+import kr.co.coily.repository.vo.UserVO;
 
 @Controller
 @RequestMapping("/card")
@@ -138,9 +140,15 @@ public class CardContorller {
 	
 	@RequestMapping("/commentRegist.do")
 	@ResponseBody
-	public List<CommentVO> commentRegist(CommentVO comment) throws Exception {
-		System.out.println("댓글 등록번호 :" + comment);
+	public List<CommentVO> commentRegist(CommentVO comment, HttpSession session) throws Exception {
+		System.out.println("카드 번호 : " + comment.getCardNo());
+		System.out.println("카드 댓글 내용 : " + comment.getCardCommentContent());
 		
+		UserVO user = (UserVO)session.getAttribute("user");
+		comment.setUserNo(user.getUserNo());
+		System.out.println("댓글 등록번호 :" + comment);
+		System.out.println(user.getUserNo());
+
 		return Service.commentRegist(comment);
 	}
 	
@@ -150,11 +158,14 @@ public class CardContorller {
 	
 	/*댓글 리스트 수정  ======================================================================*/
 	/*==============================================================================*/
-	/*@RequestMapping("/commentUpdate.do")
+	@RequestMapping("/commentUpdate.do")
 	@ResponseBody
 	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
+		System.out.println(comment.getCardCommentContent());
+		System.out.println("컨트롤러 수정");
+		
 		return Service.commentUpdate(comment);
-	}*/
+	}
 	
 	/*댓글 리스트 수정  ======================================================================*/
 	/*==============================================================================*/
@@ -162,11 +173,14 @@ public class CardContorller {
 	
 	/*댓글 리스트 삭제  ======================================================================*/
 	/*==============================================================================*/
-	/*@RequestMapping("/commentDelete.do")
+	@RequestMapping("/commentDelete.do")
 	@ResponseBody
 	public List<CommentVO> commentDelete(CommentVO comment) throws Exception {
+//		System.out.println(commentDelete(comment));
+		System.out.println("댓글 삭제");
+		
 		return Service.commentDelete(comment);
-	}*/
+	}
 	
 	/*댓글 리스트 삭제  ======================================================================*/
 	/*==============================================================================*/

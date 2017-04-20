@@ -74,14 +74,14 @@ public interface CardDAO {
 	 
 	/* 댓글 수정	*/
 	/* ==================================================================*/
-//	 public void updateCardComment(CommentVO comment) throws Exception;
+	 public void updateCardComment(CommentVO comment) throws Exception;
 	 
 	/* 댓글 수정	*/
 	/* ==================================================================*/
 	 
 	/* 댓글 삭제	*/
 	/* ==================================================================*/
-//	 public void deleteCardComment(int commentNo) throws Exception;
+	 public void deleteCardComment(int commentNo) throws Exception;
 	 
 	/* 댓글 삭제	*/
     /* ==================================================================*/
