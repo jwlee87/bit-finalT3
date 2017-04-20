@@ -24,7 +24,7 @@
         <pattern>/*/file*</pattern>    
         <pattern>/card/*</pattern>
         <pattern>/quiz/*</pattern>
-        <pattern>/*/main*</pattern>             
+        <pattern>/main/*</pattern>             
         <pattern>/user/profileForm*</pattern>
         <pattern>/editor/*</pattern>
     </decorator>
