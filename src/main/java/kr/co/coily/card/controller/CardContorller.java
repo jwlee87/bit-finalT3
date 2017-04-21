@@ -56,6 +56,8 @@ public class CardContorller {
 		
 		CardVO cardVO = new CardVO();
 		cardVO.setCardContent(request.getParameter("cardContent"));
+		cardVO.setUserNo(Integer.parseInt(request.getParameter("userNo")));
+		
 		Service.write(cardVO);
 //		Service.file(cardVO);
 		return "";
@@ -146,6 +148,7 @@ public class CardContorller {
 		
 		UserVO user = (UserVO)session.getAttribute("user");
 		comment.setUserNo(user.getUserNo());
+//		comment.setUserNo(Integer.parseInt(request.getParameter("userNo")));
 		System.out.println("댓글 등록번호 :" + comment);
 		System.out.println(user.getUserNo());
 
@@ -160,10 +163,10 @@ public class CardContorller {
 	/*==============================================================================*/
 	@RequestMapping("/commentUpdate.do")
 	@ResponseBody
-	public List<CommentVO> commentUpdate(CommentVO comment) throws Exception {
+	public List<CommentVO> commentUpdate(CommentVO comment, HttpServletRequest request) throws Exception {
 		System.out.println(comment.getCardCommentContent());
 		System.out.println("컨트롤러 수정");
-		
+		comment.setUserNickName(request.getParameter("CardCommentContent"));
 		return Service.commentUpdate(comment);
 	}
 	
@@ -184,7 +187,6 @@ public class CardContorller {
 	
 	/*댓글 리스트 삭제  ======================================================================*/
 	/*==============================================================================*/
-
 
 }
 

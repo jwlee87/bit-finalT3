@@ -15,7 +15,8 @@ $(document).ready(function() {
 			type:"POST",
 			dataType:"json",
 			data: {cardContent:$("#content").val(),
-				   cardTitle:$("#title").val()
+				   userNo:$("#userNo").val()
+				//				   cardTitle:$("#title").val()
 				
 			},
 		}).done(function(result){

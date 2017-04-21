@@ -6,6 +6,12 @@ $(function(){
 	
 	/*카드 글 수정*/
 $("#detailBolck").click(function () {
+	
+		if($("#userNo").val() != $("#loginUserNo").val()) {
+			return false;
+		}
+		
+		
 	// 	alert("글수정 입니다")
 		$("#detailNone").css("display", "block")
 		$("#detailBolck").css("display", "none")
@@ -45,7 +51,42 @@ $("#detailBolck").click(function () {
 /*카드 글 수정*/	
 	
 	commentList();
-})		
+	
+	// 댓글 등록 처리
+	$("#reg").click(function () {
+		
+		$.ajax({
+			url: "commentRegist.do",
+			type: "POST",
+			data: {
+				cardNo: $('#cardNo').val(), 
+				cardCommentContent: $("#rForm input[name=commentContent]").val() 
+			},
+			dataType: "json"
+		})
+		.done(function (result) {
+			console.dir(result)
+			$("#rForm input[name=commentContent]").val("");
+			
+			makeCommentList(result);
+		});
+		// 서브밋 이벤트 중지시킴
+		
+		return false;
+	});
+	
+	
+	
+	
+	$("#commentContent").keydown(function() {
+		alert("1");
+		if($("#commentContent").val().length > 300) {
+			alert("")
+		}
+		
+	});
+	
+});
 	
 
 
@@ -78,8 +119,8 @@ $("#detailBolck").click(function () {
 			         + date.getSeconds();
 			html += '	<td>' + time + '</td>';  
 			html += '	<td>';    
-			html += '		<a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ')" class="btn btn-success btn-sm" role="button">수정</a>';    
-			html += '		<a href="javascript:commentDelete(' + comment.cardCommentNo + ')" class="btn btn-danger btn-sm" role="button">삭제</a>';    
+			html += '		<a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ', ' + comment.userNo + ')" class="btn btn-success btn-sm" role="button">수정</a>';    
+			html += '		<a href="javascript:commentDelete(' + comment.cardCommentNo + ', ' + comment.userNo + ')" class="btn btn-danger btn-sm" role="button">삭제</a>';    
 			html += '	</td>';    
 			html += '</tr>';
 		}
@@ -103,37 +144,24 @@ $("#detailBolck").click(function () {
 	
 
 	
-	// 댓글 등록 처리
-	$("#reg").click(function () {
-		$.ajax({
-			url: "commentRegist.do",
-			type: "POST",
-			data: {
-				cardNo: $('#cardNo').val(), 
-				cardCommentContent: $("#rForm input[name=commentContent]").val() 
-			},
-			dataType: "json"
-		})
-		.done(function (result) {
-			console.dir(result)
-			$("#rForm input[name=commentContent]").val("");
-			
-			makeCommentList(result);
-		});
-		// 서브밋 이벤트 중지시킴
-		
-		return false;
-	});
+
 	
 
 
-
-
-	function commentUpdateForm(cardCommentNo) {
+/*댓글 수정폼*/
+	
+	function commentUpdateForm(cardCommentNo, commentUserNo) {
 		
+		if(commentUserNo != $("#loginUserNo").val()){
+			alert("수정은 자신것만 가능합니다")
+			return false;
+		}
+	
 		$("#commentList tr[id^=row]").show();
 		$("#commentList tr[id^=modRow]").remove();
 		
+		
+			
 		var modId = $("#row" + cardCommentNo + " > td:eq(0)").text();
 		var modContent = $("#row" + cardCommentNo + " > td:eq(1)").text();
 		
@@ -155,6 +183,7 @@ $("#detailBolck").click(function () {
 	}
 	
 	function commentUpdate(cardCommentNo) {
+
 		$.ajax({
 			url: "commentUpdate.do",
 			type: "POST",
@@ -169,13 +198,27 @@ $("#detailBolck").click(function () {
 			makeCommentList(result);
 		});
 		
-		function commentCancel(cardCommentNo) {
-			$("#row" + cardCommentNo).show();
-			$("#modRow" + cardCommentNo).remove();
-		}
 	}
 	
-	function commentDelete(cardCommentNo) {
+	function commentCancel(cardCommentNo) {
+		$("#row" + cardCommentNo).show();
+		$("#modRow" + cardCommentNo).remove();
+		
+//			$("#commentList tr[id^=row]").remove();
+//			$("#commentList tr[id^=modRow]").show();
+	}
+	
+/*댓글 수정폼*/
+	
+	
+/*댓글 삭제*/	
+	function commentDelete(cardCommentNo, commentUserNo) {
+		
+		if(commentUserNo != $("#loginUserNo").val()){
+			alert("자신의 댓글만 삭제 가능합니다@")
+			return false;
+		}
+		
 		$.ajax({
 			url: "commentDelete.do",
 			data: {
@@ -186,4 +229,5 @@ $("#detailBolck").click(function () {
 		})
 		.done(makeCommentList);	
 	}
-	
+
+/*댓글 삭제*/	

@@ -36,6 +36,8 @@
 <!-- 		</div> -->
 			<input type="hidden" id="cardNo" value="${param.cardNo}" />
 			<input type="hidden" id="userNo" value="${detail.userNo}"/>
+			
+			<input type="hidden" id="loginUserNo" value="${user.userNo}"/>
 <%-- 			<input type="hidden" id="fileNo" value="${detail.fileNo}"/> --%>
 			
 			<textarea id="detailNone" name="cardContent" required></textarea>
@@ -50,7 +52,9 @@
 	
 	<form id="commentWrite" action="#" method="post">
 		<input type="hidden" id="cardContentNo" value="${param.cardContentNo}" />
-		<input type="hidden" id="userNo" value="${detail.userNo}"/>
+<%-- 		<input type="hidden" id="commentUser" value="${detail.userNo}"/> --%>
+		
+		<input type="hidden" id="commentUserNo" value="${user.userNo}"/>
 <!-- 			<textarea id="commentNone" name="cardCommentContent" placeholder="내용을 작성하세요" required -->
 <!-- 			></textarea> -->
 		
@@ -116,7 +120,8 @@
 			    </div> --%>
 			    
 			    <div class="form-group">
-				    <input type="text" name="commentContent" class="form-control input-wp1" placeholder="내용을 입력하세요">
+				    <input type="text" name="commentContent" id="commentContent" class="form-control input-wp1" placeholder="내용을 입력하세요">
+<%-- 			   		<input type="hidden" id="commentUserContent" value="${user.userNo}"/> --%>
 			    </div>
 			  	<button type="button" id="reg" class="btn btn-primary">등록</button>
 			</form>					

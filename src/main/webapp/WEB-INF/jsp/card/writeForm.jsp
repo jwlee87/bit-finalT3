@@ -18,6 +18,7 @@
   		<ul id="messages"></ul>
   		
 	<form id="write" action="#" method="post">
+		<input type="hidden" id="userNo" name="userNo" value="${user.userNo}">
 		<textarea id="content" name="cardContent" placeholder="내용을 작성하세요" required
 		></textarea>
 		
