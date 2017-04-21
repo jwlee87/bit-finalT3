@@ -16,9 +16,9 @@
 </head>
 <body>
 	<!-- 주사위 로딩중 -->
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
+<!-- 	<div id="preloader"> -->
+<!-- 		<div id="status"></div> -->
+<!-- 	</div> -->
 	
 	<div id="container">
 		<div class="sticky control maker" id="maker">

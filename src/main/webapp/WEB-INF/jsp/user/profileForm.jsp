@@ -1,21 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
+<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/user/profileForm.js"></script>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css"> --%>
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/style2.css"> --%>
-<!-- Custom CSS-->
-<%-- <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet"> --%>
 <link href="${pageContext.request.contextPath}/css/user/profileForm.css" rel="stylesheet">
-<!-- Owl-Carousel -->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>coily-myPage</title>
+<title>코일리 - 프로필</title>
 </head>
 <body>
 <!-- 	<header> myPage </header> -->

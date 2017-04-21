@@ -2,7 +2,7 @@
 
 	body {
 		/* background: #59cee0;  */
-		over-flow:hidden !important;
+		overflow:hidden !important;
  		background: url('../../img/group/b1.jpg') no-repeat center center fixed; 
 		-webkit-background-size: cover;
 	 	-moz-background-size: cover;
@@ -89,7 +89,7 @@
 	}
 	
 	button {
-		overflow: visible;
+/* 		overflow: visible; */
 		border: 0; /*outline:none;*/
 		background-color: transparent;
 		cursor: pointer
@@ -120,6 +120,3 @@
 		width: 608px;	!important;
 		height: 338px;	!important;
 	}
-	
-	#cboxLoadedContent
-	

@@ -16,10 +16,10 @@
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
+<!-- 	Preloader -->
+<!-- 	<div id="preloader"> -->
+<!-- 		<div id="status"></div> -->
+<!-- 	</div> -->
 	
 	<!-- header --> 
  	<page:applyDecorator name="dHeader"> </page:applyDecorator>

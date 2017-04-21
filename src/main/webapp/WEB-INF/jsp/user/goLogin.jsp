@@ -49,9 +49,9 @@
 <body id="home">
 
 	<!-- Preloader -->
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
+<!-- 	<div id="preloader"> -->
+<!-- 		<div id="status"></div> -->
+<!-- 	</div> -->
 	
 	<!-- FullScreen -->
     <div class="intro-header">
