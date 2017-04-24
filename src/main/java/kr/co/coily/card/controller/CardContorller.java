@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,17 +28,21 @@ public class CardContorller {
 	/*카드 리스트	====================================================================*/
 	/*==============================================================================*/
 	
-	@RequestMapping("/list.do")
-	public void list(SearchVO search, Model model) throws Exception{
-		System.out.println("카드 컨트롤러 어디 까지 오냐");
-		Map<String, Object> result = Service.list(search);
-		model.addAttribute("list", result.get("list"));
-		model.addAttribute("pageResult", result.get("pageResult"));
-	}
-	/*카드 리스트	====================================================================*/
-	/*==============================================================================*/
-	
-	
+	// 리스트 조회 url 호출(페이지 이동)
+		@RequestMapping("/list.do")
+		public void locationList() throws Exception{
+			System.out.println("123123123");
+//			return "card/list";
+		}
+		
+		// 리스트 조회 ajax 호출
+		@ResponseBody
+		@RequestMapping("/cardList.do")
+		public Map<String, Object> list(SearchVO search) throws Exception{
+			System.out.println("cardList 들어와야돼 ㅠㅠㅠㅠㅠㅠ제발  ㅠㅠㅠㅠㅠ");
+			Map<String, Object> result = Service.list(search);
+			return result;
+		}
 	
 	/*카드 등록  ======================================================================*/
 	/*==============================================================================*/

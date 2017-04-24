@@ -8,22 +8,90 @@
 //	method:"post",
 //	data:{pageNo:2}
 //}).done(makePageList)
-
+	
+	$(document).ready(function(){
+		if($(".like").hasClass("heart")) {
+			
+		}
+	});
+	
 	/* 좋아요 누를 때 이벤트 */
 	function clickLike(no) {
 	    $("#"+no).toggleClass('heart');
+	    
+	    if ($("#"+no).hasClass("heart")) {
+		    $.ajax({
+		    	url: "../favorite/favoriteInsert.do",
+		    	data: {
+		    		"cardNo" : no
+		    	},
+		    	dataType: "json",
+		    	method: "post"
+		    }).done(function(result){
+		    	swal({
+					title: "보관함 등록 완료",
+					type: "success"	
+				})
+		    });
+	    }
+	    else {
+	    	swal({
+	    		title: "보관함에서 삭제하시겠습니까?",
+	    		type: "warning",
+	    		showCancelButton: true,
+	    		confirmButtonColor: "#DD6B55",
+	    		confirmButtonText: "삭제",
+	    		closeOnConfirm: false
+	    	},
+	    	function(){
+	    		$.ajax ({
+	    			url: "../favorite/favoriteDelete.do",
+	    			type: "POST",
+	    			data: {
+	    				"cardNo" : no
+	    			},	
+	    			dataType: "json"
+	    		}).done(function(result){
+	    			swal({
+	    				title: "보관함 삭제 완료",
+	    				type: "success"	
+	    			})
+	    		})
+	    	});
+	     }
 	}
 	
+     
+//	$(window).scroll(function(){
+//		
+//		var sh = $(window).scrollTop() + $(window).height();
+//		var dh = $(document).height();
+//		console.log(sh, dh);
+//		
+//		if (sh >= dh - 10) {
+////			pageList(1);
+//			alert(1);
+//		}
+//	});
+
+	$(window).scroll(function(){ 
+//	   if($(window).scrollTop() == $(document).height() - $(window).height()){ 
+//		   pageList(1);
+//	   } 
+		var height = $(document).scrollTop();
+		console.log(height);
+		
+	});
+
 
 	/* 페이징 */
 	function pageList(pageNo) {
-		
-		if (pageNo === undefined) {
+		if (pageNo === undefined ) {
 			pageNo = 1;
 		}
 		
 		$.ajax({
-			url: "/bit-finalT3/card/list.do",
+			url: "cardList.do",
 			dataType:"json",
 			method:"post",
 			data: {pageNo:pageNo}
@@ -33,34 +101,29 @@
 	
 	function makePageList(result) {
 		
-		
-	    $("#count").text(result.pageResult);
-		
-		var html = "";
+		var html = $("#appendList").html();
 		
 		if (result.list.length == 0) {
-			html += '<tr><td colspan="4">게시물이 존재하지 않습니다.</td></tr>';
+			html += '<h3>카드를 등록해보세요!</h3>';
 		}
 		
 		for (var i = 0; i < result.list.length; i++) {
 			
-			html += '<tr>';
-			html += '	<td>' +  result.list[i].cardNo + '</td>';
-			html += '	<td><a href="javascript:detail('+ result.list[i].cardNo+');">' +  result.list[i].cardContent + '</a></td>';
-			html += '	<td>' + result.list[i].userNo + '</td>';
-			
-			var date = new Date(card.regDate);
-			var time = date.getFullYear() + "-" 
-			         + (date.getMonth() + 1) + "-" 
-			         + date.getDate() + " "
-			         + date.getHours() + ":"
-			         + date.getMinutes() + ":"
-			         + date.getSeconds();
-			html += '<td>' + time + '</td>';  
-			html += '</tr>';
+			html += '<figure class="cardList">';
+			html += '<div class="like" id="'+result.list[i].cardNo+'" onclick="clickLike('+result.list[i].cardNo+');">';
+			html += '</div>';
+			html += '<div class="profile-image">';
+			html += '<img src="'+result.list[i].userImgPath+'" />';
+			html += '</div>';
+			html += '<figcaption>';
+			html += '<h5>'+result.list[i].userNickName+'</h5>';
+			html += '<h3 title="'+result.list[i].cardContent+'"><a class="detailF" href="detail.do?cardNo='+result.list[i].cardNo+'">'+result.list[i].cardContent+'</a></h3>';
+			html += '</figcaption>';
+			html += '</figure>';
 			
 		}
-		$("#cardList").html(html);
+		$("#appendList").html(html);
+		$(".detailF").colorbox({iframe:true, width:"800px", height:"880px"});
 	}
 	
 	
@@ -113,9 +176,5 @@
 		
 		$("nav > ul.pagination").html(html);
 	}
-
-
-
-
-
-
+	
+pageList(1);

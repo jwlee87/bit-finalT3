@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="kr.co.coily.repository.dao.FavoriteDAO">
+
+	<resultMap id="favoriteMap" type="favoriteVO">
+		<result property="favoriteNo" column="favorite_no"/>
+		<result property="cardNo" column="card_no"/>
+		<result property="userNo" column="user_no"/>
+		<result property="favoriteRegDate" column="favorite_reg_date"/>
+		<result property="userNickName" column="user_nick_name"/>
+		<result property="cardContent" column="card_content"/>
+		<result property="userImgPath" column="user_img_path"/>
+	</resultMap>
+
+	<!-- 보관함 등록 -->
+	<insert id="insertFavorite" parameterType="favoriteVO" >
+		insert into tb_favorite(
+			user_no,
+			card_no
+		   )values(
+		   	#{userNo},
+		   	#{cardNo}
+		   )
+	</insert>
+	
+	<!-- 보관함 삭제 -->
+	<delete id="deleteFavorite" parameterType="int" >
+		delete
+		  from tb_favorite
+		 where card_no = #{cardNo}
+	</delete>
+	
+	<!-- 보관함 리스트 조회 -->
+	<select id="selectFCard" parameterType="searchVO" resultMap="favoriteMap">
+		select c.card_no,
+			   c.user_no,
+			   case when instr(c.card_content, "\n") = 0 then c.card_content
+		 			when instr(c.card_content, "\n") = 1 then c.card_content
+         			else left(c.card_content, instr(c.card_content, "\n")) 
+         		end as card_content,
+			   u.user_nick_name,
+			   ui.user_img_path,
+			   f.favorite_no
+		  from tb_card c, tb_user u, tb_user_img ui, tb_favorite f
+		 where c.card_no = f.card_no
+		   and c.user_no = u.user_no
+		   and u.user_img_no = ui.user_img_no
+	     limit #{begin}, 12
+	</select>
+	
+	<!-- 전체 보관함 카드 수 -->
+	<select id="selectFCnt" parameterType="searchVO" resultType="int">
+		select count(*)
+		  from (
+		  	select c.card_no,
+			   	   c.user_no,
+			   	   case when instr(c.card_content, "\n") = 0 then c.card_content
+		 			    when instr(c.card_content, "\n") = 1 then c.card_content
+         			    else left(c.card_content, instr(c.card_content, "\n")) 
+         		    end as card_content,
+			       u.user_nick_name,
+			       ui.user_img_path,
+			   	   f.favorite_no
+		  	  from tb_card c, tb_user u, tb_user_img ui, tb_favorite f
+		     where c.card_no = f.card_no
+		       and c.user_no = u.user_no
+		       and u.user_img_no = ui.user_img_no
+		         ) c
+	</select>
+</mapper>

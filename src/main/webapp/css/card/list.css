@@ -28,11 +28,10 @@
 	}
 	
 	.cardList .profile-image img {
-	  max-width: 100%;
+	  width: 100px;
 	  vertical-align: top;
 	  position: relative;
 	  border-radius: 50%;
-	  max-width: 40%;
 	  margin-left: 25%;
 	}
 	
@@ -53,12 +52,15 @@
 	  font-size: 17px;
 	  font-weight: bold;
 	  line-height: 24px;
-	  margin: 3px 0;
-	}
-	
-	body {
-	  background-color: #ecf0f1; !important;
-	  text-align: center;
+	  margin: 0px auto;
+	  overflow: hidden;
+	  text-overflow:ellipsis;
+	  width: 210px;
+	  display: -webkit-box;
+	  -webkit-line-clamp: 1;
+	  -webkit-box-orient: vertical;
+	  word-wrap:break-word;
+		
 	}
 	
 	.like {

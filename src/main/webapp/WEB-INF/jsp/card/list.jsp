@@ -8,7 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>카드 게시판</title>
-<script src="${pageContext.request.contextPath}/js/card/card.js"></script>
 <link href="${pageContext.request.contextPath}/css/card/list.css" rel="stylesheet" type="text/css">
 <script>
 	
@@ -16,7 +15,6 @@
 	$(function(){
 		
 		$(".writeF").colorbox({iframe:true, width:"800px", height:"880px"});
-		$(".detailF").colorbox({iframe:true, width:"800px", height:"880px"});
 
 	});
 	
@@ -35,21 +33,12 @@
 		</figure>
 		
 		<!-- 카드 리스트 -->
-		<c:forEach var="card" items="${list}">
-		<figure class="cardList">
-			<div class="like" id="${card.cardNo}" onclick="clickLike(${card.cardNo});">
-	  		</div>
-	  		<div class="profile-image">
-	    		<img src="${card.userImgPath}" />
-	  		</div>
-	  		<figcaption>
-	    		<h5><c:out value="${card.userNickName}"/></h5>
-	    		<h3><a class="detailF" href="detail.do?cardNo=${card.cardNo}"><c:out value="${card.cardContent}"/></a></h3>
-	  		</figcaption>
-		</figure>
-		</c:forEach>
+		<div id="appendList"></div>
+		
 	</div>
 
+<script src="${pageContext.request.contextPath}/js/card/card.js"></script>
+	
 </body>
 </html>
 
