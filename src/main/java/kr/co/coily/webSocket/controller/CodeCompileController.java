@@ -40,7 +40,7 @@ public class CodeCompileController {
 		if(classFile.exists()) classFile.delete();
 
 		try (FileWriter fw = new FileWriter(dest);) {
-//			System.out.println("code: " + code);
+			System.out.println("code: " + code);
 			fw.write(code.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class CodeCompileController {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-//		System.out.print("result : " + result);
+		System.out.print("result : " + result);
 		return result;	
 	}
 }
