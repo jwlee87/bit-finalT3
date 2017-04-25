@@ -3,6 +3,7 @@ package kr.co.coily.quiz.service;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.coily.repository.vo.CommentSearchVO;
 import kr.co.coily.repository.vo.QuizCommentVO;
 import kr.co.coily.repository.vo.QuizVO;
 import kr.co.coily.repository.vo.SearchVO;
@@ -27,6 +28,6 @@ public interface QuizService {
 	public List<QuizCommentVO> commentRegist(QuizCommentVO quizComment) throws Exception ;
 	
 	//댓글 조회
-	public Map<String, Object> commentList(SearchVO search) throws Exception ;
+	public Map<String, Object> commentList(CommentSearchVO search) throws Exception ;
 	
 }

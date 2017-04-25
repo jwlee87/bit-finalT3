@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.coily.repository.dao.QuizDAO;
+import kr.co.coily.repository.vo.CommentPageResultVO;
+import kr.co.coily.repository.vo.CommentSearchVO;
 import kr.co.coily.repository.vo.PageResultVO;
 import kr.co.coily.repository.vo.QuizCommentVO;
 import kr.co.coily.repository.vo.QuizVO;
@@ -30,10 +32,10 @@ public class QuizServiceImpl implements QuizService {
 	
 	//퀴즈댓글 조회
 	@Override
-	public Map<String, Object> commentList(SearchVO search) throws Exception {
+	public Map<String, Object> commentList(CommentSearchVO search) throws Exception {
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("quizCommentList", dao.selectQuizComment(search));
-		result.put("commentPageResult", new PageResultVO(search.getPageNo(), dao.selectQuizCommentCount(search)));
+		result.put("commentPageResult", new CommentPageResultVO(search.getPageNo(), dao.selectQuizCommentCount(search)));
 		return result;
 	}
 	

@@ -15,18 +15,20 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.coily.quiz.service.QuizService;
+import kr.co.coily.repository.vo.CommentSearchVO;
 import kr.co.coily.repository.vo.QuizCommentVO;
 import kr.co.coily.repository.vo.QuizVO;
 import kr.co.coily.repository.vo.SearchVO;
+import kr.co.coily.repository.vo.UserVO;
 
 @Controller
 @RequestMapping("/quiz")
@@ -45,11 +47,12 @@ public class QuizController {
 	//퀴즈 등록
 	@RequestMapping("/write.do")
 	@ResponseBody
-	public String write(HttpServletRequest request) throws Exception {
+	public String write(HttpServletRequest request, HttpSession session) throws Exception {
 		
 		QuizVO quiz = new QuizVO();
 		//로그인한 유저(세션이나 쿠키로 나중에 받을거임)
-		quiz.setUserNo(1);
+		UserVO user = (UserVO)session.getAttribute("user");
+		quiz.setUserNo(user.getUserNo());
 		quiz.setQuizTitle(request.getParameter("title"));
 		quiz.setQuizWriteType(request.getParameter("writeType"));
 		quiz.setQuizUrlType(request.getParameter("urlType"));
@@ -222,24 +225,25 @@ public class QuizController {
 	//댓글 등록
 	@RequestMapping("/quizCommentRegist.do")
 	@ResponseBody
-	public List<QuizCommentVO> commentRegist(int quizNo, String quizSolveChk) throws Exception {
+	public List<QuizCommentVO> commentRegist(int quizNo, String quizSolveChk, HttpSession session) throws Exception {
 		QuizCommentVO quizComment = new QuizCommentVO();
 		quizComment.setQuizNo(quizNo);
 		quizComment.setQuizSolveChk(quizSolveChk);
 		//로그인한 유저 
-		quizComment.setUserNo(1);
+		UserVO user = (UserVO)session.getAttribute("user");
+		quizComment.setUserNo(user.getUserNo());
 		return service.commentRegist(quizComment);
 	}
 
 	//댓글 목록
 	@RequestMapping("/quizCommentList.do")
 	@ResponseBody
-	public Map<String, Object> commentList(SearchVO search, int quizNo) throws Exception {
+	public Map<String, Object> commentList(CommentSearchVO search, int quizNo) throws Exception {
 		search.setQuizNo(quizNo);
 		Map<String, Object> map = service.commentList(search);
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("quizCommentList", map.get("quizCommentList"));
-		result.put("pageResult", map.get("pageResult"));
+		result.put("commentPageResult", map.get("commentPageResult"));
 		return result;
 	}
 	

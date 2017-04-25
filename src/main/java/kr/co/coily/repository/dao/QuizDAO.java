@@ -2,6 +2,7 @@ package kr.co.coily.repository.dao;
 
 import java.util.List;
 
+import kr.co.coily.repository.vo.CommentSearchVO;
 import kr.co.coily.repository.vo.QuizCommentVO;
 import kr.co.coily.repository.vo.QuizVO;
 import kr.co.coily.repository.vo.SearchVO;
@@ -13,8 +14,8 @@ public interface QuizDAO {
 	public int selectQuizCount(SearchVO search) throws Exception;
 	
 	//댓글 목록(페이징 포함)
-	public List<QuizCommentVO> selectQuizComment(SearchVO search) throws Exception;
-	public int selectQuizCommentCount(SearchVO search) throws Exception;
+	public List<QuizCommentVO> selectQuizComment(CommentSearchVO search) throws Exception;
+	public int selectQuizCommentCount(CommentSearchVO search) throws Exception;
 	
 	//퀴즈 하나 조회
 	public QuizVO selectOneQuiz(int no) throws Exception;
