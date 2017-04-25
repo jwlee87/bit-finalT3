@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/stylesheet.css">
 	<!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
 	<script src="${pageContext.request.contextPath}/js/group/groupDetail.js"></script>
-	<script src="${pageContext.request.contextPath}/js/comm/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath}/js/comm/selectize.js"></script>
 	<script src="${pageContext.request.contextPath}/js/comm/index.js"></script>
 	

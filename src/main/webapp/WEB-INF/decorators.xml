@@ -9,6 +9,7 @@
 		<pattern>/*/*Detail.*</pattern>
 		<pattern>/*/write*</pattern>
 		<pattern>/group/*</pattern>
+		<pattern>/editor/video*</pattern>
 <!-- 		<pattern>/card/cardList*</pattern> -->
  	</excludes>
     

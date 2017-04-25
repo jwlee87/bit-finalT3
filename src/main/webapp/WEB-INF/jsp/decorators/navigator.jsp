@@ -2,9 +2,6 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page" %>
-<% 
-	System.out.println("4");
-%>
 <!-- NavBar-->
 <div class="navbar-default" role="navigation">
 	<div class="container">
@@ -18,10 +15,10 @@
 			
 			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/reLoadMain.do">Coily</a>
 			
+			
+			
 			<c:if test="${not empty groupInfo}">
-				<span class="qs">?
-					<span class="popover above">" ${groupInfo.groupHeaderName} " 스터디 그룹에서 오늘 하루도 열공하세요 :-)</span>
-				</span>
+				<span class="qs" data-toggle="?" data-placement="bottom" title=' "${groupInfo.groupHeaderName}" 에서 오늘 하루도 열공하세요 :-)'>?</span>
 			</c:if>
 		</div>
 		
@@ -55,6 +52,11 @@
 </div>
 
 <script>
+
+$(function () {
+	  $('[data-toggle="?"]').tooltip()
+	})
+
 function goProfile(userNo){
 	location.href = "${pageContext.request.contextPath}/user/profileForm.do?userNo="+userNo;
 }
