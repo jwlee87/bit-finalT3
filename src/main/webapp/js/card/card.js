@@ -10,8 +10,28 @@
 //}).done(makePageList)
 	
 	$(document).ready(function(){
+		
+		pageList(1);
+		
 		if($(".like").hasClass("heart")) {
 			
+		}
+		
+	});
+	
+	
+	
+	var lastScrollTop = 0;
+    var easeEffect = 'easeInQuint';
+
+
+	$("body").scroll(function(){
+		var sh = $(window).scrollTop() + $(window).height();
+		var dh = $(document).height();
+		console.log(sh, dh);
+		
+		if (sh > dh - 10) {
+			pageList(11);
 		}
 	});
 	
@@ -62,26 +82,15 @@
 	}
 	
      
-//	$(window).scroll(function(){
+//
+//	$(window).scroll(function(){ 
+////	   if($(window).scrollTop() == $(document).height() - $(window).height()){ 
+////		   pageList(1);
+////	   } 
+//		var height = $(document).scrollTop();
+//		console.log(height);
 //		
-//		var sh = $(window).scrollTop() + $(window).height();
-//		var dh = $(document).height();
-//		console.log(sh, dh);
-//		
-//		if (sh >= dh - 10) {
-////			pageList(1);
-//			alert(1);
-//		}
 //	});
-
-	$(window).scroll(function(){ 
-//	   if($(window).scrollTop() == $(document).height() - $(window).height()){ 
-//		   pageList(1);
-//	   } 
-		var height = $(document).scrollTop();
-		console.log(height);
-		
-	});
 
 
 	/* 페이징 */
@@ -177,4 +186,3 @@
 		$("nav > ul.pagination").html(html);
 	}
 	
-pageList(1);
