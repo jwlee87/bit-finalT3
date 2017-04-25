@@ -34,7 +34,7 @@
 					<ul class="dropdown-menu" role="menu" style="top: 35px;border: 1px solid #e5e5e5;background-color:white;color:#34495e;font-size:12px !important;text-align: left !important;">
 						<li><a href="javascript:goProfile(${user.userNo});">프로필</a></li>
 						<li class="divider"></li>
-						<li><a href="javascript:goProfile(${user.userNo});">마이페이지</a></li>
+						<li><a href="javascript:goFavorite(${user.userNo});">보관함</a></li>
 						<li class="divider"></li>
 			        	<li><a href="javascript:goLogout(${user.userNo});">로그아웃</a></li>
 					</ul>
@@ -59,6 +59,9 @@ $(function () {
 
 function goProfile(userNo){
 	location.href = "${pageContext.request.contextPath}/user/profileForm.do?userNo="+userNo;
+}
+function goFavorite(userNo){
+	location.href = "${pageContext.request.contextPath}/favorite/favoriteList.do?userNo="+userNo;
 }
 //Magnific-InlinePopup
 // $("#profilePopup").colorbox({iframe:true, width:"560px", height:"790px"});

@@ -7,14 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>즐겨찾기(보관함)</title>
-<link href="${pageContext.request.contextPath}/css/card/list.css" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/css/card/list.css" rel="stylesheet" type="text/css">
 <script>
 	
 	/* 카드 상세 팝업창 */
 	$(function(){
-		
 		$(".detailF").colorbox({iframe:true, width:"800px", height:"880px"});
-
 	});
 	
 </script>

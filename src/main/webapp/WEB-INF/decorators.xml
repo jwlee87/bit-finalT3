@@ -28,6 +28,7 @@
         <pattern>/main/*</pattern>             
         <pattern>/user/profileForm*</pattern>
         <pattern>/editor/*</pattern>
+        <pattern>/favorite/*</pattern>
     </decorator>
     
 </decorators>

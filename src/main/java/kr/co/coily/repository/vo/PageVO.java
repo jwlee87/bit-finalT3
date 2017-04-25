@@ -1,10 +1,14 @@
 package kr.co.coily.repository.vo;
 
 public class PageVO {
-	private int pageNo = 1;
+	private int pageNo = 0;
 
 	public int getBegin() {
-		return (pageNo -1) * 5;
+		int begin = 0;
+		if(pageNo != 0) {
+			begin = (pageNo -1) * 5;
+		}
+		return begin;
 	}
 	public int getEnd() {
 		return pageNo * 5;
