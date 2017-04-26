@@ -10,7 +10,14 @@ public class CardVO {
 	private Date cardRegDate;
 	private int fileGroupNo;
 	private String userImgPath;
+	private int likeChk;
 	
+	public int getLikeChk() {
+		return likeChk;
+	}
+	public void setLikeChk(int likeChk) {
+		this.likeChk = likeChk;
+	}
 	public String getUserImgPath() {
 		return userImgPath;
 	}

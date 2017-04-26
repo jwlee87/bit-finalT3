@@ -5,7 +5,15 @@ public class SearchVO extends PageVO{
 	private String searchWord;
 	private int cardNo;
 	private int quizNo;
+	private int userNo;
 	
+	
+	public int getUserNo() {
+		return userNo;
+	}
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
 	public int getQuizNo() {
 		return quizNo;
 	}

@@ -23,5 +23,7 @@
 	    			type: "success"	
 	    		})
 	    	})
+	    	$("#"+no).removeClass('heart2');
+	    	location.href = "favoriteList.do";
 	    });
 	}

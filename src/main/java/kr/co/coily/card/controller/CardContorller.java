@@ -38,8 +38,10 @@ public class CardContorller {
 		// 리스트 조회 ajax 호출
 		@ResponseBody
 		@RequestMapping("/cardList.do")
-		public Map<String, Object> list(SearchVO search) throws Exception{
+		public Map<String, Object> list(SearchVO search, HttpSession session) throws Exception{
 			System.out.println("cardList 들어와야돼 ㅠㅠㅠㅠㅠㅠ제발  ㅠㅠㅠㅠㅠ");
+			UserVO user = (UserVO)session.getAttribute("user");
+			search.setUserNo(user.getUserNo());
 			Map<String, Object> result = Service.list(search);
 			return result;
 		}

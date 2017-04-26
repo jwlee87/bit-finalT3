@@ -96,10 +96,14 @@
 	
 	.heart {
 	  -webkit-animation: trans 1s 1;
-	  /* Chrome, Safari, Opera */
+	  Chrome, Safari, Opera
 	  animation: trans 1s 1;
 	  -webkit-animation-timing-function: steps(28);
 	  animation-timing-function: steps(28);
+	  background-position: right;
+	}
+	
+	.heart2 {
 	  background-position: right;
 	}
 	

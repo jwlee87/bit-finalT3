@@ -12,6 +12,7 @@
 		<result property="cardRegDate" column="card_reg_date"/>
 		<result property="fileGroupNo" column="file_group_no"/>
 		<result property="userImgPath" column="user_img_path"/>
+		<result property="likeChk" column="like_chk"/>
 	</resultMap>
 	
 <!-- 카드 리스트 -->
@@ -25,7 +26,11 @@
          		end as card_content,
 			   c.card_reg_date,
 			   u.user_nick_name,
-			   ui.user_img_path
+			   ui.user_img_path,
+			   (select count(*) as result
+			      from tb_favorite f
+			     where f.card_no = c.card_no
+                   and f.user_no = #{userNo}) as like_chk
 		  from tb_card c, tb_user u, tb_user_img ui
 		 where c.user_no = u.user_no
 		   and u.user_img_no = ui.user_img_no

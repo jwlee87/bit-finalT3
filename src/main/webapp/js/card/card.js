@@ -13,13 +13,7 @@
 		
 		pageList(1);
 		
-		if($(".like").hasClass("heart")) {
-			
-		}
-		
 	});
-	
-	
 	
 	var lastScrollTop = 0;
     var easeEffect = 'easeInQuint';
@@ -36,25 +30,9 @@
 	});
 	
 	/* 좋아요 누를 때 이벤트 */
+	
 	function clickLike(no) {
-	    $("#"+no).toggleClass('heart');
-	    
-	    if ($("#"+no).hasClass("heart")) {
-		    $.ajax({
-		    	url: "../favorite/favoriteInsert.do",
-		    	data: {
-		    		"cardNo" : no
-		    	},
-		    	dataType: "json",
-		    	method: "post"
-		    }).done(function(result){
-		    	swal({
-					title: "보관함 등록 완료",
-					type: "success"	
-				})
-		    });
-	    }
-	    else {
+	    if ($("#"+no).hasClass("heart2") || $("#"+no).hasClass("heart")) {
 	    	swal({
 	    		title: "보관함에서 삭제하시겠습니까?",
 	    		type: "warning",
@@ -77,8 +55,26 @@
 	    				type: "success"	
 	    			})
 	    		})
+	    		$("#"+no).removeClass('heart2');
+	    		$("#"+no).removeClass('heart');
 	    	});
-	     }
+	    }
+	    else {
+	    	$.ajax({
+	        	url: "../favorite/favoriteInsert.do",
+	        	data: {
+	        		"cardNo" : no
+	        	},
+	        	dataType: "json",
+	        	method: "post"
+	        }).done(function(result){
+	        	swal({
+	    			title: "보관함 등록 완료",
+	    			type: "success"	
+	    		})
+	        });
+	    	$("#"+no).toggleClass('heart');
+	    }
 	}
 	
      
@@ -117,10 +113,17 @@
 		}
 		
 		for (var i = 0; i < result.list.length; i++) {
-			
 			html += '<figure class="cardList">';
-			html += '<div class="like" id="'+result.list[i].cardNo+'" onclick="clickLike('+result.list[i].cardNo+');">';
-			html += '</div>';
+				
+			if (result.list[i].likeChk == 1) {
+				html += '<div class="like heart2" id="'+result.list[i].cardNo+'" onclick="clickLike('+result.list[i].cardNo+');">';
+				html += '</div>';
+			}
+			else {
+				html += '<div class="like" id="'+result.list[i].cardNo+'" onclick="clickLike('+result.list[i].cardNo+');">';
+				html += '</div>';
+			}
+			
 			html += '<div class="profile-image">';
 			html += '<img src="'+result.list[i].userImgPath+'" />';
 			html += '</div>';

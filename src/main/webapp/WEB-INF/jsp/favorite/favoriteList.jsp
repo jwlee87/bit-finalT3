@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>즐겨찾기(보관함)</title>
 	<link href="${pageContext.request.contextPath}/css/card/list.css" rel="stylesheet" type="text/css">
+	<script src="${pageContext.request.contextPath}/js/favorite/favoriteList.js"></script>
 <script>
 	
 	/* 카드 상세 팝업창 */
@@ -21,7 +22,7 @@
 	<div id="cardPage">
 		<c:forEach var="card" items="${list}">
 		<figure class="cardList">
-			<div class="like" id="${card.cardNo}" onclick="clickLike(${card.cardNo});">
+			<div class="like heart2" id="${card.cardNo}" onclick="clickLike(${card.cardNo});">
 	  		</div>
 	  		<div class="profile-image">
 	    		<img src="${card.userImgPath}" />
