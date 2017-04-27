@@ -6,6 +6,13 @@
   var $lightbox = $("<div class='lightbox'></div>");
   var $img = $("<img>");
   var $caption = $("<p class='caption'></p>");
+  
+  $(".hover").mouseleave(
+		  function () {
+		    $(this).removeClass("hover");
+		  }
+		);
+
 
   // Add image and caption to lightbox
 

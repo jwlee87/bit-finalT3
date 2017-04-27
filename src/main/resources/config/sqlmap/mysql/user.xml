@@ -98,6 +98,13 @@
 	</update>
 	
 	
+	<update id="userStatusLogout" parameterType="int">
+		update tb_user
+		   set user_status = 0
+		 where user_no = #{userNo}
+	</update>
+	
+	
 	<select id="userInfoConfed" parameterType="String" resultMap="userMap">
 		select user_email, user_psw, user_nick_name
 		  from tb_user
@@ -134,5 +141,13 @@
 		   set user_img_no = #{userImgNo}
 		 where user_no = #{userNo}
 	</update>
+	
+	
+	<select id="selectLoginUserList" resultMap="userMap">
+		select *
+		  from tb_user
+		 where user_status = 1
+	</select>
+	
 
 </mapper>
