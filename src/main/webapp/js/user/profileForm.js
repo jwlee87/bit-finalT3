@@ -247,6 +247,6 @@ $("#userPsw").on("keyup", function(){
 	}
 })
 
-$("#characterImgPopup").colorbox({iframe:true, width:"1300px", height:"725px"});
+$("#characterImgPopup").colorbox({iframe:true, width:"1300px", height:"625px"});
 
 })
