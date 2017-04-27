@@ -25,7 +25,7 @@ $(function(){
 //		var top = (screen.height - 800) / 2
 //		window.open("writeForm.do", "pop1", "top=" + top + ", left=" + left +", width=800, height=800");
 //	})
-	$("#add").colorbox({iframe:true, width:"700px", height:"900px"});
+	$("#add").colorbox({iframe:true, width:"700px", height:"800px"});
 });
 
 

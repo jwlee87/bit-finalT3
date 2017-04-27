@@ -13,25 +13,22 @@
 <%-- <script src="${pageContext.request.contextPath}/js/comm/jquery.colorbox.js"></script> --%>
 </head>
 <body>
-<h1>
-    drawing up of quiz
-</h1><br>
-<h1>
-    select method
-</h1>
+<div id="quiz">
+	퀴즈
+</div>
 <div class="tabs">
   <div class="tab-2">
-    <label for="tab2-1">direct write mode</label>
+    <label for="tab2-1">직접  등록</label>
     <input id="tab2-1" name="tabs-two" type="radio" value="d">
     <div>
-	    <input type="text" class="feedback-input" name="title1" id="title1" placeholder="title" maxlength="50"/> 
-	    <textarea class="feedback-input" cols="50" rows="12" name="content" id="content" placeholder="content"></textarea>
-	    <input type="text" class="feedback-input" name="answer1" id="answer1" placeholder="answer" maxlength="50"/> 
-	    <button type="button" id="btn1">register</button>
+	    <input type="text" class="feedback-input" name="title1" id="title1" placeholder="제목" maxlength="50"/> 
+	    <textarea class="feedback-input" cols="50" rows="12" name="content" id="content" placeholder="내용"></textarea>
+	    <input type="text" class="feedback-input" name="answer1" id="answer1" placeholder="정답" maxlength="50"/> 
+	    <button type="button" id="btn1">등록</button>
     </div>
   </div>
   <div class="tab-2">
-    <label for="tab2-2">url write mode</label>
+    <label for="tab2-2">url  등록</label>
     <input id="tab2-2" name="tabs-two" type="radio" value="u">
     <div>
 	    <input type="radio" id="jungol" name="urlType" value="j" />
@@ -40,10 +37,10 @@
 		<label for="algospot">ALGOSPOT</label>
 		<input type="radio" id="euler" name="urlType" value="e" />
 		<label for="euler">Project Euler</label><br>
-	    <input type="text" class="feedback-input" name="title2" id="title2" placeholder="title" lang="80" maxlength="100" />
+	    <input type="text" class="feedback-input" name="title2" id="title2" placeholder="제목" lang="80" maxlength="100" />
 	    <input type="text" class="feedback-input" name="url" id="url" placeholder="url" lang="80" maxlength="100" />
-	    <input type="text" class="feedback-input" name="answer2" id="answer2" placeholder="answer" maxlength="50"/> 
-	    <button type="button" id="btn2">register</button>
+	    <input type="text" class="feedback-input" name="answer2" id="answer2" placeholder="정답" maxlength="50"/> 
+	    <button type="button" id="btn2">등록</button>
     </div>
   </div>
 </div>

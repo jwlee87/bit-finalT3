@@ -41,14 +41,14 @@
 				</div>
 				<br>
 				<div class="row">
-				<div class="col-md-9"></div>
-				    <div class="col-md-3">
-						<a href="javascript:" name="answer" onclick="answer(${list.quizNo})" class="btn btn-success">문제풀기</a>
-						<a href="javascript:" name="update" onclick="update(${list.quizNo})" class="btn btn-primary">수정</a>
-						<a href="javascript:" name="deleteQuiz" onclick="deleteQuiz(${list.quizNo})" class="btn btn-danger">삭제</a>
+				<div class="col-md-8"></div>
+				    <div class="col-md-4" style="padding-left: 12%; padding-right: 0px;">
+						<a href="javascript:" name="answer" onclick="answer(${list.quizNo})" class="btn-sm btn-quiz">문제풀기</a>
+						<a href="javascript:" name="update" onclick="update(${list.quizNo})" class="btn-sm btn-quiz">수정</a>
+						<a href="javascript:" name="deleteQuiz" onclick="deleteQuiz(${list.quizNo})" class="btn-sm btn-quiz">삭제</a>
 <%-- 						<a href='delete.do?no=${list.quizNo}' class="btn btn-danger">삭제</a> --%>
-						<a href="javascript:" id="updateCon" name="updateCon" onclick="updateCon(${list.quizNo}, '${list.quizWriteType}')" class="btn btn-success">확인</a>
-						<button type="button" id="cancel" name="cancel" class="btn btn-danger">취소</button>
+						<a href="javascript:" id="updateCon" name="updateCon" onclick="updateCon(${list.quizNo}, '${list.quizWriteType}')" class="btn-sm btn-quiz" style="margin-left: 35%;">확인</a>
+						<button type="button" id="cancel" name="cancel" class="btn-sm btn-quiz">취소</button>
 				   </div>
 				</div>
 				<br>

@@ -12,7 +12,6 @@ body{
 
 .accordion-container {
 	width: 100%;
-	margin: 0 0 20px;
 	clear:both;
 }
 
@@ -20,18 +19,19 @@ body{
 	position: relative;
 	display: block;
 	padding: 20px;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 300;
-	background: #2c3e50;
-	color: #fff;
-	text-decoration: none;
+	background: #ffffff;
+	color: #2B2B2B;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 .accordion-titulo.open {
-	background: #16a085;
+	background: #34495e;
 	color: #fff;
 }
 .accordion-titulo:hover {
-	background: #1abc9c;
+	background: #34495e;
+	color: #fff;
 }
 
 .accordion-titulo span.toggle-icon:before {
@@ -51,9 +51,11 @@ body{
 }
 
 .accordion-content {
+	background-color: #fff;
 	display: none;
 	padding: 20px;
 	overflow: auto;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .accordion-content p{
@@ -86,4 +88,10 @@ body{
 
 #cc{
 	border: 1px solid tomato;
+}
+
+.btn-quiz {
+	border: 1px solid #34495e;
+    color: #34495e !important;
+    background: rgba(204, 204, 204, 0);
 }
