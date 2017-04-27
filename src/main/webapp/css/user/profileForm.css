@@ -78,7 +78,7 @@ position: relative;
 	height: 150px;
 	margin: 30px 135px;
 /* 	border-radius: 50%; */
-	background: rgb(223, 223, 223);
+/* 	background: rgb(223, 223, 223); */
 /* 	border: 13px solid rgb(223, 223, 223); */
 	overflow: hidden !important;
 	transform: rotate(-1deg);
@@ -109,7 +109,7 @@ position: relative;
 	top: 38px;
 	right: -32px;
 	border-radius: 50%;
-	background: #aaa;
+/* 	background: #aaa; */
 	border: 2px solid #fff;
 	transform: translateY(36px);
 	transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);

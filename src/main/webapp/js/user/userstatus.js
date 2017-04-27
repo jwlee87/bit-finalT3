@@ -1,7 +1,7 @@
 
 
 function goLogout(userNo) {
-	alert("???????? : " + userNo);
+//	alert("???????? : " + userNo);
 	
 	$.ajax({
 		url : "/bit-finalT3/user/logout.do",

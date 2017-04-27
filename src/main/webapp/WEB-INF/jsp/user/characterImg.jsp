@@ -17,53 +17,53 @@
 		<h2 class="text-center">coily zzzz</h2>
 <!-- 		<div class="lightbox-gallery"> -->
 		<figure class="snip1566">
-				<img src="${pageContext.request.contextPath}/img/userImg/1.PNG" onclick="choiceImg(${user.userNo}, 1)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<div><img src="${pageContext.request.contextPath}/img/userImg/1.PNG" ></div>
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 1)"></i></figcaption>
 	 	</figure>
 	 	
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/2.PNG" onclick="choiceImg(${user.userNo}, 2)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/2.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 2)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/3.PNG" onclick="choiceImg(${user.userNo}, 3)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/3.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 3)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-			<img src="${pageContext.request.contextPath}/img/userImg/4.PNG" onclick="choiceImg(${user.userNo}, 4)">
-			  <figcaption><i class="ion-android-add"></i></figcaption>
+			<img src="${pageContext.request.contextPath}/img/userImg/4.PNG" >
+			  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 4)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/5.PNG" onclick="choiceImg(${user.userNo}, 5)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/5.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 5)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/6.PNG" onclick="choiceImg(${user.userNo}, 6)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/6.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 6)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/7.PNG" onclick="choiceImg(${user.userNo}, 7)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/7.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 7)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/8.PNG" onclick="choiceImg(${user.userNo}, 8)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/8.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 8)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-			<img src="${pageContext.request.contextPath}/img/userImg/9.PNG" onclick="choiceImg(${user.userNo}, 9)">
-			  <figcaption><i class="ion-android-add"></i></figcaption>
+			<img src="${pageContext.request.contextPath}/img/userImg/9.PNG" >
+			  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 9)"></i></figcaption>
 	 	</figure>
 				
 	 	<figure class="snip1566">				
-				<img src="${pageContext.request.contextPath}/img/userImg/10.PNG" onclick="choiceImg(${user.userNo}, 10)">
-				  <figcaption><i class="ion-android-add"></i></figcaption>
+				<img src="${pageContext.request.contextPath}/img/userImg/10.PNG" >
+				  <figcaption><i class="ion-android-add" onclick="choiceImg(${user.userNo}, 10)"></i></figcaption>
 	 	</figure>
 <!-- 		</div> -->
 <!-- 		<div class="lightbox-gallery"> -->
