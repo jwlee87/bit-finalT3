@@ -49,12 +49,12 @@
 	<select id="selectOneDetail" parameterType="int" resultMap="groupDetailMap">
 			select *
 		  from (
-		  	select a.group_detail_no, b.* 
+		  	select a.group_detail_no, a.user_order, b.* 
 		      from tb_group_detail a 
 		 left join tb_user b
 		     	on a.user_no = b.user_no
 		     where a.group_header_no = #{groupHeaderNo}
-		  order by a.user_order	  		  
+		  order by a.user_order
 		  		) c
 	</select>
 	

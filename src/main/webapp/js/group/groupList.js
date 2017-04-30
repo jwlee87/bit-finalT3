@@ -70,7 +70,6 @@ function deleteGrp(groupHeaderNo) {
 
 
 function clickName(no, name) {
-	alert('4 : ' + name);
 	$('#groupHeaderNo').val(no);
 	$('#groupHeaderName').val(name);
 	

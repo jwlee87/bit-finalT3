@@ -15,8 +15,7 @@
 			
 			<a class="navbar-brand" href="${pageContext.request.contextPath}/main/reLoadMain.do">Coily</a>
 			
-			
-			
+			<span class="qs" data-toggle="group" data-placement="bottom" id="locationGroup" title="다른 그룹으로 이동해보세요." style="width:30px;margin-right:5px;background-color: #3399ff;">←</span>
 			<c:if test="${not empty groupInfo}">
 				<span class="qs" data-toggle="?" data-placement="bottom" title=' "${groupInfo.groupHeaderName}" 에서 오늘 하루도 열공하세요 :-)'>?</span>
 			</c:if>
@@ -53,9 +52,16 @@
 
 <script>
 
+$("#locationGroup").click(function() {
+	location.href="${pageContext.request.contextPath}/group/groupList.do";
+});
+
 $(function () {
 	  $('[data-toggle="?"]').tooltip()
-	})
+})
+$(function () {
+	  $('[data-toggle="group"]').tooltip()
+})
 
 function goProfile(userNo){
 	location.href = "${pageContext.request.contextPath}/user/profileForm.do?userNo="+userNo;
