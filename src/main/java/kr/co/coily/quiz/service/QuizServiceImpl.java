@@ -30,6 +30,12 @@ public class QuizServiceImpl implements QuizService {
 		return result;
 	}
 	
+	//스크롤 다운
+	@Override
+	public List<QuizVO> scrollDown(int noStart) throws Exception {
+		return dao.scrollDown(noStart);
+	}
+	
 	//퀴즈댓글 조회
 	@Override
 	public Map<String, Object> commentList(CommentSearchVO search) throws Exception {

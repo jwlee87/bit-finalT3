@@ -12,6 +12,9 @@ public interface QuizService {
 	//조회
 	public Map<String, Object> list(SearchVO search) throws Exception;
 	
+	//스크롤 다운
+	public List<QuizVO> scrollDown(int noStart) throws Exception;
+	
 	//등록
 	public void write(QuizVO quiz) throws Exception;
 	

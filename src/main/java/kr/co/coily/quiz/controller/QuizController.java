@@ -112,6 +112,16 @@ public class QuizController {
 		model.addAttribute("pageResult", result.get("pageResult"));
 	}
 	
+	//스크롤
+	@RequestMapping("/scrollDown.do")
+	@ResponseBody
+	public List<QuizVO> scrollDown(QuizVO quiz) throws Exception{
+		int noStart = quiz.getQuizNo()-1;
+		return service.scrollDown(noStart);
+	}
+	
+	
+	
 	//퀴즈 삭제
 	@RequestMapping("/delete.do")
 	@ResponseBody

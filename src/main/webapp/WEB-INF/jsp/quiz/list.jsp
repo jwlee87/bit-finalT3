@@ -60,7 +60,7 @@
 			</div>
 	</div>
 	</c:forEach>
-	<navi:page data="${pageResult}" />
+<%-- 	<navi:page data="${pageResult}" /> --%>
 	
 	</div>
 </body>

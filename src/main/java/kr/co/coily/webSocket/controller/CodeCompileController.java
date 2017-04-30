@@ -63,8 +63,8 @@ public class CodeCompileController {
             String line2 = "";
 	            while((line2 = br2.readLine())!= null) {
 	            	result += line2;
-//	            	System.out.println("line2 : " + line2);
-//	                System.out.flush();
+	            	System.out.println("line2 : " + line2);
+	                System.out.flush();
 	            }
 	            
 	        } catch (IOException e) {

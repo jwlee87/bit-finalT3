@@ -44,13 +44,21 @@
 		select *
 		from tb_quiz
 		order by quiz_no desc
-		limit #{begin}, 5
+		limit 0, 10
+	</select>
+
+	<!-- 스크롤 다운 -->
+	<select id="scrollDown" resultMap="quizMap">
+		<![CDATA[
+		select *
+		from tb_quiz
+		where quiz_no <= #{quiz_no}
+		order by quiz_no desc
+		limit 0, 10
+		]]>
 	</select>
 	
-	<select id="selectQuizCount" parameterType="searchVO" resultType="int">
-		select count(*)
-		from tb_quiz
-	</select>
+	
 	
 	<!-- 퀴즈 삭제 -->
 	<delete id="deleteQuiz" parameterType="int">

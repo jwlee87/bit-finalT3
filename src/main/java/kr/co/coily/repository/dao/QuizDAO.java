@@ -17,6 +17,9 @@ public interface QuizDAO {
 	public List<QuizCommentVO> selectQuizComment(CommentSearchVO search) throws Exception;
 	public int selectQuizCommentCount(CommentSearchVO search) throws Exception;
 	
+	//스크롤 다운
+	public List<QuizVO> scrollDown(int noStart);
+	
 	//퀴즈 하나 조회
 	public QuizVO selectOneQuiz(int no) throws Exception;
 	
