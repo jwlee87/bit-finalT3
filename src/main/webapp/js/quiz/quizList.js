@@ -3,7 +3,7 @@ $(function(){
 	$("[name=updateCon]").css("display", "none")
 	$("[name=cancel]").css("display", "none")
 	
-	$(".accordion-titulo").click(function(e){
+	$(document).on("click", ".accordion-titulo", function(e){
 		
 	        e.preventDefault();
 	    
@@ -20,101 +20,163 @@ $(function(){
 
 	      });
 	
+	//스크롤 이벤트 시작
+	var lastScrollTop = 0;
+	$("body").scroll(function(){	
+		//top값
+		console.log("position : " + $("div#whatis").position().top * -1)
+		console.log("offset : " + $("div#whatis").offset().top * -1)
+	var currentScrollTop = $(window).scrollTop();
+		
+		
+		if(($("#whatis").position().top * -1 - 438) % 740 == 0) {
+//			if(false) {
+			var lastQuizNo = $("input:last").val()
+			$.ajax({
+			url : "scrollDown.do",
+			data : {"quizNo": lastQuizNo,
+						},
+			type : "POST",
+			dataType : "JSON"
+			})
+			.done(function(result){
+				var html = "";
+				for(var i = 0; i < result.length; i++){
+					var list = result[i];
+					html += '<div id="' + list.quizNo + '"class="accordion-container">';
+					html += '	<input type="hidden" id="quizNo" value=' + list.quizNo + '>';
+					html += '	<a href="#" onclick="javascript:selectComment(' + list.quizNo + ');" class="accordion-titulo">'+ list.quizTitle + '<span class="toggle-icon"></span></a>';					
+					html +=	'		<div class="accordion-content">';	
+					html += '			<textarea name="updateText' + list.quizNo + '" row="10" cols="100"></textarea>';			
+					html += '			<div class="up" name="text' + list.quizNo + '">';
+					if(list.quizWriteType == "u") {
+						html += list.quizContent;
+					} else {
+						html += '<p>' + list.quizContent + '</p>';
+					}
+					html += '			</div>';
+					html += '			<br>';
+					html += '			<div class="row">'; 
+					html += '			<div class="col-md-9"></div>'; 
+					html += '				<div class="col-md-3">'; 
+					html += '					<a href="javascript:" name="answer" onclick="answer(' + list.quizNo +')" class="btn btn-success">문제풀기</a>'; 
+					html += '					<a href="javascript:" name="update" onclick="update(' + list.quizNo +')" class="btn btn-primary">수정</a>'; 
+					html += '					<a href="javascript:" name="deleteQuiz" onclick="deleteQuiz(' + list.quizNo +')" class="btn btn-danger">삭제</a>'; 
+					html += '					<a href="javascript:" id="updateCon" name="updateCon" onclick="updateCon(' + list.quizNo  +', \'list.quizWriteType\')" class="btn btn-success">확인</a>'; 
+					html += '					<button type="button" id="cancel" name="cancel" class="btn btn-danger">취소</button>'; 
+					html += '				</div>'; 
+					html += '			</div>'; 
+					html += '			<br>'; 
+					html += '			<hr>'; 
+					html += '			<div id="commentList'+ list.quizNo + '">'; 
+					html += '			</div>'; 
+					html += '		</div>'; 
+					html += '</div>'; 
+				}
+				if(result.length == 0) {
+//					alert("마지막 데이터 입니다.")
+				}
+				$("#container-main").append(html)
+				
+				//중복되는거....
+				$("textarea").css("display", "none")
+				$("[name=updateCon]").css("display", "none")
+				$("[name=cancel]").css("display", "none")
+
+			})
+			var position = $(".accordion-container:first").offset();
+//			$('html, body').stop().animate({scrollTop : position.top}, 600, easeEffect);
+		}
+	//스크롤 내릴 경우
+	if(currentScrollTop - lastScrollTop > 0) {
+		console.log("window Top : " + $(window).scrollTop())
+		console.log("docu height : " + $(document).height())
+		console.log("window height : " + $(window).height())
+		if($(window).scrollTop()+1 >= ($(document).height() - $(window).height())) {
+			var lastQuizNo = $("input:last").val()
+			$.ajax({
+			url : "scrollDown.do",
+			data : {"quizNo": lastQuizNo,
+						},
+			type : "POST",
+			dataType : "JSON"
+			})
+			.done(function(result){
+				var html = "";
+				for(var i = 0; i < result.length; i++){
+					var list = result[i];
+					html += '<div id="' + list.quizNo + '"class="accordion-container">';
+					html += '	<input type="hidden" id="quizNo" value=' + list.quizNo + '>';
+					html += '	<a href="#" onclick="javascript:selectComment(' + list.quizNo + ');" class="accordion-titulo">'+ list.quizTitle + '<span class="toggle-icon"></span></a>';					
+					html +=	'		<div class="accordion-content">';	
+					html += '			<textarea name="updateText' + list.quizNo + '" row="10" cols="100"></textarea>';			
+					html += '			<div class="up" name="text' + list.quizNo + '">';
+					if(list.quizWriteType == "u") {
+						html += list.quizContent;
+					} else {
+						html += '<p>' + list.quizContent + '</p>';
+					}
+					html += '			</div>';
+					html += '			<br>';
+					html += '			<div class="row">'; 
+					html += '			<div class="col-md-9"></div>'; 
+					html += '				<div class="col-md-3">'; 
+					html += '					<a href="javascript:" name="answer" onclick="answer(' + list.quizNo +')" class="btn btn-success">문제풀기</a>'; 
+					html += '					<a href="javascript:" name="update" onclick="update(' + list.quizNo +')" class="btn btn-primary">수정</a>'; 
+					html += '					<a href="javascript:" name="deleteQuiz" onclick="deleteQuiz(' + list.quizNo +')" class="btn btn-danger">삭제</a>'; 
+					html += '					<a href="javascript:" id="updateCon" name="updateCon" onclick="updateCon(' + list.quizNo  +', \'list.quizWriteType\')" class="btn btn-success">확인</a>'; 
+					html += '					<button type="button" id="cancel" name="cancel" class="btn btn-danger">취소</button>'; 
+					html += '				</div>'; 
+					html += '			</div>'; 
+					html += '			<br>'; 
+					html += '			<hr>'; 
+					html += '			<div id="commentList'+ list.quizNo + '">'; 
+					html += '			</div>'; 
+					html += '		</div>'; 
+					html += '</div>'; 
+				}
+				if(result.length == 0) {
+					alert("마지막 데이터 입니다.")
+				}
+				$("#container-main").append(html)
+				
+				//중복되는거....
+				$("textarea").css("display", "none")
+				$("[name=updateCon]").css("display", "none")
+				$("[name=cancel]").css("display", "none")
+
+			})
+			var position = $(".accordion-container:first").offset();
+//			$('html, body').stop().animate({scrollTop : position.top}, 600, easeEffect);
+		}
+		console.log("last : " + lastScrollTop)
+		console.log("current : " + lastScrollTop)
+		lastScrollTop = currentScrollTop;
+	  }
+	})
+	
+	
+	
+	
+	
 //	$("#add").click(function(){
 //		var left = (screen.width - 800) / 2
 //		var top = (screen.height - 800) / 2
 //		window.open("writeForm.do", "pop1", "top=" + top + ", left=" + left +", width=800, height=800");
 //	})
+
 	$("#add").colorbox({iframe:true, width:"700px", height:"800px"});
 });
 	
-	
-
-//스크롤 이벤트 시작
-var lastScrollTop = 0;
-$(window).scroll(function(){	
-//top값
-console.log($(window).scrollTop())	
-var currentScrollTop = $(window).scrollTop();
-//스크롤 내릴 경우
-if(currentScrollTop - lastScrollTop > 0) {
-	if($(window).scrollTop() >= ($(document).height() - $(window).height())) {
-		var lastQuizNo = $("input:last").val()
-		$.ajax({
-		url : "scrollDown.do",
-		data : {"quizNo": lastQuizNo,
-					},
-		type : "POST",
-		dataType : "JSON"
-		})
-		.done(function(result){
-			var html = "";
-			for(var i = 0; i < result.length; i++){
-				var list = result[i];
-				html += '<div id="' + list.quizNo + '"class="accordion-container">';
-				html += '	<input type="hidden" id="quizNo" value=' + list.quizNo + '>';
-				html += '	<a href="#" onclick="javascript:selectComment(' + list.quizNo + ');" class="accordion-titulo">'+ list.quizTitle + '<span class="toggle-icon"></span></a>';					
-				html +=	'		<div class="accordion-content">';	
-				html += '			<textarea name="updateText' + list.quizNo + '" row="10" cols="100"></textarea>';			
-				html += '			<div class="up" name="text' + list.quizNo + '">';
-				if(list.quizWriteType == "u") {
-					html += list.quizContent;
-				} else {
-					html += '<p>' + list.quizContent + '</p>';
-				}
-				html += '			</div>';
-				html += '			<br>';
-				html += '			<div class="row">'; 
-				html += '			<div class="col-md-9"></div>'; 
-				html += '				<div class="col-md-3">'; 
-				html += '					<a href="javascript:" name="answer" onclick="answer(' + list.quizNo +')" class="btn btn-success">문제풀기</a>'; 
-				html += '					<a href="javascript:" name="update" onclick="update(' + list.quizNo +')" class="btn btn-primary">수정</a>'; 
-				html += '					<a href="javascript:" name="deleteQuiz" onclick="deleteQuiz(' + list.quizNo +')" class="btn btn-danger">삭제</a>'; 
-				html += '					<a href="javascript:" id="updateCon" name="updateCon" onclick="updateCon(' + list.quizNo  +', \'list.quizWriteType\')" class="btn btn-success">확인</a>'; 
-				html += '					<button type="button" id="cancel" name="cancel" class="btn btn-danger">취소</button>'; 
-				html += '				</div>'; 
-				html += '			</div>'; 
-				html += '			<br>'; 
-				html += '			<hr>'; 
-				html += '			<div id="commentList'+ list.quizNo + '">'; 
-				html += '			</div>'; 
-				html += '		</div>'; 
-				html += '</div>'; 
-			}
-			if(result.length == 0) {
-				alert("마지막 데이터 입니다.")
-			}
-			$("#container-main").append(html)
-			
-			//중복되는거....
-			$("textarea").css("display", "none")
-			$("[name=updateCon]").css("display", "none")
-			$("[name=cancel]").css("display", "none")
-			
-			$(".accordion-titulo").click(function(e){
-				
-		        e.preventDefault();
-		    
-		        var contenido=$(this).next(".accordion-content");
-
-		        if(contenido.css("display")=="none"){ //open		
-		          contenido.slideDown(250);			
-		          $(this).addClass("open");
-		        }
-		        else{ //close		
-		          contenido.slideUp(250);
-		          $(this).removeClass("open");	
-		        }
-
-		    });
-		})
-	}
-  }
-})
 
 
 
-	
+
+
+
+
+
+
 	$("#container-main").find("img").each(function(){
 		var imgCh= $(this).attr("src")
 		if($(this).attr("src").indexOf("http") == -1) {
