@@ -242,7 +242,7 @@ $(document).ready(function(){
 //		userEmail = result.user.userEmail;
 		webSocket.send(result.user.userNickName);
 //		onMessage(event, result);
-		userListImg(result);
+//		userListImg(result);
 //		onMessage(result);
 //		onMessage(result.user.userImgPath);
 //		for(var i = 0 ; i < result.joinList.length; i ++) {
@@ -259,12 +259,12 @@ $(document).ready(function(){
 		
 		
 
-function userListImg(userInfo){
-	var userImgPath = userInfo.user.userImgPath; 
-	var userEmail = userInfo.user.userEmail;
-	
-	$("#userImgPath").attr("src", "userImgPath");
-	$("#userEmail").html(userEmail);
-	
-}
+//function userListImg(userInfo){
+//	var userImgPath = userInfo.user.userImgPath; 
+//	var userEmail = userInfo.user.userEmail;
+//	
+//	$("#userImgPath").attr("src", "userImgPath");
+//	$("#userEmail").html(userEmail);
+//	
+//}
 		
