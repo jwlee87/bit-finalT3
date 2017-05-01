@@ -58,6 +58,13 @@
 		]]>
 	</select>
 	
+		
+	<select id="selectQuizCount" parameterType="searchVO" resultType="int">
+		select count(*)
+		from tb_quiz
+	</select>
+	
+	
 	
 	
 	<!-- 퀴즈 삭제 -->
