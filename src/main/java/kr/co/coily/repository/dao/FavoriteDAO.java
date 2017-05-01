@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.FavoriteVO;
 import kr.co.coily.repository.vo.SearchVO;
 
@@ -35,5 +36,9 @@ public class FavoriteDAO {
 		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.FavoriteDAO.selectFCnt", search);
 	}
 	
+	// 보관함 카드 메일 공유
+	public CardVO sendFCard(SearchVO search) {
+		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.CardDAO.selectDetailCard", search);
+	}
 	
 }

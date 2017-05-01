@@ -48,7 +48,7 @@
 					<input type="text" id="input-tags" class="input-tags demo-default">
 				</div>
 		</div>
-			<button type="button" id="uButton" class="btn btn-lg" >수정</button>
+			<button type="button" id="uButton" class="btn-update btn-sm" >수정</button>
 	</form>
 </div>
 </body>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.coily.repository.dao.FavoriteDAO;
+import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.FavoriteVO;
 import kr.co.coily.repository.vo.PageResultVO;
 import kr.co.coily.repository.vo.SearchVO;
@@ -33,6 +34,12 @@ public class FavoriteServiceImpl implements FavoriteService {
 		result.put("list", dao.retrieveFavorite(search));
 		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectFCnt(search)));
 		return result;
+	}
+	
+	// 보관함 카드 메일 공유
+	public CardVO sendFCard(SearchVO search) {
+		CardVO card = dao.sendFCard(search);
+		return card;
 	}
 
 }

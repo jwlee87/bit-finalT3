@@ -1,6 +1,4 @@
 @CHARSET "UTF-8";
-@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-
 	.cardList {
 	  position: relative;
 	  display: inline-block;
@@ -23,7 +21,7 @@
 	}
 	
 	.cardList .profile-image {
-	  padding: 22% 10% 0;
+	  padding: 8% 10% 0;
 	
 	}
 	
@@ -111,4 +109,42 @@
 	  width: 1000px;
 	  margin: 0px auto;
 	}
-
+	
+	button {
+	  margin-left: 80%;
+	}
+	
+	.custom-radio{
+		margin-top:10%;
+	}
+	
+	.custom-radio input[type="radio"] {
+	    display:none;
+	}
+	
+	.custom-radio input[type="radio"] + label {
+	   	cursor: pointer;
+	}
+	
+	.custom-radio input[type="radio"] + label span {
+	    display:inline-block;
+	    width:15px;
+	    height:15px;
+	    margin:-1px 4px 0 0;
+	    vertical-align:middle;
+	    cursor:pointer;
+	    -moz-border-radius: 100%;
+	    border-radius:  100%;
+	}
+	
+	/* The trick: border creates same look as the radio button usually have */
+	/* remove it to see what happens */
+	.custom-radio input[type="radio"] + label span {
+	    background-color: #c4c4c4; /* have to be of the same color */
+	    border: 4px solid #c4c4c4; /* have to be of the same color */
+	}
+	
+	/* Checked state for radio */
+	.custom-radio input[type="radio"]:checked + label span{
+	     background-color: #1abc9c;
+	}

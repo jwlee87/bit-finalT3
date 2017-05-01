@@ -24,6 +24,30 @@
 	    		})
 	    	})
 	    	$("#"+no).removeClass('heart2');
-	    	location.href = "favoriteList.do";
+	    	location.href = "../favorite/favoriteList.do";
 	    });
-	}
+	};
+	
+	function share(no) {
+		
+		var chk = $("input[type=radio]").is(":checked");
+		if (chk) {
+			var no = $("input[type=radio]:checked").val(); 
+		}
+		console.log(no);
+		
+		$.ajax({
+			url: "../favorite/favoriteSend.do",
+			type: "post",
+			dataType:"json",
+			data: {"cardNo": no}
+		}).done(function(result){
+			console.log(result);
+			if(result == "ok"){
+				swal({
+					title: "메일 전송 완료",
+					type: "success"	
+				})
+			}
+		});
+	};
