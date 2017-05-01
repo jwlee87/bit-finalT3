@@ -104,16 +104,17 @@ public class UserSocketHandler extends TextWebSocketHandler {
 //			}
 //
 //		}
-//==============되는거========================================
+
 		
+		//==============가장 최근에 수정한거========================================
 		if (status.getCode() == 1001) {
 			for (WebSocketSession ses : connectedUsers) {
 				String result = "";
 				for (String str : userList) {
 					System.out.println("남은 접속자들 : " + str);
-					result += str + "<br>";
+					result += str + ",";
 //					ses.sendMessage(new TextMessage(userInfo.getUserNickName() + "님이 나갔습니다."));
-//					ses.sendMessage(new TextMessage("남은접속자들 : " + userList));
+//					ses.sendMessage(new TextMessage(""+userList));
 					ses.sendMessage(new TextMessage(result));
 				}
 			}
@@ -191,7 +192,9 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		userList.add(userInfo.getUserNickName());
 		logger.info(userInfo.getUserEmail());
 		logger.info(userInfo.getUserNickName() + "님이 접속했습니다.");
-		//
+		
+//		param.put("userInfo", userInfo);
+		
 		// for(WebSocketSession webSocketSession : connectedUsers) {
 		// System.out.println("접속자리스트 : " + webSocketSession);
 		// }
@@ -214,7 +217,10 @@ public class UserSocketHandler extends TextWebSocketHandler {
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		Map<String, Object> user = session.getAttributes();
 		UserVO userInfo = (UserVO) user.get("user");
-
+		
+//		UserVO userUu = (UserVO)param.get("userInfo");
+//		System.out.println("파람값 : " + userUu.getUserNickName());
+		
 		logger.info(userInfo.getUserNickName() + "님이 메세지 전송 : " + message.getPayload());
 		System.out.println("이거뭐고 : " + userInfo.getUserNickName());
 
@@ -252,23 +258,27 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		// }
 		// }
 		// ===================이거 되는거 ======================
-
+		
+		
+		//===========가장 최근에 수정한거=========================
 		for (WebSocketSession webSocketSession : connectedUsers) {
 			String result = "";
 			if (!webSocketSession.getId().equals(session.getId())) {
 				for (String userNinckName : userList) {
 					// if (!userNinckName.equals(arg0))
 					System.out.println("왜 하나만 찍히노 : " + userList);
-					result += userNinckName + "<br>";
-//					webSocketSession.sendMessage(new TextMessage("유저이름 다를때 : " + userList));
+					
+					result += userNinckName + ",";
+//					webSocketSession.sendMessage(new TextMessage(""+userList));
+					
 					webSocketSession.sendMessage(new TextMessage(result));
 				}
 			}else {
 //				webSocketSession.sendMessage(new TextMessage("내가접속할때 : " + userInfo.getUserNickName()));
 				for (String userNinckName : userList) {
-					result += userNinckName + "<br>";
+					result += userNinckName + ",";
 					// if (!userNinckName.equals(arg0))
-//					webSocketSession.sendMessage(new TextMessage("내가 접속했을때 : " + userList));
+//					webSocketSession.sendMessage(new TextMessage(""+userList));
 					webSocketSession.sendMessage(new TextMessage(result));
 			}
 			}

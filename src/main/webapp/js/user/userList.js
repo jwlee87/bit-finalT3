@@ -5,9 +5,9 @@
 
 
 
-
-var userImgPath = "";
-var userEmail = "";
+//
+//var userImgPath = "";
+//var userEmail = "";
 
 var webSocket = new WebSocket('ws://14.32.66.123:9100/bit-finalT3/websocket/userEcho.do');	//학원
 //var webSocket = new WebSocket('ws://27.1.212.215:9100/bit-finalT3/websocket/echo.do'); //고시원
