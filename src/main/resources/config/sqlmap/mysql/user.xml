@@ -82,12 +82,21 @@
 	
 	
 	<select id="login" parameterType="userVO" resultMap="userMap">
-		select user_no, user_email, user_psw, user_nick_name, user_status, user_conf
+		select u.user_no, u.user_email, u.user_nick_name, u.user_img_no, ui.user_img_path, u.user_psw
+ 		  from tb_user u, tb_user_img ui
+         where u.user_img_no = ui.user_img_no
+           and u.user_email = #{userEmail}
+           and u.user_psw = #{userPsw}
+           and u.user_conf = 'Y' 
+		
+		
+		
+		<!-- select user_no, user_email, user_psw, user_nick_name, user_status, user_conf, user_img_no
 		  from tb_user
 		 where user_email = #{userEmail}
 		   and user_psw = #{userPsw}
-<!-- 		   and user_status = 0 -->
-		   and user_conf = 'Y'
+		   and user_status = 0
+		   and user_conf = 'Y' -->
 	</select>
 	
 	
@@ -147,6 +156,15 @@
 		select *
 		  from tb_user
 		 where user_status = 1
+	</select>
+	
+	
+	<select id="makeUserList" parameterType="String" resultMap="userMap">
+		select u.user_no, u.user_email, u.user_nick_name, u.user_img_no, ui.user_img_path, u.user_psw
+ 		  from tb_user u, tb_user_img ui
+         where u.user_img_no = ui.user_img_no
+           and u.user_email = #{userEmail}
+	
 	</select>
 	
 

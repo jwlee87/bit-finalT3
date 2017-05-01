@@ -1,5 +1,7 @@
 package kr.co.coily.user.service;
 
+import java.util.List;
+
 import kr.co.coily.repository.vo.UserVO;
 
 public interface UserService {
@@ -29,6 +31,10 @@ public interface UserService {
 	public UserVO userImg(int userNo) throws Exception;
 
 	public void choiceImg(UserVO user) throws Exception;
+
+	public void userStatusLogout(int userNo) throws Exception;
+
+	public List<UserVO> selectLoginUserList() throws Exception;
 
 
 }

@@ -1,5 +1,7 @@
 package kr.co.coily.repository.dao;
 
+import java.util.List;
+
 import kr.co.coily.repository.vo.UserVO;
 
 public interface UserDAO {
@@ -29,5 +31,9 @@ public interface UserDAO {
 	public UserVO userImg(int userNo) throws Exception;
 
 	public void choiceImg(UserVO user) throws Exception;
+
+	public void userStatusLogout(int userNo) throws Exception;
+
+	public List<UserVO> selectLoginUserList() throws Exception;
 
 }

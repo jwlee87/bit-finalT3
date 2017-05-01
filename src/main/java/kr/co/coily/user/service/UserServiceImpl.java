@@ -1,5 +1,7 @@
 package kr.co.coily.user.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -82,6 +84,18 @@ public class UserServiceImpl implements UserService  {
 		public void choiceImg(UserVO user) throws Exception {
 			dao.choiceImg(user);
 		}
+
+		@Override
+		public void userStatusLogout(int userNo) throws Exception {
+			dao.userStatusLogout(userNo);
+			
+		}
+
+		@Override
+		public List<UserVO> selectLoginUserList() throws Exception {
+			return dao.selectLoginUserList();
+		}
+
 
 
 }

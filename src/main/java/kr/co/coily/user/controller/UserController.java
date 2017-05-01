@@ -1,6 +1,7 @@
 package kr.co.coily.user.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -31,6 +32,10 @@ public class UserController {
 	@Autowired
 	private ShaPasswordEncoder passwordEncoder;
 	
+	
+	
+	@RequestMapping("/user/loginListForm.do")
+	public void loginListForm() throws Exception{}
 	
 	
 	@RequestMapping("/user/goLogin.do")
@@ -159,7 +164,7 @@ public class UserController {
 		
 		
 		// 인증메일 보내기ㅒ
-		String setfrom = "hac891234@gmail.com";
+		String setfrom = "coilyteam@gmail.com";
 		String tomail = user.getUserEmail(); // 받는 사람 이메일
 		String title = "coily 회원가입 인증번호"; // 제목
 		String content = ""
@@ -367,6 +372,8 @@ public class UserController {
 	public String logout(int userNo, HttpSession session) throws Exception {
 		System.out.println("오십니다ㄴ : " + userNo);
 		session.invalidate();//세션삭제
+		service.userStatusLogout(userNo);
+		System.out.println("세션아웃??");
 		return "sessionDel";
 	}
 	
@@ -399,7 +406,7 @@ public class UserController {
 //		String nickName = user.getUserNickName();
 		
 		if (user != null) {
-		String setfrom = "hac891234@gmail.com";
+		String setfrom = "coilyteam@gmail.com";
 		String tomail = userEmail; // 받는 사람 이메일
 		String title = "coily입니다. 비밀번호를 잊어버렸나요??"; // 제목
 		String content = ""
@@ -494,6 +501,18 @@ public class UserController {
 	
 	
 	@ResponseBody
+	@RequestMapping("/user/userStatusLogout.do")
+	public void userStatusLogout(HttpSession session) throws Exception {
+		System.out.println("종료버튼 눌렀따");
+		UserVO user = (UserVO)session.getAttribute("user");
+		System.out.println("유저넘버 : " + user.getUserNo());
+		
+		
+		
+	}
+	
+	
+	@ResponseBody
 	@RequestMapping("/user/choiceImg.do")
 	public Map<String, Object> choiceImg(UserVO user) throws Exception {
 		Map<String, Object> param = new HashMap<>();
@@ -502,8 +521,19 @@ public class UserController {
 		
 		service.choiceImg(user);
 		param.put("userNo", user.getUserNo());
-		
 		return param;
+	}
+	
+	
+	
+	@ResponseBody
+	@RequestMapping("/user/loginList.do")
+	public List<UserVO> loginList() throws Exception {
+		System.out.println("접속자리스트");
+		List<UserVO> userList = service.selectLoginUserList();
+		System.out.println(userList);
+		return userList;
+		
 	}
 	
 
