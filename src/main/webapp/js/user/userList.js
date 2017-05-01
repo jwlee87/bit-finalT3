@@ -9,7 +9,7 @@
 //var userImgPath = "";
 //var userEmail = "";
 
-var webSocket = new WebSocket('ws://14.32.66.123:9100/bit-finalT3/websocket/userEcho.do');	//학원
+var webSocket = new WebSocket('ws://14.32.66.123:9120/bit-finalT3/websocket/userEcho.do');	//학원
 //var webSocket = new WebSocket('ws://27.1.212.215:9100/bit-finalT3/websocket/echo.do'); //고시원
 
 $(document).ready(function(){
@@ -127,13 +127,47 @@ $(document).ready(function(){
 		};
 		
 		function onMessage(event) {
-			var html = ""; 
+			var  html = "";
 			var userData = "";
 			var data="";
 //			textarea.value += "상대 : " + event.data + "\n";
 //			alert("onMessage : " + event.data);
 			userData = event.data;
-			var temp = userData.split(",");
+			
+			console.log("##################### " + userData)
+			var arrUser = userData.split(";");
+
+			for(var i = 0; i < arrUser.length-1; i++) {
+				var arrInfo = arrUser[i].split(",");
+				html += "<div id="+i+">"
+				html += '<div class="friend">';
+				html += "<img  src=" + arrInfo[2] +"></img>";
+				html += '<p>';
+				html += '<strong>'+ arrInfo[0]+'</strong><br>';
+				html += "<span>" + arrInfo[1] + "</span>";
+				html += '</p>';
+				html += '<div class="status available"></div>';
+				html += '</div>';
+				html += '</div>';
+				console.log("html결과값 : " + html);
+			}
+			$("#result").html(html);
+//			for(var i = 0; i < arrUser.length; i++) {
+//
+//				var arrInfo = arrUser[i].split(",");
+//				html += "<div id="+i+">"
+//				html += '<div class="friend">'
+//				html += "<img  src=" + arrInfo[2] +"></img>"
+//				html += '<p>'
+//				html += '<strong>'+ arrInfo[0]+'</strong>'
+//				html += "<span>" + arrInfo[1] + "</span>"
+//				html += '</p>'
+//				html += '<div class="status available"></div>'
+//				html += '</div>';
+//				html += '</div>';
+//				console.log("html결과값 : " + html);
+//				$("#result").html(html);
+//			}
 //			var userEmail = data[1];
 			
 			
@@ -141,39 +175,39 @@ $(document).ready(function(){
 //			console.log("옴???? : " + event.data);
 //			console.log("옴?????html : " + html);
 //			
-			console.dir("이벤트 :" +  event);
-			console.log("11 : " + event);
-			console.info("22 : " + event);
-			console.dir("33 : " + event.data);
-			console.log("44 : " + event.data.length);
+//			console.dir("이벤트 :" +  event);
+//			console.log("11 : " + event);
+//			console.info("22 : " + event);
+//			console.dir("33 : " + event.data);
+//			console.log("44 : " + event.data.length);
 //			console.log("짜른거 : " + temp);
-			console.log("짜른거 [0]: " + temp[0]);
-			console.log("짜른거 [1]: " + temp[1]);
-			console.log("짜른거 [2]: " + temp[2]);
-			console.log("길이 : " + temp.length);
-			console.log("이미지경로1 : " + event);
-			console.log("이미지경로 2: " + result);
-			console.log("이미지경로 3: " + result.userImgPath);
-			console.dir("이미지경로 4: " + result);
+//			console.log("짜른거 [0]: " + temp[0]);
+//			console.log("짜른거 [1]: " + temp[1]);
+//			console.log("짜른거 [2]: " + temp[2]);
+//			console.log("길이 : " + temp.length);
+//			console.log("이미지경로1 : " + event);
+//			console.log("이미지경로 2: " + result);
+//			console.log("이미지경로 3: " + result.userImgPath);
+//			console.dir("이미지경로 4: " + result);
 			
-			for (var i = 0; i < temp.length-1; i++) {
-				data = temp[i];
-				console.log(i+"번째 : " + data);
+//			for (var i = 0; i < arrTemp.length-1; i++) {
+//				data = temp[i];
+//				console.log(i+"번째 : " + data);
 				
-				html += "<div id="+i+">"
-				html += '<div class="friend">'
-				html += '<img id="userImgPath" src=""></img>'
-				html += '<p>'
-				html += '<strong>'+ data +'</strong>'
-				html += "<span><span id='userEmail'></span></span>"
-				html += '</p>'
-				html += '<div class="status available"></div>'
-				html += '</div>';
-				html += '</div>';
-				console.log("결과값 : " + data);
-				console.log("html결과값 : " + html);
-			}
-			$("#result").html(html);
+//				html += "<div id='1'>"
+//				html += '<div class="friend">'
+//				html += "<img  src=" + temp[2] +"></img>"
+//				html += '<p>'
+//				html += '<strong>'+ temp[0]+'</strong>'
+//				html += "<span>" + temp[1] + "</span>"
+//				html += '</p>'
+//				html += '<div class="status available"></div>'
+//				html += '</div>';
+//				html += '</div>';
+////				console.log("결과값 : " + data);
+//				console.log("html결과값 : " + html);
+////			}
+//			$("#result").html(html);
 //			$("#result").html(html);
 //			makeUserList(data);
 		}
@@ -241,6 +275,7 @@ $(document).ready(function(){
 //		userImgPath = result.user.userImgPath;
 //		userEmail = result.user.userEmail;
 		webSocket.send(result.user.userNickName);
+//		webSocket.send(result.user.userImgPath);
 //		onMessage(event, result);
 //		userListImg(result);
 //		onMessage(result);
@@ -262,8 +297,8 @@ $(document).ready(function(){
 //function userListImg(userInfo){
 //	var userImgPath = userInfo.user.userImgPath; 
 //	var userEmail = userInfo.user.userEmail;
-//	
-//	$("#userImgPath").attr("src", "userImgPath");
+//	console.log($("#userImgPath").val());
+//	$("#userImgPath").attr("src", userImgPath);
 //	$("#userEmail").html(userEmail);
 //	
 //}

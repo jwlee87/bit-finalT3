@@ -21,7 +21,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 	private final Logger logger = LogManager.getLogger(SocketHandler.class);
 	private Set<WebSocketSession> sessionSet = new HashSet<WebSocketSession>();
 	private List<WebSocketSession> connectedUsers;
-	static List<String> userList;
+	static List<UserVO> userList;
 	static WebSocketSession ses;
 	String str = "";
 
@@ -29,7 +29,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		super();
 		this.logger.info("create SocketHandler instance!!!!!!!!!!!!!!!!!!!!!!!!!");
 		connectedUsers = new ArrayList<WebSocketSession>();
-		userList = new ArrayList<String>();
+		userList = new ArrayList<>();
 
 	}
 
@@ -58,7 +58,11 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		logger.info(session.getId() + "님 접속 종료");
 		Map<String, Object> user = session.getAttributes();
 		UserVO userInfo = (UserVO) user.get("user");
-		userList.remove(userInfo.getUserNickName());
+		//세션 꺼졌을때 닉네임 이메일 이미지경로 지움
+		userList.remove(userInfo);
+//		userList.remove(userInfo.getUserEmail());
+//		userList.remove(userInfo.getUserImgPath());
+		//세션 꺼졌을때 닉네임 이메일 이미지경로 지움
 		logger.info(userInfo.getUserNickName() + "님 접속 종료");
 		// System.out.println("핫핫핫핫 : " + userList.listIterator().toString());
 		// for (int i = 0; i < userList.size(); i++) {
@@ -110,9 +114,11 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		if (status.getCode() == 1001) {
 			for (WebSocketSession ses : connectedUsers) {
 				String result = "";
-				for (String str : userList) {
+				for (UserVO responseUser : userList) {
 					System.out.println("남은 접속자들 : " + str);
-					result += str + ",";
+					result += responseUser.getUserNickName() + ","
+							   + responseUser.getUserEmail() + ","
+							   + responseUser.getUserImgPath() + ";";
 //					ses.sendMessage(new TextMessage(userInfo.getUserNickName() + "님이 나갔습니다."));
 //					ses.sendMessage(new TextMessage(""+userList));
 					ses.sendMessage(new TextMessage(result));
@@ -189,9 +195,22 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		System.out.println(user.get("user"));
 		System.out.println("유저별명 : " + userInfo.getUserNickName());
 		System.out.println("이메일 : " + userInfo.getUserEmail());
-		userList.add(userInfo.getUserNickName());
-		logger.info(userInfo.getUserEmail());
-		logger.info(userInfo.getUserNickName() + "님이 접속했습니다.");
+		userList.add(userInfo);
+		
+		System.out.println("##################### 닉네임 : " + userInfo.getUserNickName());
+		System.out.println("##################### 이메일 : " + userInfo.getUserEmail());
+		System.out.println("##################### 패쓰 : " + userInfo.getUserImgPath());
+		
+		
+		//사진 추가중, 이메일도 추가중
+//		userList.add(userInfo.getUserEmail());
+//		userList.add(userInfo.getUserImgPath());
+		//사진 추가중, 이메일도 추가중
+//		logger.info(userInfo.getUserEmail());
+//		logger.info(userInfo.getUserNickName() + "님이 접속했습니다.");
+//		logger.info("이미지경로 : " + userInfo.getUserImgPath());
+		System.out.println("이미지경로입니다 : " + userInfo.getUserImgPath());
+		System.out.println("userList : " + userList);
 		
 //		param.put("userInfo", userInfo);
 		
@@ -222,6 +241,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 //		System.out.println("파람값 : " + userUu.getUserNickName());
 		
 		logger.info(userInfo.getUserNickName() + "님이 메세지 전송 : " + message.getPayload());
+		
 		System.out.println("이거뭐고 : " + userInfo.getUserNickName());
 
 		// List<String> userList = new ArrayList<>();
@@ -264,24 +284,27 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		for (WebSocketSession webSocketSession : connectedUsers) {
 			String result = "";
 			if (!webSocketSession.getId().equals(session.getId())) {
-				for (String userNinckName : userList) {
-					// if (!userNinckName.equals(arg0))
-					System.out.println("왜 하나만 찍히노 : " + userList);
-					
-					result += userNinckName + ",";
-//					webSocketSession.sendMessage(new TextMessage(""+userList));
-					
+				
+				for (UserVO responseUser : userList) {
+					result += responseUser.getUserNickName() + ","
+							   + responseUser.getUserEmail() + ","
+							   + responseUser.getUserImgPath() + ";";
+					System.out.println("########################################## result " + result);
 					webSocketSession.sendMessage(new TextMessage(result));
 				}
+				
 			}else {
 //				webSocketSession.sendMessage(new TextMessage("내가접속할때 : " + userInfo.getUserNickName()));
-				for (String userNinckName : userList) {
-					result += userNinckName + ",";
-					// if (!userNinckName.equals(arg0))
+				for (UserVO responseUser: userList) {
+					result += responseUser.getUserNickName() + ","
+							   + responseUser.getUserEmail() + ","
+							   + responseUser.getUserImgPath() + ";";
 //					webSocketSession.sendMessage(new TextMessage(""+userList));
+					System.out.println("11111111111111111111111111111111111111111111 result " + result);
 					webSocketSession.sendMessage(new TextMessage(result));
+				}
 			}
-			}
+			
 		}
 
 		// ===================이거 되는거 ======================

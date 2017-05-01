@@ -22,7 +22,7 @@
 		<form action="" id="updateForm">
 			<div id="n" class="form-group">
 				<input readonly="readonly" id="userEmail" spellcheck=false class="form-control2"
-					name="userEmail" value="${user.userEmail}" type="text" size="18" alt="login" required="" >
+					name="userEmail" value="${user.userEmail}" type="text" size="18" alt="login" required="" style="width:350px;" >
 				<span class="form-highlight"></span> <span class="form-bar"></span>
 <!-- 				<label for="userEmail" class="float-label">Email</label> -->
 				
@@ -54,7 +54,7 @@
 				<input type="hidden" id="userNo" name="userNo" value="${user.userNo}" >
 <%-- 				<input type="hidden" id="> --%>
 			<div class="form-group">
-				<button style="text-align: center; margin: 20px 118px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="submitBtn" type="button" ripple>수정 하기</button>
+				<button style="text-align: center; margin: 20px 118px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="submitBtn" type="button" ripple>수  정</button>
 			</div>
 		</form>
 

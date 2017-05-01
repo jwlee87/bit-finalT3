@@ -23,8 +23,9 @@
 <!--             <span class="chats"></span> -->
 <!--             <span class="history"></span> -->
         </div>
-        	
-        	<div id="result"></div>
+        
+        	<div id="result">
+        	</div>
         
 <!--         <div id="friends"> -->
 <!--         	<div class="friend"> -->

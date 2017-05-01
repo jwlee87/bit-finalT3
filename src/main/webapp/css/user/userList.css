@@ -57,6 +57,7 @@ body {
 	height:70px;
 	border-bottom:1px solid #e7ebee;		
 	position:relative;
+	float: left;
 }
 .friend:hover{
 	background:#f1f4f6;
