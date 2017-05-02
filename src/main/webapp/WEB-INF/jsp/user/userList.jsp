@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
+<%-- <jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include> --%>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/userList.css">
 <script src="${pageContext.request.contextPath}/js/user/userList.js"></script> 
@@ -16,7 +16,7 @@
 
 <!-- <a id="view-code" href="http://codepen.io/virgilpana/pen/ZYZXgP" target="_blank">VIEW CODE</a> -->
 
-<div id="chatbox">
+<div id="chatbox" style="margin-top:4.1%">
 	<div id="friendslist">
     	<div id="topmenu">
         	<span class="friends"></span>
@@ -45,17 +45,17 @@
         </div>                
     </div>	
     
-    <div id="chatview" class="p1">    	
-        <div id="profile">
+<!--     <div id="chatview" class="p1">    	 -->
+<!--         <div id="profile"> -->
 
-            <div id="close">
-                <div class="cy"></div>
-                <div class="cx"></div>
-            </div>
+<!--             <div id="close"> -->
+<!--                 <div class="cy"></div> -->
+<!--                 <div class="cx"></div> -->
+<!--             </div> -->
             
-            <p>Miro Badev</p>
-            <span>miro@badev@gmail.com</span>
-        </div>
+<!--             <p>Miro Badev</p> -->
+<!--             <span>miro@badev@gmail.com</span> -->
+<!--         </div> -->
 <!--         <div id="chat-messages"> -->
 <!--         	<label>Thursday 02</label> -->
             
@@ -111,10 +111,10 @@
 <!--             <button id="send"></button> -->
 <!--         </div> -->
     
-    </div>        
+<!--     </div>         -->
 </div>	
     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 
 
 

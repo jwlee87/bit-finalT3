@@ -8,8 +8,8 @@
 <script src="${pageContext.request.contextPath}/js/user/joinForm.js"></script>
 <!-- Custom CSS-->
  <!-- Owl-Carousel -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/user.css"> 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general2.css"> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user/joinForm.css"> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/comm/general3.css"> 
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,23 +19,20 @@
 <body>
 	<div class="form-wrap">
 		<div class="tabs">
-			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>
+			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">회원가입</a></h3>
 		</div><!--.tabs-->
 
-		<div class="tabs-content">
+		<div class="tabs-content login-form">
 			<div id="signup-tab-content" class="active">
 				<form name="joinForm" id="joinForm" class="signup-form">
-					<input type="text" class="input" name="userEmail" id="email" placeholder="Email">
+					<input type="text" class="input" name="userEmail" id="email" placeholder="이메일을 입력하세요">
 					<span id="emailResult"></span>
-					<input type="text" class="input" name="userNickName" id="nickName" placeholder="nickName">
+					<input type="text" class="input" name="userNickName" id="nickName" placeholder="별명을 입력하세요">
 					<span id="nickNameResult"></span>
-					<input type="password" class="input" name="userPsw" id="password" placeholder="Password">
-					<button style="text-align: center; margin: 30px 95px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">Next</span></button>
+					<input type="password" class="input" name="userPsw" id="password" maxlength="17" placeholder="비밀번호를 입력하세요">
+					<button style="text-align: center; margin: 30px 95px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">다 음</span></button>
 				</form><!--.login-form-->
-				<div class="help-text">
-					<p>By signing up, you agree to our</p>
-					<p><a href="#">Terms of service</a></p>
-				</div><!--.help-text-->
+				
 			</div><!--.signup-tab-content-->
 
 		</div><!--.tabs-content-->

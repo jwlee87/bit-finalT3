@@ -19,19 +19,19 @@
 <body onload="getLogin()">
 	<div class="form-wrap">
 		<div class="tabs">
-			<h3 class="login-tab"><a class="active" href="#login-tab-content">Login</a></h3>
+			<h3 class="login-tab"><a class="active" href="#login-tab-content">로그인</a></h3>
 		</div><!--.tabs-->
 		<div class="tabs-content">
 			<div id="login-tab-content" class="active">
 				<form name="loginForm" class="login-form" action="" method="post">
-					<input type="text" class="input" id="userEmail" name="userEmail" placeholder="Email">
-					<input type="password" class="input" id="userPsw" name="userPsw" placeholder="psw">
+					<input type="text" class="input" id="userEmail" name="userEmail" placeholder="이메일을 입력하세요">
+					<input type="password" class="input" id="userPsw" name="userPsw" placeholder="비밀번호를 입력하세요">
 					<input type="checkbox" class="checkbox" id="remember_me" name="remember_me" onclick="confirmSave(this)">
-					<label for="remember_me">Remember me</label>
-					<input style="text-align: center;" type="button" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="loginBtn" value="Login">
+					<label for="remember_me">로그인 상태 유지</label>
+					<input style="text-align: center;" type="button" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="loginBtn" value="로그인">
 				</form>
 				<div class="help-text">
-					<p><a href="javascript:goFindPassword();">Forget your password?</a></p>
+					<p><a href="javascript:goFindPassword();">비밀번호를 잊어버리셨나요?</a></p>
 				</div><!--.help-text-->
 			</div><!--.signup-tab-content-->
 
