@@ -7,23 +7,19 @@
 <html>
 <head>
 <meta Charset="UTF-8">
-<title>삭제</title>
+<title>카드 삭제</title>
 <script src="../decorators/mainHeader.jsp"></script>
-<%-- <script type="${pageContext.request.contextPath}/js/card/delete.js"></script> --%>
 <link href="${pageContext.request.contextPath}/css/card/delete.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="delete">
 		<c:out value="${delete.cardNo}"></c:out>
 		<button id="reset">리스트로 돌아가기</button>
-		
 	</div>
 </body>
 
-
 <script type="text/javascript">
 $("#reset").click(function() {
-	
 	
 	$.ajax({
 		url: "list.do",

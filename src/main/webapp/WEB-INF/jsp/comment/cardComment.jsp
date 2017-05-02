@@ -16,11 +16,9 @@
 </head>
 <body>
 	<figure class="cardComment"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample1.jpg" alt="profile-sample1" class="background"/>
-	  <figcaption>
-  	
-  		<div class="plus">+</div>
-
-	  </figcaption>
+	   <figcaption>
+  		  <div class="plus">+</div>
+	   </figcaption>
 	</figure>
 
 	<c:forEach var="comment" items="${selectCardCommentByNo}">
@@ -34,27 +32,8 @@
  		 	</figcaption>		
   		</figure>
 	</c:forEach>
-	<%-- <div id="comment">
-			<form id="rForm" class="form-inline">
-			    <div class="form-group">
-				    <input type="text" name="userNo" class="form-control" value="<c:out value="${card.userNo}" />" placeholder="아이디를 입력하세요">
-			    </div>
-			    <div class="form-group">
-				    <input type="text" name="content" class="form-control input-wp1" placeholder="내용을 입력하세요">
-			    </div>
-			  	<button class="btn btn-primary">등록</button>
-			</form>					
-		</div>
-		<hr>
-		<div id="commentCardList"></div> --%>
+
 <navi:page data="${pageResult}" />
 
-<script type="text/javascript">
-
-
-	
-		
-	
-</script>
 </body>
 </html>

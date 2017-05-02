@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 100%;
-  background: #333;
-}
-
 #page-wrapper {
   width: 650px;
   background: #FFF;

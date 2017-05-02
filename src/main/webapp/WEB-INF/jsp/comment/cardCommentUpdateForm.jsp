@@ -11,15 +11,10 @@
 <jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/comment/commentUpdateForm.js"></script>
 <link href="${pageContext.request.contextPath}/css/comment/commentUpdateForm.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
 	<div class="container">
-
-<!-- 	<div class="header"> -->
-<%-- 		<c:import url="/WEB-INF/jsp/include/topMenu.jsp" /> --%>
-<!-- 	</div> -->
 
 	<div class="content">
 		<ol class="breadcrumb">
@@ -30,22 +25,21 @@
 		<form action='update.do' method='post'>
 			<input type="hidden" name="no" value="<c:out value="${commentVO.cardNo}"/>" /> 
 			<table class="table table-no-border">
-		
-			<tr>
-				<td class="td-txt-right td-wp10">닉네임</td>
-			 	<td>
-			 		<div class="form-group">
-			 			<input type='text' name='writer' class="form-control input-wp5" value="<c:out value="${commentVO.userNickName}"/>" />
-			 		</div>
-			 	</td>
-			</tr>
-			<tr>
-				<td class="td-txt-right td-wp10">내용</td>
-			 	<td><div class="form-group">
-			 		<textarea name='content' rows='5' cols='70' class="form-control"><c:out value="${commentVO.cardCommentContent}"/></textarea>
-			 		</div>
-			 	</td>
-			</tr>
+				<tr>
+					<td class="td-txt-right td-wp10">닉네임</td>
+				 	<td>
+				 		<div class="form-group">
+				 			<input type='text' name='writer' class="form-control input-wp5" value="<c:out value="${commentVO.userNickName}"/>" />
+				 		</div>
+				 	</td>
+				</tr>
+				<tr>
+					<td class="td-txt-right td-wp10">내용</td>
+				 	<td><div class="form-group">
+				 		<textarea name='content' rows='5' cols='70' class="form-control"><c:out value="${commentVO.cardCommentContent}"/></textarea>
+				 		</div>
+				 	</td>
+				</tr>
 			</table>
 			
 			<div class="row">
@@ -59,8 +53,5 @@
 	</div>
 </div>
 	
-<!-- 	<div class="bottom"> -->
-<%-- 		<c:import url="/WEB-INF/jsp/include/bottom.jsp" /> --%>
-<!-- 	</div> -->
 </body>
 </html>

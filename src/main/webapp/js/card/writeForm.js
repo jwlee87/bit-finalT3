@@ -16,8 +16,6 @@ $(document).ready(function() {
 			dataType:"json",
 			data: {cardContent:$("#content").val(),
 				   userNo:$("#userNo").val()
-				//				   cardTitle:$("#title").val()
-				
 			},
 		}).done(function(result){
 			swal({
@@ -26,21 +24,8 @@ $(document).ready(function() {
 			},
 			function(){
 				window.open('/bit-finalT3/card/list.do','_parent').parent.close();
-//			opener.location.reload()
 		})
 	})
 	})
 });
-
-//	 	$("#fileUpload").click(function () {
-//	 		window.open("file.do", "", "width=700px; height=800px;" )
-//	 	})
-
-
-	/* $("").click(function(){
-		if($("").val() == ""){
-			return false;
-		}
-	}) */
-
 

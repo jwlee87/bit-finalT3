@@ -1,1 +1,181 @@
-@CHARSET "UTF-8";
+
+html, body {
+  width: 100%; }
+
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+
+/*
+* Vars
+*/
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0; }
+
+  to {
+    background-position: 40px 0; } }
+@keyframes progress-bar-stripes {
+
+  to {
+    background-position: 40px 0; } }
+
+
+html {
+  font-size: 62.5%; }
+
+body {
+  background-color: #F3F5F7;
+  color: #333333;
+  font-size: 1.2rem;
+  font-family: "Helvetica Neue", sans-serif; }
+
+/*좋아요 생성 삭제*/
+a {
+  color: #3e90ca;
+  text-decoration: none; }
+
+.clearfix {
+  clear: both; }
+
+.avatar {
+  border-radius: 3px; }
+
+.avatar-small {
+  height: 30px;
+  width: 30px; }
+
+.avatar-micro {
+  height: 25px;
+  width: 25px; }
+
+
+.page {
+  height: 100%;
+  padding: 20px 20px 20px 20px; }
+
+.center {
+  float: left; }
+
+.course-meta {
+  margin-bottom: 20px; }
+  .course-meta h1 {
+    font-size: 1.9rem;
+    font-weight: bold; }
+
+.posts {
+  width: 500px; }
+
+.add-post {
+  border: 1px solid #DFE2E2;
+  border-radius: 3px;
+  border-bottom-width: 2px;
+  border-top-width: 0;
+  background-color: #FFF;
+  height: 50px;
+/*   margin-bottom: 20px; */
+/*   padding: 10px;  */
+  }
+  .add-post textarea {
+    border: none;
+    font-size: 1.4rem;
+    width: 100%; 
+    }
+    .add-post textarea:focus {
+      outline: none; }
+
+.post {
+  border: 1px solid #DFE2E2;
+  border-radius: 3px;
+  border-bottom-width: 2px;
+  border-top-width: 0;
+  background-color: #FFF;
+  margin-bottom: 20px; }
+  .post .avatar {
+    float: left;
+    margin: 15px 0 0 10px; }
+  .post .post-content {
+    border-bottom: 1px solid #eee;
+    padding: 15px 10px 20px 50px; }
+    .post .post-content .post-author-username {
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-right: 5px; }
+    .post .post-content .post-timedelta {
+      color: #babbbf; }
+      .post .post-content .post-timedelta:hover {
+        cursor: pointer;
+        text-decoration: underline; }
+    .post .post-content .post-body {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      margin: 5px 0; }
+    .post .post-content .post-files li.file .file-icon {
+      float: left; }
+    .post .post-content .post-files li.file .file-content {
+      padding: 7px 0 2px 23px; }
+      .post .post-content .post-files li.file .file-content .file-name {
+        font-size: 1.4rem; }
+    .post .post-content .post-actions {
+      margin-top: 10px; }
+      .post .post-content .post-actions li {
+        color: #5C5C5C;
+        float: left;
+        font-size: 1.3rem;
+        margin-right: 15px; }
+        .post .post-content .post-actions li i {
+          color: #5C5C5C;
+          margin-right: 5px; }
+        .post .post-content .post-actions li i.fa-heart {
+          color: #df5c4f; }
+        .post .post-content .post-actions li a {
+          font-size: 1.3rem; }
+        .post .post-content .post-actions li:hover {
+          cursor: pointer;
+          text-decoration: underline; }
+    .post .post-content .post-attachments {
+      margin-top: 10px; }
+      .post .post-content .post-attachments li.file .file-icon {
+        float: left; }
+      .post .post-content .post-attachments li.file .file-content {
+        padding: 7px 0 2px 23px; }
+        .post .post-content .post-attachments li.file .file-content .file-name {
+          font-size: 1.3rem; }
+/* #reg {
+	margin-top: 10px; 
+	margin-bottom: 10px;
+} */

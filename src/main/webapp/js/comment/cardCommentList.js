@@ -97,8 +97,3 @@ function commentList(pageNo) {
 	})
 	.done(makeCommentList);
 }
-  
-/*function reviewComment() {
-	$("div#content").load("commentList.html");
-	commentList();
-}*/
