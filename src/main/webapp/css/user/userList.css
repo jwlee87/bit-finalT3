@@ -26,8 +26,9 @@ body {
 	height:484px;
 	position:absolute;
 	top:100px;
-	left:92%;
+	left:88%;
 	margin-left:-155px;
+	z-index: 99999;
 }
 
 #friendslist{
