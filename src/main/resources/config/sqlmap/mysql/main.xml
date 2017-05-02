@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="kr.co.coily.repository.dao.MainDAO">
+
+	<!-- 카드VO -->
+	<resultMap id="cardMap" type="cardVO">
+		<result property="cardNo" column="card_no"/>
+		<result property="userNickName" column="user_nick_name"/>
+		<result property="userNo" column="user_no"/>
+		<result property="cardContent" column="card_content"/>
+		<result property="cardRegDate" column="card_reg_date"/>
+		<result property="fileGroupNo" column="file_group_no"/>
+		<result property="userImgPath" column="user_img_path"/>
+		<result property="likeChk" column="like_chk"/>
+	</resultMap>
+	
+	<select id="selectCard" resultMap="cardMap">
+		select a.card_content
+				,(select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name
+		        , date_format(a.card_reg_date, '%Y-%m-%d') as card_reg_date
+		from tb_card a
+		order by a.card_no desc
+		limit 5
+	</select>
+	
+
+	<!-- 퀴즈VO -->
+	<resultMap type="quizVO" id="quizMap">
+		<result column="quiz_no" property="quizNo"/>
+		<result column="user_no" property="userNo"/>
+		<result column="quiz_title" property="quizTitle"/>
+		<result column="quiz_content" property="quizContent"/>
+		<result column="quiz_write_type" property="quizWriteType"/>
+		<result column="quiz_url_type" property="quizUrlType"/>
+		<result column="quiz_reg_date" property="quizRegDate"/>
+		<result column="quiz_answer" property="quizAnswer"/>
+		<result column="user_nick_name" property="userNickName"/>
+	</resultMap>
+
+	<select id="selectQuiz" resultMap="quizMap">
+		select a.quiz_title
+			   , (select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name 
+		       , date_format(a.quiz_reg_date, '%Y-%m-%d') as quiz_reg_date
+		from tb_quiz a
+		order by a.quiz_no desc
+		limit 5
+	</select>
+
+	
+</mapper>

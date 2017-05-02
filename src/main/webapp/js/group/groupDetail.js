@@ -73,9 +73,19 @@ $(function(){
 				"groupHeaderNo": $("#GroupHeaderNo").val()
 				}
 		}).done(function(result){
-			swal("수정 완료");
-			parent.location.href ="groupList.do";
-			parent.$.colorbox.close();
+			
+			swal({
+				title: "수정 완료",
+				text: "스터디 그룹 정보가 수정되었습니다.",
+				confirmButtonText: "확인",
+			}, 
+			function (isConfirm) {
+				if(isConfirm) {
+					parent.location.href ="groupList.do";
+					parent.$.colorbox.close();
+				}
+			})
+			
 		}); 
 		
 	/* 	$.ajax ({

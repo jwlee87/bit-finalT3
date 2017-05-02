@@ -1,17 +1,26 @@
 package kr.co.coily.main.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.coily.main.service.MainService;
+import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.GroupHeaderVO;
+import kr.co.coily.repository.vo.QuizVO;
 
 @RequestMapping("/main")
 @Controller
 public class MainController {
+	
+	@Autowired
+	private MainService service;
 	
 	@RequestMapping("/reLoadMain.do")
 	public String view() throws Exception {
@@ -29,6 +38,19 @@ public class MainController {
 		session.setAttribute("groupInfo", group);
 		System.out.println("메인 컨트롤러 끝");
 		
+	}
+	
+	
+	@RequestMapping("/retrieveCard.do")
+	@ResponseBody
+	public List<CardVO> selectTop5Card() throws Exception {
+		return service.selectTop5Card();
+	}
+	
+	@RequestMapping("/retrieveQuiz.do")
+	@ResponseBody
+	public List<QuizVO> selectTop5Quiz() throws Exception {
+		return service.selectTop5Quiz();
 	}
 	
 }
