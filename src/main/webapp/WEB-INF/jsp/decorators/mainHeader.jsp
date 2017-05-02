@@ -33,3 +33,4 @@
 <link href="${pageContext.request.contextPath}/css/comm/style.css" rel="stylesheet">
 
 <script src="${pageContext.request.contextPath}/js/user/userstatus.js"></script>
+<script src="${pageContext.request.contextPath}/js/user/userStatusLogout.js"></script>

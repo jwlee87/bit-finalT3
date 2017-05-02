@@ -29,6 +29,8 @@
 	<div id="whatis" class="content-section-a">
 		<div class="container">
 			<decorator:body />
+			<jsp:include page="/WEB-INF/jsp/user/userList.jsp" flush="false"></jsp:include>
+			
 		</div>
 	</div>
 	
