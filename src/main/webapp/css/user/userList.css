@@ -23,12 +23,13 @@ body {
 	background:#fff;
 	border-radius:6px;
 	overflow:hidden;
-	height:484px;
+	height:700px;
 	position:absolute;
 	top:100px;
 	left:88%;
 	margin-left:-155px;
 	z-index: 99999;
+	overflow-y: auto;
 }
 
 #friendslist{
@@ -36,7 +37,7 @@ body {
 	top:0;
 	left:0;
 	width:290px;
-	height:484px;
+	height:700px;
 }
 #topmenu{
 	height:69px;

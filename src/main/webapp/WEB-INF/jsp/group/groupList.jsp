@@ -42,7 +42,6 @@
 			</div>	
 		</c:forEach>
 	</div>
-	<div id="userList"><jsp:include page="/WEB-INF/jsp/user/userList.jsp" flush="false"></jsp:include></div>
 	
 	<form id="frm" name="frm" action="../main/main.do" method="post">
 		<input type="hidden" id="groupHeaderNo" name="groupHeaderNo" />

@@ -54,37 +54,37 @@ function exit() {
 	}
 }
 
-document.onkeydown = function() {
-	// 새로고침 방지 ( Ctrl+R, Ctrl+N, F5 )
-	if (event.ctrlKey == true
-			&& (event.keyCode == 78 || event.keyCode == 82
-					|| event.keyCode == 114 || event.keyCode == 110
-					|| event.keyCode == 87 || event.keyCode == 119 || event.keyCode == 115)
-			|| event.keyCode == 116) {
-		event.keyCode = 0;
-		event.cancelBubble = true;
-		event.returnValue = false;
-	}
-
-	// 창 닫기( Alt+F4 ) 방지
-	if (event.keycode == 18 && event.keyCode == 115) { // F4 눌렀을 시
-		alert("alt + f4");
-		event.keyCode = 0;
-		event.cancelBubble = true;
-		event.returnValue = false;
-		$.ajax({
-			url : "/bit-finalT3/user/userStatusLogout.do"
-		}).done(function(result) {
-			if (result == "") {
-				alert("왔따");
-			}
-		})
-		// 로그아웃 처리
-
-	}
-
-	// 윈도우 창이 닫힐 경우
-	if (event.keyCode == 505) {
-		alert(document.body.onBeforeUnload);
-	}
-}
+//document.onkeydown = function() {
+//	// 새로고침 방지 ( Ctrl+R, Ctrl+N, F5 )
+//	if (event.ctrlKey == true
+//			&& (event.keyCode == 78 || event.keyCode == 82
+//					|| event.keyCode == 114 || event.keyCode == 110
+//					|| event.keyCode == 87 || event.keyCode == 119 || event.keyCode == 115)
+//			|| event.keyCode == 116) {
+//		event.keyCode = 0;
+//		event.cancelBubble = true;
+//		event.returnValue = false;
+//	}
+//
+//	// 창 닫기( Alt+F4 ) 방지
+//	if (event.keycode == 18 && event.keyCode == 115) { // F4 눌렀을 시
+//		alert("alt + f4");
+//		event.keyCode = 0;
+//		event.cancelBubble = true;
+//		event.returnValue = false;
+//		$.ajax({
+//			url : "/bit-finalT3/user/userStatusLogout.do"
+//		}).done(function(result) {
+//			if (result == "") {
+//				alert("왔따");
+//			}
+//		})
+//		// 로그아웃 처리
+//
+//	}
+//
+//	// 윈도우 창이 닫힐 경우
+//	if (event.keyCode == 505) {
+//		alert(document.body.onBeforeUnload);
+//	}
+//}
