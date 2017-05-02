@@ -30,7 +30,7 @@
 					<input type="text" class="input" name="userNickName" id="nickName" placeholder="별명을 입력하세요">
 					<span id="nickNameResult"></span>
 					<input type="password" class="input" name="userPsw" id="password" maxlength="17" placeholder="비밀번호를 입력하세요">
-					<button style="text-align: center; margin: 30px 95px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">다 음</span></button>
+					<button style="text-align: center; margin: 45px 0px 0px 115px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="btn" type="button"><span class="network-name">다 음</span></button>
 				</form><!--.login-form-->
 				
 			</div><!--.signup-tab-content-->

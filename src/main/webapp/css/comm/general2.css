@@ -1593,9 +1593,9 @@ h4,
   font-size: 20px;
 }
 p {
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1.72222;
-  margin: 15px 0 15px;
+  margin: 0px 0 15px 75px;
 }
 li{list-style-type:none}
 .white {color:white}
@@ -2153,6 +2153,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 17px;
   line-height: 1.471;
   border-radius: 6px;
+  margin-left: 107px;
 }
 .btn-sm {
   padding: 9px 13px;
@@ -2419,7 +2420,7 @@ input[type="search"] {
 label {
   font-weight: normal;
   font-size: 13px;
-  margin-right: 13px;
+  margin-right: 90px;
 }
 .form-control:-moz-placeholder {
   color: #b2bcc5;
@@ -5695,6 +5696,7 @@ body.vjs-full-window {
   padding: 24px 23px 20px;
   position: relative;
   border-radius: 6px;
+  width: 350px;
 }
 .login-form:before {
   content: '';

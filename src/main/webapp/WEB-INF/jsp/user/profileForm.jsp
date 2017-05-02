@@ -32,7 +32,7 @@
 				<input id="userNickName" spellcheck=false class="form-control"
 					name="userNickName" value="${user.userNickName}" type="text" size="18" alt="login" required="">
 				<span class="form-highlight"></span> <span class="form-bar"></span>
-				<label for="userNickName" class="float-label">nickName</label>
+				<label for="userNickName" class="float-label">별 명</label>
 				<erroru> 사용 불가능한 별명입니다 <i> <svg
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path
 						d="M0 0h24v24h-24z" fill="none" /> <path
@@ -44,7 +44,7 @@
 				<input id="userPsw" class="form-control" spellcheck=false
 					name="userPsw" type="password" size="17" alt="login" required="">
 				<span class="form-highlight"></span> <span class="form-bar"></span>
-				<label for="userPsw" class="float-label">Password</label>
+				<label for="userPsw" class="float-label">비밀번호</label>
 				<errorp> 비밀번호는 5~17자 입력해주세요 <i> <svg
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path
 						d="M0 0h24v24h-24z" fill="none" /> <path
