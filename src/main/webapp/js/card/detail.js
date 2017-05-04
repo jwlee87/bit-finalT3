@@ -125,6 +125,9 @@ function makeCommentList(result) {
 		         + date.getMinutes() + ":"
 		         + date.getSeconds();
 		
+		// 오류 : 현재 위의 날짜를 수정하게 되면 리스트 자체가 뜨질 않는다.
+		
+		
 //		html += '<li class="post">';
 //		html += '';
 		html += '<div class="post-content" id="postList' + comment.cardCommentNo + '">';
@@ -164,11 +167,10 @@ function makeCommentList(result) {
 /*댓글 수정폼*/
 	
 	function commentUpdateForm(cardCommentNo, commentUserNo) {
-//		alert("g")
-//		if(commentUserNo != $("#loginUserNo").val()){
-//			alert("수정은 자신것만 가능합니다")
-//			return false;
-//		}
+		if(commentUserNo != $("#loginUserNo").val()){
+			alert("수정은 자신것만 가능합니다")
+			return false;
+		}
 	
 		$("#commentList div[id^=postList]").show();
 		$("#commentList div[id^=modPost]").remove();
@@ -244,8 +246,8 @@ function makeCommentList(result) {
 	}
 	
 	function commentCancel(cardCommentNo) {
-		$(".posts" + cardCommentNo).show();
-		$(".modPosts" + cardCommentNo).remove();
+		$("#postList" + cardCommentNo).show();
+		$("#modPost" + cardCommentNo).remove();
 	}
 	
 /*댓글 수정폼*/
