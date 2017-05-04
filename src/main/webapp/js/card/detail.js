@@ -5,16 +5,18 @@ $(function(){
 	// 상세 페이지 로딩시 댓글 목록 조회 ajax 호출
 	
 	/*카드 글 수정*/
-$("#detailBlock").click(function () {
+$("#divDetail").click(function () {
 	
 		if($("#userNo").val() != $("#loginUserNo").val()) {
 			return false;
 		}
 		
 	// 	alert("글수정 입니다")
-		$("#detailNone").css("display", "block")
-//		$("#detailBlock").css("display", "none")
-		$("#detailNoneButton").css("display", "block")
+		
+		var html = '<textarea name="cardContent" id="detailNone">'+$("#content").val()+'</textarea>';
+		$("#printDetail").html(html);
+		
+		$("#detailNoneButton").css("display", "block");
 		
 		$("#detailNoneButton").click(function() {
 		

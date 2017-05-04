@@ -12,10 +12,17 @@
 <script src="${pageContext.request.contextPath}/js/card/detail.js"></script>
 <link href="${pageContext.request.contextPath}/css/card/detail.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/comment/commentUpdateForm.css" rel="stylesheet" type="text/css">
-
+<style>
+.divDetail {
+    padding: 13px !important;
+    min-height: 170px;
+    line-height: 24px;
+    width: 507px;
+}
+</style>
 </head>
 <body>
-
+	<input type="hidden" id="content" value="${detail.cardContent}" />
   	<div class="cDetail">
   		<div class="post">
 		
@@ -24,7 +31,11 @@
 				<input type="hidden" id="cardNo" value="${param.cardNo}" />
 				<input type="hidden" id="userNo" value="${detail.userNo}"/>
 				<input type="hidden" id="loginUserNo" value="${user.userNo}"/>
-				<textarea name="cardContent" id="detailNone" cols="65" rows="5"><c:out value="${detail.cardContent}"></c:out></textarea>
+				
+				<div id="printDetail">
+					<div class="divDetail" id="divDetail"><c:out value="${detail.cardContent}"></c:out></div>
+				</div>
+				
 				<div class="tools">
 					<img src="${pageContext.request.contextPath}/img/icon/attach.png" width="19px" height="19px">
 						<button type="button" id="detailNoneButton">수정</button>

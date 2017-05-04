@@ -32,6 +32,7 @@ div, ul, li, form {
   padding: 13px !important;
   font-size: 14px;
   min-height: 170px;
+  width: 506px;
 }
 
 /* .cDetail .post textarea:active, .mainContent .post textarea:focus {  */
