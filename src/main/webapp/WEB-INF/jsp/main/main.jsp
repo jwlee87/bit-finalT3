@@ -29,44 +29,31 @@
 		</div>
 	</div>
 	
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	
-	
+	<div class="page">
+	  <div class="page1" style="height:450px;">
+	    <div class="lt">
+	      <h1><</h1>
+	    </div>
+	    <div class="gt">
+	      <h1>/></h1>
+	    </div>
+	  	<div class="headline">
+	    	<h1>HelloWorld!</h1>
+	    	<h3>I am <span style="color: #1ABC9C "class="text-change"></span></h3>
+	  	</div>
+	  </div>
+	</div>
+  
+	<br>
 	
 	<div class="wrapper">
-	최근 게시물
-		
 		<section>
-		<article>
-			<figure><img src="https://unsplash.it/900/300?image=2" alt="" /></figure>
-			<h2>Article 1</h2>
-			
-			<tr>
-				<td>a</td>
-				<td>b</td>
-			</tr>
-			<p>
-				<td>c</td>
-				<td>d</td>
-			</p>
-			<tr>
-				<td>c</td>
-				<td>d</td>
-			</tr>
-			
-			<p>Duis autem vel eum <a href="#">iriure</a> dolor in odio dignissim qui blandit praesent luptatum zzril delenit augue
-				duis dolore te feugait nulla facilisi.</p>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing magna aliquam erat volutpat.</p>
-			<p><a class="btn" href="#">Lire la suite</a></p>
-		</article>
+			<article id="cardList"></article>
+			<article id="quizList"></article>
 		</section>
-		
 	</div>
 	
-	
-	<div class="table=responsive">
-	최근 퀴즈
-		<table class="table" id="quizList">
-		</table>
-	</div>
 </body>
 </html>

@@ -27,37 +27,67 @@ $(function(){
 		
 	}).done(printQuizList);
 	
+	
+	var str=[" Saurish Kar . "," a Web Developer ."," an Anime Freak !"];
+	var pos=0,a=0;
+	var html="";
+	  $(".headline h1").css("letterSpacing","0px");
+	  function displayText(){
+	  
+	    //console.log("entered");
+	    //$(".text-change").html(str[pos++]);  
+	    if(pos>2)pos=0;
+	    console.log(pos);
+	    
+	    console.log(str[pos].length);
+	    
+	        //console.log("entered loop")
+	        if(a<str[pos].length)
+	        {
+	          html+=str[pos].charAt(a);
+	          $(".text-change").html(html);
+	          a++;
+	        }
+	    else {
+	      a=0;
+	      pos++;
+	      html="";
+	    }
+	        //console.log("done"); 
+	   }
+	  
+	setTimeout(setInterval(displayText,150),2000);
+
+	  
+	  $(".describe").hover(function(){
+	   //mousenter
+	$(this).addClass("hover"); 
+	  },function(){
+	   //mouseleave
+	   $(this).removeClass("hover");
+	  });
+	
 });
 
 
 function printCardList (result) {
 	
-	var cardHtml = ""; 
-		cardHtml += "<colgroup>             ";
-		cardHtml += "	<col width='40%'/>  ";
-		cardHtml += "	<col width='30%'/>  ";
-		cardHtml += "	<col width='30%'/>  ";
-		cardHtml += "</colgroup>            ";
-		
-		cardHtml += "<tr>                   ";
-		cardHtml += "	<th>내용</th>        ";
-		cardHtml += "	<th>글쓴이</th>       ";
-		cardHtml += "	<th>등록일자</th>     ";
-		cardHtml += "</tr>                  ";
+	var cardHtml = "<center><h4>스터디 게시판</h4></center>"; 
+	cardHtml += "<p>";
+	cardHtml += " 내용";
+	cardHtml += " 글쓴이";
+	cardHtml += " 등록일자";
+	cardHtml += "</p>";
 	
-	if(result.length == 0) {
-		
-		return false;
-	}
-	
-	
+	if(result.length == 0) return false;
+
 	for(var i = 0; i < result.length; i++) {
 		var cardItem = result[i];
-		cardHtml += "<tr>";
-		cardHtml += "	<td>"+cardItem.cardContent+"</td>";
-		cardHtml += "	<td>"+cardItem.userNickName+"</td>";
-		cardHtml += "	<td>"+cardItem.cardRegDate+"</td>";
-		cardHtml += "</tr>";
+		cardHtml += "<p>";
+		cardHtml += " " + cardItem.cardContent;
+		cardHtml += " " + cardItem.userNickName;
+		cardHtml += " " + cardItem.cardRegDate;
+		cardHtml += "</p>";
 	}
 	
 	$("#cardList").html(cardHtml);
@@ -65,18 +95,12 @@ function printCardList (result) {
 
 function printQuizList (result) {
 	
-	var quizHtml = "";
-	quizHtml += "<colgroup>             ";
-	quizHtml += "	<col width='40%'/>  ";
-	quizHtml += "	<col width='30%'/>  ";
-	quizHtml += "	<col width='30%'/>  ";
-	quizHtml += "</colgroup>            ";
-	
-	quizHtml += "<tr>                   ";
-	quizHtml += "	<th>내용</th>        ";
-	quizHtml += "	<th>글쓴이</th>       ";
-	quizHtml += "	<th>등록일자</th>     ";
-	quizHtml += "</tr>                  ";
+	var quizHtml = "<h4>퀴즈 게시판</h4>";
+	quizHtml += "<p>";
+	quizHtml += "	내용";
+	quizHtml += "	글쓴이";
+	quizHtml += "	등록일자";
+	quizHtml += "</p>";
 	
 	if(result.length == 0) {
 		
@@ -86,11 +110,11 @@ function printQuizList (result) {
 	for(var i = 0; i < result.length; i++) {
 		var quizItem = result[i];
 		
-		quizHtml += "<tr>";
-		quizHtml += "	<td>"+quizItem.quizTitle+"</td>";
-		quizHtml += "	<td>"+quizItem.userNickName+"</td>";
-		quizHtml += "	<td>"+quizItem.quizRegDate+"</td>";
-		quizHtml += "</tr>";
+		quizHtml += "<p>";
+		quizHtml += " " + quizItem.quizTitle;
+		quizHtml += " " + quizItem.userNickName;
+		quizHtml += " " + quizItem.quizRegDate;
+		quizHtml += "</p>";
 	}
 	
 	$("#quizList").html(quizHtml);

@@ -1,48 +1,5 @@
 @CHARSET "UTF-8";
-/* ------------------------------
-AJOUT DES FONTS
-Doit être mis en premier */
-
 @import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One|Space+Mono');
-/* apply a natural box layout model to all elements, but allowing components to change */
-
-html {
-	box-sizing: border-box;	
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
-
-
-/* ------------------------------
-TEXTES */
-
-body {
-	font-family: 'Space Mono', sans-serif;
-	background-color: #eee;
-}
-
-h1,
-h2 {
-	font-family: 'Rubik Mono One', serif;
-	color: #191516;
-}
-
-h1 {
-	font-size: 4em;
-	margin-bottom: .5em;
-}
-
-h2 {
-	font-size: 2em;
-	margin-top: .9em;
-	margin-bottom: .4em;
-	margin-left: 4%;
-	margin-right: 4%;
-}
 
 section {
 	display: flex;
@@ -52,7 +9,7 @@ section {
 }
 
 article {
-	width: 30%;
+	width: 48%;
 	padding-bottom: 20px;
 	background-color: #fff;
 	margin-bottom: 40px;
@@ -72,15 +29,6 @@ p {
 	margin-right: 4%;
 }
 
-figure {
-	width: 100%;
-	margin: 0;
-}
-
-img {
-	width: 100%;
-}
-
 a {
 	text-decoration: none;
 	color: blue;
@@ -92,8 +40,8 @@ a:hover {
 }
 
 .btn {
-	color: blue;
-	border: thin solid blue;
+	color: #3399ff;
+	border: thin solid #3399ff;
 	padding: 5px 15px;
 	border-radius: 3px;
 	display: inline-block;
@@ -103,36 +51,8 @@ a:hover {
 }
 
 .btn:hover {
-	background-color: blue;
+	background-color: #3399ff;
 	color: #fff;
-}
-
-.reseaux {
-	list-style-position: inside;
-	padding: 0px;
-	font-size: 2em;
-	margin-bottom: 40px;
-}
-
-.reseaux li {
-	display: inline-block;
-	margin-right: 2%;
-}
-
-.icon {
-	transform: scale(1);
-}
-
-.icon:hover {
-	transform: scale(1.2);
-}
-
-.label {
-	display: none;
-}
-
-.credit {
-	font-size: 12px;
 }
 
 
@@ -144,109 +64,83 @@ STRUCTURE */
 	border: thin dotted red;
 }*/
 
-#wrapper {
-	max-width: 1280px;
-	width: 90%;
-	margin: 50px auto 0 auto;
+/* #wrapper { */
+/* 	max-width: 1280px; */
+/* 	width: 90%; */
+/* 	margin: 50px auto 0 auto; */
+/* } */
+
+/* header { */
+/* 	margin-bottom: 50px; */
+/* } */
+
+/* section { */
+/* 	margin-bottom: 50px; */
+/* } */
+
+/* footer { */
+/* 	text-align: center; */
+/* } */
+
+/* .btnMenu { */
+/* 	display: none; */
+/* } */
+
+/* nav li { */
+/* 	display: inline-block; */
+/* } */
+
+/* nav li:not(:last-child):after { */
+/* 	content: " / "; */
+/* } */
+
+
+
+
+
+.page1{
+  position:relative;
+  height:100vh;
+  background-color:#ffffff;
 }
 
-header {
-	margin-bottom: 50px;
+.headline{
+  position:relative;
+  margin:auto;
+  left:0;
+  right:0;
+  top:20vh;
+  
+}
+.headline h1{
+  font-size:10vh;
+  color:#17202A;
+  text-align:center;
+  letter-spacing:15px;
+  transition:letter-spacing 1s ease-out;
+}
+.headline h3{
+  text-align:center;
+  font-size:25px;
+  color:orange;
+}
+.lt h1,.gt h1{
+  position:absolute;
+  color:#1ABC9C;
+  font-size:10vw;
+}
+/* .lt h1{ */
+/*   left:5vw; */
+/*   top:5vh; */
+/* } */
+.gt h1{
+  right:0;
+/*   bottom:40vh; */
+  margin-right:50px;
+}
+.page1 a{
+  text-decoration:none;
+  color: white ;
+  font-size:15px;
 }
 
-section {
-	margin-bottom: 50px;
-}
-
-footer {
-	text-align: center;
-}
-
-.btnMenu {
-	display: none;
-}
-
-nav li {
-	display: inline-block;
-}
-
-nav li:not(:last-child):after {
-	content: " / ";
-}
-
-
-/* ------------------------------
-   ------------------------------
-   ------------------------------
-RESPONSIVE */
-
-
-/* TABLETTE */
-
-@media only screen and (max-width: 1024px) {
-	body::before {
-		position: fixed;
-		bottom: 5px;
-		right: 5px;
-		font-family: 'courier';
-		color: blue;
-		font-size: 10px;
-		content: 'tablette / max 1024px';
-		z-index: 2000;
-	}
-	article {
-		width: 48%;
-	}
-	h1 {
-		font-size: 2.5em;
-	}
-	h2 {
-		font-size: 1.3em;
-	}
-}
-
-
-/* MOBILE */
-
-@media only screen and (max-width: 480px) {
-	body::before {
-		color: red;
-		content: 'mobile / max 480px';
-	}
-	#wrapper {
-		width: 100%;
-	}
-	article {
-		width: 100%;
-		border-radius: 0;
-	}
-
-	header{
-		text-align:center;
-	}
-	h1 {
-		font-size: 1.8em;
-	}
-	.btnMenu {
-		display: inline-block;
-		cursor: pointer;
-	}
-	nav {
-		display: none;
-		text-align:left;
-	}
-	nav.open {
-		display: block;
-	}
-	nav li {
-		display: block;
-	}
-	nav li:not(:last-child):after {
-		content: "";
-	}
-	nav li a{
-		display: block;
-		padding:8px 10px;
-		border-bottom:thin solid blue;
-	}
-}
