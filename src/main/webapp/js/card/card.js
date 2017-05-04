@@ -16,17 +16,37 @@
 	});
 	
 	var lastScrollTop = 0;
-    var easeEffect = 'easeInQuint';
-
+//    var easeEffect = 'easeInQuint';
 
 	$("body").scroll(function(){
-		var sh = $(window).scrollTop() + $(window).height();
-		var dh = $(document).height();
-		console.log(sh, dh);
+//		var sh = $(window).scrollTop() + $(window).height();
+//		var dh = $(document).height();
+//		console.log(sh, dh);
 		
-		if (sh > dh - 10) {
-			pageList(11);
-		}
+//		if (sh > dh - 10) {
+//			pageList(11);
+//		}
+		
+//		if (document.body.scrollTop == 0) {
+//			var top = document.documentElement.scrollTop;
+//			console.log(top);
+//			} 
+//		else {
+//			var top = document.body.scrollTop;
+//			console.log(top);
+//			}
+		
+//		var top = document.documentElement.scrollTop || document.body.scrollTop;
+//		
+//		console.log(top);
+		
+//		var scrollTop = document.documentElement ? document.documentElement.scrollTop :
+//            document.body.scrollTop;
+//		
+		console.log(document.body.scrollTop+window.event.clientY);
+		
+
+
 	});
 	
 	/* 좋아요 누를 때 이벤트 */
@@ -34,9 +54,11 @@
 	function clickLike(no) {
 	    if ($("#"+no).hasClass("heart2") || $("#"+no).hasClass("heart")) {
 	    	swal({
-	    		title: "보관함에서 삭제하시겠습니까?",
+	    		title: "삭제하시겠습니까?",
+				text: "보관함에 보관된 카드를 삭제하시겠습니까?",
 	    		type: "warning",
 	    		showCancelButton: true,
+	    		cancelButtonText: "취소",
 	    		confirmButtonColor: "#DD6B55",
 	    		confirmButtonText: "삭제",
 	    		closeOnConfirm: false
@@ -51,12 +73,19 @@
 	    			dataType: "json"
 	    		}).done(function(result){
 	    			swal({
-	    				title: "보관함 삭제 완료",
+	    				title: "삭제 완료",
+	    				text: "보관한 카드가 삭제되었습니다.",
+	    				confirmButtonText: "확인",
 	    				type: "success"	
+	    			},
+	    			function (isConfirm) {
+	    				if(isConfirm) {
+	    					$("#"+no).removeClass('heart2');
+	    		    		$("#"+no).removeClass('heart');
+	    				}
 	    			})
 	    		})
-	    		$("#"+no).removeClass('heart2');
-	    		$("#"+no).removeClass('heart');
+	    		
 	    	});
 	    }
 	    else {
@@ -68,12 +97,20 @@
 	        	dataType: "json",
 	        	method: "post"
 	        }).done(function(result){
+	        	
+	        	$("#"+no).toggleClass('heart');
 	        	swal({
-	    			title: "보관함 등록 완료",
+	    			title: "등록 완료",
+	    			text: "보관함에 카드가 등록되었습니다.",
+    				confirmButtonText: "확인",
 	    			type: "success"	
+	    		},
+	    		function (isConfirm) {
+	    			if(isConfirm) {
+	    				location.href="list.do";
+	    			}
 	    		})
 	        });
-	    	$("#"+no).toggleClass('heart');
 	    }
 	}
 	
@@ -135,7 +172,7 @@
 			
 		}
 		$("#appendList").html(html);
-		$(".detailF").colorbox({iframe:true, width:"800px", height:"880px"});
+		$(".detailF").colorbox({iframe:true, width:"580px", height:"600px"});
 	}
 	
 	

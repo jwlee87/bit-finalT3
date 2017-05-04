@@ -13,45 +13,30 @@
 <link href="${pageContext.request.contextPath}/css/card/detail.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/comment/commentUpdateForm.css" rel="stylesheet" type="text/css">
 
-<title>Mockup 2</title>
-    <link rel="stylesheet" type="text/css" href="/mockup-2.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/598600d210/clusterflunk-icons12/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
-<!--     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-    <script type="text/javascript" src="/mockup-2.js"></script>
-
 </head>
 <body>
 
-	<div id="page-wrapper">
-  		<ul id="messages"></ul>
-  		
-		<div>
-			<c:out value="${detail.userNickName}"></c:out>
-		</div>	
+  	<div class="cDetail">
+  		<div class="post">
 		
-		<div id="detailBolck">
-			${detail.cardContent}	
+			<div id="detailBlock">
+				<div><c:out value="${detail.userNickName}"></c:out></div>	
+				<input type="hidden" id="cardNo" value="${param.cardNo}" />
+				<input type="hidden" id="userNo" value="${detail.userNo}"/>
+				<input type="hidden" id="loginUserNo" value="${user.userNo}"/>
+				<textarea name="cardContent" id="detailNone" cols="65" rows="5"><c:out value="${detail.cardContent}"></c:out></textarea>
+				<div class="tools">
+					<img src="${pageContext.request.contextPath}/img/icon/attach.png" width="19px" height="19px">
+						<button type="button" id="detailNoneButton">수정</button>
+				</div>
+			</div>
 		</div>
-	
-			<input type="hidden" id="cardNo" value="${param.cardNo}" />
-			<input type="hidden" id="userNo" value="${detail.userNo}"/>
-			<input type="hidden" id="loginUserNo" value="${user.userNo}"/>
-			
-			<textarea id="detailNone" name="cardContent" required></textarea>
-			
-			<button id="detailNoneButton">수정</button>
 	</div>
 	
-	<hr>
-	
-	<c:import url="../file/fileForm.jsp"></c:import>
 	
 	<form id="commentWrite" action="#" method="post">
 		<input type="hidden" id="cardContentNo" value="${param.cardContentNo}" />
 		<input type="hidden" id="commentUserNo" value="${user.userNo}"/>
-			<br>
 	</form>
 
 		<%-- 댓글 관련 파트 시작 --%>		
@@ -65,7 +50,6 @@
 			
 		<!-- 	</form>					
 		</div> -->
-		<hr>
 		
 		<%-- 댓글 관련 파트 끝 --%>		
 		
@@ -81,9 +65,7 @@
                     <textarea cols="100" maxlength="100" name="commentContent" id="commentContent" class="add-post-textarea" placeholder="댓글을 입력하세요"></textarea>
                 <button type="button" id="reg" class="btn btn-primary">등록</button>
                 </li>
-                 <br><br><br><br><br><br><br><br><br>
-               
-               
+                 <br><br><br><br><br>
                
                
                 <li class="post" id="commentList">

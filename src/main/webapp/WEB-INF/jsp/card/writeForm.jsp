@@ -13,19 +13,20 @@
 </head>
 <body>
 	<!-- 폼태그를 만들어서 카드가 들어가는 내용을 입력해준다. -->
-	<div id="page-wrapper">
-  		<ul id="messages"></ul>
-  		
+	<div class="cDetail">
+		<div class="post">
 		<form id="write" action="#" method="post">
 			<input type="hidden" id="userNo" name="userNo" value="${user.userNo}">
-			<textarea id="content" name="cardContent" placeholder="내용을 작성하세요" required
-			></textarea>
-			
-			<c:import url="../file/fileForm.jsp"></c:import>
-		
-			<button type="button" id="btn">등록</button>
-			<br>
+			<textarea name="cardContent" id="content" cols="80" rows="10" placeholder="내용을 작성하세요"></textarea>
+				<div class="tools">
+<!-- 				<ul> -->
+<!-- 					<li class="icon-addPhotos"><a href="#"></a></li> -->
+<!-- 				</ul> -->
+				<img src="${pageContext.request.contextPath}/img/icon/attach.png" width="19px" height="19px">
+            	<button type="button" id="btn">등록</button>
+				</div>
 		</form>
+		</div>
 	</div>
 </body>
 </html>

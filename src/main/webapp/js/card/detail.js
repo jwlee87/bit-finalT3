@@ -1,11 +1,11 @@
 $(function(){
 
-	$("#detailNone").css("display", "none")
+//	$("#detailNone").css("display", "none")
 	$("#detailNoneButton").css("display","none")
 	// 상세 페이지 로딩시 댓글 목록 조회 ajax 호출
 	
 	/*카드 글 수정*/
-$("#detailBolck").click(function () {
+$("#detailBlock").click(function () {
 	
 		if($("#userNo").val() != $("#loginUserNo").val()) {
 			return false;
@@ -13,7 +13,7 @@ $("#detailBolck").click(function () {
 		
 	// 	alert("글수정 입니다")
 		$("#detailNone").css("display", "block")
-		$("#detailBolck").css("display", "none")
+//		$("#detailBlock").css("display", "none")
 		$("#detailNoneButton").css("display", "block")
 		
 		$("#detailNoneButton").click(function() {
