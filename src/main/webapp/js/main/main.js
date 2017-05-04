@@ -28,7 +28,7 @@ $(function(){
 	}).done(printQuizList);
 	
 	
-	var str=[" Saurish Kar . "," a Web Developer ."," an Anime Freak !"];
+	var str=["AnyWhere .","AnyTime .","AnyPlace ."];
 	var pos=0,a=0;
 	var html="";
 	  $(".headline h1").css("letterSpacing","0px");

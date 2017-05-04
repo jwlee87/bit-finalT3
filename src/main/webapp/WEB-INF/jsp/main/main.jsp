@@ -42,16 +42,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	
 	<div class="page">
-	  <div class="page1" style="height:450px;">
+	  <div class="page1" style="height:320px;">
 	    <div class="lt">
 	      <h1><</h1>
 	    </div>
 	    <div class="gt">
 	      <h1>/></h1>
 	    </div>
-	  	<div class="headline">
-	    	<h1>HelloWorld!</h1>
-	    	<h3>I am <span style="color: #1ABC9C "class="text-change"></span></h3>
+	  	<div class="headline" style="top: 100px;">
+	    	<h1 style="top:">HelloWorld!</h1>
+	    	<h3>Coily와 <span style="color: #1ABC9C "class="text-change"></span></h3>
 	  	</div>
 	  </div>
 	</div>
