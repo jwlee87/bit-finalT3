@@ -81,7 +81,7 @@ function goFavorite(userNo){
 		  		 + '</div>'
 		  		 + '<div class="col-md-2 wow fadeInDown text-center">'
 		  		 + "<img class='rotate' src='../img/icon/tweet.svg' alt='Generic placeholder image' onclick='javascript:cardLink()'>"
-		  		 + '<h3>카드게시판</h3>'
+		  		 + '<h3>스터디게시판</h3>'
 		  		 + '</div><!-- /.col-lg-4 -->'
 		  		
 		  		 + '<div class="col-md-2 wow fadeInDown text-center">'

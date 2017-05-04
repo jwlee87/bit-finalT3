@@ -37,9 +37,9 @@ $(function(){
 	    //console.log("entered");
 	    //$(".text-change").html(str[pos++]);  
 	    if(pos>2)pos=0;
-	    console.log(pos);
+//	    console.log(pos);
 	    
-	    console.log(str[pos].length);
+//	    console.log(str[pos].length);
 	    
 	        //console.log("entered loop")
 	        if(a<str[pos].length)

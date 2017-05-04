@@ -13,6 +13,7 @@
 		<result property="fileGroupNo" column="file_group_no"/>
 		<result property="userImgPath" column="user_img_path"/>
 		<result property="likeChk" column="like_chk"/>
+		<result property="regDate" column="reg_date" />
 	</resultMap>
 	
 <!-- 카드 리스트 -->
@@ -24,7 +25,7 @@
 		 			when instr(c.card_content, "\n") = 1 then c.card_content
          			else left(c.card_content, instr(c.card_content, "\n")) 
          		end as card_content,
-			   c.card_reg_date,
+			   date_format(c.card_reg_date, '%Y-%m-%d %H:%i:%s') as reg_date,
 			   u.user_nick_name,
 			   ui.user_img_path,
 			   (select count(*) as result
@@ -130,13 +131,18 @@
 		<result property="cardCommentContent" column="card_comment_content" />
 		<result property="cardCommentRegDate" column="card_comment_reg_date" />
 		<result property="userNickName" column="user_nick_name" />
-		
+		<result property="regDate" column="reg_date" />
 	</resultMap>
 <!-- 			댓글 조회 			-->
 <!-- ============================================================================== -->
 	
 	<select id="selectCardCommentByNo" parameterType="int" resultMap="cardCommentMap">
-		select c.card_no, c.card_comment_no, c.card_comment_content, c.card_comment_reg_date, u.user_no, u.user_nick_name  
+		select c.card_no
+			 , c.card_comment_no
+			 , c.card_comment_content
+			 , date_format(c.card_comment_reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
+			 , u.user_no
+			 , u.user_nick_name  
 		  from tb_card_comment c, tb_user u
 		 where c.user_no = u.user_no
 		   and c.card_no= #{cardNo}

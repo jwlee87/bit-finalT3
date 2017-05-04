@@ -31,12 +31,13 @@
     <label for="tab2-2">url  등록</label>
     <input id="tab2-2" name="tabs-two" type="radio" value="u">
     <div>
-	    <input type="radio" id="jungol" name="urlType" value="j" />
 		<label for="jungol">JUNGOL</label>
-		<input type="radio" id="algospot" name="urlType" value="a" />
+	    <input type="radio" id="jungol" name="urlType" value="j" />
 		<label for="algospot">ALGOSPOT</label>
-		<input type="radio" id="euler" name="urlType" value="e" />
+		<input type="radio" id="algospot" name="urlType" value="a" />
 		<label for="euler">Project Euler</label><br>
+		<input type="radio" id="euler" name="urlType" value="e" />
+		<br>
 	    <input type="text" class="feedback-input" name="title2" id="title2" placeholder="제목" lang="80" maxlength="100" />
 	    <input type="text" class="feedback-input" name="url" id="url" placeholder="url" lang="80" maxlength="100" />
 	    <input type="text" class="feedback-input" name="answer2" id="answer2" placeholder="정답" maxlength="50"/> 

@@ -141,7 +141,7 @@ function makeCommentList(result) {
 		html += '   		<li><a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ', ' + comment.userNo + ')">수정</a></li>';
 		html += '   		<li><a href="javascript:commentDelete(' + comment.cardCommentNo + ', ' + comment.userNo + ')">삭제</a></li>';
 //		html += '   		<li>'+time+'</li>';
-		html += '<span class="post-timedelta">'+time+'</span>';
+		html += '<span class="post-timedelta">'+comment.regDate+'</span>';
 		html += '   		<div class="clearfix"></div>';
 		html += '    	</ol>';
 		html += '	</div>';

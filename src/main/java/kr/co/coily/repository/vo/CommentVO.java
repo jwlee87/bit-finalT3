@@ -15,7 +15,7 @@ public class CommentVO {
 	private String cardCommentContent;
 	/**카드 등록일*/
 	private Date cardCommentRegDate;
-	
+	private String regDate;
 	
 	public int getCardCommentNo() {
 		return cardCommentNo;
@@ -52,5 +52,11 @@ public class CommentVO {
 	}
 	public void setUserNickName(String userNickName) {
 		this.userNickName = userNickName;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 }
