@@ -6,6 +6,16 @@
 <head>
 	<script src="${pageContext.request.contextPath}/js/main/main.js"></script>
 	<link href="${pageContext.request.contextPath}/css/main/main.css" rel="stylesheet" type="text/css">
+	<style>
+	.line{
+		display: inline-block;
+		 width: 268px;
+		 white-space: nowrap; 
+		 overflow: hidden;
+/* 		 margin-left: 1%; */
+/* 		 margin-right: 1%; */
+	}
+	</style>
 </head>
 <body id="home">
 	<!-- Modal -->
@@ -45,15 +55,12 @@
 	  	</div>
 	  </div>
 	</div>
-  
+  	
 	<br>
 	
 	<div class="wrapper">
-		<section>
-			<article id="cardList"></article>
-			<article id="quizList"></article>
-		</section>
+		<div id="cardList" class="section article" style="float: left; margin-left:1%; margin-right:1%;"></div>
+		<div id="quizList" class="section article"></div>
 	</div>
-	
 </body>
 </html>

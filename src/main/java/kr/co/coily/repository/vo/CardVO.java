@@ -8,6 +8,7 @@ public class CardVO {
 	private String userNickName;
 	private String cardContent;
 	private Date cardRegDate;
+	private String regDate;
 	private int fileGroupNo;
 	private String userImgPath;
 	private int likeChk;
@@ -60,6 +61,12 @@ public class CardVO {
 	}
 	public void setFileGroupNo(int fileGroupNo) {
 		this.fileGroupNo = fileGroupNo;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 
 }

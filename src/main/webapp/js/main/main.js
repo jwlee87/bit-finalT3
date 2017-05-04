@@ -72,23 +72,32 @@ $(function(){
 
 function printCardList (result) {
 	
-	var cardHtml = "<center><h4>스터디 게시판</h4></center>"; 
-	cardHtml += "<p>";
-	cardHtml += " 내용";
-	cardHtml += " 글쓴이";
-	cardHtml += " 등록일자";
-	cardHtml += "</p>";
+	var cardHtml = "<h4>스터디 게시판</h4>"; 
+	cardHtml += "<table class='table table-hover table-bordered'>";
+	cardHtml += "<colgroup>";
+	cardHtml += "<col style='width:*' />";
+	cardHtml += "<col style='width:30%' />";
+	cardHtml += "<col style='width:25%' />";
+	cardHtml += "</colgroup>";
+	cardHtml += "<tr>";
+	cardHtml += "<td>" + "내용" + "</td>";
+	cardHtml += "<td>" + "글쓴이" + "</td>";
+	cardHtml += "<td>" + "등록일자" + "</td>";
+	cardHtml += "</tr>";
 	
 	if(result.length == 0) return false;
 
 	for(var i = 0; i < result.length; i++) {
 		var cardItem = result[i];
-		cardHtml += "<p>";
-		cardHtml += " " + cardItem.cardContent;
-		cardHtml += " " + cardItem.userNickName;
-		cardHtml += " " + cardItem.cardRegDate;
-		cardHtml += "</p>";
+		cardHtml += "<tr>";
+		cardHtml += "<td class='line'>" + cardItem.cardContent + "</td>";
+		cardHtml += "<td>" + cardItem.userNickName + "</td>";
+		cardHtml += "<td>" + cardItem.regDate + "</td>";
+		cardHtml += "</tr>";
 	}
+	
+	cardHtml += "</table>";
+	cardHtml += '<a class="btn" href="/bit-finalT3/card/list.do" style="margin-left: 60%;">스터디 게시판 바로가기</a>';
 	
 	$("#cardList").html(cardHtml);
 }
@@ -96,11 +105,17 @@ function printCardList (result) {
 function printQuizList (result) {
 	
 	var quizHtml = "<h4>퀴즈 게시판</h4>";
-	quizHtml += "<p>";
-	quizHtml += "	내용";
-	quizHtml += "	글쓴이";
-	quizHtml += "	등록일자";
-	quizHtml += "</p>";
+	quizHtml += "<table class='table table-hover table-bordered'>";
+	quizHtml += "<colgroup>";
+	quizHtml += "<col style='width:45%' />";
+	quizHtml += "<col style='width:30%' />";
+	quizHtml += "<col style='width:25%' />";
+	quizHtml += "</colgroup>";
+	quizHtml += "<tr>";
+	quizHtml += "<td>" + "내용" + "</td>";
+	quizHtml += "<td>" + "글쓴이" + "</td>";
+	quizHtml += "<td>" + "등록일자" + "</td>";
+	quizHtml += "</tr>";
 	
 	if(result.length == 0) {
 		
@@ -110,12 +125,15 @@ function printQuizList (result) {
 	for(var i = 0; i < result.length; i++) {
 		var quizItem = result[i];
 		
-		quizHtml += "<p>";
-		quizHtml += " " + quizItem.quizTitle;
-		quizHtml += " " + quizItem.userNickName;
-		quizHtml += " " + quizItem.quizRegDate;
-		quizHtml += "</p>";
+		quizHtml += "<tr>";
+		quizHtml += "<td class='line'>" + quizItem.quizTitle + "</td>";
+		quizHtml += "<td>" + quizItem.userNickName + "</td>";
+		quizHtml += "<td>" + quizItem.regDate + "</td>";
+		quizHtml += "</tr>";
 	}
+	
+	quizHtml += "</table>";
+	quizHtml += '<a class="btn" href="/bit-finalT3/quiz/list.do" style="margin-left: 60%;">퀴즈 게시판 바로가기</a>';
 	
 	$("#quizList").html(quizHtml);
 		

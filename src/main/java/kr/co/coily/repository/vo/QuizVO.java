@@ -12,9 +12,9 @@ public class QuizVO {
 	private String quizUrlType;
 	private String quizAnswer;
 	private Date quizRegDate;
+	private String regDate;
 	private String userNickName;
-	
-	
+
 	public int getQuizNo() {
 		return quizNo;
 	}
@@ -68,6 +68,12 @@ public class QuizVO {
 	}
 	public void setUserNickName(String userNickName) {
 		this.userNickName = userNickName;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 	
 	

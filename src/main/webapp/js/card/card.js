@@ -172,7 +172,7 @@
 			
 		}
 		$("#appendList").html(html);
-		$(".detailF").colorbox({iframe:true, width:"580px", height:"600px"});
+		$(".detailF").colorbox({iframe:true, width:"580px", height:"880px"});
 	}
 	
 	

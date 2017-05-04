@@ -11,6 +11,7 @@
 		<result property="userNo" column="user_no"/>
 		<result property="cardContent" column="card_content"/>
 		<result property="cardRegDate" column="card_reg_date"/>
+		<result property="regDate" column="reg_date"/>
 		<result property="fileGroupNo" column="file_group_no"/>
 		<result property="userImgPath" column="user_img_path"/>
 		<result property="likeChk" column="like_chk"/>
@@ -19,7 +20,7 @@
 	<select id="selectCard" resultMap="cardMap">
 		select a.card_content
 				,(select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name
-		        , date_format(a.card_reg_date, '%Y-%m-%d') as card_reg_date
+		        , date_format(a.card_reg_date, '%Y-%m-%d') as reg_date
 		from tb_card a
 		order by a.card_no desc
 		limit 5
@@ -35,6 +36,7 @@
 		<result column="quiz_write_type" property="quizWriteType"/>
 		<result column="quiz_url_type" property="quizUrlType"/>
 		<result column="quiz_reg_date" property="quizRegDate"/>
+		<result property="regDate" column="reg_date"/>
 		<result column="quiz_answer" property="quizAnswer"/>
 		<result column="user_nick_name" property="userNickName"/>
 	</resultMap>
@@ -42,7 +44,7 @@
 	<select id="selectQuiz" resultMap="quizMap">
 		select a.quiz_title
 			   , (select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name 
-		       , date_format(a.quiz_reg_date, '%Y-%m-%d') as quiz_reg_date
+		       , date_format(a.quiz_reg_date, '%Y-%m-%d') as reg_date
 		from tb_quiz a
 		order by a.quiz_no desc
 		limit 5

@@ -13,7 +13,7 @@
 	
 	/* 카드 상세 팝업창 */
 	$(function(){
-		$(".detailF").colorbox({iframe:true, width:"800px", height:"880px"});
+		$(".detailF").colorbox({iframe:true, width:"580px;", height:"880px"});
 		
 // 		$("input[type=radio]").removeAttr("checked");
 	});
