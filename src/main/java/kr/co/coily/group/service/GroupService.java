@@ -32,7 +32,7 @@ public interface GroupService {
 	public void deleteGroup(int grpNo);
 	
 	/* 그룹 수정 */
-	public void updateGroup(GroupHeaderVO header);
+	public void updateGroup(GroupHeaderVO header, String[] userNickName);
 
 }
 

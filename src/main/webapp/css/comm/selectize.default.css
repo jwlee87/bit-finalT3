@@ -247,7 +247,8 @@
   -moz-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
   max-height: 140px;	/*추가한부분  */
-  overflow-y: auto;
+  overflow: hidden;
+/*   overflow-y: auto; */
   
 }
 .selectize-dropdown [data-selectable] {
@@ -285,7 +286,7 @@
 .selectize-dropdown-content {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 200px;
+  max-height: 140px;
   -webkit-overflow-scrolling: touch;
 }
 .selectize-control.single .selectize-input,

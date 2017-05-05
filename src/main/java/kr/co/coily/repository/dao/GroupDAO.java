@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import kr.co.coily.repository.vo.GroupDetailVO;
 import kr.co.coily.repository.vo.GroupHeaderVO;
 import kr.co.coily.repository.vo.SearchVO;
+import kr.co.coily.repository.vo.UpdateAddUserVO;
 import kr.co.coily.repository.vo.UserVO;
 
 @Repository
@@ -75,6 +76,20 @@ public class GroupDAO {
 
 	public List<UserVO> retriveUserList() {
 		return sqlSessionTemplate.selectList("kr.co.coily.repository.dao.GroupDAO.retriveUserList");
+	}
+
+	public int getUserNo(String userNick) {
+		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.GroupDAO.getUserNo", userNick);
+	}
+
+	public void updateAddUser(UpdateAddUserVO addUser) {
+		sqlSessionTemplate.insert("kr.co.coily.repository.dao.GroupDAO.updateAddUser", addUser);
+		
+	}
+
+	public void resetGroup(UpdateAddUserVO addUser) {
+		sqlSessionTemplate.delete("kr.co.coily.repository.dao.GroupDAO.resetGroup", addUser);
+		
 	}
 }
 

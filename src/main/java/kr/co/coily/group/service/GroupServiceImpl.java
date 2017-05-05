@@ -14,6 +14,7 @@ import kr.co.coily.repository.vo.GroupDetailVO;
 import kr.co.coily.repository.vo.GroupHeaderVO;
 import kr.co.coily.repository.vo.PageResultVO;
 import kr.co.coily.repository.vo.SearchVO;
+import kr.co.coily.repository.vo.UpdateAddUserVO;
 import kr.co.coily.repository.vo.UserVO;
 
 //===============테스트==============
@@ -59,13 +60,40 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	/* 그룹 수정 */
-	public void updateGroup(GroupHeaderVO header) {
+	public void updateGroup(GroupHeaderVO header, String[] userNickName) {
+		System.out.println("갑ㄱ값 : " + userNickName);
+		System.out.println("서비스 임플 그룹헤더넘버 : " + header.getGroupHeaderNo());
+		
+		System.out.println("값값값");
+		UpdateAddUserVO addUser = new UpdateAddUserVO();
+		addUser.setGroupHeaderNo(header.getGroupHeaderNo());
+		dao.resetGroup(addUser);
+		for (int i = 1; i < userNickName.length; i++) {
+			int userNo =  dao.getUserNo(userNickName[i]);
+			System.out.println("서비스임플 userNo 값 : " + userNo);
+			addUser.setUserNo(userNo);
+			addUser.setGroupHeaderNo(header.getGroupHeaderNo());
+			addUser.setUserOrder(i);
+			dao.updateAddUser(addUser);
+			
+		}
+		
 		dao.updateGroup(header);
+		
+		
 	}
 
 	public List<UserVO> retriveUserList() {
 		return dao.retriveUserList();
 	}
+
+//	public void resetUser(GroupHeaderVO header) {
+//		
+//		UpdateAddUserVO resetUser = new UpdateAddUserVO();
+//		header.setGroupHeaderNo(header.getGroupHeaderNo());
+//		System.out.println("뜨나뜨나 : " + header.getGroupHeaderNo());
+//		dao.resetGroup(resetUser);
+//	}
 
 
 	

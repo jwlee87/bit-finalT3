@@ -29,11 +29,20 @@ public class GroupContorller {
 	// 수정 ajax 호출
 	@RequestMapping("/groupUpdate.do")
 	@ResponseBody
-	public String updateGroup(String groupHeaderName, int groupHeaderNo) throws Exception {
+	public String updateGroup(String groupHeaderName, int groupHeaderNo, String[] userNickName) throws Exception {
 		GroupHeaderVO header = new GroupHeaderVO();
+		
+		
+		
+		System.out.println("구성원 : " + userNickName);
+		
+		for (String s : userNickName) {
+			System.out.println("파닥파닥 : " + s);
+		}
+//		service.resetUser(header);
 		header.setGroupHeaderName(groupHeaderName);
 		header.setGroupHeaderNo(groupHeaderNo);
-		service.updateGroup(header);
+		service.updateGroup(header, userNickName);
 		return "";
 	};
 	
@@ -52,7 +61,7 @@ public class GroupContorller {
 		return "group/groupDetail";
 	};
 	
-	// 상세 조회 url 호출 (페이지 이동)
+	// 상세 조회 url 호출 (페이지 이동) 
 	@RequestMapping("/selectizeTest.do")
 	public String locationDetail2() throws Exception {
 		return "group/selectizeTest";

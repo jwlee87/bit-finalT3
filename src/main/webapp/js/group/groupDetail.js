@@ -61,7 +61,7 @@ $(function(){
 		}
 		
 		$("#input-tags").val(defaultTag.substring(0, defaultTag.length-1));
-
+		
 		$('#input-tags').selectize({
 			plugins: ['remove_button'],
 			persist: false,
@@ -69,7 +69,9 @@ $(function(){
 			options: allUser,
 			render: {
 				item: function(allUser, escape) {
-					return '<div>' + escape(allUser.text) + '</div>';
+					return '<div id="userNick" >' + escape(allUser.text) + '</div>';
+//					console.log("머머머머머머fffff : " + $("#userNick").getAttribute("data-value"));
+//					return console.dir("이게 무슨 소리임매 : " + $("#userNick").text());
 				}
 			},
 			onDelete: function(values) {
@@ -86,21 +88,44 @@ $(function(){
 		
 		$(".selectize-input>div:eq(0)>a").remove();
 		$(".selectize-input>div:eq(0)").removeAttr("data-value");
-			
+		
+		console.log("으하하하하하ㅏ핳 : " + $(".selectize-input>div:eq(0)").text());
 	});
 	
 	
 	//  버튼 클릭 시 수정 ajax 실행
 	$("#uButton").click(function (){
+		var userData = [];
+//		var arrUser = new Array();
 		
+		
+		var len = $(".selectize-input #userNick").length
+//	    alert($(".selectize-input > div:eq(0)").text())
+		userData[0] = $(".selectize-input > div:eq(0)").text();
+	    for(var i = 1; i < len; i++) {
+	    	if($(".selectize-input > div:eq(" + i + ")").attr("data-value") != undefined) {
+//	            alert($(".selectize-input > div:eq(" + i + ")").attr("data-value"));
+	            userData[i] = $(".selectize-input > div:eq(" + i + ")").attr("data-value");
+	            
+	        }
+	        console.log(userData);
+	    }
+		
+		console.log("바뀜 : " + userData);
+		console.dir("바뀜2 : " + userData);
+		
+		
+		$.ajaxSettings.traditional = true;
+//		console.log("확인 : " + arrUser.push(userData));
 		$.ajax ({
 			url: "groupUpdate.do",
 			type: "POST",
 			dataType: "json",
 			data: {
 				"groupHeaderName": $("#groupname").val(),
-				"groupHeaderNo": $("#GroupHeaderNo").val()
-				}
+				"groupHeaderNo": $("#GroupHeaderNo").val(),
+				userNickName: userData
+		}
 		}).done(function(result){
 			
 			swal({

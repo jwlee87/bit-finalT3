@@ -52,7 +52,7 @@
 	
 	<!-- 그룹 상세 조회 -->
 	<select id="selectOneDetail" parameterType="int" resultMap="groupDetailMap">
-			select *
+			select DISTINCT *
 		  from (
 		  	select a.group_detail_no, a.user_order, b.* 
 		      from tb_group_detail a 
@@ -131,12 +131,30 @@
 		select * 
 		  from tb_user
 		 where user_conf = 'Y'
-           
-	
 	
 	</select>
-
-
+	
+	<select id="getUserNo" parameterType="String" resultType="int">
+		select user_no
+		  from tb_user
+		 where user_nick_name = #{userNickName}
+	</select>
+	
+	
+	<insert id="updateAddUser" parameterType="UpdateAddUserVO">
+		insert into tb_group_detail (group_header_no, user_no, user_order)
+			values(#{groupHeaderNo}, #{userNo}, #{userOrder})	
+	</insert>
+	
+	
+	<delete id="resetGroup" parameterType="UpdateAddUserVO">
+		delete 
+          from tb_group_detail
+		 where group_header_no = #{groupHeaderNo}
+           and user_order > 0
+	
+	
+	</delete>
 </mapper>
 
 
