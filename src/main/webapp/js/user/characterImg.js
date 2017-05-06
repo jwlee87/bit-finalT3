@@ -62,8 +62,12 @@ function choiceImg(userNo, imgNo) {
 			
 			swal({
 				title : "수정완료",
-				text : "프로필사진이 수정되었습니다."
+				text : "프로필사진이 수정되었습니다.",
+				type : "success"
+			}, function() {
+				window.open('/bit-finalT3/user/profileForm.do?userNo='+userNo, '_parent').parent.close();
 			})
+			
 			
 //			swal("프로필사진이 수정 되었습니다.", "2초후 창이 닫힙니다!", "success");
 //			clo = setTimeout(closeWin(userNo), 3900); // 3000ms(3초)가 경과하면

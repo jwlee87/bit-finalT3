@@ -31,6 +31,7 @@ $(document).ready(function(){
 				title: "그룹 등록 완료",
 				type: "success"	
 			})
+			location.reload("/bit-finalT3/group/groupList.do");
 		});
 	});
 	

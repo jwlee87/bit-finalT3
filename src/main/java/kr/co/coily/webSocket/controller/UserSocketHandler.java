@@ -115,10 +115,10 @@ public class UserSocketHandler extends TextWebSocketHandler {
 			for (WebSocketSession ses : connectedUsers) {
 				String result = "";
 				for (UserVO responseUser : userList) {
-					System.out.println("남은 접속자들 : " + str);
 					result += responseUser.getUserNickName() + ","
 							   + responseUser.getUserEmail() + ","
 							   + responseUser.getUserImgPath() + ";";
+					System.out.println("남은 접속자들 : " + result);
 //					ses.sendMessage(new TextMessage(userInfo.getUserNickName() + "님이 나갔습니다."));
 //					ses.sendMessage(new TextMessage(""+userList));
 					ses.sendMessage(new TextMessage(result));

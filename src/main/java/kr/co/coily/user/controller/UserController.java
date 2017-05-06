@@ -422,7 +422,7 @@ public class UserController {
 				+ "<tbody><tr><td style='vertical-align: top; padding: 40px;'>"
 				+ "<br><span style='font-size: 20px; font-weight: bold;'>"+ user.getUserNickName() +" 님,</span><br><span style='font-size: 16px; font-weight: bold; margin-bottom:30px;'> 아래 버튼을 누르시면 비밀번호를 변경할 수 있습니다.</span><br><br><br><br>"
 				+ "<div style='text-align: center;'>"
-				+ "<a href='http://localhost:9090/bit-finalT3/user/updatePasswordPage.do?userEmail="+userEmail+"'><button style='height:45px; width:172px; font-weight: 500; font-size: 25px; line-: 27px; word-spacing: -0.5px; display: inline-block; color: white; text-decoration: none; border-radius:5px; background:#4A90BE; border:solid 1px #4A90BE;'>비밀번호 변경</button></a>"
+				+ "<a href='http://14.32.66.123:9120/bit-finalT3/user/updatePasswordPage.do?userEmail="+userEmail+"'><button style='height:45px; width:172px; font-weight: 500; font-size: 25px; line-: 27px; word-spacing: -0.5px; display: inline-block; color: white; text-decoration: none; border-radius:5px; background:#4A90BE; border:solid 1px #4A90BE;'>비밀번호 변경</button></a>"
 				+ " </div>"
 				+ "<h6 style='font-weight: 300; font-size: 0.75rem; line-height: 20px; word-spacing: -0.5px; color: #808080; text-align: center; margin: 0 0 20px;'>"
 				+ " </h6>"

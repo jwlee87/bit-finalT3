@@ -58,8 +58,18 @@
 		//로그인 정보를 저장 o
 		
 		if(checkbox.checked) {
-			isRemember = confirm("이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.");
-			if(!isRemember)
+			swal({
+				title : "",
+				type: "warning",
+				text : "이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.",
+				confirmButtonText : "확인",
+			}, function (isConfirm) {
+				if(isConfirm) {
+					$("#loginPopup").colorbox({iframe:true, width:"470px", height:"570px"});
+				}
+			})
+//			isRemember = confirm("이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.");
+			if(!isConfirm)
 				checkbox.checked = false;
 		}
 	}
