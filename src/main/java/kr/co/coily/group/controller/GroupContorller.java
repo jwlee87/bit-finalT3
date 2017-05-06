@@ -71,10 +71,6 @@ public class GroupContorller {
 	@ResponseBody
 	@RequestMapping("/groupDetailList.do")
 	public Map<String, Object> retrieveDetail(int groupHeaderNo) throws Exception {
-		//테스트중=================
-		//테스트중=================
-		//테스트중=================
-		//테스트중=================
 		GroupHeaderVO header = service.retriveGroupHeader(groupHeaderNo);
 		System.out.println(header.getGroupHeaderNo());
 		System.out.println(header.getGroupHeaderName());
@@ -86,8 +82,6 @@ public class GroupContorller {
 		mRslt.put("allUserList", userList);
 		return mRslt;
 		
-		//원래거==============
-		//원래거==============
 		//원래거==============
 		//원래거==============
 		/*	GroupHeaderVO header = service.retriveGroupHeader(groupHeaderNo);
@@ -104,10 +98,6 @@ public class GroupContorller {
 	// 리스트 조회
 	@RequestMapping("/groupList.do")
 	public String retrieveGroupList(SearchVO search, Model model, HttpSession session) throws Exception {
-		//테스트중================
-		//테스트중================
-		//테스트중================
-//		System.out.println("컨트롤러1");
 			UserVO userInfo = (UserVO)session.getAttribute("user");
 			System.out.println("그룹리스트 userNo : " + userInfo.getUserNo());
 			search.setUserNo(userInfo.getUserNo());
@@ -116,9 +106,6 @@ public class GroupContorller {
 			model.addAttribute("pageResult", map.get("pageResult"));		
 			return "group/groupList";
 		
-		//원래거===========
-		//원래거===========
-		//원래거===========
 		//원래거===========
 		/*//	System.out.println("컨트롤러1");
 		Map<String, Object> map = service.retrieveGroupList(search);
@@ -133,10 +120,6 @@ public class GroupContorller {
 	@RequestMapping("/groupHeaderWrite.do")
 	public Map<String, String> insertGroup(HttpSession session) throws Exception {
 		
-		//테스트중~~!!==========
-		//테스트중~~!!==========
-		//테스트중~~!!==========
-		//테스트중~~!!==========
 		UserVO user = (UserVO)session.getAttribute("user");
 		System.out.println("얍얍얍 : " + user.getUserNo());
 		GroupHeaderVO headerVO = service.insertGroup(session);
@@ -146,10 +129,6 @@ public class GroupContorller {
 		mRslt.put("groupHeaderName", headerVO.getGroupHeaderName());
 		return mRslt;		
 		
-		
-		//원래거===========
-		//원래거===========
-		//원래거===========
 		//원래거===========
 		/*GroupHeaderVO headerVO = service.insertGroup();
 		Map<String, String> mRslt = new HashMap<>(); 
