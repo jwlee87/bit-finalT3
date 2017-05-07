@@ -44,7 +44,7 @@
 		select *
 		from tb_quiz
 		order by quiz_no desc
-		limit 0, 10
+		limit 0, 15
 	</select>
 
 	<!-- 스크롤 다운 -->
@@ -54,7 +54,7 @@
 		from tb_quiz
 		where quiz_no <= #{quiz_no}
 		order by quiz_no desc
-		limit 0, 10
+		limit 0, 15
 		]]>
 	</select>
 	
