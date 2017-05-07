@@ -30,8 +30,7 @@
 		<div class="container">
 			<decorator:body />
 		</div>
-		
-		<jsp:include page="/WEB-INF/jsp/user/userList.jsp" flush="false"></jsp:include>
+		<jsp:include page="/WEB-INF/jsp/editor/videoChatForm.jsp" flush="false"></jsp:include>
 	</div>
 	
 	

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class EditController {
 	
-//	@RequestMapping("/form.do")
-//	public String viewList() throws Exception {
-//		
-//		return "editor/editorForm";
-//		
-//	}
+	@RequestMapping("/videoChat.do")
+	public String viewVideoChat() throws Exception {
+		return "editor/videoChatForm";
+	}
+	
 }
+

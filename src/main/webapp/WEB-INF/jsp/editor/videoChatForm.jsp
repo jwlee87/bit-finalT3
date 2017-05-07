@@ -6,8 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
-<script src="https://cdn.webrtc-experiment.com:443/rmc3.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/editor/socket.io.js"></script>
+<script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+<script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
 <title>코일리 - 화상채팅</title>
 <style>
 	video{
@@ -25,21 +26,42 @@ Open Or Join Room
 </button>
 
 <hr>
+<div id="local-videos-container"></div>
+
+<hr>
+<div id="remote-videos-container"></div>
 
 <script>
 	var connection = new RTCMultiConnection();
 	
-// 	connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-	connection.socketURL = 'http://localhost:9090/';
+	connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
 
 	connection.session = {
 		audio: true,
 		video: true
 	}
 	
-	connection.sdpConstraints.mandatory= {
+	connection.sdpConstraints.mandatory = {
 		OfferToReceiveAudio:true,
 		OfferToReceiveVideo:true
+	}
+	
+	var localVideoContainer = $("#local-videos-container");
+	var remoteVideoContainer = $("#remote-videos-container");
+	
+	
+	connection.onstream = function(event) {
+		var video = event.mediaElement;
+		
+		if(event.type === 'local') {
+			localVideoContainer.append( video );
+// 			 document.body.appendChild( event.mediaElement );
+		}
+		
+		if(event.type === 'remote') {
+			remoteVideoContainer.append( video );
+// 			 document.body.appendChild( event.mediaElement );
+		}
 	}
 	
 	

@@ -21,14 +21,20 @@
     <decorator name="dFooter" page="footer.jsp"/>    
     <decorator name="jsHeader" page="mainHeader.jsp"/>    
     
-    <decorator name="defaultLayout" page="layout.jsp">  
-        <pattern>/*/file*</pattern>    
+    <decorator name="defaultLayout" page="layout.jsp">
         <pattern>/card/*</pattern>
         <pattern>/quiz/*</pattern>
         <pattern>/main/*</pattern>             
-        <pattern>/user/profileForm*</pattern>
-        <pattern>/editor/*</pattern>
         <pattern>/favorite/*</pattern>
+    </decorator>
+    
+    <decorator name="defaultLayout2" page="layout2.jsp">
+        <pattern>/editor/*</pattern>
+    </decorator>
+    
+    <decorator name="defaultLayout3" page="layout3.jsp">
+        <pattern>/*/file*</pattern>    
+        <pattern>/user/profileForm*</pattern>
     </decorator>
     
 </decorators>
