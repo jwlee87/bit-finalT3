@@ -54,7 +54,7 @@
 	
 	
 	function confirmSave(checkbox) {
-		var isRemember;
+//		var isRemember;
 		//로그인 정보를 저장 o
 		
 		if(checkbox.checked) {

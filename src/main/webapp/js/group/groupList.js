@@ -29,9 +29,11 @@ $(document).ready(function(){
 			
 			swal({
 				title: "그룹 등록 완료",
-				type: "success"	
+				type: "success"
+			}, function () {
+				location.href = "groupList.do"
+//			location.reload("/bit-finalT3/group/groupList.do");
 			})
-			location.reload("/bit-finalT3/group/groupList.do");
 		});
 	});
 	
