@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.co.coily.favorite.service.FavoriteServiceImpl;
 import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.FavoriteVO;
+import kr.co.coily.repository.vo.GroupHeaderVO;
 import kr.co.coily.repository.vo.SearchVO;
 import kr.co.coily.repository.vo.UserVO;
 
@@ -33,10 +34,13 @@ public class FavoriteContorller  {
 	@ResponseBody
 	@RequestMapping("/favoriteInsert.do")
 	public String insertFavorite(HttpServletRequest request, HttpSession session) throws Exception {
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
 		UserVO user = (UserVO)session.getAttribute("user");
 		FavoriteVO favorite = new FavoriteVO();
 		favorite.setCardNo(Integer.parseInt(request.getParameter("cardNo")));
 		favorite.setUserNo(user.getUserNo());
+		favorite.setGroupHeaderNo(group.getGroupHeaderNo());
+		
 		
 		service.insertFavorite(favorite);
 		return "";
@@ -53,8 +57,10 @@ public class FavoriteContorller  {
 	// 리스트 조회
 	@RequestMapping("/favoriteList.do")
 	public String retrieveFavorite(SearchVO search, Model model, HttpSession session) throws Exception {
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
 		UserVO user = (UserVO)session.getAttribute("user");
 		search.setUserNo(user.getUserNo());
+		search.setGroupHeaderNo(group.getGroupHeaderNo());
 		Map<String, Object> map = service.retreiveFavorite(search);
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("pageResult", map.get("pageResult"));

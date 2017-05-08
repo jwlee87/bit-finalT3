@@ -10,6 +10,7 @@ public class FavoriteVO {
 	private String cardContent;
 	private String userImgPath;
 	private String userNickName;
+	private int groupHeaderNo;
 	
 	public String getUserNickName() {
 		return userNickName;
@@ -53,6 +54,14 @@ public class FavoriteVO {
 	public void setFavoriteRegDate(Date favoriteRegDate) {
 		this.favoriteRegDate = favoriteRegDate;
 	}
+	public int getGroupHeaderNo() {
+		return groupHeaderNo;
+	}
+	public void setGroupHeaderNo(int groupHeaderNo) {
+		this.groupHeaderNo = groupHeaderNo;
+	}
+	
+	
 	
 	
 }

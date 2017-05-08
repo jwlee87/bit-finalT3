@@ -12,16 +12,19 @@
 		<result property="userNickName" column="user_nick_name"/>
 		<result property="cardContent" column="card_content"/>
 		<result property="userImgPath" column="user_img_path"/>
+		<result property="groupHeaderNo" column="group_header_no"/>
 	</resultMap>
 
 	<!-- 보관함 등록 -->
 	<insert id="insertFavorite" parameterType="favoriteVO" >
 		insert into tb_favorite(
 			user_no,
-			card_no
+			card_no,
+			group_header_no
 		   )values(
 		   	#{userNo},
-		   	#{cardNo}
+		   	#{cardNo},
+		   	#{groupHeaderNo}
 		   )
 	</insert>
 	
@@ -47,6 +50,8 @@
 		 where c.card_no = f.card_no
 		   and c.user_no = u.user_no
 		   and u.user_img_no = ui.user_img_no
+		   and u.user_no = #{userNo} 
+		   and c.group_header_no = #{groupHeaderNo}
 	  order by f.favorite_no desc
 	     limit #{begin} , 12
 	</select>
