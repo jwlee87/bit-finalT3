@@ -43,14 +43,16 @@ public class MainController {
 	
 	@RequestMapping("/retrieveCard.do")
 	@ResponseBody
-	public List<CardVO> selectTop5Card() throws Exception {
-		return service.selectTop5Card();
+	public List<CardVO> selectTop5Card(HttpSession session) throws Exception {
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
+		return service.selectTop5Card(group.getGroupHeaderNo());
 	}
 	
 	@RequestMapping("/retrieveQuiz.do")
 	@ResponseBody
-	public List<QuizVO> selectTop5Quiz() throws Exception {
-		return service.selectTop5Quiz();
+	public List<QuizVO> selectTop5Quiz(HttpSession session) throws Exception {
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
+		return service.selectTop5Quiz(group.getGroupHeaderNo());
 	}
 	
 }

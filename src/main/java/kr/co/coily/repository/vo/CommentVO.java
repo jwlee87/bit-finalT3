@@ -16,6 +16,7 @@ public class CommentVO {
 	/**카드 등록일*/
 	private Date cardCommentRegDate;
 	private String regDate;
+//	private int groupHeaderNo;
 	
 	public int getCardCommentNo() {
 		return cardCommentNo;
@@ -59,4 +60,11 @@ public class CommentVO {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+//	public int getGroupHeaderNo() {
+//		return groupHeaderNo;
+//	}
+//	public void setGroupHeaderNo(int groupHeaderNo) {
+//		this.groupHeaderNo = groupHeaderNo;
+//	}
+	
 }

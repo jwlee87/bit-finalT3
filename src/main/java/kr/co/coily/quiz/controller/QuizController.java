@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.coily.quiz.service.QuizService;
 import kr.co.coily.repository.vo.CommentSearchVO;
+import kr.co.coily.repository.vo.GroupHeaderVO;
 import kr.co.coily.repository.vo.QuizCommentVO;
 import kr.co.coily.repository.vo.QuizVO;
 import kr.co.coily.repository.vo.SearchVO;
@@ -50,6 +51,8 @@ public class QuizController {
 	public String write(HttpServletRequest request, HttpSession session) throws Exception {
 		
 		QuizVO quiz = new QuizVO();
+		//그룹헤더넘버  받아오기(세션으로)
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
 		//로그인한 유저(세션이나 쿠키로 나중에 받을거임)
 		UserVO user = (UserVO)session.getAttribute("user");
 		quiz.setUserNo(user.getUserNo());
@@ -57,6 +60,7 @@ public class QuizController {
 		quiz.setQuizWriteType(request.getParameter("writeType"));
 		quiz.setQuizUrlType(request.getParameter("urlType"));
 		quiz.setQuizAnswer(request.getParameter("answer"));
+		quiz.setGroupHeaderNo(group.getGroupHeaderNo());
 		
 		
 		String allLine = "";
@@ -106,7 +110,9 @@ public class QuizController {
 
 	//퀴즈 조회
 	@RequestMapping("/list.do")
-	public void list(SearchVO search, Model model) throws Exception {
+	public void list(SearchVO search, Model model, HttpSession session) throws Exception {
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
+		search.setGroupHeaderNo(group.getGroupHeaderNo());
 		Map<String, Object> result = service.list(search);
 		model.addAttribute("qList", result.get("qList"));
 		model.addAttribute("pageResult", result.get("pageResult"));

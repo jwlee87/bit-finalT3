@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.co.coily.card.service.CardService;
 import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.CommentVO;
+import kr.co.coily.repository.vo.GroupHeaderVO;
 import kr.co.coily.repository.vo.SearchVO;
 import kr.co.coily.repository.vo.UserVO;
 
@@ -41,7 +42,9 @@ public class CardContorller {
 		public Map<String, Object> list(SearchVO search, HttpSession session) throws Exception{
 			System.out.println("cardList 들어와야돼 ㅠㅠㅠㅠㅠㅠ제발  ㅠㅠㅠㅠㅠ");
 			UserVO user = (UserVO)session.getAttribute("user");
+			GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
 			search.setUserNo(user.getUserNo());
+			search.setGroupHeaderNo(group.getGroupHeaderNo());
 			Map<String, Object> result = Service.list(search);
 			return result;
 		}
@@ -55,13 +58,16 @@ public class CardContorller {
 	
 	@ResponseBody
 	@RequestMapping("/write.do")
-	public String write(HttpServletRequest request) throws Exception{
+	public String write(HttpServletRequest request, HttpSession session) throws Exception{
 		System.out.println("등록은 어디까지 가나?");
 		System.out.println("내용 : "  + request.getParameter("cardContent") );
 		
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
+		System.out.println("그룹넘버 뜸?? : " + group.getGroupHeaderNo());
 		CardVO cardVO = new CardVO();
 		cardVO.setCardContent(request.getParameter("cardContent"));
 		cardVO.setUserNo(Integer.parseInt(request.getParameter("userNo")));
+		cardVO.setGroupHeaderNo(group.getGroupHeaderNo());
 		
 		Service.write(cardVO);
 //		Service.file(cardVO);
@@ -152,8 +158,11 @@ public class CardContorller {
 		System.out.println("카드 댓글 내용 : " + comment.getCardCommentContent());
 		
 		UserVO user = (UserVO)session.getAttribute("user");
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
 		comment.setUserNo(user.getUserNo());
+//		comment.setGroupHeaderNo(group.getGroupHeaderNo());
 //		comment.setUserNo(Integer.parseInt(request.getParameter("userNo")));
+		System.out.println("#####그룹넘버 : " + group.getGroupHeaderNo());
 		System.out.println("댓글 등록번호 :" + comment);
 		System.out.println(user.getUserNo());
 

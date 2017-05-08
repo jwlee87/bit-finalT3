@@ -6,6 +6,7 @@ public class SearchVO extends PageVO{
 	private int cardNo;
 	private int quizNo;
 	private int userNo;
+	private int groupHeaderNo;
 	
 	
 	public int getUserNo() {
@@ -32,5 +33,12 @@ public class SearchVO extends PageVO{
 	public void setCardNo(int cardNo) {
 		this.cardNo = cardNo;
 	}
+	public int getGroupHeaderNo() {
+		return groupHeaderNo;
+	}
+	public void setGroupHeaderNo(int groupHeaderNo) {
+		this.groupHeaderNo = groupHeaderNo;
+	}
+	
 
 }

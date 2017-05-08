@@ -18,13 +18,13 @@ public class MainServiceImpl implements MainService {
 	
 
 	@Override
-	public List<CardVO> selectTop5Card() throws Exception {
-		return dao.selectCard();
+	public List<CardVO> selectTop5Card(int headerNo) throws Exception {
+		return dao.selectCard(headerNo);
 	}
 
 	@Override
-	public List<QuizVO> selectTop5Quiz() throws Exception {
-		return dao.selectQuiz();
+	public List<QuizVO> selectTop5Quiz(int groupHeaderNo) throws Exception {
+		return dao.selectQuiz(groupHeaderNo);
 	}
 	
 	

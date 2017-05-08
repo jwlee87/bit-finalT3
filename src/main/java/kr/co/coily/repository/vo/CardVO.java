@@ -12,6 +12,7 @@ public class CardVO {
 	private int fileGroupNo;
 	private String userImgPath;
 	private int likeChk;
+	private int groupHeaderNo;
 	
 	public int getLikeChk() {
 		return likeChk;
@@ -68,5 +69,13 @@ public class CardVO {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+	public int getGroupHeaderNo() {
+		return groupHeaderNo;
+	}
+	public void setGroupHeaderNo(int groupHeaderNo) {
+		this.groupHeaderNo = groupHeaderNo;
+	}
+	
+	
 
 }

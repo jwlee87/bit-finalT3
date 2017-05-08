@@ -14,6 +14,7 @@ public class QuizVO {
 	private Date quizRegDate;
 	private String regDate;
 	private String userNickName;
+	private int groupHeaderNo;
 
 	public int getQuizNo() {
 		return quizNo;
@@ -75,6 +76,14 @@ public class QuizVO {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+	public int getGroupHeaderNo() {
+		return groupHeaderNo;
+	}
+	public void setGroupHeaderNo(int groupHeaderNo) {
+		this.groupHeaderNo = groupHeaderNo;
+	}
+	
+	
 	
 	
 

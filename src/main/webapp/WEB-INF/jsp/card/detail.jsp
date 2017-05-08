@@ -76,26 +76,9 @@
                     <textarea cols="100" maxlength="100" name="commentContent" id="commentContent" class="add-post-textarea" placeholder="댓글을 입력하세요"></textarea>
                 <button type="button" id="reg" class="btn btn-primary">등록</button>
                 </li>
-                 <br><br><br><br><br>
                
                
-                <li class="post" id="commentList">
-
-                	<div class="post-content" id="postList">
-                    <a class="post-author-username"
-                       href="">갓일정</a>
-                    <span class="post-timedelta">2초전</span>
-                   
-	                    <div class="post-body">댓글 답니다 ㅎㅎ</div>
-	                    
-	                    	<ol class="post-actions">
-	                       		<li><a href="javascript:commentUpdateForm(${param.cardContentNo}, ${user.userNo})">수정</a></li>
-	<!--                        		<li><a href="javascript:commentUpdateForm()">수정</a></li> -->
-	                       		<li><a href="javascript:commentDelete(${param.cardContentNo}, ${user.userNo})">삭제</a></li>
-	<!--                        		<li>2017-03-27-10:10</li> -->
-	                       		<div class="clearfix"></div>
-	                    	</ol>
-	                	</div>
+                <li class="post" id="commentList" style="margin-top: 80px;">
 				</li>
 			</ol>
 		</section>

@@ -15,7 +15,8 @@
 			quiz_content,
 			quiz_write_type,
 			quiz_url_type,
-			quiz_answer
+			quiz_answer,
+			group_header_no
 		)
 		values(
 			#{userNo},
@@ -23,7 +24,8 @@
 			#{quizContent},
 			#{quizWriteType},
 			#{quizUrlType},
-			#{quizAnswer}
+			#{quizAnswer},
+			#{groupHeaderNo}
 		)
 	</insert>
 	
@@ -38,11 +40,13 @@
 		<result column="quiz_url_type" property="quizUrlType"/>
 		<result column="quiz_reg_date" property="quizRegDate"/>
 		<result column="quiz_answer" property="quizAnswer"/>
+		<result column="group_header_no" property="groupHeaderNo"/>
 	</resultMap>
 	
 	<select id="selectQuiz" resultMap="quizMap">
 		select *
 		from tb_quiz
+	    where group_header_no = #{groupHeaderNo} 
 		order by quiz_no desc
 		limit 0, 15
 	</select>

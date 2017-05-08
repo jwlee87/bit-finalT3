@@ -15,15 +15,17 @@
 		<result property="fileGroupNo" column="file_group_no"/>
 		<result property="userImgPath" column="user_img_path"/>
 		<result property="likeChk" column="like_chk"/>
+		<result property="groupHeaderNo" column="group_header_no"/>
 	</resultMap>
 	
-	<select id="selectCard" resultMap="cardMap">
-		select a.card_content
-				,(select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name
-		        , date_format(a.card_reg_date, '%Y-%m-%d') as reg_date
-		from tb_card a
-		order by a.card_no desc
-		limit 5
+	<select id="selectCard" parameterType="GroupHeaderVO" resultMap="cardMap">
+	 	select a.card_content
+			   ,(select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name
+		       , date_format(a.card_reg_date, '%Y-%m-%d') as reg_date
+		  from tb_card a
+	     where a.group_header_no = #{groupHeaderNo}
+	  order by a.card_no desc
+	     limit 5
 	</select>
 	
 
@@ -39,6 +41,7 @@
 		<result property="regDate" column="reg_date"/>
 		<result column="quiz_answer" property="quizAnswer"/>
 		<result column="user_nick_name" property="userNickName"/>
+		<result property="groupHeaderNo" column="group_header_no"/>
 	</resultMap>
 
 	<select id="selectQuiz" resultMap="quizMap">
@@ -46,6 +49,7 @@
 			   , (select user_nick_name from tb_user where user_no = a.user_no) as user_nick_name 
 		       , date_format(a.quiz_reg_date, '%Y-%m-%d') as reg_date
 		from tb_quiz a
+		where a.group_header_no = #{groupHeaderNo}
 		order by a.quiz_no desc
 		limit 5
 	</select>

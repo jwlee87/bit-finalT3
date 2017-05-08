@@ -64,7 +64,7 @@ body {
   font-size: 1.2rem;
   font-family: "Helvetica Neue", sans-serif; }
 
-/*좋아요 생성 삭제*/
+/*醫뗭븘�슂 �깮�꽦 �궘�젣*/
 a {
   color: #3e90ca;
   text-decoration: none; }
@@ -121,7 +121,7 @@ a {
       outline: none; }
 
 .post {
-  border: 1px solid #DFE2E2;
+/*   border: 1px solid #DFE2E2; */
   border-radius: 3px;
   border-bottom-width: 2px;
   border-top-width: 0;

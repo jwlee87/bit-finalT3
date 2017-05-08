@@ -7,7 +7,7 @@ import kr.co.coily.repository.vo.QuizVO;
 
 public interface MainService {
 	
-	public List<CardVO> selectTop5Card() throws Exception;
-	public List<QuizVO> selectTop5Quiz() throws Exception;
+	public List<CardVO> selectTop5Card(int headerNo) throws Exception;
+	public List<QuizVO> selectTop5Quiz(int groupHeaderNo) throws Exception;
 
 }
