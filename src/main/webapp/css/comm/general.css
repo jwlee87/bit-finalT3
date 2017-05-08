@@ -291,7 +291,9 @@ color: #ECEBEB;
 }
 
 .content-section-a {
-	background-color: #f8f8f8;
+	
+/* 	background: linear-gradient(to bottom, #ffffff, #f6ffeb ); */
+	background-color: #f3f3f3;
 	padding: 90px 0; 
 }
 

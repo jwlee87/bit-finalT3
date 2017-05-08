@@ -4,33 +4,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp" flush="false"></jsp:include>
+<title>코일리 - 화상채팅</title>
 <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
 <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
-<script src="${pageContext.request.contextPath}/jquery-3.1.1.js"></script>
-<title>코일리 - 화상채팅</title>
 <style>
-	video{
-		width:40%;
+	video {
+		width:25%;
 		border-radius: 15px;
+		float:left;
+	}
+	#local-videos-container {
+		position: absolute;
+    	top: 154px;
+    	left: 85%;
+    	margin-left: -155px;
+    	width: 100%;
+	}
+	#remote-videos-container {
+		position: absolute;
+    	top: 374px;
+    	left: 85%;
+    	margin-left: -155px;
+    	width: 100%;
 	}
 </style>
 </head>
 <body>
 
-
-<input id="txt-roomId" placeholder="Unique Room Id">
-<button id="btn-open-or-join-room">
-Open Or Join Room
-</button>
-
+<!-- <input id="txt-roomId" placeholder="Unique Room Id"> -->
+<!-- <button id="btn-open-or-join-room"> -->
+<!-- Open Or Join Room -->
+<!-- </button> -->
 <hr>
 <div id="local-videos-container"></div>
-
-<hr>
 <div id="remote-videos-container"></div>
-
+<input type="hidden" value="${groupHeaderNo}" id="roomId" />
 <script>
 	var connection = new RTCMultiConnection();
 	
@@ -65,14 +73,15 @@ Open Or Join Room
 	}
 	
 	
-	var roomId = $("#txt-roomId").val(connection.token());
+// 	var roomId = $("#txt-roomId").val(connection.token());
 	
 	
-	$("#btn-open-or-join-room").click(function () {
+// 	$("#btn-open-or-join-room").click(function () {
 		this.disabled = true;
-		connection.openOrJoin(roomId.val() || 'predefined-roomid');
+// 		connection.openOrJoin(roomId.val() || 'predefined-roomid');
+		connection.openOrJoin($("roomId").val() || 'predefined-roomid');
 		
-	})
+// 	})
 	
 	
 </script>
