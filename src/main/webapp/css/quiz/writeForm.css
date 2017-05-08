@@ -119,6 +119,13 @@ textarea {
   resize:vertical;
 }
 
+#inputs{
+	margin-top: 20%;
+}
+
+#title2{
+	margin-top: 5%;
+}
 
 [type="button"] {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;

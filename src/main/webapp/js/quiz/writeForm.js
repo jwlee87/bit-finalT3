@@ -1,5 +1,26 @@
 $(function(){
 	$("#btn1").click(function(){
+		if($("#title1").val() == "") {
+			swal({
+				title: "제목을 입력하세요.",
+				type: "warning"
+			})
+			return false;
+		}
+		if($("#content").val() == "") {
+			swal({
+				title: "내용을 입력하세요.",
+				type: "warning"
+			})
+			return false;
+		}
+		if($("#answer1").val() == "") {
+			swal({
+				title: "정답을 입력하세요.",
+				type: "warning"
+			})
+			return false;
+		}
 		$.ajax({
 			url : "write.do",
 			data : {"title": $("#title1").val(),
@@ -27,8 +48,32 @@ $(function(){
 	})
 	
 		$("#btn2").click(function(){
+			if($("#title2").val() == "") {
+				swal({
+					title: "제목을 입력하세요.",
+					type: "warning"
+				})
+				return false;
+			}
+			if($("#url").val() == "") {
+				swal({
+					title: "url을 입력하세요.",
+					type: "warning"
+				})
+				return false;
+			}
+			if($("#answer2").val() == "") {
+				swal({
+					title: "정답을 입력하세요.",
+					type: "warning"
+				})
+				return false;
+			}
 			if(!$("[name=urlType]:checked").val()) {
-				alert("체크 좀 해라")
+				swal({
+					title: "url을 선택하세요.",
+					type: "warning"
+				})
 				return false;
 			}
 		$.ajax({

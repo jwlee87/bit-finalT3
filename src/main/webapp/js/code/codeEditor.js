@@ -1,12 +1,16 @@
-	$('[data-toggle="tooltip"]').tooltip(); 
+//$(function() {
+//	$('[data-toggle="tooltip"]').tooltip(); 
+//})
+	
    	var editor = ace.edit("editor");
 	editor.setTheme("ace/theme/monokai");
 	editor.setShowPrintMargin(false);
 	editor.session.setMode("ace/mode/java");
+	editor.$blockScrolling = Infinity;
 	editor.setValue("import java.*;\n\nclass Main {\n\n    public static void main(String[] args) {\n        // Your code goes here\n   }\n}\n");
 	editor.clearSelection();
 
-    var webSocket = new WebSocket('ws://14.32.66.123:9100/bit-finalT3/websocket/echo.do');
+    var webSocket = new WebSocket('ws://192.168.0.48:9100/bit-finalT3/websocket/echo.do');
     webSocket.onerror = function(event) {
       onError(event)
     };

@@ -195,23 +195,22 @@ public class QuizController {
 		
 		try {
             Runtime rt = Runtime.getRuntime();
-            String[] arr = {"C:/java90/bin/jdk8/bin/javac", savePath+"/Main.java"};
+            String[] arr = {"C:/java90/bin/jdk8/bin/javac", "-encoding", "utf-8", savePath+"/Main.java"};
             Process proc = rt.exec(arr); //시스템 명령어
             proc.waitFor();
             
-            String[] arr2 = {"C:/java90/bin/jdk8/bin/java", "-cp", savePath, "Main"};
+            String[] arr2 = {"C:/java90/bin/jdk8/bin/java", "-Dfile.encoding=UTF8", "-cp", savePath, "Main"};
             Process proc2 = rt.exec(arr2); //시스템 명령어
             
             InputStream is2 = proc2.getInputStream();
             InputStreamReader isr2 = new InputStreamReader(is2);
-            BufferedReader br2 = new BufferedReader(isr2);
-            String line2 = "";
-	            while((line2 = br2.readLine())!= null) {
-	            	result += line2;
-	            	System.out.println(line2);
-	                System.out.flush();
-	            }
-	            
+//            BufferedReader br2 = new BufferedReader(isr2);
+//            String line2 = "";
+            while(true) {
+            	int ch = isr2.read();
+            	if(ch == -1) break;
+            	result += (char)ch;
+            }
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
@@ -230,12 +229,6 @@ public class QuizController {
 			msg = "n";
 		}
 		return msg;
-		
-		
-		
-		
-		
-		
 	}
 	
 	//댓글 등록

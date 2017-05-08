@@ -20,7 +20,7 @@
   <div class="tab-2">
     <label for="tab2-1">직접  등록</label>
     <input id="tab2-1" name="tabs-two" type="radio" value="d">
-    <div>
+    <div id="inputs">
 	    <input type="text" class="feedback-input" name="title1" id="title1" placeholder="제목" maxlength="50"/> 
 	    <textarea class="feedback-input" cols="50" rows="12" name="content" id="content" placeholder="내용"></textarea>
 	    <input type="text" class="feedback-input" name="answer1" id="answer1" placeholder="정답" maxlength="50"/> 
@@ -35,9 +35,8 @@
 	    <input type="radio" id="jungol" name="urlType" value="j" />
 		<label for="algospot">ALGOSPOT</label>
 		<input type="radio" id="algospot" name="urlType" value="a" />
-		<label for="euler">Project Euler</label><br>
+		<label for="euler">Project Euler</label>
 		<input type="radio" id="euler" name="urlType" value="e" />
-		<br>
 	    <input type="text" class="feedback-input" name="title2" id="title2" placeholder="제목" lang="80" maxlength="100" />
 	    <input type="text" class="feedback-input" name="url" id="url" placeholder="url" lang="80" maxlength="100" />
 	    <input type="text" class="feedback-input" name="answer2" id="answer2" placeholder="정답" maxlength="50"/> 
