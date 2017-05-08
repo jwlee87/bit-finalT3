@@ -16,33 +16,11 @@
 /* 		 margin-right: 1%; */
 	}
 	</style>
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
 <body id="home">
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">s
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				</div>
-				<div class="modal-body">...</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	
 	<div class="page">
-	  <div class="page1" style="height:320px;">
+	  <div class="page1" style="height:320px;border-radius: 30px">
 	    <div class="lt">
 	      <h1><</h1>
 	    </div>
@@ -59,8 +37,8 @@
 	<br>
 	
 	<div class="wrapper">
-		<div id="cardList" class="section article" style="float: left; margin-left:1%; margin-right:1%;"></div>
-		<div id="quizList" class="section article"></div>
+		<div id="cardList" class="section article" style="float: left;min-height:337px;margin-right: 2%;"></div>
+		<div id="quizList" class="section article" style="min-height:337px;"></div>
 	</div>
 </body>
 </html>

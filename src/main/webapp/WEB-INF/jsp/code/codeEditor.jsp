@@ -15,8 +15,8 @@
 </head>
 <body>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 codeSide">
+  <div class="row" style="width: 960px; margin:0px auto;">
+    <div class="col-md-12 col-sm-10 codeSide">
       <div class="row">
         <div class="col-md-12 col-sm-12">
           <div class="compile-code"> 

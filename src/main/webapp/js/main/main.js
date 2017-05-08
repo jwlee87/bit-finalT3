@@ -85,7 +85,13 @@ function printCardList (result) {
 	cardHtml += "<td>" + "등록일자" + "</td>";
 	cardHtml += "</tr>";
 	
-	if(result.length == 0) return false;
+	if(result.length == 0) {
+		var cardHtml = "<h4>스터디 게시판</h4>";
+		cardHtml += "<h6>최근 등록된 게시물이 없습니다.</h6>";
+		cardHtml += '<a class="btn" href="/bit-finalT3/card/list.do" style="position: absolute;  top: 82%;  left: 38%;">스터디 게시판 바로가기</a>';
+		$("#cardList").html(cardHtml);
+		return false;
+	}
 
 	for(var i = 0; i < result.length; i++) {
 		var cardItem = result[i];
@@ -97,7 +103,7 @@ function printCardList (result) {
 	}
 	
 	cardHtml += "</table>";
-	cardHtml += '<a class="btn" href="/bit-finalT3/card/list.do" style="margin-left: 60%;">스터디 게시판 바로가기</a>';
+	cardHtml += '<a class="btn" href="/bit-finalT3/card/list.do" style="position: absolute;  top: 82%;  left: 38%;">스터디 게시판 바로가기</a>';
 	
 	$("#cardList").html(cardHtml);
 }
@@ -119,6 +125,10 @@ function printQuizList (result) {
 	
 	if(result.length == 0) {
 		
+		var quizHtml = "<h4>퀴즈 게시판</h4>";
+		quizHtml += "<h6>최근 등록된 게시물이 없습니다.</h6>";
+		quizHtml += '<a class="btn" href="/bit-finalT3/quiz/list.do" style="position: absolute;  top: 82%;  left: 68%;">퀴즈 게시판 바로가기</a>';
+		$("#quizList").html(quizHtml);
 		return false;
 	}
 	
@@ -133,7 +143,7 @@ function printQuizList (result) {
 	}
 	
 	quizHtml += "</table>";
-	quizHtml += '<a class="btn" href="/bit-finalT3/quiz/list.do" style="margin-left: 60%;">퀴즈 게시판 바로가기</a>';
+	quizHtml += '<a class="btn" href="/bit-finalT3/quiz/list.do" style="position: absolute;  top: 82%;  left: 68%;">퀴즈 게시판 바로가기</a>';
 	
 	$("#quizList").html(quizHtml);
 		

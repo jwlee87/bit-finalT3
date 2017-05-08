@@ -2,14 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One|Space+Mono');
 
 .section {
-	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	align-items: flex-start;
 }
 
 .article {
-	width: 48%;
+	width: 48.5%;
 	padding-bottom: 20px;
 	background-color: #fff;
 	margin-bottom: 40px;
