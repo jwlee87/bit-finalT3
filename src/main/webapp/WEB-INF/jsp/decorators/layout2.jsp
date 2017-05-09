@@ -27,6 +27,7 @@
 	<!-- content -->
 	
 	<div id="whatis" class="content-section-a">
+		<jsp:include page="/WEB-INF/jsp/code/tree.jsp" flush="false"></jsp:include>
 		<div class="container">
 			<decorator:body />
 		</div>
