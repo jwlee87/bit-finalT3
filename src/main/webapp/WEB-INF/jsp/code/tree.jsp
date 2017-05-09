@@ -206,7 +206,7 @@ $(function(){
 				}
 				$(".indent").append(html)
 				$("#messages").html("")
-// 				webSocket.send(result)
+				webSocket.send(html);
 			})
     })
     

@@ -27,8 +27,15 @@
     	if(event.data.indexOf("class") == -1){
     		$("#result").val(event.data)
     	} else {
-	    	editor.setValue(event.data)
+    		$(".indent").append(event.data)
     	}
+    	
+    	
+//    	if(event.data.indexOf("class") == -1){
+//    		$("#result").val(event.data)
+//    	} else {
+//    		editor.setValue(event.data)
+//    	}
     	
     }
 
@@ -61,5 +68,9 @@
     		$("#result").val(result)
     		webSocket.send(result)
 		})
+		
+		
+		
+		
 		
     })
