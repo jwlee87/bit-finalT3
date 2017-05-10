@@ -114,9 +114,6 @@ function makeCommentList(result) {
 		
 		var comment = result[i];
 		
-//		html += '<ol class="posts' + comment.cardCommentNo + '">';
-//		html += '	<li>' + comment.userNickName + '</li>';
-//		html += '	<li>' + comment.cardCommentContent + '</li>';
 		var date = new Date(comment.cardCommentRegDate);
 		var time = date.getFullYear() + "-" 
 		         + (date.getMonth() + 1) + "-" 
@@ -127,9 +124,7 @@ function makeCommentList(result) {
 		
 		// 오류 : 현재 위의 날짜를 수정하게 되면 리스트 자체가 뜨질 않는다.
 		
-		
-//		html += '<li class="post">';
-//		html += '';
+		html += '<img style="width:55px; float:left; margin-right:5px; "  src="'+comment.userImgPath+'" />';
 		html += '<div class="post-content" id="postList' + comment.cardCommentNo + '">';
 		html += '<a class="post-author-username"';
 		html += '   href="">' + comment.userNickName + '</a>';
@@ -138,7 +133,7 @@ function makeCommentList(result) {
 		html += '    <div class="post-body"><pre>' + comment.cardCommentContent + '</pre></div>';
 		html += '';
 		html += '	<ol class="post-actions">';
-		html += '   		<li><a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ', ' + comment.userNo + ')">수정</a></li>';
+		html += '   		<li style="margin-left:11px;"><a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ', ' + comment.userNo + ')">수정</a></li>';
 		html += '   		<li><a href="javascript:commentDelete(' + comment.cardCommentNo + ', ' + comment.userNo + ')">삭제</a></li>';
 //		html += '   		<li>'+time+'</li>';
 		html += '<span class="post-timedelta">'+comment.regDate+'</span>';

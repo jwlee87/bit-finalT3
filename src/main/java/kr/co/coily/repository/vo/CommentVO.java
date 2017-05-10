@@ -15,9 +15,18 @@ public class CommentVO {
 	private String cardCommentContent;
 	/**카드 등록일*/
 	private Date cardCommentRegDate;
+	
 	private String regDate;
+	
+	private String userImgPath;
 //	private int groupHeaderNo;
 	
+	public String getUserImgPath() {
+		return userImgPath;
+	}
+	public void setUserImgPath(String userImgPath) {
+		this.userImgPath = userImgPath;
+	}
 	public int getCardCommentNo() {
 		return cardCommentNo;
 	}

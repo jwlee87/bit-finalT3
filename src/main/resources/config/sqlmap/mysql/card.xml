@@ -137,6 +137,7 @@
 		<result property="userNickName" column="user_nick_name" />
 		<result property="regDate" column="reg_date" />
 		<result property="groupHeaderNo" column="group_header_no"/>
+		<result property="userImgPath" column="user_img_path"/>
 	</resultMap>
 <!-- 			댓글 조회 			-->
 <!-- ============================================================================== -->
@@ -149,9 +150,12 @@
 			 , date_format(c.card_comment_reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
 			 , u.user_no
 			 , u.user_nick_name  
-		  from tb_card_comment c, tb_user u
+			 , ui.user_img_path
+			 , ui.user_img_no
+		  from tb_card_comment c, tb_user u , tb_user_img ui
 		 where c.user_no = u.user_no
 <!-- 		   and c.group_header_no = #{groupHeaderNo} -->
+		   and u.user_img_no = ui.user_img_no
 		   and c.card_no= #{cardNo}
 		   
 <!-- 	    select card_comment_no,
