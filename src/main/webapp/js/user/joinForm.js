@@ -97,7 +97,18 @@ $("#password").on("keyup", function(){
 	}
 })
 	
-	 
+var doubleSubmitFlag = false;
+function doubleSubmitCheck(){
+    if(doubleSubmitFlag){
+    	swal("메일 전송중 입니다.")
+        return doubleSubmitFlag;
+    }else{
+        doubleSubmitFlag = true;
+        return false;
+    }
+}
+
+
 $("#btn").on("click", function () {
 	var jf = document.joinForm;
 	var psw = $("#password").val();
@@ -160,6 +171,7 @@ $("#btn").on("click", function () {
 //	}
 
 	var user = $("#joinForm").serialize();
+	 if(doubleSubmitCheck()) return;
 
 	$.ajax({
 		url : "/bit-finalT3/user/join.do",

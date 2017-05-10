@@ -36,7 +36,7 @@
 <div class="wrap">
     <div class="mat-div">
     <label for="인증번호" class="mat-label">인증번호</label>
-    <input type="text" class="mat-input" maxlength="4" align="center" style="font-size: 50px" id="passNo" name="passNo">
+    <input type="text" class="mat-input" maxlength="4" placeholder="숫자만 입력하세요"  align="center" style="font-size: 50px" id="passNo" name="passNo">
   </div>
     <button style="text-align: center; margin: 50px 90px;" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" type="button" id="startBtn">coliy 시작하기</button>
 </div>

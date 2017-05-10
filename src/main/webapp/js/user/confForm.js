@@ -33,6 +33,12 @@ $(document).ready(function() {
 	var clo;
 	
 	$("#startBtn").click(function() {
+		
+		if ($("#passNo").val() == "") {
+			swal("인증번호를 입력하세요!");
+				return false;
+		}
+		
 		$.ajax({
 			url : "/bit-finalT3/user/conf.do",
 			dataType : "json",
