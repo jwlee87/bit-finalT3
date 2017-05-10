@@ -68,7 +68,16 @@ $(document).ready(function() {
 //	           opener.document.location.reload();
 //	           window.close();
 		window.open('/bit-finalT3/index.html','_parent').parent.close();
-
-		
 	}
+	
+	
+	$("#passNo").numeric();
+	$("#passNo").css("ime-mode", "disabled"); //해당 text박스에 style로 한글 입력 불가 처리
+	
+//	Query(document).ready(function(){
+//        jQuery("#passNo").numeric();   //이렇게 하면 영문은 입력안되고 숫자만 입력된다(단, 한글도 입력된다는거)
+//        jQuery("#passNo").css("ime-mode", "disabled");  //요렇게 하면 한글도 잡아준다
+//  }
+	
+	
 })

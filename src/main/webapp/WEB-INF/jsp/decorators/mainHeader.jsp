@@ -34,3 +34,4 @@
 
 <script src="${pageContext.request.contextPath}/js/user/userstatus.js"></script>
 <script src="${pageContext.request.contextPath}/js/user/userStatusLogout.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/comm/jquery.alphanum.js" ></script>
