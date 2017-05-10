@@ -22,26 +22,37 @@
 </script>
 </head>
 <body>
+	<c:choose>
+		<c:when test="${empty list}">
+<%-- 			<img src="${pageContext.request.contextPath}/img/images/none.jpg" /> --%>
+			<h4 style="text-align: center;">보관함에 카드를 등록하세요!</h4>
+		</c:when>	
+		
+		<c:otherwise>
 		<button type="button" onclick="share(${card.cardNo});" id="email" class="btn-sm mybutton_cyano">전송</button>
-	<div id="cardPage">
-		<c:forEach var="card" items="${list}">
-		<figure class="cardList">
-			<div class="custom-radio">
-				<input type="radio" name="sendCard" id="radio${card.cardNo}" value="${card.cardNo}"/>
-				<label for="radio${card.cardNo}"><span></span> </label>
-			</div>
-			<div class="like heart2" id="${card.cardNo}" onclick="clickLike(${card.cardNo});">
-	  		</div>
-	  		<div class="profile-image">
-	    		<img src="${card.userImgPath}" />
-	  		</div>
-	  		<figcaption>
-	    		<h5><c:out value="${card.userNickName}"/></h5>
-	    		<h3><a class="detailF" href="../card/detail.do?cardNo=${card.cardNo}"><c:out value="${card.cardContent}"/></a></h3>
-	  		</figcaption>
-		</figure>
-		</c:forEach>
-	</div>
+		<div id="cardPage">
+			<c:forEach var="card" items="${list}">
+			<figure class="cardList">
+				<div class="custom-radio">
+					<input type="radio" name="sendCard" id="radio${card.cardNo}" value="${card.cardNo}"/>
+					<label for="radio${card.cardNo}"><span></span> </label>
+				</div>
+				<div class="like heart2" id="${card.cardNo}" onclick="clickLike(${card.cardNo});">
+		  		</div>
+		  		<div class="profile-image">
+		    		<img src="${card.userImgPath}" />
+		  		</div>
+		  		<figcaption>
+		    		<h5><c:out value="${card.userNickName}"/></h5>
+		    		<h3><a class="detailF" href="../card/detail.do?cardNo=${card.cardNo}"><c:out value="${card.cardContent}"/></a></h3>
+		  		</figcaption>
+			</figure>
+			</c:forEach>
+		</div>
+		</c:otherwise>
+		
+	</c:choose>		
+			
 
 </body>
 </html>
