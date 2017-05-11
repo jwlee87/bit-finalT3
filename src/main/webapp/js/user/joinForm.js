@@ -113,33 +113,33 @@ $("#btn").on("click", function () {
 	var jf = document.joinForm;
 	var psw = $("#password").val();
 	
-/*	if((jf.email.value || jf.reEmail.value) == "") {
-		swal("메일을 입력하세요");
-		jf.email.focus();
-		return false;
-	}*/
+//	if((jf.email.value || jf.reEmail.value) == "") {
+//		swal("메일을 입력하세요", "", "warning");
+//		jf.email.focus();
+//		return false;
+//	}
 
 	if($("#reNickName").val() != null) {
-		swal("사용 불가능한 별명입니다.");
+		swal("사용 불가능한 별명입니다", "", "warning");
 		jf.reNickName.focus();
 		return false;
 	}
 	
 	if($("#reEmail").val() != null) {
-		swal("사용 불가능한 이메일 입니다.");
+		swal("사용 불가능한 이메일 입니다.", "", "warning");
 		jf.reEmail.focus();
 		return false;
 	}
 	
 
 	if(jf.nickName.value == "") {
-		swal("별명을 입력하세요");
+		swal("별명을 입력하세요", "", "warning");
 		jf.nickName.focus();
 		return false;
 	}
 	
 	if(jf.password.value == "") {
-		swal("비밀번호를 입력하세요");
+		swal("비밀번호를 입력하세요", "", "warning");
 		jf.password.focus();
 		return false;
 	}
@@ -152,7 +152,7 @@ $("#btn").on("click", function () {
 	} 
 		
 	if($("#btn").disable == true ) {
-		swal("입력정보를 확인 해주세요");
+		swal("입력정보를 확인 해주세요", "", "warning");
 		return false;
 	}
 	

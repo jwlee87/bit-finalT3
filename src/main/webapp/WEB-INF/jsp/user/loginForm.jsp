@@ -14,6 +14,26 @@
 <!-- Custom CSS-->
 <link href="${pageContext.request.contextPath}/css/user/user.css" rel="stylesheet" > 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+input::-webkit-input-placeholder {
+	color: #405467;
+	font-size: 16px;
+	opacity: 0.7; 
+}
+.sweet-alert p {
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    text-align: inherit;
+    float: none;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+</style>
+
 <title>coily 로그인</title>
 </head>
 <body onload="getLogin()">

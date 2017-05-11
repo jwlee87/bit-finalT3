@@ -13,8 +13,23 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원가입</title>
+<style type="text/css">
+.sweet-alert h2 {
+    color: #575757;
+    font-size: 27px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: none;
+    position: relative;
+    margin: 25px 0;
+    padding: 0;
+    line-height: 40px;
+    display: block;
+}
 
+
+</style>
+<title>회원가입</title>
 </head>
 <body>
 	<div class="form-wrap">
