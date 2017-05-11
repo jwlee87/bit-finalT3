@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<jsp:include  page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/user/profileForm.js"></script>
 <link href="${pageContext.request.contextPath}/css/user/profileForm.css" rel="stylesheet">
 <title>코일리 - 프로필</title>
