@@ -298,6 +298,8 @@ public class UserController {
 				System.out.println("로그인 성공 :  " + loginUser);
 				HttpSession session = request.getSession();
 			    session.setAttribute("user", loginUser);
+			    session.setMaxInactiveInterval(600); 
+
 				param.put("userNo", loginUser.getUserNo());
 				param.put("userEmail", loginUser.getUserEmail());
 				param.put("userNickName", loginUser.getUserNickName());
@@ -325,6 +327,7 @@ public class UserController {
 				System.out.println("로그인 성공 " + loginUser);
 				HttpSession session = request.getSession();
 			    session.setAttribute("user", loginUser);
+			    session.setMaxInactiveInterval(600); 
 				param.put("userNo", loginUser.getUserNo());
 				param.put("userEmail", loginUser.getUserEmail());
 				param.put("userNickName", loginUser.getUserNickName());
@@ -514,10 +517,14 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping("/user/choiceImg.do")
-	public Map<String, Object> choiceImg(UserVO user) throws Exception {
+	public Map<String, Object> choiceImg(UserVO user, HttpSession session) throws Exception {
 		Map<String, Object> param = new HashMap<>();
 		System.out.println("회원번호 : " + user.getUserNo());
 		System.out.println("이미지번호 : " + user.getUserImgNo());
+		
+		UserVO sessVO = (UserVO)session.getAttribute("user");
+		sessVO.setUserImgPath("/bit-finalT3/img/userImg/" + user.getUserImgNo() + ".PNG");
+		session.setAttribute("user", sessVO);
 		
 		service.choiceImg(user);
 		param.put("userNo", user.getUserNo());
