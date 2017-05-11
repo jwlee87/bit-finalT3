@@ -12,7 +12,7 @@
 		<result property="userNickName" column="user_nick_name"/>
 		<result property="cardContent" column="card_content"/>
 		<result property="userImgPath" column="user_img_path"/>
-		<result property="groupHeaderNo" column="group_header_no"/>
+		<result property="groupHeaderName" column="group_header_name"/>
 	</resultMap>
 
 	<!-- 보관함 등록 -->
@@ -45,13 +45,14 @@
          		end as card_content,
 			   u.user_nick_name,
 			   ui.user_img_path,
-			   f.favorite_no
-		  from tb_card c, tb_user u, tb_user_img ui, tb_favorite f
+			   f.favorite_no,
+			   g.group_header_name
+		  from tb_card c, tb_user u, tb_user_img ui, tb_favorite f, tb_group_header g
 		 where c.card_no = f.card_no
 		   and c.user_no = u.user_no
 		   and u.user_img_no = ui.user_img_no
-		   and u.user_no = #{userNo} 
-		   and c.group_header_no = #{groupHeaderNo}
+		   and f.user_no = #{userNo} 
+		   and g.group_header_no = c.group_header_no
 	  order by f.favorite_no desc
 	     limit #{begin} , 12
 	</select>

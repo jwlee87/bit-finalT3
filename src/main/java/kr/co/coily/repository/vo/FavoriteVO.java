@@ -11,7 +11,14 @@ public class FavoriteVO {
 	private String userImgPath;
 	private String userNickName;
 	private int groupHeaderNo;
+	private String groupHeaderName;
 	
+	public String getGroupHeaderName() {
+		return groupHeaderName;
+	}
+	public void setGroupHeaderName(String groupHeaderName) {
+		this.groupHeaderName = groupHeaderName;
+	}
 	public String getUserNickName() {
 		return userNickName;
 	}

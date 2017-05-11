@@ -24,7 +24,7 @@
 <body>
 	<c:choose>
 		<c:when test="${empty list}">
-<%-- 			<img src="${pageContext.request.contextPath}/img/images/none.jpg" /> --%>
+			<a href="/bit-finalT3/card/list.do"><img src="${pageContext.request.contextPath}/img/images/none.png" id="none" title="스터디 게시판 이동하기" /></a>
 			<h4 style="text-align: center;">보관함에 카드를 등록하세요!</h4>
 		</c:when>	
 		
@@ -45,6 +45,7 @@
 		  		<figcaption>
 		    		<h5><c:out value="${card.userNickName}"/></h5>
 		    		<h3><a class="detailF" href="../card/detail.do?cardNo=${card.cardNo}"><c:out value="${card.cardContent}"/></a></h3>
+		    		<h6 style="float: right; font-weight: bold; color: #4a90be; ">from.<c:out value="${card.groupHeaderName}"/></h6>
 		  		</figcaption>
 			</figure>
 			</c:forEach>

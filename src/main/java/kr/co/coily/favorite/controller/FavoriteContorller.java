@@ -71,7 +71,7 @@ public class FavoriteContorller  {
 	@ResponseBody
 	@RequestMapping("/favoriteSend.do")
 	public String sendFavorite(HttpServletRequest request, SearchVO search, HttpSession session) throws Exception {
-		System.out.println("메일 전송 들어오니");
+	  //System.out.println("메일 전송 들어오니");
 		search.setCardNo(Integer.parseInt(request.getParameter("cardNo")));
 		UserVO user = (UserVO)session.getAttribute("user");
 		search.setUserNo(user.getUserNo());

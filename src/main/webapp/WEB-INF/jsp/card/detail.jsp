@@ -37,8 +37,9 @@
 				</div>
 				
 				<div class="tools">
-					<img src="${pageContext.request.contextPath}/img/icon/attach.png" width="19px" height="19px">
-						<button type="button" id="detailNoneButton">수정</button>
+					<img src="${pageContext.request.contextPath}/img/icon/attach.png" id="attach" width="19px" height="19px">
+						<button type="button" class="detailNoneButton" id="deleteButton" onclick="javascript:deletes(${param.cardNo});">삭제</button>
+						<button type="button" class="detailNoneButton" id="detailNoneButton">수정</button>
 				</div>
 			</div>
 		</div>

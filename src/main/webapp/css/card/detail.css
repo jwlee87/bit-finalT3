@@ -41,7 +41,7 @@ div, ul, li, form {
 
 .cDetail .post .tools { 
   float: left; 
-  width: 100%; 
+  width: 100.5%; 
   height: 100%; 
   background-color: #d8d8d9; 
   padding: 10px; 
@@ -61,13 +61,18 @@ div, ul, li, form {
 
 /* .icon-addPhotos { background: url(http://i57.tinypic.com/cp02b.png) no-repeat center; } */
 
-img {
-	margin-top:1.5%;
+#attach {
+	margin-top:1.5% !important; 
+}
+
+.uImg {
+	border-radius: 100%;	
+	margin-top: 5%;
 }
 
 .cDetail .post .tools ul li a { float: left; width: 100%; height: 100%; }
 
-#detailNoneButton {
+.detailNoneButton {
 	background-color: #1abc9c;
 	border: none;
 	font-weight: bold;
@@ -76,6 +81,8 @@ img {
 	border-radius: 3px;
 	cursor: pointer;
   	float: right;
+  	margin-top: 1%;
+  	margin-right: 1%;
 }
 
 .cDetail .post textarea::-webkit-input-placeholder { /* WebKit browsers */

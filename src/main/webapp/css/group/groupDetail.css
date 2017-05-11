@@ -13,9 +13,10 @@
 	}
 	
 	.ly_box {
-		width: 600px;
+		width: 580px;
 		position: absolute;	
-		padding: 3% 3% 3%;	
+		padding-top: 3%;
+    	padding-right: 3%;
 		background-color: #fff;	
 		text-align: center;	
 	}
@@ -32,7 +33,7 @@
 	#groupname {
 		float: left;
 		border: 1px solid #d0d0d0;
-	    width: 50%;
+	    width: 65%;
     	line-height: 28px;
     	border-radius: 3px;
 	}
@@ -44,9 +45,13 @@
 	}
 	
 	.btn-update {
-	border: 1px solid #34495e;
-    color: #34495e !important;
-    background: rgba(204, 204, 204, 0);
+		border: 1px solid #34495e;
+	    color: #34495e !important;
+	    background: rgba(204, 204, 204, 0);
+	    margin-top: 5%;
 	}
 	
+	.form-horizontal {
+		margin-top: 5%;
+	}
 	

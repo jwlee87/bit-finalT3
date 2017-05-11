@@ -8,7 +8,7 @@ $(function(){
 		},
 		dataType:"json"
 	}).done(function (result) {
-		$("#nContent").append('<input type="text" id="groupname" value="'+result.name+'">');
+		$("#nContent").append('<input type="text" id="groupname" class="ip" value="'+result.name+'">');
 		
 		var data = [];
 		var defaultTag="";
@@ -81,11 +81,17 @@ $(function(){
 		$(".selectize-input>div:eq(0)").removeAttr("data-value");
 		
 		console.log("으하하하하하ㅏ핳 : " + $(".selectize-input>div:eq(0)").text());
+		if ($(".selectize-input>div:eq(0)").text() == result.loginUser.userNickName) {
+			$("#y").css("display", "block");
+		} else {
+			$("#n").css("display", "block");
+		}
+		
 	});
 	
 	
 	//  버튼 클릭 시 수정 ajax 실행
-	$("#uButton").click(function (){
+	$("[name=uButton]").on("click", function (){
 		var userData = [];
 //		var arrUser = new Array();
 		
@@ -146,5 +152,39 @@ $(function(){
 		});  */
 		
 	}); 
-
+	
 });
+
+
+
+	/** 그룹 삭제 **/
+	function deleteGrp(groupHeaderNo) {
+		swal({
+			title: "그룹을 삭제하시겠습니까?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "삭제",
+			cancelButtonText: "취소",
+			closeOnConfirm: false
+		},
+		function(){
+			$.ajax ({
+				url: "groupDelete.do",
+				type: "POST",
+				data: {
+					"groupHeaderNo": groupHeaderNo
+				},	
+				dataType: "json"
+			}).done(function(result){
+				swal({
+					title: "그룹 삭제 완료",
+					type: "success"	
+				},
+				function(){
+					window.open('/bit-finalT3/group/groupList.do','_parent').parent.close();
+				})			
+			});
+		});
+	};
+	

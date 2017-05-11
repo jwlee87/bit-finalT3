@@ -1,7 +1,8 @@
 $(function(){
 
 //	$("#detailNone").css("display", "none")
-	$("#detailNoneButton").css("display","none")
+	$("#deleteButton").css("display","none");
+	$("#detailNoneButton").css("display","none");
 	// 상세 페이지 로딩시 댓글 목록 조회 ajax 호출
 	
 	/*카드 글 수정*/
@@ -16,6 +17,7 @@ $("#divDetail").click(function () {
 		var html = '<textarea name="cardContent" id="detailNone">'+$("#content").val()+'</textarea>';
 		$("#printDetail").html(html);
 		
+		$("#deleteButton").css("display", "block");
 		$("#detailNoneButton").css("display", "block");
 		
 		$("#detailNoneButton").click(function() {
@@ -39,7 +41,7 @@ $("#divDetail").click(function () {
 					   },
 			}).done(function(result){
 				swal({
-					title:"상세 수정 완료염",
+					title:"카드 수정 완료",
 					type: "success"
 				},function(){
 					window.open('/bit-finalT3/card/list.do','_parent').parent.close();
@@ -47,7 +49,12 @@ $("#divDetail").click(function () {
 		});
 	})
 	})
-/*카드 글 수정*/	
+
+	
+	
+	
+	
+	/*카드 글 수정*/	
 	
 	commentList();
 	
@@ -104,6 +111,39 @@ $("#divDetail").click(function () {
 	
 	
 });
+
+
+/* 카드 삭제 */
+
+function deletes(cardNo) {
+	swal({
+		title: "카드를 삭제하시겠습니까?",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "삭제",
+		cancelButtonText: "취소",
+		closeOnConfirm: false
+	},
+	function(){
+		$.ajax ({
+			url: "delete.do",
+			type: "POST",
+			data: {
+				"cardNo": cardNo
+			},	
+			dataType: "json"
+		}).done(function(result){
+			swal({
+				title: "카드 삭제 완료",
+				type: "success"	
+			},
+			function(){
+				window.open('/bit-finalT3/card/list.do','_parent').parent.close();
+			})			
+		});
+	});
+};
 	
 // 댓글 목록 만드는 공통 함수
 function makeCommentList(result) {
@@ -124,7 +164,7 @@ function makeCommentList(result) {
 		
 		// 오류 : 현재 위의 날짜를 수정하게 되면 리스트 자체가 뜨질 않는다.
 		
-		html += '<img style="width:55px; float:left; margin-right:5px; "  src="'+comment.userImgPath+'" />';
+		html += '<img style="width:55px; float:left; margin-right:5px; "  class="uImg" src="'+comment.userImgPath+'" />';
 		html += '<div class="post-content" id="postList' + comment.cardCommentNo + '">';
 		html += '<a class="post-author-username"';
 		html += '   href="">' + comment.userNickName + '</a>';
@@ -163,7 +203,7 @@ function makeCommentList(result) {
 	
 	function commentUpdateForm(cardCommentNo, commentUserNo) {
 		if(commentUserNo != $("#loginUserNo").val()){
-			alert("수정은 자신것만 가능합니다")
+			alert("자신의 카드만 수정 가능합니다.")
 			return false;
 		}
 	
@@ -252,7 +292,7 @@ function makeCommentList(result) {
 	function commentDelete(cardCommentNo, commentUserNo) {
 		if(commentUserNo != $("#loginUserNo").val()){
 				//		     	commentUserNo
-			alert("자신의 댓글만 삭제 가능합니다@")
+			alert("자신의 댓글만 삭제 가능합니다.")
 			return false;
 		}
 		

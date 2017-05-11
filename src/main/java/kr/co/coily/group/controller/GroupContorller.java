@@ -70,16 +70,18 @@ public class GroupContorller {
 	// 상세 조회 ajax 호출
 	@ResponseBody
 	@RequestMapping("/groupDetailList.do")
-	public Map<String, Object> retrieveDetail(int groupHeaderNo) throws Exception {
+	public Map<String, Object> retrieveDetail(int groupHeaderNo, HttpSession session) throws Exception {
 		GroupHeaderVO header = service.retriveGroupHeader(groupHeaderNo);
 		System.out.println(header.getGroupHeaderNo());
 		System.out.println(header.getGroupHeaderName());
 		List<GroupDetailVO> detail = service.retriveGroupDetail(groupHeaderNo);
 		List<UserVO> userList = service.retriveUserList();
 		Map<String, Object> mRslt = new HashMap<>();
+		UserVO user = (UserVO)session.getAttribute("user");
 		mRslt.put("name", header.getGroupHeaderName());
 		mRslt.put("userList", detail);
 		mRslt.put("allUserList", userList);
+		mRslt.put("loginUser", user);
 		return mRslt;
 		
 		//원래거==============

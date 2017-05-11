@@ -48,7 +48,13 @@
 					<input type="text" id="input-tags" class="input-tags demo-default">
 				</div>
 		</div>
-			<button type="button" id="uButton" class="btn-update btn-sm" >수정</button>
+		<div id="y" style="display: none;">
+			<button type="button" id="dButton" class="btn-update btn-sm" onclick="deleteGrp(${param.groupHeaderNo})" >삭제</button>
+			<button type="button" name="uButton" class="btn-update btn-sm" >수정</button>
+		</div>
+		<div id="n" style="display: none;">
+			<button type="button" name="uButton" class="btn-update btn-sm" >수정</button>
+		</div>
 	</form>
 </div>
 </body>

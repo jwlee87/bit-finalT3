@@ -129,10 +129,12 @@ public class CardContorller {
 	
 	
 	@RequestMapping("/delete.do")
-	public String delete(int cardNo, RedirectAttributes attr) throws Exception {
+	@ResponseBody
+	public String delete(int cardNo) throws Exception {
 		System.out.println("삭제되나요???????");
+		System.out.println("카드번호..................."+ cardNo);
 		Service.delete(cardNo);
-		return "redirect:list.do";
+		return "";
 	}
 	
 	/*카드 삭제  ======================================================================*/

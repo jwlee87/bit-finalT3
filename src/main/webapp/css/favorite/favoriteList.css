@@ -149,3 +149,16 @@
 	.custom-radio input[type="radio"]:checked + label span{
 	     background-color: #1abc9c;
 	}
+	
+	#none {
+		width: 25%;
+		cursor: pointer; 
+		margin-left: auto;
+		margin-right: auto; 
+		display: block;
+		margin-top: 5%;
+	}
+	
+	#whatis {
+		min-height: 800px;
+	}

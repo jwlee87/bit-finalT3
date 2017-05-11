@@ -30,7 +30,7 @@
 			
 			<div class="sticky" >
 				<div class="setting">
-					<img src="${pageContext.request.contextPath}/img/icon/trash.png" width="19px" height="19px" onclick="deleteGrp(${list.groupHeaderNo})" />
+<%-- 					<img src="${pageContext.request.contextPath}/img/icon/trash.png" width="19px" height="19px" onclick="deleteGrp(${list.groupHeaderNo})" /> --%>
 						<a class="iframe" href="groupDetail.do?groupHeaderNo=${list.groupHeaderNo}">
 <%-- 						<a class="iframe" href="selectizeTest.do?groupHeaderNo=${list.groupHeaderNo}"> --%>
 							<img src="${pageContext.request.contextPath}/img/icon/setting.png" width="19px" height="19px" />
