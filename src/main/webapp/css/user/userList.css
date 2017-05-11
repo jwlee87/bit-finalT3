@@ -28,7 +28,7 @@ body {
 	top:100px;
 	left:90%;
 	margin-left:-155px;
-	z-index: 99999;
+	z-index: 999;
 	overflow-y: auto;
 }
 
