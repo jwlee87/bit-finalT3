@@ -31,6 +31,9 @@
 			<decorator:body />
 		</div>
 	</div>
+	<div style="display:none;">
+		<jsp:include page="/WEB-INF/jsp/user/userList.jsp" flush="false"></jsp:include>
+	</div>
 	
 	
 	<script>
