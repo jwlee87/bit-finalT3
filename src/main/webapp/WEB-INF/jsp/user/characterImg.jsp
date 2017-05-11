@@ -14,7 +14,7 @@
 </head>
 <body>
 <!-- 	<div class="container"> -->
-		<h2 class="text-center">coily 캐릭터</h2>
+		<h3 class="text-center">프로필 사진 변경</h3>
 <!-- 		<div class="lightbox-gallery"> -->
 		<figure onclick="choiceImg(${user.userNo}, 1)" class="snip1566">
 				<div><img  src="${pageContext.request.contextPath}/img/userImg/1.PNG" ></div>
