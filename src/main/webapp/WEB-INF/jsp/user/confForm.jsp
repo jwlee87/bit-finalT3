@@ -30,7 +30,7 @@
   </div>   
   
 </div><br>
-<div align="center"><h3>인증번호를 발송했습니다.<br>받으신 인증번호를 입력 해주세요.</h3>
+<div align="center"><h3 style="color: black;">인증번호를 발송했습니다.<br>받으신 인증번호를 입력 해주세요.</h3>
 </div>
 
 <div class="wrap">
