@@ -57,6 +57,7 @@
 		select *
 		from tb_quiz
 		where quiz_no <= #{quiz_no}
+		  and group_header_no = #{groupHeaderNo} 
 		order by quiz_no desc
 		limit 0, 15
 		]]>
