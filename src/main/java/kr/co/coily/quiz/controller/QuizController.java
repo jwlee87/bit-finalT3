@@ -121,9 +121,10 @@ public class QuizController {
 	//스크롤
 	@RequestMapping("/scrollDown.do")
 	@ResponseBody
-	public List<QuizVO> scrollDown(QuizVO quiz) throws Exception{
+	public List<QuizVO> scrollDown(QuizVO quiz, HttpSession session) throws Exception{
+		quiz = (QuizVO)session.getAttribute("groupInfo");
 		int noStart = quiz.getQuizNo()-1;
-		return service.scrollDown(noStart);
+		return service.scrollDown(quiz, noStart);
 	}
 	
 	
