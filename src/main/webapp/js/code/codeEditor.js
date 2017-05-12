@@ -10,7 +10,7 @@
 	editor.setValue("import java.*;\n\nclass Main {\n\n    public static void main(String[] args) {\n        // Your code goes here\n   }\n}\n");
 	editor.clearSelection();
 
-    var webSocket = new WebSocket('ws://192.168.0.48:9100/bit-finalT3/websocket/echo.do');
+    var webSocket = new WebSocket('ws://coily.com:9100/bit-finalT3/websocket/echo.do');
     webSocket.onerror = function(event) {
       onError(event)
     };
