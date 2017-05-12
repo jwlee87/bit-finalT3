@@ -14,7 +14,7 @@
 	/* 카드 등록, 카드 상세 팝업창 */
 	$(function(){
 		
-		$(".writeF").colorbox({iframe:true, width:"660px", height:"530px"});
+		$(".writeF").colorbox({iframe:true, width:"680px", height:"830px"});
 
 	});
 	

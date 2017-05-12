@@ -27,5 +27,20 @@ $(document).ready(function() {
 		})
 	})
 	})
+	
+	
+	$("#attach").click(displayFile);
 });
 
+function displayFile () {
+	
+	if($("#displayFile").css("display") == "none") {
+		$("#displayFile").css("display","block");
+		return false;
+	}
+	
+	if($("#displayFile").css("display") == "block")	{
+		$("#displayFile").css("display", "none");
+		return false;
+	}
+}
