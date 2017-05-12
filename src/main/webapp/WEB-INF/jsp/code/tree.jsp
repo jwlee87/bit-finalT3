@@ -189,6 +189,12 @@ $(function(){
 		html += '		<i class="fa fa-file" aria-hidden="true"></i>' + result.fileOriName;
 		html += '	</button>';
 		$(".indent").append(html)
+		
+		var htm="";
+		htm += '<input type="hidden" id="oriName" value="'+ result.fileOriName + '">';
+		htm += '<input type="hidden" id="sysName" value="'+ result.fileSysName + '">';
+		$("#save").after(htm);
+		
 	})
 	
 	
@@ -240,6 +246,7 @@ $(function(){
         e.stopPropagation();
         e.preventDefault();
         e.target.className = (e.type == "dragover" ? "hover" : "");
+
       }
 
       // file selection
@@ -250,7 +257,7 @@ $(function(){
 
         // fetch FileList object
         var files = e.target.files || e.dataTransfer.files;
-
+		
         // process all File objects
         for (var i = 0, f; f = files[i]; i++) {
           ParseFile(f);
