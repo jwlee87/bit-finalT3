@@ -52,11 +52,11 @@
 	</select>
 
 	<!-- 스크롤 다운 -->
-	<select id="scrollDown" resultMap="quizMap">
+	<select id="scrollDown" resultMap="quizMap" parameterType="quizVO">
 		<![CDATA[
 		select *
 		from tb_quiz
-		where quiz_no <= #{quiz_no}
+		where quiz_no <= #{quizNo}
 		  and group_header_no = #{groupHeaderNo} 
 		order by quiz_no desc
 		limit 0, 15

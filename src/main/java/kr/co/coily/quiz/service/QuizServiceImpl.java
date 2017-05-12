@@ -32,8 +32,8 @@ public class QuizServiceImpl implements QuizService {
 	
 	//스크롤 다운
 	@Override
-	public List<QuizVO> scrollDown(QuizVO quiz, int noStart) throws Exception {
-		return dao.scrollDown(quiz, noStart);
+	public List<QuizVO> scrollDown(QuizVO quiz) throws Exception {
+		return dao.scrollDown(quiz);
 	}
 	
 	//퀴즈댓글 조회
