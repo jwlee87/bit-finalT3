@@ -10,6 +10,7 @@
 		<pattern>/*/write*</pattern>
 		<pattern>/group/*</pattern>
 		<pattern>/editor/video*</pattern>
+		<pattern>/user/characterImg*</pattern>
 <!-- 		<pattern>/card/cardList*</pattern> -->
  	</excludes>
     

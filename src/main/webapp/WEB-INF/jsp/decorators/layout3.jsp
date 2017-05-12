@@ -26,7 +26,7 @@
 	
 	<!-- content -->
 	
-	<div id="whatis" class="content-section-a">
+	<div id="whatis" class="content-section-a" style="min-height: 900px;">
 		<div class="container">
 			<decorator:body />
 		</div>

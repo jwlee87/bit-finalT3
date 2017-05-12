@@ -52,18 +52,18 @@
 	 	</figure>
 				
 	 	<figure onclick="choiceImg(${user.userNo}, 8)" class="snip1566">				
-				<img  src="${pageContext.request.contextPath}/img/userImg/8.PNG" >
-				  <figcaption><i class="ion-android-add" ></i></figcaption>
+			<img  src="${pageContext.request.contextPath}/img/userImg/8.PNG" >
+			<figcaption><i class="ion-android-add"></i></figcaption>
 	 	</figure>
 				
 	 	<figure onclick="choiceImg(${user.userNo}, 9)" class="snip1566">				
-			<img  src="${pageContext.request.contextPath}/img/userImg/9.PNG" >
-			  <figcaption><i class="ion-android-add" ></i></figcaption>
+			<img src="${pageContext.request.contextPath}/img/userImg/9.PNG" >
+			<figcaption><i class="ion-android-add"></i></figcaption>
 	 	</figure>
 				
 	 	<figure onclick="choiceImg(${user.userNo}, 10)" class="snip1566">				
-				<img  src="${pageContext.request.contextPath}/img/userImg/10.PNG" >
-				  <figcaption><i class="ion-android-add" ></i></figcaption>
+			<img src="${pageContext.request.contextPath}/img/userImg/10.PNG"></img>
+			<figcaption><i class="ion-android-add"></i></figcaption>
 	 	</figure>
 
 </body>

@@ -26,7 +26,7 @@
 	
 	<!-- content -->
 	
-	<div id="whatis" class="content-section-a">
+	<div id="whatis" class="content-section-a" style="min-height: 900px;">
 		<jsp:include page="/WEB-INF/jsp/code/tree.jsp" flush="false"></jsp:include>
 		<div class="container">
 			<decorator:body />
