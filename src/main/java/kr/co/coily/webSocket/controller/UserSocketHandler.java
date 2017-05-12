@@ -290,7 +290,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 							   + responseUser.getUserEmail() + ","
 							   + responseUser.getUserImgPath() + ";";
 					System.out.println("########################################## result " + result);
-					webSocketSession.sendMessage(new TextMessage(result));
+					webSocketSession.sendMessage(new TextMessage("ul:" + result));
 				}
 				
 			}else {
@@ -301,7 +301,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 							   + responseUser.getUserImgPath() + ";";
 //					webSocketSession.sendMessage(new TextMessage(""+userList));
 					System.out.println("11111111111111111111111111111111111111111111 result " + result);
-					webSocketSession.sendMessage(new TextMessage(result));
+					webSocketSession.sendMessage(new TextMessage("ul:" + result));
 				}
 			}
 			

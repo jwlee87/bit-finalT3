@@ -133,28 +133,36 @@ $(document).ready(function(){
 			var  html = "";
 			var userData = "";
 			var data="";
+//			var ulArr= "";
 //			textarea.value += "상대 : " + event.data + "\n";
 //			alert("onMessage : " + event.data);
-			userData = event.data;
-			
-			console.log("##################### " + userData)
-			var arrUser = userData.split(";");
-
-			for(var i = 0; i < arrUser.length-1; i++) {
-				var arrInfo = arrUser[i].split(",");
-				html += "<div id="+i+">"
-				html += '<div class="friend">';
-				html += "<img  src=" + arrInfo[2] +"></img>";
-				html += '<p>';
-				html += '<strong>'+ arrInfo[0]+'</strong><br>';
-				html += "<span>" + arrInfo[1] + "</span>";
-				html += '</p>';
-				html += '<div class="status available"></div>';
-				html += '</div>';
-				html += '</div>';
-				console.log("html결과값 : " + html);
+//			userData = event.data;
+			if(event.data.startsWith("ul")) {
+				var ulArr = event.data.split(":");
+//				alert(ulArr);
+					console.log("##################### " + userData)
+					console.log("!!!!!!!!!!!!!!!!!!!!!!!! : " + ulArr[0])
+					console.log("@@@@@@@@@@@@@@@@@@@@@@@@ : " + ulArr[1])
+					var arrUser = ulArr[1].split(";");
+					
+					for(var i = 0; i < arrUser.length-1; i++) {
+						var arrInfo = arrUser[i].split(",");
+						html += "<div id="+i+">"
+						html += '<div class="friend">';
+						html += "<img  src=" + arrInfo[2] +"></img>";
+						html += '<p>';
+						html += '<strong>'+ arrInfo[0]+'</strong><br>';
+						html += "<span>" + arrInfo[1] + "</span>";
+						html += '</p>';
+						html += '<div class="status available"></div>';
+						html += '</div>';
+						html += '</div>';
+						console.log("html결과값 : " + html);
+					}
+					$("#result").html(html);
+					
+				}
 			}
-			$("#result").html(html);
 //			for(var i = 0; i < arrUser.length; i++) {
 //
 //				var arrInfo = arrUser[i].split(",");
@@ -213,7 +221,6 @@ $(document).ready(function(){
 //			$("#result").html(html);
 //			$("#result").html(html);
 //			makeUserList(data);
-		}
 		
 		
 //		function makeUserList(data) {
