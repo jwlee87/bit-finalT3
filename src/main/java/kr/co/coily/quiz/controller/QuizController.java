@@ -215,12 +215,12 @@ public class QuizController {
 	            e.printStackTrace();
 	        }
 
-		
+		System.out.println("result...................." + result);
 		//DB 답 vs complie 답
 		String msg = "";
 		QuizVO quiz = service.updateForm(quizNo);
 		if(result != "") {
-			if(quiz.getQuizAnswer().equals(result)) {
+			if(quiz.getQuizAnswer().equals(result.trim())) {
 				msg = "s";
 			} else {
 				msg = "e";

@@ -78,6 +78,6 @@ public class CodeCompileController {
 		
 		
 //		System.out.print("result : " + result);
-		return result;	
+		return result.trim();	
 	}
 }
