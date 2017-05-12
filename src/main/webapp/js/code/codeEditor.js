@@ -3,7 +3,7 @@
 //})
 	
    	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/monokai");
+	editor.setTheme("ace/theme/eclipse");
 	editor.setShowPrintMargin(false);
 	editor.session.setMode("ace/mode/java");
 	editor.$blockScrolling = Infinity;
@@ -24,18 +24,24 @@
     };
 
     function onMessage(event) {
-    	if(event.data.indexOf("class") == -1){
-    		$("#result").val(event.data)
-    	} else {
-    		$(".indent").append(event.data)
+    	if(event.data.startsWith("c")) {
+    		var cArr = event.data.split(":")
+    		$("#result").val(cArr[1])
+    	} else if(event.data.startsWith("t")) {
+    		var tArr = event.data.split(":")
+    		$(".indent").append(tArr[1])
+    	} else if(event.data.startsWith("e")){
+    		var eArr = event.data.split(":")
+    		editor.setValue(eArr[1])
+    	} else if(event.data.startsWith("f")){
+    		var ediArr = event.data.split(":")
+    		editor.setValue(ediArr[3])
+    		var html="";
+    		html += '<input type="hidden" id="oriName" value="'+ ediArr[1] + '">';
+    		html += '<input type="hidden" id="sysName" value="'+ ediArr[2] + '">';
+    		$("#compile").before(html);
     	}
     	
-    	
-//    	if(event.data.indexOf("class") == -1){
-//    		$("#result").val(event.data)
-//    	} else {
-//    		editor.setValue(event.data)
-//    	}
     	
     }
 
@@ -48,13 +54,15 @@
     }
 	
     $("#editor").keyup(function(e){
-    	webSocket.send(editor.getValue())
+    	webSocket.send("e:" + editor.getValue())
     })
 
     $("#compile").click(function(){
-		$.ajax({
+//    	alert(editor.getValue())
+    	$.ajax({
     		url : "codeCompile.do",
-    		data : {"code": editor.getValue()
+    		data : {"code": editor.getValue(),
+    				"oriName" : $("#oriName").val()
     					},
     		type : "POST",
     		dataType : "JSON",
@@ -62,15 +70,36 @@
     		})
     	.done(function(result){
 			if(result == "") {
-				alert("컴파일 오류입니다.")
+				swal({
+					title: "컴파일 오류입니다.",
+					type: "error"	
+				})
 				return false;
 			}
     		$("#result").val(result)
-    		webSocket.send(result)
+    		webSocket.send("c:" + result)
 		})
-		
-		
-		
-		
-		
     })
+    
+    
+    $("#save").on("click", function(){
+    	$.ajax({
+    		url : '/bit-finalT3/file/saveFile.do',
+    		data : {"code": editor.getValue(),
+    				"sysName" : $("#sysName").val()
+    					},
+    		type : "POST",
+    		dataType : "JSON",
+    		async: false
+    		})
+    	.done(function(result){
+    		swal({
+				title: "저장되었습니다.",
+				type: "success"	
+			})
+		})
+    })
+    
+    
+    
+    

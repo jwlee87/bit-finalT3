@@ -5,6 +5,9 @@
 <mapper namespace="kr.co.coily.repository.dao.fileDAO">
 
 	<insert id="insertFileItem" parameterType="fileItemVO">
+		<selectKey keyProperty="fileNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
 		insert into tb_file_item(
 			file_ref_no
 			, file_type
@@ -23,5 +26,47 @@
 			, #{fileSize}
 		)
 	</insert>
+	
+	
+	<insert id="insertOneFile" parameterType="fileItemVO">
+		<selectKey keyProperty="fileNo" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
+		insert into tb_file_item(
+			file_ref_no
+			, file_type
+			, file_ori_name
+			, file_sys_name
+			, file_path
+			, file_ext
+		) values (
+			#{fileRefNo}
+			, #{fileType}
+			, #{fileOriName}
+			, #{fileSysName}
+			, #{filePath}
+			, #{fileExt}
+		)
+	</insert>
+	
+	
+	<resultMap type="FileItemVO" id="fileItemMap">
+	    <result property="fileNo" column="file_no" />
+	    <result property="fileRefNo" column="file_ref_no" />
+	    <result property="fileType" column="file_type" />
+	    <result property="fileOriName" column="file_ori_name" />
+	    <result property="fileSysName" column="file_sys_name" />
+	    <result property="fileExt" column="file_ext" />
+	    <result property="fileSize" column="file_size" />
+	    <result property="fileRegDate" column="file_reg_date" />
+	    <result property="filePath" column="file_path" />
+	</resultMap>
+	
+	<select id="selectFileItem" parameterType="int" resultMap="fileItemMap">
+		select *
+		from tb_file_item
+		where file_no = #{fileNo}		
+	</select>
+	
 	
 </mapper>

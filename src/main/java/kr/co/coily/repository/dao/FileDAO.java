@@ -23,4 +23,12 @@ public class FileDAO {
 		System.out.println("dao 성공");
 		
 	}
+
+	public FileItemVO selectFileInfo(int fileNo) {
+		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.fileDAO.selectFileItem", fileNo);
+	}
+
+	public void insertOneFile(FileItemVO fileItem) {
+		sqlSessionTemplate.insert("kr.co.coily.repository.dao.fileDAO.insertOneFile", fileItem);
+	}
 }

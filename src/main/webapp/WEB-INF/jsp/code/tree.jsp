@@ -178,7 +178,21 @@ button.file{
     </div>
 <script>
 $(function(){
-    $('button.dir').click(function(){
+	$.ajax({
+		url: '/bit-finalT3/file/mainFile.do',
+		data: {"mainCode" : editor.getValue()},
+		dataType:'json',
+		type:'post'
+	}).done(function(result) {
+		var html = "";
+		html += '	<button type="button" class="file" onclick="fileTree(' + result.fileNo +')">';
+		html += '		<i class="fa fa-file" aria-hidden="true"></i>' + result.fileOriName;
+		html += '	</button>';
+		$(".indent").append(html)
+	})
+	
+	
+	$('button.dir').click(function(){
         var self = $(this);
         self.toggleClass('open');
 //         self.find('i.fa:first').toggleClass('fa-caret-right fa-caret-down');
@@ -200,13 +214,13 @@ $(function(){
 				var html = "";
 				for(var i = 0; i < result.length; i++) {
 					console.log(result[i].fileOriName)
-					html += '	<button class="file">';
+					html += '	<button type="button" class="file" onclick="fileTree(' + result[i].fileNo +')">';
 					html += '		<i class="fa fa-file" aria-hidden="true"></i>' + result[i].fileOriName;
 					html += '	</button>';
 				}
 				$(".indent").append(html)
 				$("#messages").html("")
-				webSocket.send(html);
+				webSocket.send("t:"+html);
 			})
     })
     
@@ -281,9 +295,28 @@ $(function(){
       if (window.File && window.FileList && window.FileReader) {
         Init();
       }
-    
-    
+
 });
+
+
+	function fileTree(fileNo){
+    	$.ajax({
+			url: '/bit-finalT3/file/readFile.do',
+			data: {"fileNo" : fileNo},
+			dataType:'json',
+			type:'post'
+		}).done(function(result) {
+			var arr = result.split(":")
+// 			var reCode = arr[1].substr(1, arr[1].length)
+// 			editor.setValue(reCode)
+			editor.setValue(arr[2].trim())
+			var html="";
+    		html += '<input type="hidden" id="oriName" value="'+ arr[0] + '">';
+    		html += '<input type="hidden" id="sysName" value="'+ arr[1] + '">';
+    		$("#save").after(html);
+			webSocket.send("f:" + result);
+		})
+	}
 </script>
 </body>
 </html>

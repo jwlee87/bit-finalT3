@@ -22,4 +22,14 @@ public class FileServiceImpl implements FileService {
 		System.out.println("서비스 성공");
 	}
 
+	@Override
+	public FileItemVO selectFileInfo(int fileNo) throws Exception {
+		return dao.selectFileInfo(fileNo);
+	}
+
+	@Override
+	public void insertOneFile(FileItemVO fileItem) throws Exception {
+		dao.insertOneFile(fileItem);
+	}
+
 }

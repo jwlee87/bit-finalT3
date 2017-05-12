@@ -23,6 +23,7 @@
           <div class="compile-code"> 
 	        <pre name="code" id="editor" style="border: none;"></pre>
 	        <input type="button" id="compile" class="btn btn-sky text-uppercase btn-sm" value="Compile">
+	        <input type="button" id="save" class="btn btn-sky text-uppercase btn-sm" value="Save">
           </div>
         </div>
       </div>

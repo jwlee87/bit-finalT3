@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class CodeCompileController {
 	@RequestMapping("/codeCompile.do")
 	@ResponseBody
-	public String codeCompile(HttpServletRequest request, String code) throws Exception {
-		
+	public String codeCompile(HttpServletRequest request, String code, String oriName) throws Exception {
+//		System.out.println("컴파일러 컨트롤러");
+		System.out.println("오리네임 : " + oriName);
 		String result="";
 		ServletContext context = request.getServletContext();
 		
@@ -34,12 +35,18 @@ public class CodeCompileController {
 		File f = new File(savePath);
 		if (!f.exists()) f.mkdirs();
 		
-		File dest = new File(f, "Main.java");
-		File classFile = new File(f, "Main.class");
-		if(classFile.exists()) classFile.delete();
+		File dest = new File(f, oriName);
+		
+		String name = oriName.substring(0, oriName.length()-5);
+//		System.out.println("이게 진짜 이름이다........................" + name);
+		
+//		String name = oriName.split(".")[0];
+//		
+//		File classFile = new File(f, name + ".class");
+//		if(classFile.exists()) classFile.delete();
 
 		try (FileWriter fw = new FileWriter(dest);) {
-			System.out.println("code: " + code);
+//			System.out.println("code: " + code);
 			fw.write(code.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,12 +55,13 @@ public class CodeCompileController {
 		
 		try {
             Runtime rt = Runtime.getRuntime();
-            String[] arr = {"C:/java90/bin/jdk8/bin/javac", "-encoding", "utf-8", savePath+"/Main.java"};
+            String[] arr = {"C:/java90/bin/jdk8/bin/javac", "-encoding", "utf-8", savePath+"/"+oriName};
             Process proc = rt.exec(arr); //시스템 명령어
 //            Process proc = new ProcessBuilder("C:/java90/bin/jdk8/bin/javac", savePath+"/Main.java").start();
             proc.waitFor();
             
-            String[] arr2 = {"C:/java90/bin/jdk8/bin/java", "-Dfile.encoding=UTF8", "-cp", savePath, "Main"};
+           
+            String[] arr2 = {"C:/java90/bin/jdk8/bin/java", "-Dfile.encoding=UTF8", "-cp", savePath, name};
             Process proc2 = rt.exec(arr2); //시스템 명령어
             
             InputStream is2 = proc2.getInputStream();
@@ -67,6 +75,8 @@ public class CodeCompileController {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
+		
+		
 //		System.out.print("result : " + result);
 		return result;	
 	}
