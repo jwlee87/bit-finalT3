@@ -34,9 +34,22 @@ public class UserListController {
 //		param.put("joinList", joinUserList);
 		
 		return param;
-		
+	}
+	
+	
+
+	@ResponseBody
+	@RequestMapping("/user/userChat.do")
+	public Map<String, Object> userChat(HttpSession session, String sendMsg) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		UserVO userInfo = (UserVO)session.getAttribute("user");
+		param.put("user", userInfo);
+		param.put("sendMsg", sendMsg);
+		System.out.println("메세지 : " + sendMsg);
+		return param;
 		
 		
 	}
+	
 }
 

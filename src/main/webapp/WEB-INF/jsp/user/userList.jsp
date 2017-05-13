@@ -20,10 +20,22 @@
 	<div id="friendslist">
     	<div id="topmenu">
         	<span class="friends"></span>
+        	<span class="chats"></span>
+        </div>
+        <div id="fList">
+        <div id="result"></div>
         </div>
         
-        <div id="result">
+        
+        <div id="chat" style="display: none;">
+        <div id="chat-messages"></div>
+        <div id="sendmessage">
+        	<input type="text" id="sendMsg" name="sendMessage" value="Send message..."/>
+            <button id="send"></button>
         </div>
+        </div>
+        
+        
             
 	</div>                
    

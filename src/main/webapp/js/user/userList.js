@@ -10,8 +10,8 @@
 //var userEmail = "";
 
 //var webSocket = new WebSocket('ws://14.32.66.123:9120/bit-finalT3/websocket/userEcho.do');	//학원
-//var webSocket = new WebSocket('ws://192.168.0.16:9100/bit-finalT3/websocket/userEcho.do');	//학원
-var webSocket = new WebSocket('ws://localhost:9100/bit-finalT3/websocket/userEcho.do');	//학원
+var webSocket = new WebSocket('ws://192.168.0.16:9100/bit-finalT3/websocket/userEcho.do');	//학원
+//var webSocket = new WebSocket('ws://localhost:9100/bit-finalT3/websocket/userEcho.do');	//학원
 
 //var webSocket = new WebSocket('ws://14.138.118.25:9120/bit-finalT3/websocket/userEcho.do');	//고시원
 
@@ -43,6 +43,18 @@ $(document).ready(function(){
 				
 			}
 		});
+		
+		
+		$(".chats").click(function(){
+			console.log("냠냠");
+			$("#fList").fadeOut();
+			$("#chat").fadeIn();
+		})
+		
+		$(".friends").click(function() {
+			$("#chat").fadeOut();
+			$("#fList").fadeIn();
+		})
 			
 		
 		$(".friend").each(function(){		
@@ -133,7 +145,8 @@ $(document).ready(function(){
 			var  html = "";
 			var userData = "";
 			var data="";
-//			var ulArr= "";
+			var sendMessage = "";
+			//			var ulArr= "";
 //			textarea.value += "상대 : " + event.data + "\n";
 //			alert("onMessage : " + event.data);
 //			userData = event.data;
@@ -161,7 +174,24 @@ $(document).ready(function(){
 					}
 					$("#result").html(html);
 					
-				}
+				} else if (event.data.startsWith("chat")) {
+					var chatArr = event.data.split(":");
+					console.log("챗챗챗챗챗챗 : " + chatArr[0])
+					console.log("챗챗챗챗챗챗 : " + chatArr[1])
+					var sendMsg = chatArr[1].split(","); 
+					console.log("챗챗챗챗챗챗 0: " + sendMsg[0])
+					console.log("챗챗챗챗챗챗 1: " + sendMsg[1])
+					console.log("챗챗챗챗챗챗 2: " + sendMsg[2])
+					sendMessage += '<div class="message">'; 
+					sendMessage += '<span style="float: left; margin-left: -35px;">' + sendMsg[0] + '</span>'; 
+					sendMessage += '<img style="width: 33px; margin-top: 17px; border-radius: 50px;" src="' + sendMsg[1] + '"/>'; 
+					sendMessage += '<div class="bubble">'; 
+					sendMessage +=sendMsg[2]; 
+					sendMessage += '<div class="corner"></div>'; 
+					sendMessage += '</div>'; 
+					sendMessage += '</div>'; 
+					$("#chat-messages").append(sendMessage);
+				} 
 			}
 //			for(var i = 0; i < arrUser.length; i++) {
 //
@@ -294,13 +324,42 @@ $(document).ready(function(){
 //			webSocket.send(result.joinList[i].userNickName +  ": " + i);			
 //		}
 	})
-	
-	
-	
-	
-	
-	
 })
+
+$(document).ready(function(){
+$("#send").click(function(){
+	console.log("온다온다");
+	var html = "";
+	$.ajax({
+		url : "/bit-finalT3/user/userChat.do",
+		dataType : "json",
+		type : "POST",
+		data : {sendMsg : $("#sendMsg").val()}
+	}).done(function(result){
+		
+		console.log("메세지 내용 : " + result.sendMsg);
+		console.log("유저 닉네임 : " + result.user.userNickName);
+		console.log("이미지경로 : " + result.user.userImgPath);
+		
+		html += '<div class="message right">';
+		html += '<span style="float: right; margin-right: -40px;">' + result.user.userNickName+ '</span>';
+		html += '<img style="width: 33px; margin-top: 17px; border-radius: 50px;" src="' + result.user.userImgPath + '"/>';
+		html += '<div class="bubble">';
+		html += result.sendMsg; 
+		html += ' <div class="corner"></div>'; 
+		html += '</div>'; 
+		html += '</div>';
+		
+		$("#chat-messages").append(html);
+		webSocket.send(result.sendMsg);
+		$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+		$("#sendMsg").val("");
+	})
+})
+})
+
+
+
 		
 		
 
