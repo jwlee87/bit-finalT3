@@ -191,6 +191,7 @@ $(document).ready(function(){
 					sendMessage += '</div>'; 
 					sendMessage += '</div>'; 
 					$("#chat-messages").append(sendMessage);
+					$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
 				} 
 			}
 //			for(var i = 0; i < arrUser.length; i++) {
@@ -327,35 +328,54 @@ $(document).ready(function(){
 })
 
 $(document).ready(function(){
-$("#send").click(function(){
-	console.log("온다온다");
-	var html = "";
-	$.ajax({
-		url : "/bit-finalT3/user/userChat.do",
-		dataType : "json",
-		type : "POST",
-		data : {sendMsg : $("#sendMsg").val()}
-	}).done(function(result){
-		
-		console.log("메세지 내용 : " + result.sendMsg);
-		console.log("유저 닉네임 : " + result.user.userNickName);
-		console.log("이미지경로 : " + result.user.userImgPath);
-		
-		html += '<div class="message right">';
-		html += '<span style="float: right; margin-right: -40px;">' + result.user.userNickName+ '</span>';
-		html += '<img style="width: 33px; margin-top: 17px; border-radius: 50px;" src="' + result.user.userImgPath + '"/>';
-		html += '<div class="bubble">';
-		html += result.sendMsg; 
-		html += ' <div class="corner"></div>'; 
-		html += '</div>'; 
-		html += '</div>';
-		
-		$("#chat-messages").append(html);
-		webSocket.send(result.sendMsg);
-		$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
-		$("#sendMsg").val("");
+	$("input[name=sendMessage]").keydown(function(key){
+		if(key.keyCode == 13) {
+			msgSend();
+			$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+		}
 	})
-})
+	
+	
+	$("#send").click(function(){
+		msgSend();
+		$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+	
+	})
+
+
+
+function msgSend() {
+		
+		console.log("온다온다");
+		var html = "";
+		$.ajax({
+			url : "/bit-finalT3/user/userChat.do",
+			dataType : "json",
+			type : "POST",
+			data : {sendMsg : $("#sendMsg").val()}
+		}).done(function(result){
+			
+			console.log("메세지 내용 : " + result.sendMsg);
+			console.log("유저 닉네임 : " + result.user.userNickName);
+			console.log("이미지경로 : " + result.user.userImgPath);
+			
+			html += '<div class="message right">';
+			html += '<span style="float: right; margin-right: -40px;">' + result.user.userNickName+ '</span>';
+			html += '<img style="width: 33px; margin-top: 17px; border-radius: 50px;" src="' + result.user.userImgPath + '"/>';
+			html += '<div class="bubble">';
+			html += result.sendMsg; 
+			html += ' <div class="corner"></div>'; 
+			html += '</div>'; 
+			html += '</div>';
+			
+			$("#chat-messages").append(html);
+			webSocket.send(result.sendMsg);
+			$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+			$("#sendMsg").val("");
+		})
+		
+	}
+
 })
 
 
