@@ -280,54 +280,60 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		// ===================이거 되는거 ======================
 		
 		//채팅
-				for (WebSocketSession socketSession : connectedUsers) {
-					//남일 경우
-					if (!socketSession.getId().equals(session.getId())) {
-						System.out.println("요새킹 : " + socketSession.getId());
-						System.out.println("이새킹 : " + session.getId());
-						String chatMsg = "";
-						chatMsg += userInfo.getUserNickName() + ","
-								+ userInfo.getUserImgPath() + ","
-								+ message.getPayload();
-						socketSession.sendMessage(new TextMessage("chat:" + chatMsg));
-					}
-//					}else {
-//						System.out.println("이쪽에는 오도안하나??");
-//						String chatMsg = "";
-//						chatMsg += userInfo.getUserNickName() + ","
-//								+ userInfo.getUserImgPath() + ","
-//								+ message.getPayload();
-//						socketSession.sendMessage(new TextMessage("chat:" + chatMsg));
-//					}
-					}
-		
-		
-		//===========가장 최근에 수정한거=========================
-		for (WebSocketSession webSocketSession : connectedUsers) {
-			String result = "";
-			if (!webSocketSession.getId().equals(session.getId())) {
-				
-				for (UserVO responseUser : userList) {
-					result += responseUser.getUserNickName() + ","
-							   + responseUser.getUserEmail() + ","
-							   + responseUser.getUserImgPath() + ";";
-					System.out.println("########################################## result " + result);
-					webSocketSession.sendMessage(new TextMessage("ul:" + result));
+		String msg = "";
+		if (message.getPayload().startsWith("chat:")) {
+			String[] payloadMsg = message.getPayload().split(":");
+			
+			for (WebSocketSession socketSession : connectedUsers) {
+				// 남일 경우
+				if (!socketSession.getId().equals(session.getId())) {
+					System.out.println("요새킹 : " + socketSession.getId());
+					System.out.println("이새킹 : " + session.getId());
+					String chatMsg = "";
+					chatMsg += userInfo.getUserNickName() + "," + userInfo.getUserImgPath() + "," + payloadMsg[1];
+					socketSession.sendMessage(new TextMessage("chat:" + chatMsg));
 				}
-				
-			}else {
+				// }else {
+				// System.out.println("이쪽에는 오도안하나??");
+				// String chatMsg = "";
+				// chatMsg += userInfo.getUserNickName() + ","
+				// + userInfo.getUserImgPath() + ","
+				// + message.getPayload();
+				// socketSession.sendMessage(new TextMessage("chat:" + chatMsg));
+				// }
+			}
+			
+		} else {
+			//===========가장 최근에 수정한거=========================
+			for (WebSocketSession webSocketSession : connectedUsers) {
+				String result = "";
+				if (!webSocketSession.getId().equals(session.getId())) {
+					
+					for (UserVO responseUser : userList) {
+						result += responseUser.getUserNickName() + ","
+								+ responseUser.getUserEmail() + ","
+								+ responseUser.getUserImgPath() + ";";
+						System.out.println("########################################## result " + result);
+						webSocketSession.sendMessage(new TextMessage("ul:" + result));
+					}
+					
+				}else {
 //				webSocketSession.sendMessage(new TextMessage("내가접속할때 : " + userInfo.getUserNickName()));
-				for (UserVO responseUser: userList) {
-					result += responseUser.getUserNickName() + ","
-							   + responseUser.getUserEmail() + ","
-							   + responseUser.getUserImgPath() + ";";
+					for (UserVO responseUser: userList) {
+						result += responseUser.getUserNickName() + ","
+								+ responseUser.getUserEmail() + ","
+								+ responseUser.getUserImgPath() + ";";
 //					webSocketSession.sendMessage(new TextMessage(""+userList));
-					System.out.println("11111111111111111111111111111111111111111111 result " + result);
-					webSocketSession.sendMessage(new TextMessage("ul:" + result));
+						System.out.println("11111111111111111111111111111111111111111111 result " + result);
+						webSocketSession.sendMessage(new TextMessage("ul:" + result));
+					}
 				}
+				
 			}
 			
 		}
+		
+		
 
 		// ===================이거 되는거 ======================
 		// for (WebSocketSession webSocketSession : connectedUsers) {

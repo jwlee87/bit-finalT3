@@ -328,21 +328,6 @@ $(document).ready(function(){
 })
 
 $(document).ready(function(){
-	$("input[name=sendMessage]").keydown(function(key){
-		if(key.keyCode == 13) {
-			msgSend();
-			$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
-		}
-	})
-	
-	
-	$("#send").click(function(){
-		msgSend();
-		$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
-	
-	})
-
-
 
 function msgSend() {
 		
@@ -367,14 +352,44 @@ function msgSend() {
 			html += ' <div class="corner"></div>'; 
 			html += '</div>'; 
 			html += '</div>';
-			
+		
 			$("#chat-messages").append(html);
-			webSocket.send(result.sendMsg);
+			webSocket.send("chat:" + result.sendMsg);
 			$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
 			$("#sendMsg").val("");
 		})
 		
 	}
+
+
+
+$("input[name=sendMessage]").keydown(function(key){
+	console.log("에헤이1 : " + $("input[name=sendMessage]").val());
+	if(key.keyCode == 13) {
+		if ($("input[name=sendMessage]").val() == "") {
+			swal("메세지를 입력하세요");
+			return false;
+		}else {
+			msgSend();
+			$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+			
+		} 
+	}
+})
+
+
+$("#send").click(function(){
+	console.log("에헤이2 : " + $("input[name=sendMessage]").val());
+	if ($("input[name=sendMessage]").val() == "") {
+		swal("메세지를 입력하세요");
+		return false;
+	} else {
+		msgSend();
+		$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+	}
+	
+})
+
 
 })
 
