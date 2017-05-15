@@ -164,7 +164,6 @@ $(function(){
 		$("#" + updateNo).find(".toggle-icon").attr("contentEditable", "false")
 		$("#" + updateNo).find(".accordion-titulo").off("click")
 		
-		
 		$.ajax({
 			url : "updateForm.do",
 			data : {"no": updateNo},
@@ -174,7 +173,6 @@ $(function(){
 		})
 		.done(function(result){
 			var content = $("#" + updateNo).find("[name=text" + updateNo + "]").html()
-			
 			$("#" + updateNo).find(".up").css("display", "none")
 			$("#" + updateNo).find("[name=update]").css("display", "none")
 			$("#" + updateNo).find("[name=deleteQuiz]").css("display", "none")
