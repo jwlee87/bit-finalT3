@@ -1,6 +1,6 @@
 
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
+editor.setTheme("ace/theme/eclipse");
 editor.setShowPrintMargin(false);
 editor.session.setMode("ace/mode/java");
 editor.setValue("import java.io.*;\n\nclass Main {\n\n    public static void main(String[] args) {\n        // Your code goes here\n   }\n}\n");

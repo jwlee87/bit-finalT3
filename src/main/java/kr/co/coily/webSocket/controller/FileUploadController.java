@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,12 +48,23 @@ public class FileUploadController {
 		File f = new File(savePath);
 		if (!f.exists()) f.mkdirs();
 		
+	
+//		Enumeration<String> fileNames = mRequest.getFileNames();
+//		while (fileNames.hasMoreElements()) {
+//			System.out.println("=============================");
+//			String fileName = fileNames.nextElement();
+//			System.out.println("파일 파라미터명 : " + fileName);
+//			String oriFileName = mRequest.getOriginalFileName(fileName);
+//			System.out.println("원본 파일명 : " + oriFileName);
+//			String realFileName = mRequest.getFilesystemName(fileName);
+//			System.out.println("서버 파일명 : " + realFileName);
+//		}
 		
-		List<FileItemVO> lFile = new ArrayList<> ();
+		List<FileItemVO> lFile = new ArrayList<>();
 		
 		
-		List<MultipartFile> lRequest = mRequest.getFiles("fileselect");
-		System.out.println(lRequest);
+		List<MultipartFile> lRequest = mRequest.getFiles("fileselect[]");
+		System.out.println("gogogogogogo : " + lRequest);
 		for(MultipartFile file: lRequest) {
 		
 			String oriName = file.getOriginalFilename();

@@ -158,7 +158,7 @@ button.file{
 	<form id="upload" method="POST" enctype="multipart/form-data">
 		<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
 		<div id="filedrag">
-    		<input type="file" id="fileselect" name="fileselect" multiple="multiple" />
+    		<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
     		<label for="fileselect"><span>Choose a file</span></label>
 	    	<p>or drop files here</p>
       		<div id ="messages">
@@ -178,6 +178,7 @@ button.file{
     </div>
 <script>
 $(function(){
+	var files;
 	$.ajax({
 		url: '/bit-finalT3/file/mainFile.do',
 		data: {"mainCode" : editor.getValue()},
@@ -205,9 +206,15 @@ $(function(){
         self.next().toggle(200);
     });
     
+	
     $("#upBtn").on("click", function(){
-    	var form = $('#upload')[0];
-		var formData = new FormData(form);
+//     	var form = $('#upload')[0];
+		var formData = new FormData();
+		
+		for (var i = 0; i < files.length; i++) {
+			formData.append('fileselect[]', files[i]);
+        }
+		
 	    	$.ajax({
 				url: '/bit-finalT3/file/upload.do',
 				data: formData,
@@ -230,7 +237,8 @@ $(function(){
 			})
     })
     
-    
+	
+	
     function $id(id) {
         return document.getElementById(id);
       }
@@ -256,7 +264,7 @@ $(function(){
         FileDragHover(e);
 
         // fetch FileList object
-        var files = e.target.files || e.dataTransfer.files;
+        files = e.target.files || e.dataTransfer.files;
 		
         // process all File objects
         for (var i = 0, f; f = files[i]; i++) {
@@ -303,6 +311,8 @@ $(function(){
         Init();
       }
 
+      
+      
 });
 
 
