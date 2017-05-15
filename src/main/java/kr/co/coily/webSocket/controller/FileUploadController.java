@@ -64,11 +64,11 @@ public class FileUploadController {
 		
 		
 		List<MultipartFile> lRequest = mRequest.getFiles("fileselect[]");
-		System.out.println("gogogogogogo : " + lRequest);
+//		System.out.println("gogogogogogo : " + lRequest);
 		for(MultipartFile file: lRequest) {
 		
 			String oriName = file.getOriginalFilename();
-			System.out.println("오리지널네임" + oriName);
+//			System.out.println("오리지널네임" + oriName);
 	
 			if (oriName != null && !oriName.equals("")) {
 				// 확장자 처리
@@ -82,11 +82,11 @@ public class FileUploadController {
 				
 				// 파일 사이즈
 				long fileSize = file.getSize();
-				System.out.println("파일 사이즈 : " + fileSize);
+//				System.out.println("파일 사이즈 : " + fileSize);
 				
 				// 고유한 파일명 만들기	
 				String systemName = "mlec-" + UUID.randomUUID().toString() + ext;
-				System.out.println("저장할 파일명 : " + systemName);
+//				System.out.println("저장할 파일명 : " + systemName);
 			
 				// 임시저장된 파일을 원하는 경로에 저장
 				file.transferTo(new File(savePath + "/" + systemName));
@@ -126,7 +126,7 @@ public class FileUploadController {
 //	    } else {
 	    String readFilePath = path + fileInfo.getFilePath() + "\\" + fileInfo.getFileSysName();
 //	    }
-	    System.out.println(fileInfo.getFileSysName());
+//	    System.out.println(fileInfo.getFileSysName());
 //	    System.out.println("파일경로 : " + readFilePath);
 
 	    // 버퍼 생성
@@ -206,8 +206,8 @@ public class FileUploadController {
 	@ResponseBody
 	public FileItemVO codeCompile(HttpServletRequest request, String mainCode) throws Exception {
 
-		System.out.println("컨트롤러");
-		System.out.println("메인코드 : " + mainCode);
+//		System.out.println("컨트롤러");
+//		System.out.println("메인코드 : " + mainCode);
 		ServletContext context = request.getServletContext();
 		
 		String path = context.getRealPath("/tree");
@@ -236,7 +236,7 @@ public class FileUploadController {
 			File dest = new File(f, systemName);
 			
 			try (FileWriter fw = new FileWriter(dest);) {
-				System.out.println("code: " + mainCode);
+//				System.out.println("code: " + mainCode);
 				fw.write(mainCode.toString());
 			} catch (Exception e) {
 				e.printStackTrace();
