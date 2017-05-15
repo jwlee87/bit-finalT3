@@ -19,8 +19,8 @@
 <div id="chatbox" style="margin-top:4.1%">
 	<div id="friendslist">
     	<div id="topmenu">
-        	<span class="friends"></span>
-        	<span class="chats"></span>
+        	<span id="friendsTab" class="friends"></span>
+        	<span id="chatTab" class="chats"></span>
         </div>
         <div id="fList">
         <div id="result"></div>

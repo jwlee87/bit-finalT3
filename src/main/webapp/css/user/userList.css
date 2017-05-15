@@ -48,13 +48,14 @@ body {
 }
 #topmenu span{
 	float:left;	
-	width: 96px;
+	width: 145px;
     height: 70px;
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/top-menu.png") -3px -118px no-repeat;
 }
-#topmenu span.friends{margin-bottom:-1px;}
-#topmenu span.chats{background-position:-95px 25px; cursor:pointer;}
-#topmenu span.chats:hover{background-position:-95px -46px; cursor:pointer;}
+#topmenu span.friends{margin-bottom:-1px; border-bottom:3px solid #5d9cec; background-position: 30px -46px;}
+#topmenu span.friends:hover{margin-bottom:-1px; background-position: 30px 25px;}
+#topmenu span.chats{background-position:-77px -47px; cursor:pointer;}
+#topmenu span.chats:hover{background-position:-77px -118px; cursor:pointer;}
 #topmenu span.history{background-position:-190px 24px; cursor:pointer;}
 /* #topmenu span.history:hover{background-position:-190px -47px; cursor:pointer;} */
 .friend{

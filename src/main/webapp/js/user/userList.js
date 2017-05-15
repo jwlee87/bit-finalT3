@@ -50,11 +50,17 @@ $(document).ready(function(){
 			console.log("냠냠");
 			$("#fList").fadeOut();
 			$("#chat").fadeIn();
+			$("#chatTab").css("border-bottom", "3px solid #5d9cec");
+			$("#friendsTab").css("border-bottom", "3px solid rgba(93, 156, 236, 0)");
+			
+			
 		})
 		
 		$(".friends").click(function() {
 			$("#chat").fadeOut();
 			$("#fList").fadeIn();
+			$("#chatTab").css("border-bottom", "3px solid rgba(93, 156, 236, 0)");
+			$("#friendsTab").css("border-bottom", "3px solid #5d9cec");
 		})
 			
 		
