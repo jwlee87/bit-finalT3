@@ -30,7 +30,7 @@
         <div id="chat" style="display: none;">
         <div id="chat-messages"></div>
         <div id="sendmessage">
-        	<input type="text" id="sendMsg" name="sendMessage" value="Send message..."/>
+        	<input type="text" id="sendMsg" name="sendMessage"   placeholder="내용을 입력하세요"/>
             <button id="send"></button>
         </div>
         </div>

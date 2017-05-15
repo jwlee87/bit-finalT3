@@ -10,7 +10,8 @@
 //var userEmail = "";
 
 //var webSocket = new WebSocket('ws://14.32.66.123:9120/bit-finalT3/websocket/userEcho.do');	//학원
-var webSocket = new WebSocket('ws://192.168.0.16:9100/bit-finalT3/websocket/userEcho.do');	//학원
+var webSocket = new WebSocket('wss://coily.com:443/bit-finalT3/websocket/userEcho.do');	//학원
+//var webSocket = new WebSocket('ws://192.168.0.16:9100/bit-finalT3/websocket/userEcho.do');	//학원
 //var webSocket = new WebSocket('ws://localhost:9100/bit-finalT3/websocket/userEcho.do');	//학원
 
 //var webSocket = new WebSocket('ws://14.138.118.25:9120/bit-finalT3/websocket/userEcho.do');	//고시원
@@ -33,13 +34,13 @@ $(document).ready(function(){
 		});
 		
 		$("#sendmessage input").focus(function(){
-			if($(this).val() == "Send message..."){
+			if($(this).val() == "내용을 입력하세요"){
 				$(this).val("");
 			}
 		});
 		$("#sendmessage input").focusout(function(){
 			if($(this).val() == ""){
-				$(this).val("Send message...");
+				$(this).val("내용을 입력하세요");
 				
 			}
 		});
