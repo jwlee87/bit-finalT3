@@ -61,7 +61,7 @@
 			swal({
 				title : "",
 				type: "warning",
-				text : "이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.",
+				text : "이 PC에 로그인 정보를 저장 하시겠습니까? \n\nPC방 등의 공공장소에서는 개인정보가\n유출될 수 있으니 주의해주십시오.",
 				confirmButtonText : "확인",
 				confirmButtonClass: "btn-danger",
 				showCancelButton: true,
@@ -76,6 +76,8 @@
 //			isRemember = confirm("이 pc에 로그인 정보를 저장 하시겠습니까? \n\nPc방 등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.");
 			if(!isConfirm)
 				checkbox.checked = false;
+		} else if(checkbox.checked == false) {
+			$("#userPsw").attr("maxlength", "17");
 		}
 	}
 	
