@@ -1,9 +1,23 @@
 /**
  * 
  */
+	var doubleSubmitFlag = false;
+	function doubleSubmitCheck(){
+		$(".sweet-alert .sa-input-error.show").css("opacity","0");
+		if(doubleSubmitFlag){
+			$(".sweet-alert .sa-input-error.show").css("opacity","0");
+			swal.showInputError("메일 전송중입니다");
+			return doubleSubmitFlag;
+		}else{
+			$(".sweet-alert .sa-input-error.show").css("opacity","0");
+			doubleSubmitFlag = true;
+			return false;
+		}
+	}
+	
+
 
 function goFindPassword(){
-	
 	var email = "";
 	swal({
 		  title: "비밀번호 찾기",
@@ -25,6 +39,10 @@ function goFindPassword(){
 
 
 function findPsw(email) {
+	if(doubleSubmitCheck()) {
+		$(".sweet-alert .sa-input-error.show").css("opacity","0");
+		return;
+	}
 //	alert("뭐지 이게 왜 먼져떠 : " + email);
 	var email = email;
 	$.ajax ({
