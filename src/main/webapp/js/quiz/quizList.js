@@ -52,7 +52,8 @@ $(function(){
 					data : {"quizNo": lastQuizNo,
 					},
 					type : "POST",
-					dataType : "JSON"
+					dataType : "JSON",
+					async : false
 				})
 				.done(function(result){
 					var html = "";
