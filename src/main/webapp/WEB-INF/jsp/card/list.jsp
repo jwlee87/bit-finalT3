@@ -35,7 +35,7 @@
 		<!-- 카드 리스트 -->
 		<div id="appendList"></div>
 		
-	</div>
+		</div>
 
 <script src="${pageContext.request.contextPath}/js/card/card.js"></script>
 	

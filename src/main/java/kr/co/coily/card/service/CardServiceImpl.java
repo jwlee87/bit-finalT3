@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import kr.co.coily.repository.dao.CardDAO;
 import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.CommentVO;
-import kr.co.coily.repository.vo.PageResultVO;
 import kr.co.coily.repository.vo.SearchVO;
 
 @Service
@@ -26,9 +25,16 @@ public class CardServiceImpl implements CardService{
 		System.out.println("카드 서비스 어디까지 오냐");
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("list", dao.selectCard(search));
-		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCardCount(search)));
+//		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCardCount(search)));
 		return result;
 	}
+	
+	//스크롤 다운
+		@Override
+		public List<CardVO> cardScrollDown(CardVO card) throws Exception {
+			return dao.cardScrollDown(card);
+		}
+	
 	
 	/*카드 리스트	====================================================================*/
 	/*==============================================================================*/

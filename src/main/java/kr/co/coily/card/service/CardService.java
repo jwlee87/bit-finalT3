@@ -56,6 +56,8 @@ public interface CardService {
 	
 //	public void selectCardCommentByNo(SearchVO search) throws Exception;
 	
+	//스크롤 다운
+	public List<CardVO> cardScrollDown(CardVO card) throws Exception;
 	/* 댓글 리스트	*/
 	/* ==================================================================*/
 	
@@ -73,6 +75,10 @@ public interface CardService {
 	/* 댓글 삭제	*/
 	/* ==================================================================*/
 	public List<CommentVO> commentDelete(CommentVO comment) throws Exception ;
+
+	
+
+	
 
 	/* 댓글 삭제	*/
 	/* ==================================================================*/

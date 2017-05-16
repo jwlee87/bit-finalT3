@@ -41,9 +41,35 @@
 	     limit #{begin}, 11
 	</select>
 	
-	<select id="selectCardCount" parameterType="searchVO" resultType="int">
+	<!-- <select id="selectCardCount" parameterType="searchVO" resultType="int">
 		select count(*)
 		from tb_card
+	</select> -->
+<!-- 카드 게시판 무한스크롤 다운 -->	
+
+	<select id="cardScrollDown" resultMap="cardMap">
+		<![CDATA[
+		select c.card_no,
+			   c.user_no,
+			   case when instr(c.card_content, "\n") = 0 then c.card_content
+		 			when instr(c.card_content, "\n") = 1 then c.card_content
+         			else left(c.card_content, instr(c.card_content, "\n")) 
+         		end as card_content,
+			   date_format(c.card_reg_date, '%Y-%m-%d %H:%i:%s') as reg_date,
+			   u.user_nick_name,
+			   ui.user_img_path,
+			   (select count(*) as result
+			      from tb_favorite f
+			     where f.card_no = c.card_no
+                   and f.user_no = #{userNo}) as like_chk
+		from tb_card c, tb_user u, tb_user_img ui
+			where c.card_no <= #{cardNo}
+			and c.user_no = u.user_no
+			and u.user_img_no = ui.user_img_no
+			and c.group_header_no = #{groupHeaderNo}
+			order by c.card_no desc
+			limit 0 , 12
+			]]>
 	</select>
 	
 	<select id="selectOneCard" parameterType="int" resultMap="cardMap">

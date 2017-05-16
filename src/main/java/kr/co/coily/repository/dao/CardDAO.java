@@ -16,6 +16,8 @@ public interface CardDAO {
 	
 	public CardVO selectDetailCard(int no) throws Exception;
 	
+	public List<CardVO> cardScrollDown(CardVO card);
+	
 	/* 카드 게시판	*/
 	/* ==================================================================*/
 	
