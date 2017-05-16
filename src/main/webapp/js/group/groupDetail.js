@@ -71,7 +71,13 @@ $(function(){
 					swal("", "그룹 생성자는 구성원에서 삭제할 수 없습니다.", "info");
 					return false;
 				} else {
-					return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : '"' + values[0] + '"님을 삭제하시겠습니까?');
+					return swal({
+						title: "",
+						text: values.length > 1 ? values.length + ' items?' : '"' + values[0] + '"님을 삭제하시겠습니까?',	
+						type: "warning",
+			    		confirmButtonColor: "#DD6B55",
+			    		confirmButtonText: "삭제"
+					});
 				}
 			}
 		});

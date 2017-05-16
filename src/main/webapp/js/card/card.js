@@ -165,10 +165,10 @@
 							html+= '</figure>';
 							
 						}
-						if(result.length == 0) {
-							swal("", "마지막 데이터 입니다.", "info");
-							return false;
-						}
+//						if(result.length == 0) {
+//							swal("", "마지막 데이터 입니다.", "info");
+//							return false;
+//						}
 						$("#appendList").append(html);
 						$(".detailF").colorbox({iframe:true, width:"580px", height:"880px"});
 					})
