@@ -1,18 +1,15 @@
 $(function(){
 
-//	$("#detailNone").css("display", "none")
 	$("#deleteButton").css("display","none");
 	$("#detailNoneButton").css("display","none");
-	// 상세 페이지 로딩시 댓글 목록 조회 ajax 호출
 	
 	/*카드 글 수정*/
-$("#divDetail").click(function () {
+	$("#divDetail").click(function () {
 	
 		if($("#userNo").val() != $("#loginUserNo").val()) {
 			return false;
 		}
 		
-	// 	alert("글수정 입니다")
 		
 		var html = '<textarea name="cardContent" id="detailNone">'+$("#content").val()+'</textarea>';
 		$("#printDetail").html(html);
@@ -23,9 +20,9 @@ $("#divDetail").click(function () {
 		$("#detailNoneButton").click(function() {
 		
 			if($("#detailNone").val() == ""){
-	// 		 	alert("글 내용을 입력하세욧")
 			 	 swal({
-					title:"수정할 내용을 입력하세요",
+					title:"",
+					text:"수정할 내용을 입력하세요",
 					type:"warning"
 				})
 				return false;
@@ -41,7 +38,8 @@ $("#divDetail").click(function () {
 					   },
 			}).done(function(result){
 				swal({
-					title:"카드 수정 완료",
+					title:"수정 완료",
+					text: "카드 내용이 수정되었습니다.",
 					type: "success"
 				},function(){
 					window.open('/bit-finalT3/card/list.do','_parent').parent.close();
@@ -62,9 +60,9 @@ $("#divDetail").click(function () {
 	$("#reg").click(function () {
 		
 		if($(".add-post-textarea").val() == ""){
-			// 		 	alert("글 내용을 입력하세욧")
 		 	 swal({
-				title:"댓글을 입력해주세요",
+				title:"",
+				text:"댓글을 입력하세요",
 				type:"warning"
 			})
 			return false;
@@ -85,7 +83,6 @@ $("#divDetail").click(function () {
 			
 			makeCommentList(result);
 		});
-		// 서브밋 이벤트 중지시킴
 		
 		return false ;
 	});
@@ -108,86 +105,81 @@ $("#divDetail").click(function () {
 	});
 	
 	
-	
-	
 });
 
 
-/* 카드 삭제 */
-
-function deletes(cardNo) {
-	swal({
-		title: "카드를 삭제하시겠습니까?",
-		type: "warning",
-		showCancelButton: true,
-		confirmButtonColor: "#DD6B55",
-		confirmButtonText: "삭제",
-		cancelButtonText: "취소",
-		closeOnConfirm: false
-	},
-	function(){
-		$.ajax ({
-			url: "delete.do",
-			type: "POST",
-			data: {
-				"cardNo": cardNo
-			},	
-			dataType: "json"
-		}).done(function(result){
-			swal({
-				title: "카드 삭제 완료",
-				type: "success"	
-			},
-			function(){
-				window.open('/bit-finalT3/card/list.do','_parent').parent.close();
-			})			
+	/* 카드 삭제 */
+	function deletes(cardNo) {
+		swal({
+			title: "",
+			text:"카드를 삭제하시겠습니까?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "삭제",
+			cancelButtonText: "취소",
+			closeOnConfirm: false
+		},
+		function(){
+			$.ajax ({
+				url: "delete.do",
+				type: "POST",
+				data: {
+					"cardNo": cardNo
+				},	
+				dataType: "json"
+			}).done(function(result){
+				swal({
+					title: "삭제 완료",
+					text: "카드가 삭제되었습니다.",
+					type: "success"	
+				},
+				function(){
+					window.open('/bit-finalT3/card/list.do','_parent').parent.close();
+				})			
+			});
 		});
-	});
-};
+	};
 	
-// 댓글 목록 만드는 공통 함수
-function makeCommentList(result) {
-
-	var html = "";
-	  
-	for (var i = 0; i < result.length; i++) {
+	// 댓글 목록 만드는 공통 함수
+	function makeCommentList(result) {
+	
+		var html = "";
+		  
+		for (var i = 0; i < result.length; i++) {
+			
+			var comment = result[i];
+			
+			var date = new Date(comment.cardCommentRegDate);
+			var time = date.getFullYear() + "-" 
+			         + (date.getMonth() + 1) + "-" 
+			         + date.getDate() + " "
+			         + date.getHours() + ":"
+			         + date.getMinutes() + ":"
+			         + date.getSeconds();
+			
+			// 오류 : 현재 위의 날짜를 수정하게 되면 리스트 자체가 뜨질 않는다.
+			html += '<img style="width:55px; float:left; margin-right:5px; "  class="uImg" src="'+comment.userImgPath+'" />';
+			html += '<div class="post-content" id="postList' + comment.cardCommentNo + '">';
+			html += '<a class="post-author-username"';
+			html += '   href="">' + comment.userNickName + '</a>';
+			
+			html += '';
+			html += '    <div class="post-body"><pre>' + comment.cardCommentContent + '</pre></div>';
+			html += '';
+			html += '	<ol class="post-actions">';
+			html += '   		<li style="margin-left:11px;"><a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ', ' + comment.userNo + ')">수정</a></li>';
+			html += '   		<li><a href="javascript:commentDelete(' + comment.cardCommentNo + ', ' + comment.userNo + ')">삭제</a></li>';
+			html += '<span class="post-timedelta">'+comment.regDate+'</span>';
+			html += '   		<div class="clearfix"></div>';
+			html += '    	</ol>';
+			html += '	</div>';
+			html += '</li>';
+			
+		}
 		
-		var comment = result[i];
-		
-		var date = new Date(comment.cardCommentRegDate);
-		var time = date.getFullYear() + "-" 
-		         + (date.getMonth() + 1) + "-" 
-		         + date.getDate() + " "
-		         + date.getHours() + ":"
-		         + date.getMinutes() + ":"
-		         + date.getSeconds();
-		
-		// 오류 : 현재 위의 날짜를 수정하게 되면 리스트 자체가 뜨질 않는다.
-		
-		html += '<img style="width:55px; float:left; margin-right:5px; "  class="uImg" src="'+comment.userImgPath+'" />';
-		html += '<div class="post-content" id="postList' + comment.cardCommentNo + '">';
-		html += '<a class="post-author-username"';
-		html += '   href="">' + comment.userNickName + '</a>';
-		
-		html += '';
-		html += '    <div class="post-body"><pre>' + comment.cardCommentContent + '</pre></div>';
-		html += '';
-		html += '	<ol class="post-actions">';
-		html += '   		<li style="margin-left:11px;"><a href="javascript:commentUpdateForm(' + comment.cardCommentNo + ', ' + comment.userNo + ')">수정</a></li>';
-		html += '   		<li><a href="javascript:commentDelete(' + comment.cardCommentNo + ', ' + comment.userNo + ')">삭제</a></li>';
-//		html += '   		<li>'+time+'</li>';
-		html += '<span class="post-timedelta">'+comment.regDate+'</span>';
-		html += '   		<div class="clearfix"></div>';
-		html += '    	</ol>';
-		html += '	</div>';
-		html += '</li>';
-		
+		$("#commentList").html(html);
 	}
-	if (result.length == 0) {
-		html += '댓글이 존재하지 않습니다.';
-	}
-	$("#commentList").html(html);
-}
 	
 	// 댓글 목록 조회
 	function commentList() {
@@ -199,11 +191,10 @@ function makeCommentList(result) {
 		.done(makeCommentList);
 	}
 
-/*댓글 수정폼*/
-	
+	/*댓글 수정폼*/
 	function commentUpdateForm(cardCommentNo, commentUserNo) {
 		if(commentUserNo != $("#loginUserNo").val()){
-			alert("자신의 카드만 수정 가능합니다.")
+			swal("", "자신의 카드만 수정 가능합니다.", "info");
 			return false;
 		}
 	
@@ -262,8 +253,6 @@ function makeCommentList(result) {
 	/*댓글 수정 하는중*/
 	
 	function commentUpdate(cardCommentNo) {
-//		alert("dd")
-//		alert($("#updateArea" + cardCommentNo).val())
 		$.ajax({
 			url: "commentUpdate.do",
 			type: "POST",
@@ -285,14 +274,12 @@ function makeCommentList(result) {
 		$("#modPost" + cardCommentNo).remove();
 	}
 	
-/*댓글 수정폼*/
 	
 	
-/*댓글 삭제*/	
+	/*댓글 삭제*/	
 	function commentDelete(cardCommentNo, commentUserNo) {
 		if(commentUserNo != $("#loginUserNo").val()){
-				//		     	commentUserNo
-			alert("자신의 댓글만 삭제 가능합니다.")
+			swal("", "자신의 댓글만 삭제 가능합니다.", "info");
 			return false;
 		}
 		
@@ -307,4 +294,3 @@ function makeCommentList(result) {
 		.done(makeCommentList);	
 	}
 
-/*댓글 삭제*/	

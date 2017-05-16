@@ -1,6 +1,7 @@
 package kr.co.coily.favorite.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public class FavoriteServiceImpl implements FavoriteService {
 	public CardVO sendFCard(SearchVO search) {
 		CardVO card = dao.sendFCard(search);
 		return card;
+	}
+	
+	// 보관함 스크롤 이벤트 페이징
+	public List<FavoriteVO> retreiveScroll(FavoriteVO favorite) {
+		return dao.retrieveScroll(favorite);
 	}
 
 }

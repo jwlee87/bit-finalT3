@@ -1,5 +1,6 @@
 package kr.co.coily.favorite.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
@@ -44,7 +45,7 @@ public class FavoriteContorller  {
 		
 		service.insertFavorite(favorite);
 		return "";
-	}
+	};
 	
 	// 삭제
 	@RequestMapping("/favoriteDelete.do")
@@ -52,7 +53,7 @@ public class FavoriteContorller  {
 	public String deleteFavorite(int cardNo) throws Exception {
 		service.deleteFavorite(cardNo);
 		return "";
-	}
+	};
 	
 	// 리스트 조회
 	@RequestMapping("/favoriteList.do")
@@ -65,7 +66,21 @@ public class FavoriteContorller  {
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("pageResult", map.get("pageResult"));
 		return "favorite/favoriteList";
-	}
+	};
+	
+	// 스크롤 이벤트
+	@ResponseBody
+	@RequestMapping("/favoriteScroll.do")
+	public List<FavoriteVO> retrieveScroll(int favoriteNo, HttpSession session) throws Exception{
+		UserVO user = (UserVO)session.getAttribute("user");
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
+		FavoriteVO favorite = new FavoriteVO();
+		favorite.setUserNo(user.getUserNo());
+		favorite.setFavoriteNo(favoriteNo - 1);
+		favorite.setGroupHeaderNo(group.getGroupHeaderNo());
+		return service.retreiveScroll(favorite);
+	};
+	
 	
 	// 보관함 카드 메일 공유
 	@ResponseBody

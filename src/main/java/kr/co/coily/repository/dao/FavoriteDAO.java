@@ -36,6 +36,11 @@ public class FavoriteDAO {
 		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.FavoriteDAO.selectFCnt", search);
 	}
 	
+	// 보관함 스크롤 이벤트 페이징
+	public List<FavoriteVO> retrieveScroll(FavoriteVO favorite) {
+		return sqlSessionTemplate.selectList("kr.co.coily.repository.dao.FavoriteDAO.scrollFCard", favorite);
+	}
+	
 	// 보관함 카드 메일 공유
 	public CardVO sendFCard(SearchVO search) {
 		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.CardDAO.selectDetailCard", search);

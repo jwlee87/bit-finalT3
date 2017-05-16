@@ -28,7 +28,8 @@ $(document).ready(function(){
 			$(".iframe").colorbox({iframe:true, width:"580px", height:"340px"});
 			
 			swal({
-				title: "그룹 등록 완료",
+				title: "등록 완료",
+				text:"새로운 그룹이 등록되었습니다.",
 				type: "success"
 			}, function () {
 				location.href = "groupList.do"

@@ -29,24 +29,24 @@ public class CardContorller {
 	/*==============================================================================*/
 	
 	// 리스트 조회 url 호출(페이지 이동)
-		@RequestMapping("/list.do")
-		public void locationList() throws Exception{
-			System.out.println("123123123");
+	@RequestMapping("/list.do")
+	public void locationList() throws Exception{
+		System.out.println("123123123");
 //			return "card/list";
 		}
 		
-		// 리스트 조회 ajax 호출
-		@ResponseBody
-		@RequestMapping("/cardList.do")
-		public Map<String, Object> list(SearchVO search, HttpSession session) throws Exception{
-			System.out.println("cardList 들어와야돼 ㅠㅠㅠㅠㅠㅠ제발  ㅠㅠㅠㅠㅠ");
-			UserVO user = (UserVO)session.getAttribute("user");
-			GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
-			search.setUserNo(user.getUserNo());
-			search.setGroupHeaderNo(group.getGroupHeaderNo());
-			Map<String, Object> result = Service.list(search);
-			return result;
-		}
+	// 리스트 조회 ajax 호출
+	@ResponseBody
+	@RequestMapping("/cardList.do")
+	public Map<String, Object> list(SearchVO search, HttpSession session) throws Exception{
+		System.out.println("cardList 들어와야돼 ㅠㅠㅠㅠㅠㅠ제발  ㅠㅠㅠㅠㅠ");
+		UserVO user = (UserVO)session.getAttribute("user");
+		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
+		search.setUserNo(user.getUserNo());
+		search.setGroupHeaderNo(group.getGroupHeaderNo());
+		Map<String, Object> result = Service.list(search);
+		return result;
+	}
 		
 	//스크롤 다운
 	@RequestMapping("/cardScrollDown.do")
@@ -54,8 +54,10 @@ public class CardContorller {
 	public List<CardVO> scrollDown(String cardNo, HttpSession session) throws Exception{
 		int cardN = Integer.parseInt(cardNo);
 //		System.out.print("cardN..........................."  + cardN);
+		UserVO user = (UserVO)session.getAttribute("user");
 		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
 		CardVO card = new CardVO();
+		card.setUserNo(user.getUserNo());
 		card.setCardNo(cardN-1);
 		card.setGroupHeaderNo(group.getGroupHeaderNo());
 		return Service.cardScrollDown(card);

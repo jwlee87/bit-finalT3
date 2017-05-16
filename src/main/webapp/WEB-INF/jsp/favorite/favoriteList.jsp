@@ -41,10 +41,11 @@
 		  		</div>
 		  		<div class="profile-image">
 		    		<img src="${card.userImgPath}" />
+		    		<input type="hidden" value="${card.favoriteNo}"/>
 		  		</div>
 		  		<figcaption>
 		    		<h5><c:out value="${card.userNickName}"/></h5>
-		    		<h3><a class="detailF" href="../card/detail.do?cardNo=${card.cardNo}"><c:out value="${card.cardContent}"/></a></h3>
+		    		<h3 title="${card.cardContent}"><a class="detailF" href="../card/detail.do?cardNo=${card.cardNo}"><c:out value="${card.cardContent}"/></a></h3>
 		    		<h6 style="float: right; font-weight: bold; color: #4a90be; ">from.<c:out value="${card.groupHeaderName}"/></h6>
 		  		</figcaption>
 			</figure>

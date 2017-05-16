@@ -68,7 +68,7 @@ $(function(){
 			onDelete: function(values) {
 				
 				if($('#input-tags').val() != ""  && $('#input-tags').val().indexOf(",") == -1) {
-					alert('그룹 생성자는 구성원에서 삭제 할 수 없습니다.');
+					swal("", "그룹 생성자는 구성원에서 삭제할 수 없습니다.", "info");
 					return false;
 				} else {
 					return confirm(values.length > 1 ? 'Are you sure you want to remove these ' + values.length + ' items?' : '"' + values[0] + '"님을 삭제하시겠습니까?');
@@ -80,7 +80,7 @@ $(function(){
 		$(".selectize-input>div:eq(0)>a").remove();
 		$(".selectize-input>div:eq(0)").removeAttr("data-value");
 		
-		console.log("으하하하하하ㅏ핳 : " + $(".selectize-input>div:eq(0)").text());
+//		console.log("으하하하하하ㅏ핳 : " + $(".selectize-input>div:eq(0)").text());
 		if ($(".selectize-input>div:eq(0)").text() == result.loginUser.userNickName) {
 			$("#y").css("display", "block");
 		} else {
@@ -96,7 +96,7 @@ $(function(){
 //		var arrUser = new Array();
 		
 		
-		var len = $(".selectize-input #userNick").length
+		var len = $(".selectize-input #userNick").length;
 //	    alert($(".selectize-input > div:eq(0)").text())
 		userData[0] = $(".selectize-input > div:eq(0)").text();
 	    for(var i = 1; i < len; i++) {
@@ -160,7 +160,8 @@ $(function(){
 	/** 그룹 삭제 **/
 	function deleteGrp(groupHeaderNo) {
 		swal({
-			title: "그룹을 삭제하시겠습니까?",
+			title: "",
+			text: "그룹을 삭제하시겠습니까?",
 			type: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#DD6B55",
@@ -178,7 +179,8 @@ $(function(){
 				dataType: "json"
 			}).done(function(result){
 				swal({
-					title: "그룹 삭제 완료",
+					title: "삭제 완료",
+					text: "그룹이 삭제되었습니다.",
 					type: "success"	
 				},
 				function(){

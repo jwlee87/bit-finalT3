@@ -26,6 +26,9 @@
 		   	#{cardNo},
 		   	#{groupHeaderNo}
 		   )
+<!-- 		   <selectKey keyProperty="favoriteNo" order="AFTER" resultType="int"> -->
+<!-- 		   		select last_insert_id() -->
+<!-- 		   </selectKey> -->
 	</insert>
 	
 	<!-- 보관함 삭제 -->
@@ -75,6 +78,31 @@
 		       and c.user_no = u.user_no
 		       and u.user_img_no = ui.user_img_no
 		         ) c
+	</select>
+	
+	<!-- 스크롤 이벤트 페이징 -->
+	<select id="scrollFCard" resultMap="favoriteMap">
+		<![CDATA[
+		select c.card_no,
+			   c.user_no,
+			   case when instr(c.card_content, "\n") = 0 then c.card_content
+		 			when instr(c.card_content, "\n") = 1 then c.card_content
+         			else left(c.card_content, instr(c.card_content, "\n")) 
+         		end as card_content,
+			   u.user_nick_name,
+			   ui.user_img_path,
+			   f.favorite_no,
+			   g.group_header_name
+		  from tb_card c, tb_user u, tb_user_img ui, tb_favorite f, tb_group_header g
+		 where c.card_no = f.card_no
+		   and c.user_no = u.user_no
+		   and u.user_img_no = ui.user_img_no
+		   and f.user_no = #{userNo} 
+		   and g.group_header_no = c.group_header_no
+		   and f.favorite_no <= #{favoriteNo}
+	  order by f.favorite_no desc
+	     limit 0, 12
+		]]>
 	</select>
 	
 </mapper>

@@ -62,13 +62,13 @@
 			      from tb_favorite f
 			     where f.card_no = c.card_no
                    and f.user_no = #{userNo}) as like_chk
-		from tb_card c, tb_user u, tb_user_img ui
-			where c.card_no <= #{cardNo}
-			and c.user_no = u.user_no
-			and u.user_img_no = ui.user_img_no
-			and c.group_header_no = #{groupHeaderNo}
-			order by c.card_no desc
-			limit 0 , 12
+		 from tb_card c, tb_user u, tb_user_img ui
+	    where c.card_no <= #{cardNo}
+		  and c.user_no = u.user_no
+		  and u.user_img_no = ui.user_img_no
+		  and c.group_header_no = #{groupHeaderNo}
+	 order by c.card_no desc
+		limit 0 , 12
 			]]>
 	</select>
 	
