@@ -143,7 +143,7 @@ button.file{
     position:absolute;
     top: 40%;
     width: 20%;
-    bottom: 5.5%;
+    bottom: 10.3%;
     margin: 0.4%;
    	left: 2%;
     border: 1px solid black;
