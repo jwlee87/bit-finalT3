@@ -86,10 +86,6 @@
 		
 		var html = $("#appendList").html();
 		
-		if (result.list.length == 0) {
-			html += '<h3>카드를 등록해보세요!</h3>';
-		}
-		
 		for (var i = 0; i < result.list.length; i++) {
 			html += '<figure class="cardList">';
 				
