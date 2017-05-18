@@ -118,6 +118,13 @@ $("#btn").on("click", function () {
 //		jf.email.focus();
 //		return false;
 //	}
+	
+	if (jf.email.value == "") {
+		swal("메일을 입력하세요", "", "warning");
+		jf.email.focus();
+		return false;
+	}
+	
 
 	if($("#reNickName").val() != null) {
 		swal("사용 불가능한 별명입니다", "", "warning");

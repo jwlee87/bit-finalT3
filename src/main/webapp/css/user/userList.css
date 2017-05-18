@@ -50,12 +50,56 @@ body {
 	float:left;	
 	width: 145px;
     height: 70px;
-    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/top-menu.png") -3px -118px no-repeat;
+/*     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/top-menu.png") -3px -118px no-repeat; */
 }
-#topmenu span.friends{margin-bottom:-1px; border-bottom:3px solid #5d9cec; background-position: 30px -46px;}
-#topmenu span.friends:hover{margin-bottom:-1px; background-position: 30px 25px;}
-#topmenu span.chats{background-position:-77px -47px; cursor:pointer;}
-#topmenu span.chats:hover{background-position:-77px -118px; cursor:pointer;}
+
+#friendPic {
+	width: 22%;
+    height: 40%;
+}
+
+#chatPic {
+	width: 22%;
+	height: 40%;
+}
+
+
+
+#topmenu span.friends{
+/* 		display: block; */
+/* 		background:url("../../img/userImg/userOff.png")!important; */
+/* 		background-repeat: no-repeat; */
+		cursor: pointer;
+		text-align: center;
+		margin-bottom:-1px; 
+		border-bottom:3px solid #5d9cec; 
+/* 		background-position: 30px -46px; */
+		}
+
+/* #topmenu span.friends:hover{margin-bottom:-1px; background-position: 30px 25px; } */
+
+/* #friendsTab:hover{ */
+/* 		border-bottom:3px solid #5d9cec; */
+/* 		cursor: pointer;  */
+/* 		} */
+
+#topmenu span.chats{
+/* 	background-position:-77px -47px; */
+	 	cursor:pointer;
+	 	text-align: center;
+	 }
+
+#topmenu span.chats:hover{
+		cursor:pointer;
+		background: url("/bit-finalT3/img/userImg/chatOn.png");
+/* 		background-repeat:no-repeat; */
+    	text-align: center;
+/*     	width: 22%; */
+/* 		height: 40%; */
+/*     	display:block; */
+    	border-bottom:3px solid #5d9cec; 
+		}
+
 #topmenu span.history{background-position:-190px 24px; cursor:pointer;}
 /* #topmenu span.history:hover{background-position:-190px -47px; cursor:pointer;} */
 .friend{

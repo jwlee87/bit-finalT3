@@ -3,6 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	#sendmessage {
+    height: 45px;
+    border-top: 1px solid #e7ebee;
+/*     position: absolute; */
+    position: relative;
+    margin-right: 32.5%;
+    width: 100%;
+    bottom: 0;
+    right: 0px;
+    background: #fff;
+    padding-bottm: 50px;
+}
+
+</style>
 <meta charset="UTF-8">
 <title>Insert title</title>
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
@@ -20,10 +35,16 @@
     <div class="col-md-12 col-sm-10 codeSide">
       <div class="row">
         <div class="col-md-12 col-sm-12">
+        <div id="comSaveBtnDiv">
+        	<div id="comSaveBtnFont">codeEdit</div>
+				<img id="compile" src="${pageContext.request.contextPath}/img/editor/play1.png">
+				<img id="save" src="${pageContext.request.contextPath}/img/editor/save1.png">
+				
+<!-- 	        <input type="button" id="compile" class="btn btn-sky text-uppercase btn-sm" value="Compile"> -->
+<!-- 	        <input type="button" id="save" class="btn btn-sky text-uppercase btn-sm" value="Save"> -->
+	    </div>
           <div class="compile-code"> 
 	        <pre name="code" id="editor" style="border: none;"></pre>
-	        <input type="button" id="compile" class="btn btn-sky text-uppercase btn-sm" value="Compile">
-	        <input type="button" id="save" class="btn btn-sky text-uppercase btn-sm" value="Save">
           </div>
         </div>
       </div>
@@ -32,10 +53,23 @@
   </div>
   <!-- /.row -->
 	<div class="notepad">
+		<div id="consoleWindow" >
 		<h1>Console</h1>
 		<textarea id="result" readonly></textarea>
+		</div>
+	
+		<div id="chatWindow" >
+		<h1>Chat</h1>
+<!-- 		<textarea id="chatMsg" readonly></textarea> -->
+		<jsp:include page="/WEB-INF/jsp/user/codeChat.jsp" flush="false"></jsp:include>
+<!-- 		<div id="sendmessage"> -->
+<!--         	<input type="text" id="sendChatMsg" name="sendCodeMessage"   placeholder="내용을 입력하세요"/> -->
+<!--             <button id="codeMsgsend"></button> -->
+<!--         </div> -->
+		</div>
 	</div> 
 </div>
+<%-- <script src="${pageContext.request.contextPath}/js/user/codeChat.js"></script> --%>
 <script src="${pageContext.request.contextPath}/js/code/codeEditor.js"></script>
 </body>
 </html>

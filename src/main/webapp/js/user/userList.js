@@ -50,8 +50,16 @@ $(document).ready(function(){
 			console.log("냠냠");
 			$("#fList").fadeOut();
 			$("#chat").fadeIn();
+			
+			$("#chatPic").attr("src", "/bit-finalT3/img/userImg/chatOn.png");
 			$("#chatTab").css("border-bottom", "3px solid #5d9cec");
+//			$("#chatTab").css("background-position", "-77px -118px");
+			
+//			$("#friendsTab").css("background", 'url("../../img/userImg/userOff.PNG")');
+			
+			$("#friendPic").attr("src", "/bit-finalT3/img/userImg/usersOff.png");
 			$("#friendsTab").css("border-bottom", "3px solid rgba(93, 156, 236, 0)");
+			
 			
 			
 		})
@@ -59,8 +67,11 @@ $(document).ready(function(){
 		$(".friends").click(function() {
 			$("#chat").fadeOut();
 			$("#fList").fadeIn();
-			$("#chatTab").css("border-bottom", "3px solid rgba(93, 156, 236, 0)");
+//			$("#chatTab").css("background-position", "-77px -47px");
+			$("#friendPic").attr("src", "/bit-finalT3/img/userImg/users.png");
 			$("#friendsTab").css("border-bottom", "3px solid #5d9cec");
+			$("#chatPic").attr("src", "/bit-finalT3/img/userImg/chatOff.png");
+			$("#chatTab").css("border-bottom", "3px solid rgba(93, 156, 236, 0)");
 		})
 			
 		
@@ -199,8 +210,29 @@ $(document).ready(function(){
 					sendMessage += '</div>'; 
 					$("#chat-messages").append(sendMessage);
 					$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
-				} 
+//				} else if (event.data.startsWith("codeChat:")) {
+//					var chatArr = event.data.split(":");
+//					console.log("챗챗챗챗챗챗 : " + chatArr[0])
+//					console.log("챗챗챗챗챗챗 : " + chatArr[1])
+//					var sendMsg = chatArr[1].split(","); 
+//					console.log("챗챗챗챗챗챗 0: " + sendMsg[0])
+//					console.log("챗챗챗챗챗챗 1: " + sendMsg[1])
+////					sendMessage += '<div class="message">'; 
+////					sendMessage += '<span style="float: left; margin-left: -35px;">' + sendMsg[0] + '</span>'; 
+////					sendMessage += '<img style="width: 33px; margin-top: 17px; border-radius: 50px;" src="' + sendMsg[1] + '"/>'; 
+////					sendMessage += '<div class="bubble">'; 
+////					sendMessage +=sendMsg[2]; 
+////					sendMessage += '<div class="corner"></div>'; 
+////					sendMessage += '</div>'; 
+////					sendMessage += '</div>'; 
+//					sendMessage += ''
+//					
+//					$("#chatMsg").append(sendMessage);
+//					$("#chatMsg").scrollTop($('#chatMsg').prop('scrollHeight'));
+//					
+//				}
 			}
+		}
 //			for(var i = 0; i < arrUser.length; i++) {
 //
 //				var arrInfo = arrUser[i].split(",");
@@ -398,19 +430,83 @@ $("#send").click(function(){
 })
 
 
+
+
 })
 
 
-
-		
-		
-
-//function userListImg(userInfo){
-//	var userImgPath = userInfo.user.userImgPath; 
-//	var userEmail = userInfo.user.userEmail;
-//	console.log($("#userImgPath").val());
-//	$("#userImgPath").attr("src", userImgPath);
-//	$("#userEmail").html(userEmail);
+//
+//
+//function codeMsgSend() {
 //	
+//	console.log("온다온다");
+//	var html = "";
+//	$.ajax({
+//		url : "/bit-finalT3/user/userChat.do",
+//		dataType : "json",
+//		type : "POST",
+//		data : {sendMsg : $("#sendChatMsg").val()}
+//	}).done(function(result){
+//		
+//		console.log("메세지 내용 : " + result.sendMsg);
+//		console.log("유저 닉네임 : " + result.user.userNickName);
+//		console.log("이미지경로 : " + result.user.userImgPath);
+//		
+////			html += '<div class="message right">';
+////			html += '<span style="float: right; margin-right: -40px;">' + result.user.userNickName+ '</span>';
+////			html += '<img style="width: 33px; margin-top: 17px; border-radius: 50px;" src="' + result.user.userImgPath + '"/>';
+////			html += '<div class="bubble">';
+//		html += '<br>';
+//		html += result.user.userNickName+":"+result.sendMsg;
+//		html += '<br>';
+//// 			html += ' <div class="corner"></div>'; 
+////			html += '</div>'; 
+////			html += '</div>';
+//		
+//		$("#chatMsg").append(html);
+//		webSocket.send("codeChat:" + result.sendMsg);
+//		$("chatMsg").scrollTop($('#chatMsg').prop('scrollHeight'));
+//		$("#sendChatMsg").val("");
+//	})
 //}
-		
+//
+//$("input[name=sendCodeMessage]").keydown(function(key){
+//	console.log("에헤이1 : " + $("input[name=sendCodeMessage]").val());
+//	if(key.keyCode == 13) {
+//		if ($("input[name=sendCodeMessage]").val() == "") {
+//			swal("메세지를 입력하세요");
+//			return false;
+//		}else {
+//			codeMsgSend();
+//			$("#chatMsg").scrollTop($('#chatMsg').prop('scrollHeight'));
+//			
+//		} 
+//	}
+//})
+//
+//
+//$("#codeMsgsend").click(function(){
+//	
+//	console.log("에헤이2 : " + $("input[name=sendCodeMessage]").val());
+//	if ($("input[name=sendCodeMessage]").val() == "") {
+//		swal("메세지를 입력하세요");
+//		return false;
+//	} else {
+//		codeMsgSend();
+//		$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
+//	}
+//})
+//
+//
+//		
+//		
+//
+////function userListImg(userInfo){
+////	var userImgPath = userInfo.user.userImgPath; 
+////	var userEmail = userInfo.user.userEmail;
+////	console.log($("#userImgPath").val());
+////	$("#userImgPath").attr("src", userImgPath);
+////	$("#userEmail").html(userEmail);
+////	
+////}
+//		

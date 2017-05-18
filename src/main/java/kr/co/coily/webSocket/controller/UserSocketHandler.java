@@ -303,7 +303,52 @@ public class UserSocketHandler extends TextWebSocketHandler {
 				// }
 			}
 			
-		} else {
+		} else if (message.getPayload().startsWith("zcodeChat:")) {
+			String[] codeChatMsg = message.getPayload().split(":");
+			System.out.println("codeChatMsg : " + codeChatMsg[0]);
+			System.out.println("codeChatMsg : " + codeChatMsg[1]);
+			for (WebSocketSession socketSession : connectedUsers) {
+				//남일 경우
+				if (!socketSession.getId().equals(session.getId())) {
+					System.out.println("요요요요요요요 : " + socketSession.getId());
+					System.out.println("기기기기기기기: " + session.getId());
+					String chatMsg = "";
+					chatMsg += userInfo.getUserNickName()+ "," + codeChatMsg[1];
+					socketSession.sendMessage(new TextMessage("zcodeChat:" + chatMsg));
+				}
+			}
+
+		} else if (message.getPayload().startsWith("t:")) {
+			 for(WebSocketSession webSocketSession : connectedUsers) {
+		            System.out.println(webSocketSession);
+		            if(!session.getId().equals(webSocketSession.getId())) {
+		                webSocketSession.sendMessage(new TextMessage(message.getPayload()));
+		            }
+		        }
+			
+		} else if (message.getPayload().startsWith("f:")) {
+			 for(WebSocketSession webSocketSession : connectedUsers) {
+		            System.out.println(webSocketSession);
+		            if(!session.getId().equals(webSocketSession.getId())) {
+		                webSocketSession.sendMessage(new TextMessage(message.getPayload()));
+		            }
+		        }
+			
+		} else if (message.getPayload().startsWith("e:")) {
+			 for(WebSocketSession webSocketSession : connectedUsers) {
+		            System.out.println(webSocketSession);
+		            if(!session.getId().equals(webSocketSession.getId())) {
+		                webSocketSession.sendMessage(new TextMessage(message.getPayload()));
+		            }
+		        }
+		} else if (message.getPayload().startsWith("c:")) {
+			for(WebSocketSession webSocketSession : connectedUsers) {
+	            System.out.println(webSocketSession);
+	            if(!session.getId().equals(webSocketSession.getId())) {
+	                webSocketSession.sendMessage(new TextMessage(message.getPayload()));
+	            }
+	        }
+		}else {
 			//===========가장 최근에 수정한거=========================
 			for (WebSocketSession webSocketSession : connectedUsers) {
 				String result = "";
