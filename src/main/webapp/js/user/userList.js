@@ -192,7 +192,7 @@ $(document).ready(function(){
 					}
 					$("#result").html(html);
 					
-				} else if (event.data.startsWith("chat")) {
+				} else if (event.data.startsWith("uchat")) {
 					var chatArr = event.data.split(":");
 					console.log("챗챗챗챗챗챗 : " + chatArr[0])
 					console.log("챗챗챗챗챗챗 : " + chatArr[1])
@@ -393,7 +393,7 @@ function msgSend() {
 			html += '</div>';
 		
 			$("#chat-messages").append(html);
-			webSocket.send("chat:" + result.sendMsg);
+			webSocket.send("uchat:" + result.sendMsg);
 			$("#chat-messages").scrollTop($('#chat-messages').prop('scrollHeight'));
 			$("#sendMsg").val("");
 		})

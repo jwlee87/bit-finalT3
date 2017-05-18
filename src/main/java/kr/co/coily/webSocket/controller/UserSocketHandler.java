@@ -281,7 +281,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 		
 		//채팅
 		String msg = "";
-		if (message.getPayload().startsWith("chat:")) {
+		if (message.getPayload().startsWith("uchat")) {
 			String[] payloadMsg = message.getPayload().split(":");
 			
 			for (WebSocketSession socketSession : connectedUsers) {
@@ -291,7 +291,7 @@ public class UserSocketHandler extends TextWebSocketHandler {
 					System.out.println("이새킹 : " + session.getId());
 					String chatMsg = "";
 					chatMsg += userInfo.getUserNickName() + "," + userInfo.getUserImgPath() + "," + payloadMsg[1];
-					socketSession.sendMessage(new TextMessage("chat:" + chatMsg));
+					socketSession.sendMessage(new TextMessage("uchat:" + chatMsg));
 				}
 				// }else {
 				// System.out.println("이쪽에는 오도안하나??");
