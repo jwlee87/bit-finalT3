@@ -5,13 +5,13 @@
     margin-top: 5px;
     font-size: 14px;
 }
-
+ 
 /*Compile Button CSS*/
 
 .btn{
     margin: 4px;
     box-shadow: 1px 1px 5px #888888;
-/*     width: 49%; Ãß°¡ÇÑ°Å  */
+/*     width: 49%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 }
 
 .btn-sky {
@@ -70,7 +70,7 @@
 input#compile {
     margin-top: 5px;
 /*     float: right; */
-    margin-left: 84%; /* Ãß°¡ÇÑ°Å */
+    margin-left: 84%; /* ï¿½ß°ï¿½ï¿½Ñ°ï¿½ */
 }
 
 
@@ -128,7 +128,7 @@ button.btn.dropdown-toggle.btn-default {
 /* 		text-shadow: 0 1px 1px rgba(0,0,0,.2); */
 /* 		margin: 0; */
 /* 		position: relative; */
-/*  		width: 45%; Ãß°¡ÇÑ°Å  */
+/*  		width: 45%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 /* 	} */
 	
 	.notepad h1:after {
@@ -162,7 +162,7 @@ button.btn.dropdown-toggle.btn-default {
 /* 		background-image: linear-gradient(0deg, transparent, transparent 24px, #f0c9ca 24px, #f0c9ca 25px, transparent 25px, transparent 27px, #f0c9ca 27px, #f0c9ca 28px, transparent 28px), linear-gradient(#fff, #fff 17px, #e3ebf3 17px, #e3ebf3 18px); */
 		background-size: 36px 18px, 36px 18px;
 		background-repeat: repeat-y, repeat;
-/* 		width: 45%; Ãß°¡ÇÑ°Å  */
+/* 		width: 45%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 	}
 	
 
@@ -177,7 +177,7 @@ button.btn.dropdown-toggle.btn-default {
 		width: 100%;
 		box-sizing: border-box;
 		border-radius: 0 0 5px 5px;
-/* 		border-color: rgba(0,0,0,.7); */  /*¹Ù²Û°Å  */
+/* 		border-color: rgba(0,0,0,.7); */  /*ï¿½Ù²Û°ï¿½  */
 		border-top: 0;
 		resize: vertical;
 		min-height: 196px;
@@ -187,7 +187,7 @@ button.btn.dropdown-toggle.btn-default {
 /* 		background-image: linear-gradient(0deg, transparent, transparent 24px, #f0c9ca 24px, #f0c9ca 25px, transparent 25px, transparent 27px, #f0c9ca 27px, #f0c9ca 28px, transparent 28px), linear-gradient(#fff, #fff 17px, #e3ebf3 17px, #e3ebf3 18px); */
 		background-size: 36px 18px, 36px 18px;
 		background-repeat: repeat-y, repeat;
-/* 		width: 45%; Ãß°¡ÇÑ°Å  */
+/* 		width: 45%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 	}
 	
 	
@@ -200,7 +200,7 @@ button.btn.dropdown-toggle.btn-default {
 		width: 100%;
 		box-sizing: border-box;
 		border-radius: 0 0 5px 5px;
-/* 		border-color: rgba(0,0,0,.7); */  /*¹Ù²Û°Å  */
+/* 		border-color: rgba(0,0,0,.7); */  /*ï¿½Ù²Û°ï¿½  */
 		border-top: 0;
 		resize: vertical;
 		min-height: 150px;
@@ -210,7 +210,7 @@ button.btn.dropdown-toggle.btn-default {
 /* 		background-image: linear-gradient(0deg, transparent, transparent 24px, #f0c9ca 24px, #f0c9ca 25px, transparent 25px, transparent 27px, #f0c9ca 27px, #f0c9ca 28px, transparent 28px), linear-gradient(#fff, #fff 17px, #e3ebf3 17px, #e3ebf3 18px); */
 		background-size: 36px 18px, 36px 18px;
 		background-repeat: repeat-y, repeat;
-/* 		width: 45%; Ãß°¡ÇÑ°Å  */
+/* 		width: 45%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 	}
 	
 	#consoleWindow h1 {
@@ -227,7 +227,7 @@ button.btn.dropdown-toggle.btn-default {
 		margin: 0;
 		position: relative;
 		height: 43px;
-/*  		width: 45%; Ãß°¡ÇÑ°Å  */
+/*  		width: 45%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 	}
 	
 	#chatWindow h1 {
@@ -244,7 +244,7 @@ button.btn.dropdown-toggle.btn-default {
 		margin: 0;
 		position: relative;
 		height: 43px;
-/*  		width: 45%; Ãß°¡ÇÑ°Å  */
+/*  		width: 45%; ï¿½ß°ï¿½ï¿½Ñ°ï¿½  */
 	}
 	
 	#consoleWindow {
