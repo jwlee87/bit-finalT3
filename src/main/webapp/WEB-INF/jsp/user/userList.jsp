@@ -20,7 +20,7 @@
 	<div id="friendslist">
     	<div id="topmenu">
         	<span id="friendsTab" class="friends"><img style='margin: 15% auto;' id="friendPic"  src="${pageContext.request.contextPath}/img/userImg/users.png"></span>
-        	<span id="chatTab" class="chats"><img style='margin: 15% auto;' id="chatPic"  src="${pageContext.request.contextPath}/img/userImg/chatOff.png"></span>
+        	<span id="chatTab" class="chats"><img style='margin: 15% auto;' id="chatPic"  src="${pageContext.request.contextPath}/img/userImg/chatOff.png" ></span>
         </div>
         <div id="fList">
         <div id="result"></div>

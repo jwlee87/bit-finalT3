@@ -83,20 +83,20 @@ img#compile {
     width: 3%;
     margin-right: 22px;
     cursor: pointer;
-    margin-bottom: 2px;
+    margin-bottom: -5px;
 }
 
-img#compile:hover {
-	background:url("../S../img/editor/play2.png");
-}
-	
+/* img#compile:hover { */
+/* 	background:url("../S../img/editor/play2.png"); */
 /* } */
+	
 
 
 
 img#save {
 	width: 3%;
 	cursor: pointer;
+	margin-top: 10px; /*추가한거  */
 }
 
 
@@ -310,6 +310,7 @@ button.btn.dropdown-toggle.btn-default {
 #comSaveBtnDiv {
 	border-bottom: 3px solid black;
 	opacity : 0.5;
+	padding-bottom: 2px;
 }
 
 #comSaveBtnFont {
@@ -317,5 +318,6 @@ button.btn.dropdown-toggle.btn-default {
 	position: absolute;
 	opacity : 1; 
 	font-size: xx-large;
+	margin-top: -3px;  /* 추가한거 */
 }
 	

@@ -91,7 +91,7 @@ body {
 
 #topmenu span.chats:hover{
 		cursor:pointer;
-		background: url("/bit-finalT3/img/userImg/chatOn.png");
+/* 		background: url("/bit-finalT3/img/userImg/chatOn.png"); */
 /* 		background-repeat:no-repeat; */
     	text-align: center;
 /*     	width: 22%; */

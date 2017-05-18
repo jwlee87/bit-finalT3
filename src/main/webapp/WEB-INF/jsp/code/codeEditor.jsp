@@ -37,8 +37,8 @@
         <div class="col-md-12 col-sm-12">
         <div id="comSaveBtnDiv">
         	<div id="comSaveBtnFont">codeEdit</div>
-				<img id="compile" src="${pageContext.request.contextPath}/img/editor/play1.png">
-				<img id="save" src="${pageContext.request.contextPath}/img/editor/save1.png">
+				<img id="compile" src="${pageContext.request.contextPath}/img/editor/play1.png" onmouseover="this.src='${pageContext.request.contextPath}/img/editor/play2.png'" onmouseout="this.src='${pageContext.request.contextPath}/img/editor/play1.png'">
+				<img id="save" src="${pageContext.request.contextPath}/img/editor/save1.png" onmouseover="this.src='${pageContext.request.contextPath}/img/editor/save2.png'" onmouseout="this.src='${pageContext.request.contextPath}/img/editor/save1.png'">
 				
 <!-- 	        <input type="button" id="compile" class="btn btn-sky text-uppercase btn-sm" value="Compile"> -->
 <!-- 	        <input type="button" id="save" class="btn btn-sky text-uppercase btn-sm" value="Save"> -->
