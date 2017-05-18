@@ -194,7 +194,7 @@ $(function(){
 		var htm="";
 		htm += '<input type="hidden" id="chNo" value="'+ result.fileNo + '">';
 		htm += '<input type="hidden" id="oriName' + result.fileNo +'" value="'+ result.fileOriName + '">';
-// 		htm += '<input type="hidden" id="sysName" value="'+ result.fileSysName + '">';
+		htm += '<input type="hidden" id="sysName' + result.fileNo +'" value="null">';
 		$("#save").after(htm);
 		
 	})
