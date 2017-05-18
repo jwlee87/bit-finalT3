@@ -64,6 +64,7 @@ public class QuizController {
 		
 		
 		String allLine = "";
+		String msg = "";
 		String urlType = request.getParameter("urlType");
 		
 		if(request.getParameter("writeType").equals("u")) {
@@ -83,6 +84,7 @@ public class QuizController {
 			}
 			int start = 0;
 			int end = 0;
+			
 			switch(urlType){
 			case "j":
 				start = allLine.indexOf("<img src=\"http://www.jungol.co.kr/theme/jungol/img/view_title01.gif\"");
@@ -97,15 +99,18 @@ public class QuizController {
 				end = allLine.indexOf("<div style=\"float:right;\"");
 				break;
 			}
-			String list = allLine.substring(start, end);
-//			System.out.println(list);
-			quiz.setQuizContent(list);
+			if(start == -1 || end == -1) {
+				msg = "URL에 해당하는 문제가 없습니다";
+			} else {
+				String list = allLine.substring(start, end);
+				quiz.setQuizContent(list);
+				service.write(quiz);
+			}
 		} else {
 			quiz.setQuizContent(request.getParameter("content"));
+			service.write(quiz);
 		}
-		service.write(quiz);
-		
-	return "";
+		return msg;
 	}
 
 	//퀴즈 조회

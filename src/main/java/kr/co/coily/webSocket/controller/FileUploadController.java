@@ -118,14 +118,18 @@ public class FileUploadController {
 	    ServletContext context = request.getServletContext();
 	    String path = context.getRealPath("/tree");
 //	    System.out.println("뜨나뜨나 : " + path);
-
+	    
 	    FileItemVO fileInfo = fs.selectFileInfo(fileNo);
-//	    String readFilePath = "";
-//	    if(fileInfo.getFileOriName() == "Main.java") {
-//	    	readFilePath = path + fileInfo.getFilePath() + "\\" + fileInfo.getFileOriName();
-//	    } else {
-	    String readFilePath = path + fileInfo.getFilePath() + "\\" + fileInfo.getFileSysName();
-//	    }
+
+	    System.out.println("오리네임................................"+fileInfo.getFileOriName());
+	    String readFilePath = "";
+	    if(fileInfo.getFileOriName().equals("Main.java")) {
+	    	readFilePath = path + fileInfo.getFilePath() + "\\" + fileInfo.getFileOriName();
+	    	String v = fileInfo.getFileSysName();
+	    	v= "null";
+	    } else {
+	     	readFilePath = path + fileInfo.getFilePath() + "\\" + fileInfo.getFileSysName();
+	    }
 //	    System.out.println(fileInfo.getFileSysName());
 //	    System.out.println("파일경로 : " + readFilePath);
 
@@ -196,7 +200,7 @@ public class FileUploadController {
 
 	        }
 
-	    return fileInfo.getFileOriName() + ":" + fileInfo.getFileSysName() + ":" + content;
+	    return fileNo + ":" + fileInfo.getFileOriName() + ":" + fileInfo.getFileSysName() + ":" + content;
 
 	}
 	
@@ -222,19 +226,19 @@ public class FileUploadController {
 		
 			// 확장자 처리
 			String oriName = "Main.java";
-			String ext = "";
-			// 뒤쪽에 있는 . 의 위치 
-			int index = oriName.lastIndexOf(".");
-			if (index != -1) {
-				// 파일명에서 확장자명(.포함)을 추출
-				ext = oriName.substring(index);
-			}
+//			String ext = "";
+//			// 뒤쪽에 있는 . 의 위치 
+//			int index = oriName.lastIndexOf(".");
+//			if (index != -1) {
+//				// 파일명에서 확장자명(.포함)을 추출
+//				ext = oriName.substring(index);
+//			}
+//			
+//			// 고유한 파일명 만들기	
+//			String systemName = "mlec-" + UUID.randomUUID().toString() + ext;
 			
-			// 고유한 파일명 만들기	
-			String systemName = "mlec-" + UUID.randomUUID().toString() + ext;
-			
-			File dest = new File(f, systemName);
-			
+			File dest = new File(f, oriName);
+
 			try (FileWriter fw = new FileWriter(dest);) {
 //				System.out.println("code: " + mainCode);
 				fw.write(mainCode.toString());
@@ -246,9 +250,9 @@ public class FileUploadController {
 			fileItem.setFileType("code");
 			fileItem.setFileRefNo(1);
 			fileItem.setFileOriName(oriName);
-			fileItem.setFileSysName(systemName);
+//			fileItem.setFileSysName(systemName);
 			fileItem.setFilePath(datePath);
-			fileItem.setFileExt(ext);
+//			fileItem.setFileExt(ext);
 			
 			fs.insertOneFile(fileItem);
 			return fileItem;
@@ -258,7 +262,7 @@ public class FileUploadController {
 	@ResponseBody
 	@RequestMapping("/saveFile.do")
 	public String saveFile(HttpServletRequest request, String code, String sysName) throws Exception {
-
+		System.err.println("시스네임...................................." + sysName);
 	    ServletContext context = request.getServletContext();
 	    String path = context.getRealPath("/tree");
 	    

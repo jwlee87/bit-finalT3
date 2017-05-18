@@ -35,11 +35,12 @@
     		editor.setValue(eArr[1])
     	} else if(event.data.startsWith("f")){
     		var ediArr = event.data.split(":")
-    		editor.setValue(ediArr[3])
-    		var html="";
-    		html += '<input type="hidden" id="oriName" value="'+ ediArr[1] + '">';
-    		html += '<input type="hidden" id="sysName" value="'+ ediArr[2] + '">';
-    		$("#compile").before(html);
+    		editor.setValue(ediArr[4])
+//    		var html="";
+//    		html += '<input type="hidden" id="chNo" value="'+ ediArr[1] + '">';
+//    		html += '<input type="hidden" id="oriName' + ediArr[1] +'" value="'+ ediArr[2] + '">';
+//    		html += '<input type="hidden" id="sysName' + ediArr[1] +'" value="'+ ediArr[3] + '">';
+//    		$("#compile").before(html);
     	}
     	
     	
@@ -59,10 +60,13 @@
 
     $("#compile").click(function(){
 //    	alert(editor.getValue())
+    	var chNo = $("#chNo:first").val()
+    	var oriName = $("#oriName"+chNo).val()
+    	alert(oriName)
     	$.ajax({
     		url : "codeCompile.do",
     		data : {"code": editor.getValue(),
-    				"oriName" : $("#oriName").val()
+    				"oriName" : oriName
     					},
     		type : "POST",
     		dataType : "JSON",
@@ -83,10 +87,20 @@
     
     
     $("#save").on("click", function(){
+    	//chNo가 잘못된듯....
+    	//무조건 first가 아니네...ㄷㄷ
+    	var chNo = $("#chNo:first").val()
+    	var sysName = "";
+    	if($("#sysName"+chNo).val() == "null") {
+    		sysName = "Main.java"
+    	} else {
+    		sysName = $("#sysName"+chNo).val()
+    	}
+    	alert(sysName)
     	$.ajax({
     		url : '/bit-finalT3/file/saveFile.do',
     		data : {"code": editor.getValue(),
-    				"sysName" : $("#sysName").val()
+    				"sysName" : sysName
     					},
     		type : "POST",
     		dataType : "JSON",

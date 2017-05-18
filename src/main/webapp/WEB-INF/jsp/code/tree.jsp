@@ -192,8 +192,9 @@ $(function(){
 		$(".indent").append(html)
 		
 		var htm="";
-		htm += '<input type="hidden" id="oriName" value="'+ result.fileOriName + '">';
-		htm += '<input type="hidden" id="sysName" value="'+ result.fileSysName + '">';
+		htm += '<input type="hidden" id="chNo" value="'+ result.fileNo + '">';
+		htm += '<input type="hidden" id="oriName' + result.fileNo +'" value="'+ result.fileOriName + '">';
+// 		htm += '<input type="hidden" id="sysName" value="'+ result.fileSysName + '">';
 		$("#save").after(htm);
 		
 	})
@@ -326,10 +327,11 @@ $(function(){
 			var arr = result.split(":")
 // 			var reCode = arr[1].substr(1, arr[1].length)
 // 			editor.setValue(reCode)
-			editor.setValue(arr[2].trim())
+			editor.setValue(arr[3].trim())
 			var html="";
-    		html += '<input type="hidden" id="oriName" value="'+ arr[0] + '">';
-    		html += '<input type="hidden" id="sysName" value="'+ arr[1] + '">';
+    		html += '<input type="hidden" id="chNo" value="' + fileNo + '">';
+			html += '<input type="hidden" id="oriName' + arr[0] +'" value="'+ arr[1] + '">';
+    		html += '<input type="hidden" id="sysName' + arr[0] +'" value="'+ arr[2] + '">';
     		$("#save").after(html);
 			webSocket.send("f:" + result);
 		})

@@ -40,13 +40,14 @@ $(function(){
 
 	//스크롤 이벤트 시작
 	var lastScrollTop = 0;
+	var lastNo;
 	$(window).scroll(function(){	
 	//top값
 	var currentScrollTop = $(window).scrollTop();
 	if(currentScrollTop - lastScrollTop > 0) {
 		if($(window).scrollTop()+1 >= ($(document).height() - $(window).height())) {
-			var lastQuizNo = $("input:last").val()
-			if(lastQuizNo != "") {
+			var lastQuizNo = $(".accordion-container:last").attr("id")
+			if(lastQuizNo != "" || lastQuizNo != lastNo) {
 				$.ajax({
 					url : "scrollDown.do",
 					data : {"quizNo": lastQuizNo,
@@ -89,12 +90,12 @@ $(function(){
 						html += '		</div>'; 
 						html += '</div>'; 
 					}
-					if(result.length == 0) {
-						swal("마지막 데이터 입니다.", "", "info")
-						return false;
-					}
+//					if(result.length == 0) {
+//						swal("마지막 데이터 입니다.", "", "info")
+//						return false;
+//					}
 					$("#container-main").append(html)
-					
+					lastNo = $(".accordion-container:last").attr("id")
 					//중복되는거....
 					$("textarea").css("display", "none")
 					$("[name=updateCon]").css("display", "none")

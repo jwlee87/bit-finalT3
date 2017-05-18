@@ -88,6 +88,13 @@ $(function(){
 			type : "POST"
 		})
 		.done(function(result){
+			if(result != "") {
+				swal({
+					title: result,
+					type: "error"	
+				})
+				return false;
+			}
 			swal({
 				title: "등록되었습니다.",
 				type: "success"	
