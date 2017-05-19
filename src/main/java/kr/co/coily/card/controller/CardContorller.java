@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.coily.card.service.CardService;
 import kr.co.coily.repository.vo.CardVO;
@@ -26,8 +27,6 @@ public class CardContorller {
 	private CardService Service;
 
 	/*카드 리스트	====================================================================*/
-	/*==============================================================================*/
-	
 	// 리스트 조회 url 호출(페이지 이동)
 	@RequestMapping("/list.do")
 	public void locationList() throws Exception{
@@ -64,10 +63,11 @@ public class CardContorller {
 	}
 	
 	/*카드 등록  ======================================================================*/
-	/*==============================================================================*/
 	@RequestMapping("/writeForm.do")
-	public void writeForm() throws Exception{
-		
+	public ModelAndView writeForm() throws Exception{
+		ModelAndView mav = new ModelAndView("card/writeForm");
+		mav.addObject("cardNo", Service.selectCardNo());
+		return mav;
 	}
 	
 	@ResponseBody
@@ -77,50 +77,47 @@ public class CardContorller {
 		System.out.println("내용 : "  + request.getParameter("cardContent") );
 		
 		GroupHeaderVO group = (GroupHeaderVO)session.getAttribute("groupInfo");
-		System.out.println("그룹넘버 뜸?? : " + group.getGroupHeaderNo());
 		CardVO cardVO = new CardVO();
+		cardVO.setCardNo(Integer.parseInt(request.getParameter("wCardNo")));
 		cardVO.setCardContent(request.getParameter("cardContent"));
 		cardVO.setUserNo(Integer.parseInt(request.getParameter("userNo")));
 		cardVO.setGroupHeaderNo(group.getGroupHeaderNo());
 		
-		Service.write(cardVO);
-//		Service.file(cardVO);
+		Service.updateInitCard(cardVO);
+//		Service.write(cardVO);
 		return "";
 		
 	}
-	/*카드 등록  ======================================================================*/
-	/*==============================================================================*/
-	
+
 	
 	/*카드 상세조회  ======================================================================*/
-	/*==============================================================================*/
-	
 	@RequestMapping("/detail.do")
 	public Map<String, Object> detail(int cardNo) throws Exception {
 		Map<String, Object> map  = Service.detail(cardNo);
 		Map<String, Object> result = new HashMap<>();
 		result.put("detail", map.get("cardVO"));
-		CardVO cardVO = new CardVO();
-		cardVO.setUserNo(cardNo);
-//		result.put("file", map.get("file"));
-//		System.out.println(result);
+		result.put("fileList", map.get("fileList"));
 		return result;
-		
-	
-		
-//		CardVO card = new CardVO();
-//		card.setUserNo(cardNo);
-//		card.set(Request.getParameter("userNickName"));
-//		card.setTitle(Request.getParameter("title"));;
-//		param.put("card", card);
 	}
-	/*카드 상세조회  ======================================================================*/
-	/*==============================================================================*/
 	
+	@ResponseBody
+	@RequestMapping("/ajaxDetail.do")
+	public Map<String, Object> ajaxdetail(int cardNo) throws Exception {
+		Map<String, Object> map  = Service.detail(cardNo);
+		Map<String, Object> result = new HashMap<>();
+		result.put("detail", map.get("cardVO"));
+		result.put("fileList", map.get("fileList"));
+		return result;
+	}
 	
+	@RequestMapping("/deleteFile.do")
+	@ResponseBody
+	public String deleteFile(int fileNo) throws Exception {
+		Service.deleteFileItem(fileNo);
+		return "";
+	}
 	
 	/*카드 수정  ======================================================================*/
-	/*==============================================================================*/
 	@ResponseBody
 	@RequestMapping("/update.do")
 	public String update(CardVO card) throws Exception {
@@ -132,16 +129,8 @@ public class CardContorller {
 		Service.update(card);
 		return "ok";
 	}
-//		card.setFileGroupNo(fileGroupNo);
-	/*카드 수정  ======================================================================*/
-	/*==============================================================================*/
-	
-	
 	
 	/*카드 삭제  ======================================================================*/
-	/*==============================================================================*/
-	
-	
 	@RequestMapping("/delete.do")
 	@ResponseBody
 	public String delete(int cardNo) throws Exception {
@@ -151,14 +140,7 @@ public class CardContorller {
 		return "";
 	}
 	
-	/*카드 삭제  ======================================================================*/
-	/*==============================================================================*/
-	
-	
-	
-	
 	/*댓글 리스트 와 등록  ======================================================================*/
-	/*==============================================================================*/
 	@RequestMapping("/commentList.do")
 	@ResponseBody
 	public List<CommentVO> commentList(int cardNo) throws Exception {
@@ -185,12 +167,7 @@ public class CardContorller {
 		return Service.commentRegist(comment);
 	}
 	
-	/*댓글 리스트 와 등록  ======================================================================*/
-	/*==============================================================================*/
-	
-	
 	/*댓글 리스트 수정  ======================================================================*/
-	/*==============================================================================*/
 	@RequestMapping("/commentUpdate.do")
 	@ResponseBody
 	public List<CommentVO> commentUpdate(CommentVO comment, HttpServletRequest request) throws Exception {
@@ -200,12 +177,7 @@ public class CardContorller {
 		return Service.commentUpdate(comment);
 	}
 	
-	/*댓글 리스트 수정  ======================================================================*/
-	/*==============================================================================*/
-	
-	
 	/*댓글 리스트 삭제  ======================================================================*/
-	/*==============================================================================*/
 	@RequestMapping("/commentDelete.do")
 	@ResponseBody
 	public List<CommentVO> commentDelete(CommentVO comment) throws Exception {
@@ -214,9 +186,6 @@ public class CardContorller {
 		
 		return Service.commentDelete(comment);
 	}
-	
-	/*댓글 리스트 삭제  ======================================================================*/
-	/*==============================================================================*/
 
 }
 

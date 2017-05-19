@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import kr.co.coily.repository.dao.CardDAO;
 import kr.co.coily.repository.vo.CardVO;
 import kr.co.coily.repository.vo.CommentVO;
+import kr.co.coily.repository.vo.FileItemVO;
 import kr.co.coily.repository.vo.SearchVO;
 
 @Service
@@ -19,44 +20,33 @@ public class CardServiceImpl implements CardService{
 	private CardDAO dao;
 	
 	/*카드 리스트	====================================================================*/
-	/*==============================================================================*/
 	@Override
 	public Map<String, Object> list(SearchVO search) throws Exception {
 		System.out.println("카드 서비스 어디까지 오냐");
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("list", dao.selectCard(search));
-//		result.put("pageResult", new PageResultVO(search.getPageNo(), dao.selectCardCount(search)));
 		return result;
 	}
-	
 	//스크롤 다운
-		@Override
-		public List<CardVO> cardScrollDown(CardVO card) throws Exception {
-			return dao.cardScrollDown(card);
-		}
-	
-	
-	/*카드 리스트	====================================================================*/
-	/*==============================================================================*/
-
+	@Override
+	public List<CardVO> cardScrollDown(CardVO card) throws Exception {
+		return dao.cardScrollDown(card);
+	}
 	
 	/*카드 등록  ======================================================================*/
 	/*==============================================================================*/
+	public int selectCardNo() throws Exception {
+		return dao.selectCardNo();
+	}
+		
 	@Override
 	public void write(CardVO cardVO) throws Exception {
 		dao.insertCard(cardVO);
 	}
 
-	/*@Override
-	public void file(CardVO cardVO) throws Exception {
-		dao.insertFile(cardVO);
-	}*/
-	
-	
-	/*카드 등록  ======================================================================*/
-	/*==============================================================================*/
-	
-	
+	public void updateInitCard(CardVO cardVO) throws Exception {
+		dao.updateInitCard(cardVO);
+	}
 	
 	/*카드 상세  ======================================================================*/
 	/*==============================================================================*/
@@ -64,35 +54,26 @@ public class CardServiceImpl implements CardService{
 	public void detail(CardVO cardVO) throws Exception {
 		dao.insertCard(cardVO);
 	}
+	
 	@Override
 	public Map<String, Object> detail(int no) throws Exception {
 		Map<String, Object> result = new HashMap<>();
 		result.put("cardVO", dao.selectDetailCard(no));
-//		result.put("file", dao.selectFileByNo(no));
+		result.put("fileList", dao.selectFileItem(no));
 		return result;
 	}
 	
-	/*카드 상세  ======================================================================*/
-	/*==============================================================================*/
 	
+	public void deleteFileItem(int fileNo) throws Exception {
+		dao.deleteFileItem(fileNo);
+	}
 	
 	/*카드 수정  ======================================================================*/
 	/*==============================================================================*/
-	
 	@Override
 	public void update(CardVO card) throws Exception{
 		dao.updateCard(card);
 	}
-	
-	/*@Override
-	public CardVO updateForm(int no) throws Exception{
-		return dao.selectDetailCard(no);
-	}*/
-	
-	
-	/*카드 수정  ======================================================================*/
-	/*==============================================================================*/
-
 	
 	/*카드 삭제  ======================================================================*/
 	/*==============================================================================*/
@@ -101,19 +82,6 @@ public class CardServiceImpl implements CardService{
 	public void delete(int no) throws Exception {
 		dao.deleteCard(no);
 	}
-	
-	
-	/*카드 삭제  ======================================================================*/
-	/*==============================================================================*/
-
-
-	
-	/*댓글 리스트  ======================================================================*/
-	/*==============================================================================*/
-		
-	
-	
-	
 	
 	/*댓글 리스트  ======================================================================*/
 	/*==============================================================================*/
@@ -134,9 +102,6 @@ public class CardServiceImpl implements CardService{
 		return dao.selectCardCommentByNo(comment.getCardNo());
 	}
 	
-	
-		
-		
 	/*댓글 수정  ======================================================================*/
 	/*==============================================================================*/
 	@Override
@@ -148,10 +113,6 @@ public class CardServiceImpl implements CardService{
 		return dao.selectCardCommentByNo(comment.getCardNo());
 	}
 	
-	/*댓글 수정  ======================================================================*/
-	/*==============================================================================*/
-	
-	
 	/*댓글 삭제  ======================================================================*/
 	/*==============================================================================*/
 	@Override
@@ -162,7 +123,5 @@ public class CardServiceImpl implements CardService{
 		System.out.println("삭제되는 서비스 임플 카드번호 : " + comment.getCardCommentNo());
 		return dao.selectCardCommentByNo(comment.getCardNo());
 	}
-	
-	/*댓글 삭제  ======================================================================*/
-	/*==============================================================================*/
+
 }

@@ -42,8 +42,8 @@ public class FileController {
 	}
 	
 	@RequestMapping("/save.do")
-	public void saveFile(String fileNm, MultipartHttpServletRequest mRequest, HttpServletResponse response) throws Exception {
-		System.out.println("컨트롤러!!!" + fileNm);
+	public void saveFile(MultipartHttpServletRequest mRequest, HttpServletResponse response) throws Exception {
+		System.out.println("컨트롤러!!!");
 		
 		ServletContext context = mRequest.getServletContext();
 		String path = context.getRealPath("/upload");
@@ -57,8 +57,9 @@ public class FileController {
 		
 		List<FileItemVO> lFile = new ArrayList<> ();
 		
-		Iterator<String> itr =  mRequest.getFileNames();
-		List<MultipartFile> lRequest = mRequest.getFiles("filename");
+//		Iterator<String> itr =  mRequest.getFileNames();
+		List<MultipartFile> lRequest = mRequest.getFiles("upload");
+		
 		
 		for(MultipartFile file: lRequest) {
 			
@@ -90,7 +91,7 @@ public class FileController {
 							
 				FileItemVO fileItem = new FileItemVO();
 				fileItem.setFileType("card");
-				fileItem.setFileRefNo(1);
+				fileItem.setFileRefNo(Integer.parseInt(mRequest.getParameter("cardNo")));
 				fileItem.setFileOriName(oriName);
 				fileItem.setFileSysName(systemName);
 				fileItem.setFilePath(datePath);
@@ -99,7 +100,14 @@ public class FileController {
 				lFile.add(fileItem);
 			}
 		}
-	    
+		
+		if(fs.selectEmptyCard(Integer.parseInt(mRequest.getParameter("cardNo"))) == 0)
+			fs.insertCardEmpty(Integer.parseInt(mRequest.getParameter("cardNo")));
+		
+//		if( fs.selectFile(Integer.parseInt(mRequest.getParameter("cardNo"))) != 0) {
+//			fs.deleteFile(Integer.parseInt(mRequest.getParameter("cardNo")));
+//		}
+		
 		fs.insertFile(lFile);
 		System.out.println("컨트롤러 성공");
 		PrintWriter write = response.getWriter();

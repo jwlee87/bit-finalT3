@@ -23,6 +23,21 @@ public class FileDAO {
 		System.out.println("dao 성공");
 		
 	}
+	
+	public int selectEmptyCard (int fileRefNo) {
+		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.fileDAO.selectEmptyCard", fileRefNo);
+	}
+	public void insertCardEmpty (int fileRefNo) {
+		sqlSessionTemplate.insert("kr.co.coily.repository.dao.fileDAO.insertCardEmpty", fileRefNo);
+	}
+	
+	public void deleteFile(int fileRefNo) {
+		sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.fileDAO.deleteFile", fileRefNo);
+	}
+	
+	public int selectFile(int fileRefNo) {
+		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.fileDAO.selectFile", fileRefNo);
+	}
 
 	public FileItemVO selectFileInfo(int fileNo) {
 		return sqlSessionTemplate.selectOne("kr.co.coily.repository.dao.fileDAO.selectFileItem", fileNo);

@@ -22,11 +22,27 @@ public class FileServiceImpl implements FileService {
 		System.out.println("서비스 성공");
 	}
 
+	public int selectEmptyCard(int fileRefNo) throws Exception {
+		return dao.selectEmptyCard(fileRefNo);
+	}
+	
+	public void insertCardEmpty(int fileRefNo) throws Exception {
+		dao.insertCardEmpty(fileRefNo);
+	}
+	
+	public void deleteFile(int fileRefNo) throws Exception {
+		dao.deleteFile(fileRefNo);
+	}
+	
+	public int selectFile(int fileRefNo) throws Exception {
+		return dao.selectFile(fileRefNo);
+	}
+	
 	@Override
 	public FileItemVO selectFileInfo(int fileNo) throws Exception {
 		return dao.selectFileInfo(fileNo);
 	}
-
+	
 	@Override
 	public void insertOneFile(FileItemVO fileItem) throws Exception {
 		dao.insertOneFile(fileItem);
