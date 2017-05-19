@@ -13,6 +13,7 @@ public interface CardService {
 	public Map<String, Object> list(SearchVO search)throws Exception;
 	public Map<String, Object> detail(int cardNo) throws Exception;
 	public void detail(CardVO cardVO) throws Exception;
+	public void deleteFile(int cardNo) throws Exception;
 	public void deleteFileItem(int fileNo) throws Exception;
 
 	/* 카드 등록	*/

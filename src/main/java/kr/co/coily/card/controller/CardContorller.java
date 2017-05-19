@@ -137,6 +137,7 @@ public class CardContorller {
 		System.out.println("삭제되나요???????");
 		System.out.println("카드번호..................."+ cardNo);
 		Service.delete(cardNo);
+		Service.deleteFile(cardNo);
 		return "";
 	}
 	

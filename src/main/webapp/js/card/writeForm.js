@@ -31,7 +31,6 @@ $(document).ready(function() {
 
 window.onload = function () {
 	
-	alert("card : " + $("#cardNo").val());
 	$(".ui-igtrialwatermark").remove();
 	$("#igUpload1_ibb_fp").attr("name", "uploadFile");
 }

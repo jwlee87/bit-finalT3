@@ -105,6 +105,11 @@
 		 where file_ref_no = #{cardNo}
 	</select>
 	
+	<delete id="deleteFile" parameterType="int">
+		delete from tb_file_item
+		where file_ref_no = #{cardNo}
+	</delete>
+	
 	<delete id="deleteFileItem" parameterType="int">
 		delete from tb_file_item
 		where file_no = #{fileNo}

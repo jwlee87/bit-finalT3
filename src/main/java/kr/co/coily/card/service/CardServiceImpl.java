@@ -63,6 +63,9 @@ public class CardServiceImpl implements CardService{
 		return result;
 	}
 	
+	public void deleteFile(int cardNo) throws Exception {
+		dao.deleteFile(cardNo);
+	}
 	
 	public void deleteFileItem(int fileNo) throws Exception {
 		dao.deleteFileItem(fileNo);

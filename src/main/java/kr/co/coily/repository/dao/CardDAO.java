@@ -15,6 +15,7 @@ public interface CardDAO {
 	public List<CardVO> cardScrollDown(CardVO card);
 	public CardVO selectDetailCard(int no) throws Exception;
 	public List<FileItemVO> selectFileItem(int cardNo) throws Exception;
+	public void deleteFile(int cardNo) throws Exception;
 	public void deleteFileItem(int fileNo) throws Exception;
 	
 	
