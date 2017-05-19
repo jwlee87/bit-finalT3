@@ -111,8 +111,6 @@ $("#commentContent").keydown(function(e) {
 
 	
 
-
-
 function deleteFile(fileNo) {
 	
 	$.ajax({
@@ -385,7 +383,7 @@ $("#igUpload1_spbtncncl").click(function () {
 	var formData = new FormData();
 	
 	for (var i = 0; i < files.length; i++) {
-		formData.append('uploadFileList', files[i]);
+		formData.append('uploadFile[]', files[i]);
     }
 	
 	formData.append('cardNo', $("#cardNo").val());

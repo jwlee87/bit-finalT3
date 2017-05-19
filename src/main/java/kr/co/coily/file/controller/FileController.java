@@ -132,7 +132,7 @@ public class FileController {
 		List<FileItemVO> lFile = new ArrayList<> ();
 		
 //		Iterator<String> itr =  mRequest.getFileNames();
-		List<MultipartFile> lRequest = mRequest.getFiles("uploadFileList[]");
+		List<MultipartFile> lRequest = mRequest.getFiles("uploadFile[]");
 		
 		
 		for(MultipartFile file: lRequest) {

@@ -9,6 +9,7 @@
 <meta Charset="UTF-8">
 <title>상세 조회</title>
 <jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/js/comm/jquery.form.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/card/detail.js"></script>
 <link href="${pageContext.request.contextPath}/css/card/detail.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/comment/commentUpdateForm.css" rel="stylesheet" type="text/css">
@@ -16,9 +17,8 @@
 <link href="https://cdn-na.infragistics.com/igniteui/2016.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
 <link href="https://cdn-na.infragistics.com/igniteui/2016.2/latest/css/structure/infragistics.css" rel="stylesheet" />
 
-<!-- Ignite UI Required Combined JavaScript Files -->
-<script src="https://cdn-na.infragistics.com/igniteui/2016.2/latest/js/infragistics.core.js"></script>
-<script src="${pageContext.request.contextPath}/js/comm/infraistics.lob.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
 <style>
 .divDetail {
@@ -33,7 +33,6 @@
 	<input type="hidden" id="content" value="${detail.cardContent}" />
   	<div class="cDetail">
   		<div class="post">
-		
 			<form id="frmFileUpload" name="frmFileUpload" method="POST" enctype="multipart/form-data">
 			<div id="detailBlock">
 				<div><c:out value="${detail.userNickName}"></c:out></div>	
@@ -51,7 +50,7 @@
 									<button id="igUpload1_bb" class="ui-igupload-browsebutton ui-button-text-only ui-button ui-igbutton ui-widget ui-widget-content ui-corner-all ui-state-default" title="Add" role="button" aria-disabled="false">
 										<span class="ui-button-text" id="igUpload1_bb_lbl">Add</span>
 									</button>
-									<input type="file" name="uploadFileList" id="uploadFile" multiple title="Add" 
+									<input type="file" name="uploadFile[]" id="uploadFile" multiple title="Add" 
 										style="position: absolute; margin: -5px 0px 0px -175px; padding: 0px; width: 1px; 
 										top: 210px; right: 489px; height: 27px; font-size: 14px; opacity: 0; cursor: pointer; display: block; z-index: 1000000;">
 									<div id="igUpload1_fc" class="ui-igupload-container ui-widget-content"></div>
@@ -63,8 +62,9 @@
 										
 										<div class="ui-widget-content ui-igupload-progress-container ui-corner-all ui-helper-clearfix">		
 											<div class="ui-container-button-cancel-class  ui-helper-clearfix" >			
-												<button id="igUpload1_${status.index}__cbtn" title="Cancel" class="ui-button-icon-only ui-button ui-widget ui-state-default ui-corner-all ui-igbutton ui-igupload-cancel-button" 
-													role="button" aria-disabled="false" style="display:none;" onclick="deleteFile(${fileItem.fileNo})" >
+												<button id="igUpload1_${status.index}__cbtn" title="Cancel" 
+													class="ui-button-icon-only ui-button ui-widget ui-state-default ui-corner-all ui-igbutton ui-igupload-cancel-button" 
+													role="button" aria-disabled="false" style="display:none;" onclick="deleteFile(${fileItem.fileNo});">
 													<span class="ui-button-icon-primary ui-icon ui-icon-closethick" id="igUpload1_${status.index}__cbtn_picn"></span>
 													<span class="ui-button-text" id="igUpload1_${status.index}__cbtn_lbl"></span>
 												</button>		
@@ -93,16 +93,15 @@
 								
 						</div>
 					</div>
+						
+					<div class="tools">
+	<%-- 					<img src="${pageContext.request.contextPath}/img/icon/attach.png" id="attach" width="19px" height="19px"> --%>
+							<button type="button" class="detailNoneButton" id="deleteButton" onclick="javascript:deletes(${param.cardNo});">삭제</button>
+							<button type="button" class="detailNoneButton" id="detailNoneButton">수정</button>
+					</div>
+					
 				</div>
 			</form>
-				
-				
-				<div class="tools">
-<%-- 					<img src="${pageContext.request.contextPath}/img/icon/attach.png" id="attach" width="19px" height="19px"> --%>
-						<button type="button" class="detailNoneButton" id="deleteButton" onclick="javascript:deletes(${param.cardNo});">삭제</button>
-						<button type="button" class="detailNoneButton" id="detailNoneButton">수정</button>
-				</div>
-				
 				
 				
 			</div>
