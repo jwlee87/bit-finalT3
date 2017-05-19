@@ -298,7 +298,7 @@ public class UserController {
 				System.out.println("로그인 성공 :  " + loginUser);
 				HttpSession session = request.getSession();
 			    session.setAttribute("user", loginUser);
-			    session.setMaxInactiveInterval(600); 
+			    session.setMaxInactiveInterval(1800); 
 
 				param.put("userNo", loginUser.getUserNo());
 				param.put("userEmail", loginUser.getUserEmail());
@@ -327,7 +327,7 @@ public class UserController {
 				System.out.println("로그인 성공 " + loginUser);
 				HttpSession session = request.getSession();
 			    session.setAttribute("user", loginUser);
-			    session.setMaxInactiveInterval(600); 
+			    session.setMaxInactiveInterval(1800); 
 				param.put("userNo", loginUser.getUserNo());
 				param.put("userEmail", loginUser.getUserEmail());
 				param.put("userNickName", loginUser.getUserNickName());
