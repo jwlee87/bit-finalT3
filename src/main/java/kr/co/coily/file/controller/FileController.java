@@ -115,4 +115,78 @@ public class FileController {
 		
 	}
 	
+	@RequestMapping("/saveFileList.do")
+	public void saveFileList(MultipartHttpServletRequest mRequest, HttpServletResponse response) throws Exception {
+		System.out.println("컨트롤러!!!");
+		
+		ServletContext context = mRequest.getServletContext();
+		String path = context.getRealPath("/upload");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd");
+		String datePath = sdf.format(new Date());
+		
+		String savePath = path + datePath;
+		File f = new File(savePath);
+		if (!f.exists()) f.mkdirs();
+		
+		List<FileItemVO> lFile = new ArrayList<> ();
+		
+//		Iterator<String> itr =  mRequest.getFileNames();
+		List<MultipartFile> lRequest = mRequest.getFiles("uploadFileList[]");
+		
+		
+		for(MultipartFile file: lRequest) {
+			
+//		while(itr.hasNext()) {
+			String oriName = file.getOriginalFilename();
+			System.out.println("오리지널네임" + oriName);
+			
+			if (oriName != null && !oriName.equals("")) {
+				// 확장자 처리
+				String ext = "";
+				// 뒤쪽에 있는 . 의 위치 
+				int index = oriName.lastIndexOf(".");
+				if (index != -1) {
+					// 파일명에서 확장자명(.포함)을 추출
+					ext = oriName.substring(index);
+				}
+				
+				// 파일 사이즈
+				long fileSize = file.getSize();
+				System.out.println("파일 사이즈 : " + fileSize);
+				
+				// 고유한 파일명 만들기	
+				String systemName = "mlec-" + UUID.randomUUID().toString() + ext;
+				System.out.println("저장할 파일명 : " + systemName);
+				
+				// 임시저장된 파일을 원하는 경로에 저장
+//				File file = new File(savePath + "/" + systemName);
+				file.transferTo(new File(savePath + "/" + systemName));
+				
+				FileItemVO fileItem = new FileItemVO();
+				fileItem.setFileType("card");
+				fileItem.setFileRefNo(Integer.parseInt(mRequest.getParameter("cardNo")));
+				fileItem.setFileOriName(oriName);
+				fileItem.setFileSysName(systemName);
+				fileItem.setFilePath(datePath);
+				fileItem.setFileSize(1024);
+				fileItem.setFileExt(ext);
+				lFile.add(fileItem);
+			}
+		}
+		
+//		if(fs.selectEmptyCard(Integer.parseInt(mRequest.getParameter("cardNo"))) == 0)
+//			fs.insertCardEmpty(Integer.parseInt(mRequest.getParameter("cardNo")));
+//		
+//		if( fs.selectFile(Integer.parseInt(mRequest.getParameter("cardNo"))) != 0) {
+//			fs.deleteFile(Integer.parseInt(mRequest.getParameter("cardNo")));
+//		}
+		
+		fs.insertFile(lFile);
+		System.out.println("컨트롤러 성공");
+		PrintWriter write = response.getWriter();
+		write.println("<script>alert('파일이 정상적으로 등록되었습니다.')</script>");
+		
+	}
+	
 }

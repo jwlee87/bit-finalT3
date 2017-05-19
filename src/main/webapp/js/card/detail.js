@@ -3,7 +3,6 @@ window.onload = function () {
 }
 
 $(function(){
-
 	$("#deleteButton").css("display","none");
 	$("#detailNoneButton").css("display","none");
 	
@@ -370,13 +369,37 @@ function commentDelete(cardCommentNo, commentUserNo) {
 
 function displayFile(index, flag) {
 	
+	$("#igUpload1_spbtncncl").css("display", "block");
+	
 	if ( flag == 0 ) {
 		$("#displayFileItem"+index).css("display", "none");
 	}
 	
 }
 
+var files;
 
+
+$("#igUpload1_spbtncncl").click(function () {
+	
+	var formData = new FormData();
+	
+	for (var i = 0; i < files.length; i++) {
+		formData.append('uploadFileList', files[i]);
+    }
+	
+	formData.append('cardNo', $("#cardNo").val());
+	
+	$.ajax({
+		url : "/bit-finalT3/upload/saveFileList.do",
+		data : formData,
+		dataType : 'json',
+		type : 'post'
+	}).done(function(result) {
+		alert("성공");
+	})
+	
+});
 
 //getElementById
 function $id(id) {
@@ -389,6 +412,7 @@ function Output(msg) {
 	var m = $id("igUpload1___fus");
 	$("#igUpload1___fus").val(msg);
 	m.innerHTML = m.innerHTML + msg;
+	$("#igUpload1_spbtncncl").css("display", "block");
 }
 
 
@@ -407,7 +431,7 @@ function FileSelectHandler(e) {
 	FileDragHover(e);
 
 	// fetch FileList object
-	var files = e.target.files || e.dataTransfer.files;
+	files = e.target.files || e.dataTransfer.files;
 
 	// process all File objects
 	for (var i = 0, f; f = files[i]; i++) {
@@ -475,6 +499,7 @@ function Init() {
 if (window.File && window.FileList && window.FileReader) {
 	Init();
 }
+
 
 
 });

@@ -16,10 +16,6 @@
 <link href="https://cdn-na.infragistics.com/igniteui/2016.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
 <link href="https://cdn-na.infragistics.com/igniteui/2016.2/latest/css/structure/infragistics.css" rel="stylesheet" />
 
-<script src="https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-
 <!-- Ignite UI Required Combined JavaScript Files -->
 <script src="https://cdn-na.infragistics.com/igniteui/2016.2/latest/js/infragistics.core.js"></script>
 <script src="${pageContext.request.contextPath}/js/comm/infraistics.lob.js"></script>
@@ -38,16 +34,16 @@
   	<div class="cDetail">
   		<div class="post">
 		
+			<form id="frmFileUpload" name="frmFileUpload" method="POST" enctype="multipart/form-data">
 			<div id="detailBlock">
 				<div><c:out value="${detail.userNickName}"></c:out></div>	
-				<input type="hidden" id="cardNo" value="${param.cardNo}" />
+				<input type="hidden" id="cardNo" name="cardNo" value="${param.cardNo}" />
 				<input type="hidden" id="userNo" value="${detail.userNo}"/>
 				<input type="hidden" id="loginUserNo" value="${user.userNo}"/>
 				
 				<div id="printDetail">
 					<div class="divDetail" id="divDetail"><c:out value="${detail.cardContent}"></c:out></div>
 				</div>
-<!-- 				<form id="upload" method="POST" enctype="multipart/form-data"> -->
 					<div id="igUpload1" style="position-top:20px;">
 						<div class="ui-iguploadmultiple ui-widget ui-widget-content ui-corner-all ui-igupload" id="igUpload1_bmncntr">  
 							<div id="igUpload1_fu" class="ui-igupload-basemaincontainer">
@@ -55,7 +51,7 @@
 									<button id="igUpload1_bb" class="ui-igupload-browsebutton ui-button-text-only ui-button ui-igbutton ui-widget ui-widget-content ui-corner-all ui-state-default" title="Add" role="button" aria-disabled="false">
 										<span class="ui-button-text" id="igUpload1_bb_lbl">Add</span>
 									</button>
-									<input type="file" name="uploadFile" id="uploadFile" multiple title="Add" 
+									<input type="file" name="uploadFileList" id="uploadFile" multiple title="Add" 
 										style="position: absolute; margin: -5px 0px 0px -175px; padding: 0px; width: 1px; 
 										top: 210px; right: 489px; height: 27px; font-size: 14px; opacity: 0; cursor: pointer; display: block; z-index: 1000000;">
 									<div id="igUpload1_fc" class="ui-igupload-container ui-widget-content"></div>
@@ -80,41 +76,25 @@
 													<span class="ui-igupload-progressbar-filename" id="igUpload1_${status.index}__pbrflnm"><a href="javascript:window.open('${pageContext.request.contextPath}/upload${fileItem.filePath}/${fileItem.fileSysName}')">${fileItem.fileOriName}</a></span>				
 													<span class="ui-igupload-progressbar-filesize" id="igUpload1_${status.index}__pbrflsz"><fmt:formatNumber value="${fileItem.fileSize}" type="number"/>Byte/<fmt:formatNumber value="${fileItem.fileSize}" type="number"/>Byte</span>			
 												</div>
-											
-	<!-- 											<div id="igUpload1_0__snglpbar" class="ui-igupload-progressbar-upload ui-igupload-progressbar-upload-single ui-helper-clearfix ui-igprogressbar-horizontal ui-igprogressbar ui-widget ui-widget-content ui-corner-all">			 -->
-	<!-- 												<div id="igUpload1_0__snglpbar_progress" class="ui-igprogressbar-range ui-widget-header ui-corner-all" style="height: 100%; top: 0px; left: 0%; width: 0%; overflow: hidden;"></div> -->
-	<!-- 											</div>		 -->
 											</div>	
 										</div>
 									
 								</c:forEach>
 								</div>
 								
-	<!-- 							<div id="igUpload1_spbcntr" class="ui-igupload-summaryprogresscontainer ui-helper-clearfix"> -->
-	<!-- 								<div class="ui-igupload-summaryinformation-container ui-helper-clearfix"> -->
-	<!-- 									<span id="igUpload1_summplbl" class="ui-igupload-summaryuploadedfiles-label">0 of 0 uploaded</span> -->
-	<!-- 									<a href="javascript:void(0);" id="igUpload1_shdbtn" class="ui-igupload-showhidedetails-button" title="Hide Details">Hide Details</a> -->
-	<!-- 								</div> -->
-	<!-- 								<div class="ui-helper-clearfix"> -->
-	<!-- 									<button id="igUpload1_spbtncncl" title="Done" class="ui-button-text-only ui-button ui-igbutton ui-widget ui-widget-content ui-corner-all ui-state-default ui-igupload-summary-button ui-igButton-disabled ui-state-disabled" role="button" aria-disabled="false" disabled="disabled"> -->
-	<!-- 									<span class="ui-button-text" id="igUpload1_spbtncncl_lbl">Done</span> -->
-	<!-- 									</button> -->
-	<!-- 									<div id="igUpload1_summpbar" class="ui-igprogressbar-horizontal ui-igprogressbar ui-widget ui-widget-content ui-corner-all ui-igupload-summaryprogressbar"> -->
-	<!-- 										<div id="igUpload1_summpbar_progress" class="ui-igprogressbar-range ui-widget-header ui-corner-all ui-igupload-summaryprogres_summpbar_progress" style="height: 100%; top: 0px; left: 0%; width: 0%; overflow: hidden;"> -->
-	<!-- 										<div id="igUpload1_summpbrlbl_1" class="ui-igupload-summaryprogress-label ui-igupload-summaryprogress-secondary-label" style="width: 454px;">0B/0B</div> -->
-	<!-- 										</div> -->
-	<!-- 										<span id="igUpload1_summpbrlbl" class="ui-igupload-summaryprogress-label">0B/0B</span> -->
-	<!-- 									</div> -->
-	<!-- 								</div> -->
-	<!-- 							</div> -->
-								
-								
+								<div class="ui-helper-clearfix">
+									<button id="igUpload1_spbtncncl" title="Upload" class="ui-button-text-only ui-button ui-igbutton ui-widget ui-widget-content ui-corner-all ui-state-default ui-igupload-summary-button" 
+										role="button" aria-disabled="false" style="display:none;">
+										<span class="ui-button-text" id="igUpload1_spbtncncl_lbl">Upload</span>
+									</button>
+								</div>
 							</div>
+								
+								
 						</div>
-						
-						<input type="file" name="igUpload1_ibb_fp" id="igUpload1_ibb_fp" multiple="" title="Upload File" style="position: absolute; margin: -5px 0px 0px -175px; padding: 0px; width: 1px; height: 1px; font-size: 14px; opacity: 0; cursor: pointer; display: block; z-index: 1000000;">
 					</div>
-<!-- 				</form> -->
+				</div>
+			</form>
 				
 				
 				<div class="tools">
