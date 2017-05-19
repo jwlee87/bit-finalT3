@@ -17,6 +17,7 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -116,7 +117,8 @@ public class FileController {
 	}
 	
 	@RequestMapping("/saveFileList.do")
-	public void saveFileList(MultipartHttpServletRequest mRequest, HttpServletResponse response) throws Exception {
+	@ResponseBody
+	public String saveFileList(MultipartHttpServletRequest mRequest, HttpServletResponse response) throws Exception {
 		System.out.println("컨트롤러!!!");
 		
 		ServletContext context = mRequest.getServletContext();
@@ -136,7 +138,7 @@ public class FileController {
 		
 		
 		for(MultipartFile file: lRequest) {
-			
+		System.out.println(file);	
 //		while(itr.hasNext()) {
 			String oriName = file.getOriginalFilename();
 			System.out.println("오리지널네임" + oriName);
@@ -183,10 +185,7 @@ public class FileController {
 //		}
 		
 		fs.insertFile(lFile);
-		System.out.println("컨트롤러 성공");
-		PrintWriter write = response.getWriter();
-		write.println("<script>alert('파일이 정상적으로 등록되었습니다.')</script>");
-		
+		return "";
 	}
 	
 }

@@ -110,107 +110,16 @@ $("#commentContent").keydown(function(e) {
 });
 
 	
-
-function deleteFile(fileNo) {
-	
-	$.ajax({
-		url:"deleteFile.do",
-		data:{fileNo:fileNo},
-		dataType:"json",
-		type:"post"
-	}).done(function () {
-		swal({
-			title: "삭제 완료",
-			text: "파일 삭제가 완료되었습니다.",
-			type: "success"
-		},
-		function(isConfirm) { 
-			if(isConfirm) printFileList(); 
-		});
-	});
-	
-}
-
-function printFileList() {
-	
-	$.ajax({
-		url:"ajaxDetail.do",
-		data:{cardNo:$("#cardNo").val()},
-		dataType:"json",
-		type:"post"
-	}).done(function (result) {
-		
-		var printHtml= "";
-		$("#igUpload1___fus").html("");
-		
-		for(var i = 0; i < result.fileList.length; i++) {
-			
-			var fileItem = result.fileList[i];
-		
-			printHtml += '<div class="ui-widget-content ui-igupload-progress-container ui-corner-all ui-helper-clearfix">		                                                                                                                                                        ';
-			printHtml += '	<div class="ui-container-button-cancel-class  ui-helper-clearfix" >			                                                                                                                                                                                ';
-			printHtml += '		<button id="igUpload1_'+ i +'__cbtn" title="Cancel" class="ui-button-icon-only ui-button ui-widget ui-state-default ui-corner-all ui-igbutton ui-igupload-cancel-button"                                                                        ';
-			printHtml += '			role="button" aria-disabled="false" onclick="deleteFile('+fileItem.fileNo+')" >                                                                                                                                                ';
-			printHtml += '			<span class="ui-button-icon-primary ui-icon ui-icon-closethick" id="igUpload1_'+ i +'__cbtn_picn"></span>                                                                                                                                   ';
-			printHtml += '			<span class="ui-button-text" id="igUpload1_'+ i +'__cbtn_lbl"></span>                                                                                                                                                                       ';
-			printHtml += '		</button>		                                                                                                                                                                                                                                        ';
-			printHtml += '	</div>		                                                                                                                                                                                                                                                ';
-			printHtml += '                                                                                                                                                                                                                                                               ';
-			printHtml += '	<div class="ui-helper-clearfix">                                                                                                                                                                                                                            ';
-			printHtml += '		<div class="ui-igupload-progressbar-container ui-helper-clearfix" title="'+ fileItem.fileOriName +'">				                                                                                                                                        ';
-			printHtml += '			<span id="igUpload1_'+i+'__icn" class="ui-icon ui-icon-image ui-igupload-progressbar-icon ui-igupload-progressbar-icon-images"></span>				                                                                                    ';
-			printHtml += '			<span class="ui-igupload-progressbar-filename" id="igUpload1_'+ i +'__pbrflnm"><a href="javascript:window.open("${pageContext.request.contextPath}/upload"'+ fileItem.filePath + '"/"'+ fileItem.fileSysName + '")">'+ fileItem.fileOriName + '</a></span>';			
-			printHtml += '			<span class="ui-igupload-progressbar-filesize" id="igUpload1_'+ i +'__pbrflsz"><fmt:formatNumber value="'+ fileItem.fileSize +'" type="number"/>Byte/<fmt:formatNumber value="'+fileItem.fileSize+'" type="number"/>Byte</span>			        ';
-			printHtml += '		</div>                                                                                                                                                                                                                                                  ';
-			printHtml += '	                                                                                                                                                                                                                                                            ';
-			printHtml += '	</div>	                                                                                                                                                                                                                                                    ';
-			printHtml += '</div>                                                                                                                                                                                                                                                         ';
-		
-		}
-		
-		$("#igUpload1___fus").html(printHtml);
-		
-		
-	})                                                                                                                                                                                                                                                                         
-}                                                                                                                                                                                                                                                                              
+//$("[title=Cancel]").on("click", function(){
+//	alert(1)
+//})
+                                                                                                                                                                                                                                                                          
                                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                                                                                
 function showAlert(args) {
     $("#error-message").html(args.errorMessage).stop(true, true).fadeIn(500).delay(3000).fadeOut(500);
 }
 
-/* 카드 삭제 */
-function deletes(cardNo) {
-	swal({
-		title: "",
-		text:"카드를 삭제하시겠습니까?",
-		type: "warning",
-		showCancelButton: true,
-		confirmButtonColor: "#DD6B55",
-		confirmButtonText: "삭제",
-		cancelButtonText: "취소",
-		closeOnConfirm: false
-	},
-	function(){
-		$.ajax ({
-			url: "delete.do",
-			type: "POST",
-			data: {
-				"cardNo": cardNo
-			},	
-			dataType: "json"
-		}).done(function(result){
-			swal({
-				title: "삭제 완료",
-				text: "카드가 삭제되었습니다.",
-				type: "success"	
-			},
-			function(){
-				window.open('/bit-finalT3/card/list.do','_parent').parent.close();
-			})			
-		});
-	});
-};
 
 // 댓글 목록 만드는 공통 함수
 function makeCommentList(result) {
@@ -365,20 +274,11 @@ function commentDelete(cardCommentNo, commentUserNo) {
 	.done(makeCommentList);	
 }
 
-function displayFile(index, flag) {
-	
-	$("#igUpload1_spbtncncl").css("display", "block");
-	
-	if ( flag == 0 ) {
-		$("#displayFileItem"+index).css("display", "none");
-	}
-	
-}
+
 
 var files;
 
-
-$("#igUpload1_spbtncncl").click(function () {
+$("#igUpload1_spbtncncl").on("click", function () {
 	
 	var formData = new FormData();
 	
@@ -392,9 +292,11 @@ $("#igUpload1_spbtncncl").click(function () {
 		url : "/bit-finalT3/upload/saveFileList.do",
 		data : formData,
 		dataType : 'json',
-		type : 'post'
+		type : 'post',
+		processData: false,
+        contentType: false
 	}).done(function(result) {
-		alert("성공");
+		$(".ui-igprogressbar-range").css("width", "100%")
 	})
 	
 });
@@ -501,3 +403,115 @@ if (window.File && window.FileList && window.FileReader) {
 
 
 });
+
+
+/* 카드 삭제 */
+function deletes(cardNo) {
+	swal({
+		title: "",
+		text:"카드를 삭제하시겠습니까?",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "삭제",
+		cancelButtonText: "취소",
+		closeOnConfirm: false
+	},
+	function(){
+		$.ajax ({
+			url: "delete.do",
+			type: "POST",
+			data: {
+				"cardNo": cardNo
+			},	
+			dataType: "json"
+		}).done(function(result){
+			swal({
+				title: "삭제 완료",
+				text: "카드가 삭제되었습니다.",
+				type: "success"	
+			},
+			function(){
+				window.open('/bit-finalT3/card/list.do','_parent').parent.close();
+			})			
+		});
+	});
+};
+
+
+
+
+function deleteFile(fileNo) {
+	$.ajax({
+		url:"deleteFile.do",
+		data:{fileNo:fileNo},
+		dataType:"json",
+		type:"post"
+	}).done(function () {
+		swal({
+			title: "삭제 완료",
+			text: "파일 삭제가 완료되었습니다.",
+			type: "success"
+		},
+		function(isConfirm) { 
+			if(isConfirm) printFileList(); 
+		});
+	});
+	
+}
+
+function displayFile(index, flag) {
+	
+	$("#igUpload1_spbtncncl").css("display", "block");
+	
+	if ( flag == 0 ) {
+		$("#displayFileItem"+index).css("display", "none");
+	}
+	
+}
+
+
+
+function printFileList() {
+	
+	$.ajax({
+		url:"ajaxDetail.do",
+		data:{cardNo:$("#cardNo").val()},
+		dataType:"json",
+		type:"post"
+	}).done(function (result) {
+		
+		var printHtml= "";
+		$("#igUpload1___fus").html("");
+		
+		for(var i = 0; i < result.fileList.length; i++) {
+			
+			var fileItem = result.fileList[i];
+		
+			printHtml += '<div class="ui-widget-content ui-igupload-progress-container ui-corner-all ui-helper-clearfix">		                                                                                                                                                        ';
+			printHtml += '	<div class="ui-container-button-cancel-class  ui-helper-clearfix" >			                                                                                                                                                                                ';
+			printHtml += '		<button id="igUpload1_'+ i +'__cbtn" title="Cancel" class="ui-button-icon-only ui-button ui-widget ui-state-default ui-corner-all ui-igbutton ui-igupload-cancel-button"                                                                        ';
+			printHtml += '			role="button" aria-disabled="false" onclick="deleteFile('+fileItem.fileNo+')" >                                                                                                                                                ';
+			printHtml += '			<span class="ui-button-icon-primary ui-icon ui-icon-closethick" id="igUpload1_'+ i +'__cbtn_picn"></span>                                                                                                                                   ';
+			printHtml += '			<span class="ui-button-text" id="igUpload1_'+ i +'__cbtn_lbl"></span>                                                                                                                                                                       ';
+			printHtml += '		</button>		                                                                                                                                                                                                                                        ';
+			printHtml += '	</div>		                                                                                                                                                                                                                                                ';
+			printHtml += '                                                                                                                                                                                                                                                               ';
+			printHtml += '	<div class="ui-helper-clearfix">                                                                                                                                                                                                                            ';
+			printHtml += '		<div class="ui-igupload-progressbar-container ui-helper-clearfix" title="'+ fileItem.fileOriName +'">				                                                                                                                                        ';
+			printHtml += '			<span id="igUpload1_'+i+'__icn" class="ui-icon ui-icon-image ui-igupload-progressbar-icon ui-igupload-progressbar-icon-images"></span>				                                                                                    ';
+			printHtml += '			<span class="ui-igupload-progressbar-filename" id="igUpload1_'+ i +'__pbrflnm"><a href="javascript:window.open("${pageContext.request.contextPath}/upload"'+ fileItem.filePath + '"/"'+ fileItem.fileSysName + '")">'+ fileItem.fileOriName + '</a></span>';			
+			printHtml += '			<span class="ui-igupload-progressbar-filesize" id="igUpload1_'+ i +'__pbrflsz"><fmt:formatNumber value="'+ fileItem.fileSize +'" type="number"/>Byte/<fmt:formatNumber value="'+fileItem.fileSize+'" type="number"/>Byte</span>			        ';
+			printHtml += '		</div>                                                                                                                                                                                                                                                  ';
+			printHtml += '	                                                                                                                                                                                                                                                            ';
+			printHtml += '	</div>	                                                                                                                                                                                                                                                    ';
+			printHtml += '</div>                                                                                                                                                                                                                                                         ';
+		
+		}
+		
+		$("#igUpload1___fus").html(printHtml);
+		
+		
+	})                                                                                                                                                                                                                                                                         
+}    
+

@@ -8,6 +8,7 @@
 <head>
 <meta Charset="UTF-8">
 <title>상세 조회</title>
+
 <jsp:include page="/WEB-INF/jsp/decorators/mainHeader.jsp"></jsp:include>
 <script src="${pageContext.request.contextPath}/js/comm/jquery.form.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/card/detail.js"></script>
@@ -16,7 +17,6 @@
 
 <link href="https://cdn-na.infragistics.com/igniteui/2016.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
 <link href="https://cdn-na.infragistics.com/igniteui/2016.2/latest/css/structure/infragistics.css" rel="stylesheet" />
-
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
@@ -62,9 +62,9 @@
 										
 										<div class="ui-widget-content ui-igupload-progress-container ui-corner-all ui-helper-clearfix">		
 											<div class="ui-container-button-cancel-class  ui-helper-clearfix" >			
-												<button id="igUpload1_${status.index}__cbtn" title="Cancel" 
+												<button type="button" id="igUpload1_${status.index}__cbtn" title="Cancel" 
 													class="ui-button-icon-only ui-button ui-widget ui-state-default ui-corner-all ui-igbutton ui-igupload-cancel-button" 
-													role="button" aria-disabled="false" style="display:none;" onclick="deleteFile(${fileItem.fileNo});">
+													role="button" aria-disabled="false" style="display:none" onclick="deleteFile(${fileItem.fileNo});">
 													<span class="ui-button-icon-primary ui-icon ui-icon-closethick" id="igUpload1_${status.index}__cbtn_picn"></span>
 													<span class="ui-button-text" id="igUpload1_${status.index}__cbtn_lbl"></span>
 												</button>		
@@ -149,15 +149,15 @@
 
 
 <script type="text/javascript" language="javascript">
-$(function () {
-    $("#upload").igUpload({
-        mode: "single",
-        autostartupload: true,
-        // to upload a file, you need a server-side handler
-        progressUrl: "IGUploadStatusHandler.ashx",
-        controlId: "serverID"
-    });
-});
+// $(function () {
+//     $("#upload").igUpload({
+//         mode: "single",
+//         autostartupload: true,
+//         // to upload a file, you need a server-side handler
+//         progressUrl: "IGUploadStatusHandler.ashx",
+//         controlId: "serverID"
+//     });
+// });
 </script>
 
 </body>

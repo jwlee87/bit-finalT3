@@ -83,7 +83,7 @@
 //    	alert(editor.getValue())
     	var chNo = $("#chNo:first").val()
     	var oriName = $("#oriName"+chNo).val()
-    	alert(oriName)
+//    	alert(oriName)
     	$.ajax({
     		url : "codeCompile.do",
     		data : {"code": editor.getValue(),
@@ -117,7 +117,7 @@
     	} else {
     		sysName = $("#sysName"+chNo).val()
     	}
-    	alert(sysName)
+//    	alert(sysName)
     	$.ajax({
     		url : '/bit-finalT3/file/saveFile.do',
     		data : {"code": editor.getValue(),
