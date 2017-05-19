@@ -18,12 +18,38 @@
     padding-bottm: 50px;
 }
 
+#sendmessage input{
+	background:#fff;
+	margin:21px 0 0 21px;
+	border:none;
+	padding:0;
+	font-size:14px;
+	font-family:"Open Sans", sans-serif; 
+	font-weight:400px;
+	color:#626263;
+}
+
+#sendmessage button{
+	background:#fff url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/send.png") 0 -41px no-repeat;
+	width:30px;
+	height:30px;
+	position:absolute;
+	right: 15px;
+	top: 23px;
+	border:none;
+	margin-top: -7px;
+}
+#sendmessage button:hover{
+	cursor:pointer;
+	background-position: 0 0 ;
+}
+
 </style>
 <!-- <body> -->
 
 <textarea id="chatMsg" readonly></textarea>
 <div id="sendmessage">
-        	<input type="text" id="sendChatMsg" name="sendCodeMessage"   placeholder="내용을 입력하세요"/>
+        	<input type="text" id="sendChatMsg" name="sendCodeMessage" style="margin-top: 13px; width: 361px;"  placeholder="내용을 입력하세요"/>
             <button id="codeMsgsend"></button>
         </div>
 <!-- </body> -->

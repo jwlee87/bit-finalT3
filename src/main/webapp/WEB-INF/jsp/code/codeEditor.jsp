@@ -15,6 +15,7 @@
     right: 0px;
     background: #fff;
     padding-bottm: 50px;
+    border: 1px solid #848484;
 }
 
 </style>
@@ -36,7 +37,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
         <div id="comSaveBtnDiv">
-        	<div id="comSaveBtnFont">codeEdit</div>
+        	<span id="comSaveBtnFont">codeEditor</span>
 				<img id="compile" src="${pageContext.request.contextPath}/img/editor/play1.png" onmouseover="this.src='${pageContext.request.contextPath}/img/editor/play2.png'" onmouseout="this.src='${pageContext.request.contextPath}/img/editor/play1.png'">
 				<img id="save" src="${pageContext.request.contextPath}/img/editor/save1.png" onmouseover="this.src='${pageContext.request.contextPath}/img/editor/save2.png'" onmouseout="this.src='${pageContext.request.contextPath}/img/editor/save1.png'">
 				
