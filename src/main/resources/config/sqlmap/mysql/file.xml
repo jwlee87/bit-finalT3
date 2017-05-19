@@ -4,6 +4,26 @@
 
 <mapper namespace="kr.co.coily.repository.dao.fileDAO">
 
+	<select id="selectEmptyCard" parameterType="int" resultType="int">
+		select count(0) as cnt
+		  from tb_card
+		 where card_no = #{cardNo}
+	</select>
+
+	<insert id="insertCardEmpty" parameterType="int">
+		insert into tb_card(
+			card_no,
+			card_content,
+			group_header_no,
+		    file_group_no
+		)values(
+			#{cardNo},
+			'',
+			0,
+		    0
+		)
+	</insert>
+
 	<insert id="insertFileItem" parameterType="fileItemVO">
 		<selectKey keyProperty="fileNo" order="AFTER" resultType="int">
 			select last_insert_id()
@@ -61,6 +81,17 @@
 	    <result property="fileRegDate" column="file_reg_date" />
 	    <result property="filePath" column="file_path" />
 	</resultMap>
+	
+	<delete id="deleteFile" parameterType="int">
+		delete from tb_file_item
+		 where file_no = #{fileNo}
+	</delete>
+	
+	<select id="selectFile" parameterType="int" resultType="int">
+		select count(0) as cnt
+		  from tb_file_item
+		 where file_ref_no = #{fileRefNo}
+	</select>
 	
 	<select id="selectFileItem" parameterType="int" resultMap="fileItemMap">
 		select *

@@ -34,10 +34,12 @@
 
 </head>
 <body>
+	
 	<!-- 폼태그를 만들어서 카드가 들어가는 내용을 입력해준다. -->
 	<div class="cDetail">
 		<div class="post">
 		<form id="write" action="#" method="post" enctype="multipart/form-data">
+			<input type="hidden" id="cardNo" name="wCardNo" value="${cardNo}" />
 			<input type="hidden" id="userNo" name="userNo" value="${user.userNo}">
 			<textarea name="cardContent" id="content" cols="80" rows="10" placeholder="내용을 작성하세요"></textarea>
 				<div class="tools">

@@ -8,10 +8,12 @@ $(document).ready(function() {
     if (Modernizr.input.multiple) {
         buttonLabel = "Drag and Drop으로 파일을 끌어오거나 <br> Click으로 파일을 선택해주세요.";
     }
+    
+    
     $("#igUpload1").igUpload({
         mode: 'multiple',
         multipleFiles: true,
-        maxUploadedFiles: 5,
+        maxUploadedFiles: 10,
         maxSimultaneousFilesUploads: 2,
 //        progressUrl: "https://www.igniteui.com/IGUploadStatusHandler.ashx",
         progressUrl: "/bit-finalT3/upload/save.do",
@@ -28,8 +30,10 @@ $(document).ready(function() {
 });
 
 window.onload = function () {
-	$("#igUpload1_spbtncncl").click(alert("ㅠㅠ"));
+	
+	alert("card : " + $("#cardNo").val());
 	$(".ui-igtrialwatermark").remove();
+	$("#igUpload1_ibb_fp").attr("name", "uploadFile");
 }
 
 function showAlert(args) {
@@ -47,8 +51,6 @@ function writeAjax() {
 	}
 	
 	var form = $('#write').serialize();
-	console.dir("폼태그 : " + form);
-//	var formData = new FormData(form);
 		
 	$.ajax({
 		url: "write.do",
@@ -74,6 +76,7 @@ function writeAjax() {
 //}
 
 function sucessAjax(result) {
+	
 	swal({
 		title:"정상적으로 등록되었습니다.",
 		type: "success"

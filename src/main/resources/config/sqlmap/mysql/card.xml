@@ -37,6 +37,7 @@
 		 where c.user_no = u.user_no
 		   and u.user_img_no = ui.user_img_no
 		   and c.group_header_no = #{groupHeaderNo}
+		   and c.file_group_no is null
 	  order by c.card_no desc
 	     limit #{begin}, 11
 	</select>
@@ -67,6 +68,7 @@
 		  and c.user_no = u.user_no
 		  and u.user_img_no = ui.user_img_no
 		  and c.group_header_no = #{groupHeaderNo}
+		  and c.file_group_no is null
 	 order by c.card_no desc
 		limit 0 , 12
 			]]>
@@ -85,45 +87,67 @@
 		   and card_no= #{cardNo}
 	</select>
 	
+	<resultMap type="FileItemVO" id="fileItemMap">
+	    <result property="fileNo" column="file_no" />
+	    <result property="fileRefNo" column="file_ref_no" />
+	    <result property="fileType" column="file_type" />
+	    <result property="fileOriName" column="file_ori_name" />
+	    <result property="fileSysName" column="file_sys_name" />
+	    <result property="fileExt" column="file_ext" />
+	    <result property="fileSize" column="file_size" />
+	    <result property="fileRegDate" column="file_reg_date" />
+	    <result property="filePath" column="file_path" />
+	</resultMap>
 	
-<!-- ============================================================================== -->
-
-
+	<select id="selectFileItem" parameterType="int" resultMap="fileItemMap">
+		select *
+		  from tb_file_item
+		 where file_ref_no = #{cardNo}
+	</select>
+	
+	<delete id="deleteFileItem" parameterType="int">
+		delete from tb_file_item
+		where file_no = #{fileNo}
+	</delete>
+	
+	
 <!-- 			카드 등록 			-->
 <!-- ============================================================================== -->	
-	<insert id="insertCard" parameterType="kr.co.coily.repository.vo.CardVO">
+	<select id="selectCardNo" resultType="int">
+		select max(card_no) + 1 as cardNo
+		  from tb_card
+		 order by card_reg_date desc 
+	</select>
 	
-<!-- 		쿼리 등록			 -->
+	<update id="updateInitCard" parameterType="cardVO">
+		update tb_card
+		   set user_no = #{userNo}
+		     , card_content = #{cardContent}
+		     , group_header_no = #{groupHeaderNo}
+		     , file_group_no = null
+		 where card_no = #{cardNo}
+	</update>
+
+	<insert id="insertCard" parameterType="kr.co.coily.repository.vo.CardVO">
 		insert into tb_card(
+			card_no,
 			user_no,
 			card_content,
 			group_header_no
-		   )values(
+		)values(
+		    #{cardNo},
 			#{userNo},
 			#{cardContent},
 			#{groupHeaderNo}
-			)
+		)
 			
-		<selectKey keyProperty="cardNo" order="AFTER" resultType="int">
-			select last_insert_id()
-		</selectKey>
+<!-- 		<selectKey keyProperty="cardNo" order="AFTER" resultType="int"> -->
+<!-- 			select last_insert_id() -->
+<!-- 		</selectKey> -->
 	</insert>
-	
-<!-- 	<insert id="insertFile" parameterType="kr.co.coily.repository.vo.CardVO">
-				
-		
-		<selectKey keyProperty="cardNo" order="AFTER" resultType="int">
-			select last_insert_id()
-		</selectKey>
-	</insert> -->
-	
-<!-- 			카드 등록 			-->
-<!-- ============================================================================== -->
-	
 	
 <!-- 			카드 수정 			-->
 <!-- ============================================================================== -->
-	
 	<update id="updateCard" parameterType="cardVO">
     	 update tb_card
     	   set card_content = #{cardContent}
@@ -131,14 +155,6 @@
     	   and user_no = #{userNo}
     </update>
 	
-	
-	
-<!-- 			카드 수정 			-->
-<!-- ============================================================================== -->
-
-
-
-
 <!-- 			카드 삭제 			-->
 <!-- ============================================================================== -->
 	<delete id="deleteCard">
@@ -146,14 +162,8 @@
 		  from tb_card
 		 where card_no = #{no}
 	</delete>
-
-<!-- 			카드 삭제 			-->
-<!-- ============================================================================== -->
-
-
-
-
-
+	
+	
 	<resultMap id="cardCommentMap" type="commentVO" >
 		<result property="cardCommentNo" column="card_comment_no" />
 		<result property="cardNo" column="card_no" />
@@ -165,6 +175,7 @@
 		<result property="groupHeaderNo" column="group_header_no"/>
 		<result property="userImgPath" column="user_img_path"/>
 	</resultMap>
+
 <!-- 			댓글 조회 			-->
 <!-- ============================================================================== -->
 	
@@ -208,12 +219,6 @@
 		)
 	</insert>
 
-	
-
-
-<!-- 			댓글 조회 			-->
-<!-- ============================================================================== -->
-
 
 <!-- 			댓글 수정 			-->
 <!-- ============================================================================== -->
@@ -225,11 +230,6 @@
 	</update>
 	
 
-
-<!-- 			댓글 수정 			-->
-<!-- ============================================================================== -->
-
-
 <!-- 			댓글 삭제 			-->
 <!-- ============================================================================== -->
    	<delete id="deleteCardComment" parameterType="int">
@@ -237,13 +237,5 @@
 	      from tb_card_comment
 	     where card_comment_no = #{cardCommentNo}
 	</delete>
-
-
-<!-- 			댓글 삭제 			-->
-<!-- ============================================================================== -->
-
-
-
-
 
 </mapper>
