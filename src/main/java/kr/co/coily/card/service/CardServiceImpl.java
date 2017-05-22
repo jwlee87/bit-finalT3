@@ -44,6 +44,10 @@ public class CardServiceImpl implements CardService{
 		dao.insertCard(cardVO);
 	}
 
+	public int isRegCard(int cardNo) throws Exception {
+		return dao.isRegCard(cardNo);
+	}
+	
 	public void updateInitCard(CardVO cardVO) throws Exception {
 		dao.updateInitCard(cardVO);
 	}

@@ -83,8 +83,11 @@ public class CardContorller {
 		cardVO.setUserNo(Integer.parseInt(request.getParameter("userNo")));
 		cardVO.setGroupHeaderNo(group.getGroupHeaderNo());
 		
-		Service.updateInitCard(cardVO);
-//		Service.write(cardVO);
+		int cnt = Service.isRegCard(Integer.parseInt(request.getParameter("wCardNo")));
+		
+		if(cnt == 0) Service.detail(cardVO);
+		else Service.updateInitCard(cardVO);
+		
 		return "";
 		
 	}

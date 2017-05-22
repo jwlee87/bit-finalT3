@@ -21,6 +21,7 @@ public interface CardDAO {
 	
 	/* 카드 등록	*/
 	public int selectCardNo() throws Exception;
+	public int isRegCard(int cardNo) throws Exception;	
 	public void updateInitCard(CardVO cardVO) throws Exception;	
 	public void insertCard(CardVO cardVO) throws Exception;
 	

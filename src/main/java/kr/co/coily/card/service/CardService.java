@@ -18,6 +18,7 @@ public interface CardService {
 
 	/* 카드 등록	*/
 	public void write(CardVO cardVO) throws Exception;
+	public int isRegCard(int cardNo) throws Exception;
 	public void updateInitCard(CardVO cardVO) throws Exception;
 	public int selectCardNo() throws Exception;
 

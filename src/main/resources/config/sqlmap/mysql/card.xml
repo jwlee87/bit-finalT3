@@ -124,6 +124,12 @@
 		 order by card_reg_date desc 
 	</select>
 	
+	<select id="isRegCard" resultType="int"  parameterType="cardVO">
+		select count(0) as cnt
+		  from tb_card
+		 where card_no = #{cardNo}
+	</select>
+	
 	<update id="updateInitCard" parameterType="cardVO">
 		update tb_card
 		   set user_no = #{userNo}
