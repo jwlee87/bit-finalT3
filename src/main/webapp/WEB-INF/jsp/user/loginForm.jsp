@@ -47,7 +47,7 @@ input::-webkit-input-placeholder {
 					<input type="text" class="input" id="userEmail" name="userEmail" placeholder="이메일을 입력하세요">
 					<input type="password" class="input" id="userPsw" name="userPsw" placeholder="비밀번호를 입력하세요">
 					<input type="checkbox" class="checkbox" id="remember_me" name="remember_me" onclick="confirmSave(this)">
-					<label for="remember_me">로그인 상태 유지</label>
+					<label for="remember_me">사용자 정보 기억</label>
 					<input style="text-align: center;" type="button" class="btn  btn-lg mybutton_cyano wow fadeIn" data-wow-delay="0.8s" id="loginBtn" value="로그인">
 				</form>
 				<div class="help-text">
