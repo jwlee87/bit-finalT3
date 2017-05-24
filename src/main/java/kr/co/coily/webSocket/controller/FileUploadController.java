@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -64,9 +65,10 @@ public class FileUploadController {
 		
 		
 		List<MultipartFile> lRequest = mRequest.getFiles("fileselect[]");
+		
 //		System.out.println("gogogogogogo : " + lRequest);
 		for(MultipartFile file: lRequest) {
-		
+			
 			String oriName = file.getOriginalFilename();
 //			System.out.println("오리지널네임" + oriName);
 	
@@ -162,15 +164,18 @@ public class FileUploadController {
 
 	            // Input 스트림 객체를 이용하여 버퍼를 생성
 	            br = new BufferedReader(isr);
-
+	            
+	            
+	
 	            // 버퍼를 한줄한줄 읽어들여 내용 추출
 	            while( (temp = br.readLine()) != null) {
-	                content += temp + "\n";
+	                System.out.println("temp.................................. : " + temp);
+	            	content += temp + "\n";
 	            }
 //	            content += "\n //coily공유파일";
-
-//	            System.out.println("================== 파일 내용 출력 ==================");
-//	            System.out.println(content);
+	            
+	            System.out.println("================== 파일 내용 출력 ==================");
+	            System.out.println(content);
 
 	        } catch (FileNotFoundException e) {
 	            e.printStackTrace();

@@ -325,9 +325,13 @@ $(function(){
 			type:'post'
 		}).done(function(result) {
 			var arr = result.split(":")
-// 			var reCode = arr[1].substr(1, arr[1].length)
+			var codeContent = "";
+			//var reCode = arr[1].substr(1, arr[1].length)
 // 			editor.setValue(reCode)
-			editor.setValue(arr[3].trim())
+			for(var i = 3; i < arr.length; i++) {
+				codeContent += arr[i].trim()
+			}
+			editor.setValue(codeContent)
 			var html="";
     		html += '<input type="hidden" id="chNo" value="' + fileNo + '">';
 			html += '<input type="hidden" id="oriName' + arr[0] +'" value="'+ arr[1] + '">';
