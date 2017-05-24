@@ -32,6 +32,10 @@
 <title>회원가입</title>
 </head>
 <body>
+	<!-- 	Preloader -->
+	<div id="preloader" style="display:none;">
+		<div id="status2" style="display:none;"></div>
+	</div>
 	<div class="form-wrap">
 		<div class="tabs">
 			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">회원가입</a></h3>

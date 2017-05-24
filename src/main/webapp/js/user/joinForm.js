@@ -180,34 +180,36 @@ $("#btn").on("click", function () {
 	var user = $("#joinForm").serialize();
 //	 if(doubleSubmitCheck()) return;
 	
-	swal({
-		title: "",
-		text: "메일로 전송하시겠습니까?",
-		showCancelButton: true,
-		cancelButtonText: "취소",
-		type: "info",
-		confirmButtonText: "전송",
-		closeOnConfirm: false,
-		showLoaderOnConfirm: true
-	},function () {
-		$.ajax({
-			url : "/bit-finalT3/user/join.do",
-			type : "POST",
-			data : user,
-			dataType : "json"
-		}).done(function(result) {
+	$.ajaxSetup({
+		beforeSend:function () {
+			$('#status2').delay(300).show(); 
+	    	$('#preloader').delay(300).show('slow');
+		},
+		complete:function () {
+			$('#status2').delay(300).fadeOut(); 
+	    	$('#preloader').delay(300).fadeOut('slow');
+		}
+	})
+	
+	$.ajax({
+		url : "/bit-finalT3/user/join.do",
+		type : "POST",
+		data : user,
+		dataType : "json",
+		success:function(result) {
 			if (result != null) {
-	//			$("#btn").attr("disabled", true).text("로딩중...");
+//				$("#btn").attr("disabled", true).text("로딩중...");
 				console.log("dddd" + result);
 				goConfForm(result);
 			} else {
 				swal("입력정보를 확인해주세요");
 			}
-		})
-		.fail(function (jqXHR, textStatus, errorThrown) {
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
 			swal("에러 발생 \n" + textStatus + " : " + errorThrown);
-		})
+		}
 	})
+	
 })	
 	
 	
