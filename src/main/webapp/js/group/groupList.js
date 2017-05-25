@@ -1,7 +1,7 @@
 
 /** 팝업 **/
 $(document).ready(function(){
-	$(".iframe").colorbox({iframe:true, width:"580px", height:"340px"});
+	$(".iframe").colorbox({iframe:true, width:"630px", height:"380px"});
 	
 	
 	/** 새로운 그룹 등록 **/
