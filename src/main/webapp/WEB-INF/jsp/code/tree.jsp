@@ -329,6 +329,10 @@ $(function(){
 			//var reCode = arr[1].substr(1, arr[1].length)
 // 			editor.setValue(reCode)
 			for(var i = 3; i < arr.length; i++) {
+				if(i == arr.length-1) {
+					codeContent += arr[i].trim()
+					break;
+				}
 				codeContent += arr[i].trim() + ":"
 			}
 			editor.setValue(codeContent)

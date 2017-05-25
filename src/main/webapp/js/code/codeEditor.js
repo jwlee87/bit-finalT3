@@ -25,8 +25,7 @@
 
     function onMessage(event) {
     	if(event.data.startsWith("c")) {
-    		var cArr = event.data.split(":")
-    		$("#result").val(cArr[1])
+    		$("#result").val(event.data.substring(2, event.data.length))
     	} else if(event.data.startsWith("t")) {
     		var tArr = event.data.split(":")
     		$(".indent").append(tArr[1])
@@ -37,6 +36,10 @@
     		var ediArr = event.data.split(":")
     		var content = "";
     		for(var i = 4; i < ediArr.length; i++) {
+    			if(i == ediArr.length-1) {
+    				content += ediArr[i].trim()
+    				break;
+    			}
     			content += ediArr[i].trim() + ":"
     		}
     		editor.setValue(content)
@@ -106,6 +109,7 @@
 				return false;
 			}
     		$("#result").val(result)
+//    		alert("c"+result)
     		webSocket.send("c:" + result)
 		})
     })
