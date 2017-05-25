@@ -354,7 +354,9 @@ $(document).ready(function(){
 		console.log("로그인직후 이메일 : " + result.user.userEmail);
 //		userImgPath = result.user.userImgPath;
 //		userEmail = result.user.userEmail;
-		webSocket.send(result.user.userNickName);
+		setTimeout(function () {
+			webSocket.send(result.user.userNickName);
+		}, 100);
 //		webSocket.send(result.user.userImgPath);
 //		onMessage(event, result);
 //		userListImg(result);
