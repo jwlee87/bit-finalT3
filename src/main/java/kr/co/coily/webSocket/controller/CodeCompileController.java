@@ -22,7 +22,7 @@ public class CodeCompileController {
 	@ResponseBody
 	public String codeCompile(HttpServletRequest request, String code, String oriName) throws Exception {
 //		System.out.println("컴파일러 컨트롤러");
-		System.out.println("오리네임 : " + oriName);
+//		System.out.println("오리네임 : " + oriName);
 		String result="";
 		ServletContext context = request.getServletContext();
 		
@@ -46,7 +46,7 @@ public class CodeCompileController {
 //		if(classFile.exists()) classFile.delete();
 
 		try (FileWriter fw = new FileWriter(dest);) {
-//			System.out.println("code: " + code);
+//			System.out.println("code..........................: " + code);
 			fw.write(code.toString());
 		} catch (Exception e) {
 			e.printStackTrace();

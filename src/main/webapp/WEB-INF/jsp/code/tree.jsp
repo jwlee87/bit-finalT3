@@ -341,6 +341,7 @@ $(function(){
 			html += '<input type="hidden" id="oriName' + arr[0] +'" value="'+ arr[1] + '">';
     		html += '<input type="hidden" id="sysName' + arr[0] +'" value="'+ arr[2] + '">';
     		$("#save").after(html);
+//     		alert("f:" + result)
 			webSocket.send("f:" + result);
 		})
 	}

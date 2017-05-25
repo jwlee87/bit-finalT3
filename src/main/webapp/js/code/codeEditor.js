@@ -31,7 +31,15 @@
     		$(".indent").append(tArr[1])
     	} else if(event.data.startsWith("e")){
     		var eArr = event.data.split(":")
-    		editor.setValue(eArr[1])
+    		var eContent = "";
+		   for(var i = 1; i < eArr.length; i++) {
+				if(i == eArr.length-1) {
+					eContent += eArr[i].trim()
+					break;
+				}
+				eContent += eArr[i].trim() + ":"
+    		}
+    		editor.setValue(eContent)
     	} else if(event.data.startsWith("f")){
     		var ediArr = event.data.split(":")
     		var content = "";
@@ -42,6 +50,11 @@
     			}
     			content += ediArr[i].trim() + ":"
     		}
+			var html="";
+    		html += '<input type="hidden" id="chNo" value="' + ediArr[1] + '">';
+			html += '<input type="hidden" id="oriName' + ediArr[1] +'" value="'+ ediArr[2] + '">';
+    		html += '<input type="hidden" id="sysName' + ediArr[1] +'" value="'+ ediArr[3] + '">';
+    		$("#save").after(html);
     		editor.setValue(content)
 //    		var html="";
 //    		html += '<input type="hidden" id="chNo" value="'+ ediArr[1] + '">';
