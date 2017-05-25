@@ -35,7 +35,11 @@
     		editor.setValue(eArr[1])
     	} else if(event.data.startsWith("f")){
     		var ediArr = event.data.split(":")
-    		editor.setValue(ediArr[4])
+    		var content = "";
+    		for(var i = 4; i < ediArr.length; i++) {
+    			content += ediArr[i].trim() + ":"
+    		}
+    		editor.setValue(content)
 //    		var html="";
 //    		html += '<input type="hidden" id="chNo" value="'+ ediArr[1] + '">';
 //    		html += '<input type="hidden" id="oriName' + ediArr[1] +'" value="'+ ediArr[2] + '">';

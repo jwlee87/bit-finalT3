@@ -5,14 +5,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.UUID;
 
@@ -49,7 +51,7 @@ public class FileUploadController {
 		File f = new File(savePath);
 		if (!f.exists()) f.mkdirs();
 		
-	
+		
 //		Enumeration<String> fileNames = mRequest.getFileNames();
 //		while (fileNames.hasMoreElements()) {
 //			System.out.println("=============================");
@@ -63,7 +65,7 @@ public class FileUploadController {
 		
 		List<FileItemVO> lFile = new ArrayList<>();
 		
-		
+		mRequest.setCharacterEncoding("utf-8");
 		List<MultipartFile> lRequest = mRequest.getFiles("fileselect[]");
 		
 //		System.out.println("gogogogogogo : " + lRequest);
@@ -92,7 +94,19 @@ public class FileUploadController {
 			
 				// 임시저장된 파일을 원하는 경로에 저장
 				file.transferTo(new File(savePath + "/" + systemName));
-							
+				
+//				//파일내용 입출력
+//				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(savePath + "/" + systemName),"UTF8"));
+//		        String result = "";
+//		        String content = "";
+//				while((result = reader.readLine()) != null) {
+//					content += result + "\n";
+//				}
+//				System.out.println("content..................." + content);
+//				FileWriter fw = new FileWriter(savePath + "/" + systemName);
+//				fw.write(content);
+//				
+				
 				FileItemVO fileItem = new FileItemVO();
 				fileItem.setFileType("code");
 				fileItem.setFileRefNo(1);

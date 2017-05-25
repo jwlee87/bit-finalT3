@@ -329,7 +329,7 @@ $(function(){
 			//var reCode = arr[1].substr(1, arr[1].length)
 // 			editor.setValue(reCode)
 			for(var i = 3; i < arr.length; i++) {
-				codeContent += arr[i].trim()
+				codeContent += arr[i].trim() + ":"
 			}
 			editor.setValue(codeContent)
 			var html="";
