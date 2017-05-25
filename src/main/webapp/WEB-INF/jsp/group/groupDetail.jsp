@@ -35,24 +35,24 @@
 <div class="ly_box">
 
 	<p id="title1" style="display: block;">스터디 그룹 정보</p>
-	<form class="form-horizontal">
-		<div class="form-group">
+	<form class="form-horizontal" style="margin-left: 0px;margin-right: 0px;">
+		<div class="form-group" style="margin-left: 0px;margin-right: 0px;">
 			<div id="nlabel" style="width:25%; float: left;">그룹 이름</div>
 				<div id="nContent">
 				</div>
 <!-- 			<input type="text" style="width:70%" id="groupname" name="groupname" /> -->
 		</div>
-		<div class="form-group">
+		<div class="form-group" style="margin-left: 0px;margin-right: 0px;">
 			<div id="mlabel" style="float:left;width:25%;">그룹 구성원</div>
 				<div class="control-group" style="width:50%;float:left;text-align:left;">
 					<input type="text" id="input-tags" class="input-tags demo-default">
 				</div>
 		</div>
-		<div id="y" style="display: none;">
+		<div id="y" style="display: none;margin-top: 5%;">
 			<button type="button" id="dButton" class="btn-update btn-sm" onclick="deleteGrp(${param.groupHeaderNo})" >삭제</button>
 			<button type="button" name="uButton" class="btn-update btn-sm" >수정</button>
 		</div>
-		<div id="n" style="display: none;">
+		<div id="n" style="display: none;margin-top: 5%;">
 			<button type="button" name="uButton" class="btn-update btn-sm" >수정</button>
 		</div>
 	</form>

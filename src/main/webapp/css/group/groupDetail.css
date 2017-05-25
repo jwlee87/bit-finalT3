@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+	.form-group {
+		width: 580px;
+	}
 	.ly_wrap {
 		z-index: 50;
 		position: fixed;	
@@ -16,7 +19,6 @@
 		width: 580px;
 		position: absolute;	
 		padding-top: 3%;
-    	padding-right: 3%;
 		background-color: #fff;	
 		text-align: center;	
 	}
