@@ -38,12 +38,13 @@ public class CodeCompileController {
 		File dest = new File(f, oriName);
 		
 		String name = oriName.substring(0, oriName.length()-5);
+		
 //		System.out.println("이게 진짜 이름이다........................" + name);
 		
 //		String name = oriName.split(".")[0];
 //		
-//		File classFile = new File(f, name + ".class");
-//		if(classFile.exists()) classFile.delete();
+		File classFile = new File(f, name + ".class");
+		if(classFile.exists()) classFile.delete();
 
 		try (FileWriter fw = new FileWriter(dest);) {
 //			System.out.println("code..........................: " + code);
